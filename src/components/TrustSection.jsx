@@ -1,35 +1,35 @@
 import React from 'react';
-import { ShieldCheck, Sparkles, Coins, Award, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Sparkles, Gift, Award, CheckCircle2 } from 'lucide-react';
 
 export default function TrustSection() {
   const trustFeatures = [
     {
       id: 1,
       title: '100% Pure Vegetarian',
-      desc: 'Certified Green Dot recipes. Crafted exclusively with dairy solids, vegetable butter, cocoa extracts, and zero animal gelatins.',
+      desc: 'Certified Green Dot treats. Crafted exclusively with rich cocoa, milk solids, and zero animal gelatin across all our jellies and wafers.',
       icon: ShieldCheck,
       badge: 'Green Dot Certified'
     },
     {
       id: 2,
-      title: 'Fresh Crunch Tech',
-      desc: 'Multi-barrier sealed foil wraps and airtight snap-lid tubs keep wafer cones delightfully crispy in every weather.',
+      title: 'Signature Wafer & Crunch',
+      desc: 'Multi-barrier foil wraps and airtight snap-lid tubs keep our Dairy Cones, Brawo Bars, and Swiss Rolls irresistibly crisp in every weather.',
       icon: Sparkles,
-      badge: 'Airtight Sealed'
+      badge: 'Airtight Fresh Sealed'
     },
     {
       id: 3,
-      title: 'Pocket-Money Delight',
-      desc: 'Accessible indulgence starting from ₹5 / $1, enabling students and families to share joyful smiles every day.',
-      icon: Coins,
-      badge: 'From ₹5 / $1'
+      title: 'Surprise Toys & Joy',
+      desc: 'Exciting novelty collections like Krispy Toy Box, Super Heroes, and Mr. Joe combine delicious choco treats with fun collectible toys.',
+      icon: Gift,
+      badge: 'Interactive Fun Inside'
     },
     {
       id: 4,
-      title: 'ISO & Export Grade',
-      desc: 'FSSAI approved, ISO 22000 certified manufacturing facility equipped with computerized continuous conching and packaging.',
+      title: 'ISO & FSSAI Grade',
+      desc: 'FSSAI approved, ISO 22000 certified manufacturing facility equipped with computerized continuous conching, molding, and packaging.',
       icon: Award,
-      badge: 'ISO 22000 Certified'
+      badge: 'ISO 22000 & FSSAI'
     }
   ];
 

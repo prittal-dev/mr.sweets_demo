@@ -62,6 +62,7 @@ export default function App() {
         {/* Iconic Confectionery Catalog (AUTHENTIC PACKAGED RANGE) */}
         <IconicCatalog
           onEnquire={(product) => openLeadModal('product', product)}
+          onQuickView={(product) => setQuickViewProduct(product)}
         />
 
         {/* Why Confectionery Lovers Trust Mr. Sweet */}

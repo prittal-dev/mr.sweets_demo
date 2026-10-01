@@ -1,117 +1,20 @@
 import React, { useState } from 'react';
-import { Star, Sparkles, Mail, Check, Gift, ArrowRight } from 'lucide-react';
+import { Star, Sparkles, Mail, Check, Gift, ArrowRight, Eye } from 'lucide-react';
+import { iconicProducts } from '../data/products';
 
-export default function IconicCatalog({ onEnquire, onAddToCart }) {
+export default function IconicCatalog({ onEnquire, onAddToCart, onQuickView }) {
   const [activeTab, setActiveTab] = useState('all');
   const [addedId, setAddedId] = useState(null);
 
   const categories = [
-    { id: 'all', label: 'All Creations (7)' },
+    { id: 'all', label: 'All Creations' },
     { id: 'wafers', label: 'Wafer Cones & Bars' },
-    { id: 'candies', label: 'Candies & Jellies' },
-    { id: 'tins', label: 'Celebration Tins' },
+    { id: 'toys', label: 'Surprise Toys & Novelties' },
+    { id: 'gummies', label: 'Fruit Jellies & Gummies' },
+    { id: 'tins', label: 'Snack & Festive Tubs' },
   ];
 
-  const products = [
-    {
-      id: 'iconic-1',
-      category: 'wafers',
-      name: 'Romeo Choco Cone (30 Cones Pack)',
-      badge: 'BESTSELLER',
-      rating: 4.9,
-      orders: '1,420 orders',
-      priceUSD: '14.99',
-      priceINR: '150',
-      moq: '5 cartons',
-      tag: '100% Veg',
-      image: '/romeo_choco_cone.jpg',
-      description: 'Crispy wafer mini cones filled with Swiss cocoa hazelnut cream & roasted nuts.'
-    },
-    {
-      id: 'iconic-2',
-      category: 'tins',
-      name: 'Gold Coin 999.9 Chocolate Jar',
-      badge: 'FESTIVE JAR',
-      rating: 5.0,
-      orders: '2,180 orders',
-      priceUSD: '12.50',
-      priceINR: '199',
-      moq: '10 tubs',
-      tag: '100% Veg',
-      image: '/gold_coin_jar.jpg',
-      description: 'Embossed 999.9 milk chocolate gold coins in airtight keepsake festive tub.'
-    },
-    {
-      id: 'iconic-3',
-      category: 'candies',
-      name: 'Fun Pops Assorted Jelly Pops (Bears)',
-      badge: 'NEW FLAVOUR',
-      rating: 4.8,
-      orders: '950 orders',
-      priceUSD: '9.99',
-      priceINR: '120',
-      moq: '12 packs',
-      tag: 'Bears Set',
-      image: '/jelly_pops_bears.jpg',
-      description: 'Chewy fruit jelly pops shaped like bears, infused with real mango & strawberry juice.'
-    },
-    {
-      id: 'iconic-4',
-      category: 'wafers',
-      name: 'Swiss Strawberry Cream Filled Wafers',
-      badge: 'CRISPY STICK',
-      rating: 4.9,
-      orders: '1,840 orders',
-      priceUSD: '13.99',
-      priceINR: '160',
-      moq: '8 tubs',
-      tag: '₹5 / Stick',
-      image: '/swiss_strawberry_wafer.jpg',
-      description: 'Slow-baked multi-layer crisp wafers filled with real strawberry Swiss cream.'
-    },
-    {
-      id: 'iconic-5',
-      category: 'wafers',
-      name: 'NutyMax Chocolaty Wafer (Caramel & Nuts)',
-      badge: 'CARAMEL & NUTS',
-      rating: 5.0,
-      orders: '3,410 orders',
-      priceUSD: '11.99',
-      priceINR: '120',
-      moq: '10 cartons',
-      tag: '₹10 Pack',
-      image: '/nutymax_wafer_bar.jpg',
-      description: 'Layered chocolate wafer bar loaded with chewy butter caramel and crunchy peanuts.'
-    },
-    {
-      id: 'iconic-6',
-      category: 'candies',
-      name: 'New Crazy Lips Strawberry Candy Box',
-      badge: 'NOVELTY',
-      rating: 4.7,
-      orders: '820 orders',
-      priceUSD: '8.99',
-      priceINR: '99',
-      moq: '15 trays',
-      tag: 'Strawberry',
-      image: '/crazy_lips_candy.jpg',
-      description: 'Fun lip-shaped strawberry hard candies, popular for birthday favors & kids retail.'
-    },
-    {
-      id: 'iconic-7',
-      category: 'candies',
-      name: 'New Light Lipstick Candy Tubes',
-      badge: 'FAVORS',
-      rating: 4.9,
-      orders: '1,120 orders',
-      priceUSD: '10.50',
-      priceINR: '110',
-      moq: '10 boxes',
-      tag: '18-Pack',
-      image: '/crazy_lips_candy.jpg',
-      description: 'Interactive push-up lipstick fruit candies with LED light-up cap, 18 tubes per box.'
-    }
-  ];
+  const products = iconicProducts;
 
   const filteredProducts = activeTab === 'all'
     ? products
@@ -177,12 +80,27 @@ export default function IconicCatalog({ onEnquire, onAddToCart }) {
             >
               <div>
                 {/* Image Box */}
-                <div className="relative aspect-square rounded-2xl overflow-hidden bg-cream-50 mb-4 border border-cream-200">
+                <div
+                  onClick={() => onQuickView && onQuickView(product)}
+                  className="relative aspect-square rounded-2xl overflow-hidden bg-[#F7F5F0] mb-4 border border-cream-200 flex items-center justify-center p-1.5 cursor-pointer group/img"
+                >
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    className="w-full h-full object-contain group-hover/img:scale-105 transition-transform duration-500"
                   />
+                  
+                  {/* Quick View Hover Button */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onQuickView && onQuickView(product);
+                    }}
+                    className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md text-[#231815] p-2.5 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#C8102E] hover:text-white hover:scale-110"
+                    aria-label="Quick View Image"
+                  >
+                    <Eye className="w-4 h-4" />
+                  </button>
                   
                   {/* Left Badge */}
                   <div className="absolute top-3 left-3">
@@ -199,18 +117,19 @@ export default function IconicCatalog({ onEnquire, onAddToCart }) {
                   </div>
                 </div>
 
-                {/* Rating & Orders */}
+                {/* Rating */}
                 <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-2">
                   <div className="flex items-center text-amber-500 font-bold">
                     <Star className="w-3.5 h-3.5 fill-amber-400 mr-1" />
                     <span>{product.rating}</span>
                   </div>
-                  <span className="text-gray-300">•</span>
-                  <span className="text-[11px] text-gray-500 font-medium">{product.orders}</span>
                 </div>
 
                 {/* Product Name */}
-                <h3 className="text-base font-bold text-[#231815] group-hover:text-[#C8102E] transition-colors leading-snug mb-2">
+                <h3
+                  onClick={() => onQuickView && onQuickView(product)}
+                  className="text-base font-bold text-[#231815] group-hover:text-[#C8102E] transition-colors leading-snug mb-2 cursor-pointer"
+                >
                   {product.name}
                 </h3>
 
@@ -226,17 +145,9 @@ export default function IconicCatalog({ onEnquire, onAddToCart }) {
 
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span className="text-[11px] font-bold text-[#8B7355] uppercase tracking-wider">
-                      MOQ: {product.moq}
+                    <span className="text-xs font-extrabold text-[#C8102E] uppercase tracking-wider">
+                      Wholesale B2B
                     </span>
-                    <div className="flex items-baseline gap-1 mt-0.5">
-                      <span className="text-base font-extrabold text-[#231815]">
-                        ${product.priceUSD}
-                      </span>
-                      <span className="text-xs font-semibold text-gray-500">
-                        / ₹{product.priceINR}
-                      </span>
-                    </div>
                   </div>
 
                   <button

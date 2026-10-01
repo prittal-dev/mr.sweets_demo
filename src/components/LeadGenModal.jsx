@@ -48,7 +48,13 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
   useEffect(() => {
     if (initialTab) setActiveTab(initialTab);
     if (prefilledProduct) {
-      setProductForm(prev => ({ ...prev, product: prefilledProduct.name }));
+      const prodName = typeof prefilledProduct === 'object' ? prefilledProduct.name : prefilledProduct;
+      const qtyStr = typeof prefilledProduct === 'object' && prefilledProduct.quantity ? `${prefilledProduct.quantity} Cartons` : '5 Cartons';
+      setProductForm(prev => ({
+        ...prev,
+        product: prodName || prev.product,
+        quantity: qtyStr
+      }));
     }
   }, [initialTab, prefilledProduct]);
 

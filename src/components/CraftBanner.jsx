@@ -1,32 +1,42 @@
 import React from 'react';
-import { Flame, Sparkles, Sun, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export default function CraftBanner() {
   const ingredients = [
     {
-      icon: '🧈',
-      title: 'A2 Organic Desi Ghee',
-      desc: 'Slow-clarified from Gir cows for rich aroma and digestive warmth.'
-    },
-    {
-      icon: '🌸',
-      title: 'Kashmiri Mogra Saffron',
-      desc: 'Grade-A hand-picked threads from Pampore valleys.'
-    },
-    {
-      icon: '🌰',
-      title: 'Mamra & Marcona Nuts',
-      desc: 'Hand-selected Iranian pistachios and Kashmiri almonds.'
-    },
-    {
-      icon: '✨',
-      title: '24K Edible Gold & Silver',
-      desc: 'Certified pure food-grade precious metal vark leafing.'
-    },
-    {
       icon: '🍫',
-      title: 'Valrhona Cocoa Butter',
-      desc: 'Single-origin conched chocolate for ultra-silky fusion pedas.'
+      title: 'Rich Dutch Cocoa',
+      desc: 'Velvety cocoa solids blended for smooth Dairy Cones, Brawo rice bars, and gold coins.',
+      badge1: '100% Vegetarian',
+      badge2: 'Pure Cocoa'
+    },
+    {
+      icon: '🍦',
+      title: 'Crispy Wafer Cones',
+      desc: 'Golden-baked multi-layer wafers foil-wrapped to preserve signature crunch in every weather.',
+      badge1: 'Airtight Sealed',
+      badge2: 'Fresh Baked'
+    },
+    {
+      icon: '🍓',
+      title: 'Real Fruit Flavors',
+      desc: 'Authentic fruit pectin formulations power Hunny Bunny Pops, Sundae Jellies & Aam Papad.',
+      badge1: 'Natural Taste',
+      badge2: 'Gelatin-Free'
+    },
+    {
+      icon: '🎁',
+      title: 'Safe Surprise Toys',
+      desc: 'Non-toxic, child-safe collectible toys packaged inside Krispy Toy & Mr. Joe boxes.',
+      badge1: 'Child Safe',
+      badge2: 'BIS Certified'
+    },
+    {
+      icon: '🪙',
+      title: 'Hygiene Sealed Tubs',
+      desc: 'Airtight food-grade containers protect 999.9 Gold Coins & Morning Jelly Tubs in storage.',
+      badge1: 'Food Grade',
+      badge2: 'ISO 22000'
     }
   ];
 
@@ -40,16 +50,16 @@ export default function CraftBanner() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 text-[#D4AF37] text-xs font-extrabold uppercase tracking-[0.25em] mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>UNCOMPROMISING PURITY & CRAFT</span>
+            <span>SIGNATURE QUALITY & INGREDIENT MASTERY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            Single-Origin Ingredients.{' '}
+            Real Cocoa. Crispy Wafers.{' '}
             <span className="font-serif-italic text-[#D4AF37] font-normal">
-              Pure Traditional Alchemy.
+              Made with Pure Joy.
             </span>
           </h2>
           <p className="text-gray-400 text-sm sm:text-base mt-4 font-normal leading-relaxed">
-            Every Mr. Sweet creation is slow-churned without artificial preservatives, high-fructose syrups, or synthetic dyes. Made fresh daily in our ISO-certified confectionery atelier.
+            Every Mr. Sweet delight is crafted using premium cocoa extracts, multi-layer crispy wafer cones, real fruit jellies, and zero animal gelatin in our ISO 22000 certified facility.
           </p>
         </div>
 
@@ -72,8 +82,8 @@ export default function CraftBanner() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-[#362823] flex items-center justify-between text-[11px] text-[#D4AF37] font-semibold">
-                <span>100% Traceable</span>
-                <span>Atelier Grade</span>
+                <span>{item.badge1}</span>
+                <span>{item.badge2}</span>
               </div>
             </div>
           ))}

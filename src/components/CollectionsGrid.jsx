@@ -4,40 +4,40 @@ import { ArrowUpRight, Sparkles } from 'lucide-react';
 export default function CollectionsGrid({ onSelectCategory }) {
   const collections = [
     {
-      id: 'iconic-range',
-      title: 'The Royal Heritage Range',
-      subtitle: 'Classic Mithai Reimagined with 24K Gold Vark',
-      image: '/kaju_katli_diamond.jpg',
-      badge: 'Heritage Masterpieces',
-      count: '12 Formats',
-      tagline: 'Kaju Katli • Saffron Motichoor • Peda'
+      id: 'wafers',
+      title: 'Wafer Cones & Crisp Bars',
+      subtitle: 'Dairy Cones, Swiss Wafer Rolls, NutyMax & Crisp Bars',
+      image: '/dairy cone.png',
+      badge: 'Crispy Crunch Range',
+      count: '9 Formats',
+      tagline: 'Dairy Cones • Swiss Wafer Rolls • NutyMax'
     },
     {
-      id: 'wafer-cones',
-      title: 'Romeo Wafer Cones & Crisp Wafers',
-      subtitle: 'Swiss Cream Filled Mini Choco Cones',
-      image: '/romeo_choco_cone.jpg',
-      badge: 'Signature Crunchy Core',
-      count: '8 Flavors',
-      tagline: 'Hazelnut Dark • Pistachio Rose • White Caramel'
+      id: 'toys',
+      title: 'Surprise Toys & Novelties',
+      subtitle: 'Krispy Toy, Super Heroes, Mr. Joe & Junglor Joe',
+      image: '/morning jelly.png',
+      badge: 'Toy Inside Edition',
+      count: '5 Creations',
+      tagline: 'Krispy Toy • Super Heroes • Mr. Joe'
     },
     {
-      id: 'haute-fusion',
-      title: 'Haute Cocoa Fusion Patisserie',
-      subtitle: 'Valrhona Dark Chocolate Meets Rose & Elaichi',
-      image: '/cream_swirling.jpg',
-      badge: 'Artisanal Fusion',
-      count: '6 Creations',
-      tagline: 'Cardamom Truffles • Cocoa Peda'
+      id: 'gummies',
+      title: 'Fruit Jellies & Gummies',
+      subtitle: 'Hunny Bunny Pops, Ice Cream Jellies, Sour Belts & Aam Papad',
+      image: '/hunny bunny pops.png',
+      badge: 'Real Fruit Flavor',
+      count: '6 Varieties',
+      tagline: 'Bunny Pops • Sundae Jellies • Sour Belts'
     },
     {
-      id: 'curated-box',
-      title: 'Bespoke Wedding & Event Hampers',
-      subtitle: 'Velvet, Leatherette & Brass Embossed Gift Vaults',
-      image: '/foil_sealing.jpg',
-      badge: 'Luxe Gifting',
-      count: 'Custom Sizes',
-      tagline: '4, 9, 16, and 36 Piece Custom Boxes'
+      id: 'tins',
+      title: 'Snack & Festive Tubs',
+      subtitle: 'Brawo Choco Bars, 999.9 Gold Coins & Morning Jelly Tubs',
+      image: '/brawo.png',
+      badge: 'Keepsake Tubs',
+      count: 'Bulk Jars',
+      tagline: 'Brawo Choco • Gold Coins • Morning Jelly'
     }
   ];
 
@@ -72,13 +72,13 @@ export default function CollectionsGrid({ onSelectCategory }) {
               className="group relative bg-white border border-cream-300 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[380px] sm:min-h-[420px]"
             >
               {/* Background Image Container */}
-              <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-0 overflow-hidden bg-[#18110F]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-95"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#110C0A] via-[#110C0A]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#110C0A] via-[#110C0A]/65 to-black/20 pointer-events-none" />
               </div>
 
               {/* Top Card Badge */}

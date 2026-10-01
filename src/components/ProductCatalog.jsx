@@ -155,11 +155,11 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
               className="bg-white border border-cream-300 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 flex flex-col justify-between group"
             >
               {/* Product Image & Badges */}
-              <div className="relative aspect-square overflow-hidden bg-cream-50 cursor-pointer" onClick={() => onQuickView(product)}>
+              <div className="relative aspect-square overflow-hidden bg-[#F7F5F0] cursor-pointer flex items-center justify-center p-2" onClick={() => onQuickView(product)}>
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Badge */}
@@ -209,11 +209,11 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
                 {/* Price & Action Button */}
                 <div className="pt-4 border-t border-cream-200 flex items-center justify-between">
                   <div className="flex flex-col">
-                    <span className="text-lg font-extrabold text-[#231815]">
-                      ₹{product.priceINR.toLocaleString()}
+                    <span className="text-xs font-extrabold text-[#C8102E] uppercase tracking-wider">
+                      B2B Catalogue
                     </span>
-                    <span className="text-[11px] text-gray-400 font-medium">
-                      (~${product.priceUSD} USD)
+                    <span className="text-[11px] font-bold text-[#8B7355] mt-0.5">
+                      {product.weight}
                     </span>
                   </div>
 
