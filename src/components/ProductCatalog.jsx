@@ -155,11 +155,11 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
               className="bg-white border border-cream-300 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 flex flex-col justify-between group"
             >
               {/* Product Image & Badges */}
-              <div className="relative aspect-square overflow-hidden bg-[#F7F5F0] cursor-pointer flex items-center justify-center p-2" onClick={() => onQuickView(product)}>
+              <div className="relative aspect-square overflow-hidden bg-[#F7F5F0] cursor-pointer" onClick={() => onQuickView(product)}>
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Badge */}

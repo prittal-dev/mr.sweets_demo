@@ -251,23 +251,23 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                 })}
               </div>
 
-              {/* Price Calculation Box */}
+              {/* Box Summary Box */}
               <div className="space-y-2 text-xs text-gray-300 border-t border-[#362823] pt-4 mb-6">
                 <div className="flex justify-between">
                   <span>Base Velvet Box & Foil Packaging:</span>
-                  <span className="font-semibold text-white">
-                    ₹{boxSize === 4 ? 200 : boxSize === 9 ? 350 : 600}
+                  <span className="font-semibold text-[#D4AF37]">
+                    Included
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span>Selected Confections ({selectedPieces.length}):</span>
                   <span className="font-semibold text-white">
-                    ₹{selectedPieces.reduce((acc, curr) => acc + curr.unitPrice, 0)}
+                    {selectedPieces.length} of {boxSize} Slots Filled
                   </span>
                 </div>
-                <div className="flex justify-between text-base font-extrabold text-white pt-2 border-t border-[#362823]">
-                  <span>Total Box Price:</span>
-                  <span className="text-[#D4AF37]">₹{calculateTotal().toLocaleString()}</span>
+                <div className="flex justify-between text-sm font-extrabold text-white pt-2 border-t border-[#362823]">
+                  <span>Box Quote Status:</span>
+                  <span className="text-[#D4AF37]">Custom B2B Quote</span>
                 </div>
               </div>
             </div>
@@ -278,9 +278,7 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                 if (onInquireCustomBox) {
                   onInquireCustomBox({
                     name: `Custom ${boxSize}-Piece Bespoke Box`,
-                    tagline: `${selectedPieces.length} Custom Selected Confections`,
-                    priceINR: calculateTotal(),
-                    priceUSD: Math.round(calculateTotal() / 75)
+                    tagline: `${selectedPieces.length} Custom Selected Confections`
                   });
                 }
               }}
@@ -296,7 +294,7 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
               ) : (
                 <>
                   <Mail className="w-4 h-4 text-amber-200" />
-                  <span>Inquire Custom Box • ₹{calculateTotal().toLocaleString()}</span>
+                  <span>Inquire Custom Gift Box</span>
                 </>
               )}
             </button>

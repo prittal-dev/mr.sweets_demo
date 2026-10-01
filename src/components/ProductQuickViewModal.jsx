@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { X, Star, Mail, ShieldCheck, Sparkles, ZoomIn } from 'lucide-react';
+import { X, Star, Mail, ShieldCheck, Sparkles, ZoomIn, ShoppingBag, Check } from 'lucide-react';
 
-export default function ProductQuickViewModal({ product, onClose, onOpenInquire }) {
+export default function ProductQuickViewModal({ product, onClose, onOpenInquire, onAddToCart }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+
+  useEffect(() => {
+    if (product) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [product]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -16,6 +28,23 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire 
   }, [onClose, isLightboxOpen]);
 
   if (!product) return null;
+
+  const handleAddToCart = () => {
+    if (onAddToCart) {
+      onAddToCart({
+        id: product.id,
+        name: product.name,
+        tagline: product.tagline || `${product.moq || ''} ${product.tag || ''}`,
+        priceINR: parseInt(product.priceINR) || 99,
+        priceUSD: parseFloat(product.priceUSD) || 9.99,
+        weight: product.tag || product.weight || 'Standard Pack',
+        image: product.image,
+        quantity: 1
+      });
+    }
+    setIsAdded(true);
+    setTimeout(() => setIsAdded(false), 1500);
+  };
 
   return (
     <>
@@ -89,7 +118,9 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire 
                     <span>{product.rating}</span>
                   </div>
                   <span className="text-gray-300">•</span>
-                  <span className="text-xs text-emerald-700 font-semibold">In Stock</span>
+                  <span className="text-xs text-emerald-700 font-semibold">
+                    In Stock
+                  </span>
                 </div>
 
                 <p className="text-xs sm:text-sm text-[#4F3A34] mb-5 sm:mb-6 leading-relaxed">
@@ -108,19 +139,17 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire 
                 </div>
               </div>
 
-              {/* Bottom Inquiry Action */}
+              {/* Bottom Action: Send Inquiry */}
               <div className="pt-4 border-t border-cream-200">
                 <button
                   onClick={() => {
                     onClose();
                     onOpenInquire(product);
                   }}
-                  className="w-full py-3.5 px-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-md bg-[#C8102E] text-white hover:bg-[#9B0B21] text-center"
+                  className="w-full py-3 sm:py-3.5 px-6 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-[#C8102E] text-white hover:bg-[#9B0B21] shadow-md active:scale-95"
                 >
-                  <Mail className="w-4 h-4 text-amber-200 flex-shrink-0" />
-                  <span className="leading-tight">
-                    Send Product Inquiry • {product.name}
-                  </span>
+                  <Mail className="w-4 h-4 text-amber-200" />
+                  <span>Inquire Now for Bulk & Wholesale</span>
                 </button>
               </div>
             </div>

@@ -46,7 +46,9 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
   });
 
   useEffect(() => {
-    if (initialTab) setActiveTab(initialTab);
+    if (initialTab) {
+      setActiveTab(initialTab === 'giftbox' ? 'wholesale' : initialTab);
+    }
     if (prefilledProduct) {
       const prodName = typeof prefilledProduct === 'object' ? prefilledProduct.name : prefilledProduct;
       const qtyStr = typeof prefilledProduct === 'object' && prefilledProduct.quantity ? `${prefilledProduct.quantity} Cartons` : '5 Cartons';
@@ -57,6 +59,17 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
       }));
     }
   }, [initialTab, prefilledProduct]);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -197,7 +210,7 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                 }`}
               >
                 <PackageCheck className="w-3.5 h-3.5" />
-                <span>Product</span>
+                <span>Product Enquiry</span>
               </button>
 
               <button
@@ -210,18 +223,6 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
               >
                 <Building2 className="w-3.5 h-3.5 text-[#D4AF37]" />
                 <span>Wholesale & B2B</span>
-              </button>
-
-              <button
-                onClick={() => { setActiveTab('giftbox'); setErrorMsg(''); }}
-                className={`flex-1 py-2 px-3 rounded-full transition-all flex items-center justify-center gap-1 ${
-                  activeTab === 'giftbox'
-                    ? 'bg-[#110C0A] text-white shadow-sm'
-                    : 'text-[#362823] hover:text-[#C8102E]'
-                }`}
-              >
-                <Gift className="w-3.5 h-3.5" />
-                <span>Custom Gift Box</span>
               </button>
             </div>
 
@@ -474,132 +475,6 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Mail className="w-4 h-4 text-[#D4AF37]" />}
                   <span>{loading ? 'SUBMITTING B2B REQUEST...' : 'SUBMIT WHOLESALE / B2B ENQUIRY'}</span>
-                </button>
-              </form>
-            )}
-
-            {/* FORM 3: Custom Gift Box Enquiry */}
-            {activeTab === 'giftbox' && (
-              <form onSubmit={handleGiftBoxSubmit} className="space-y-3.5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label htmlFor="g-name" className="block text-xs font-bold text-[#231815] mb-1">Name *</label>
-                    <input
-                      id="g-name"
-                      type="text"
-                      required
-                      value={giftBoxForm.name}
-                      onChange={(e) => setGiftBoxForm({ ...giftBoxForm, name: e.target.value })}
-                      placeholder="e.g. Radhika Sen"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="g-phone" className="block text-xs font-bold text-[#231815] mb-1">Phone Number *</label>
-                    <input
-                      id="g-phone"
-                      type="tel"
-                      required
-                      value={giftBoxForm.phone}
-                      onChange={(e) => setGiftBoxForm({ ...giftBoxForm, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label htmlFor="g-email" className="block text-xs font-bold text-[#231815] mb-1">Email Address *</label>
-                    <input
-                      id="g-email"
-                      type="email"
-                      required
-                      value={giftBoxForm.email}
-                      onChange={(e) => setGiftBoxForm({ ...giftBoxForm, email: e.target.value })}
-                      placeholder="radhika@example.com"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="g-occ" className="block text-xs font-bold text-[#231815] mb-1">Occasion</label>
-                    <select
-                      id="g-occ"
-                      value={giftBoxForm.occasion}
-                      onChange={(e) => setGiftBoxForm({ ...giftBoxForm, occasion: e.target.value })}
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                    >
-                      <option>Wedding Celebration</option>
-                      <option>Corporate Milestone</option>
-                      <option>Diwali / Festive Favor</option>
-                      <option>Birthday / Anniversary</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label htmlFor="g-num" className="block text-xs font-bold text-[#231815] mb-1">Number of Boxes</label>
-                    <select
-                      id="g-num"
-                      value={giftBoxForm.numberOfBoxes}
-                      onChange={(e) => setGiftBoxForm({ ...giftBoxForm, numberOfBoxes: e.target.value })}
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                    >
-                      <option>20 – 50 Boxes</option>
-                      <option>50 – 200 Boxes</option>
-                      <option>200 – 500 Boxes</option>
-                      <option>500+ Bespoke Vaults</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="g-budget" className="block text-xs font-bold text-[#231815] mb-1">Budget Range</label>
-                    <select
-                      id="g-budget"
-                      value={giftBoxForm.budgetRange}
-                      onChange={(e) => setGiftBoxForm({ ...giftBoxForm, budgetRange: e.target.value })}
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                    >
-                      <option>₹10,000 – ₹25,000</option>
-                      <option>₹25,000 – ₹50,000</option>
-                      <option>₹50,000 – ₹1,50,000</option>
-                      <option>₹1,50,000+ Royal Premium</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="g-city" className="block text-xs font-bold text-[#231815] mb-1">Delivery City *</label>
-                  <input
-                    id="g-city"
-                    type="text"
-                    required
-                    value={giftBoxForm.deliveryCity}
-                    onChange={(e) => setGiftBoxForm({ ...giftBoxForm, deliveryCity: e.target.value })}
-                    placeholder="e.g. Udaipur, Jaipur, Mumbai..."
-                    className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="g-msg" className="block text-xs font-bold text-[#231815] mb-1">Message / Gold Embossing Notes</label>
-                  <textarea
-                    id="g-msg"
-                    rows="2"
-                    value={giftBoxForm.message}
-                    onChange={(e) => setGiftBoxForm({ ...giftBoxForm, message: e.target.value })}
-                    placeholder="Mention couple names for foil stamping, sweet choices..."
-                    className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full bg-[#110C0A] text-white hover:bg-[#C8102E] transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2 mt-2"
-                >
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Mail className="w-4 h-4 text-[#D4AF37]" />}
-                  <span>{loading ? 'SUBMITTING GIFT BOX REQUEST...' : 'SUBMIT CUSTOM GIFT BOX ENQUIRY'}</span>
                 </button>
               </form>
             )}

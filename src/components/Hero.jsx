@@ -123,25 +123,24 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
           }`}
         />
 
-        {/* Subtle Light Tint Overlay for Maximum Background Clarity */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+        {/* Seamless Full-Screen Dark Overlay - Soft Contrast under Text, Edge-to-Edge Clarity */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30 pointer-events-none" />
 
-        {/* Content Container Stacked on top of Video */}
-        <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center pointer-events-auto">
+        {/* Content Container - Pure Floating Text, No Box */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center text-center pointer-events-auto px-4">
           {/* Main Heading */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.15] max-w-4xl mb-6 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight sm:leading-[1.15] max-w-4xl mb-4 sm:mb-6 [text-shadow:_0_4px_20px_rgba(0,0,0,0.95),_0_2px_4px_rgba(0,0,0,0.9)]">
             The Modern Craft of{' '}
-            <span className="font-serif-italic text-[#FF4D6D] font-normal block sm:inline drop-shadow-md">
+            <span className="font-serif italic text-[#D4AF37] font-normal drop-shadow-[0_4px_12px_rgba(0,0,0,1)]">
               Irresistible
             </span>{' '}
             Confections.
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-white max-w-2xl font-medium leading-relaxed mb-8 drop-shadow-md">
+          <p className="text-sm sm:text-lg md:text-xl text-white max-w-2xl font-medium leading-relaxed [text-shadow:_0_3px_12px_rgba(0,0,0,0.95),_0_1px_3px_rgba(0,0,0,0.9)]">
             From our signature crispy Romeo Choco Cones and slow-churned Swiss cream wafers to royal chocolate gold coins, watch our confectionery craft unfold live.
           </p>
-
         </div>
       </div>
     </section>

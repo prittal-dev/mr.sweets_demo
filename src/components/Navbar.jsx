@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Mail, ChevronRight } from 'lucide-react';
+import { Menu, X, Mail, ChevronRight, ShoppingBag } from 'lucide-react';
 
-export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 3 }) {
+export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 0 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -58,7 +58,7 @@ export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 3 })
             {/* Inquire Now CTA */}
             <button
               onClick={onOpenInquire}
-              className="bg-[#C8102E] text-white hover:bg-[#9B0B21] transition-all duration-300 rounded-full px-5 py-2.5 text-xs font-bold tracking-wide flex items-center gap-2 border border-red-500/30 shadow-md hover:shadow-glow transform active:scale-95"
+              className="bg-[#C8102E] text-white hover:bg-[#9B0B21] transition-all duration-300 rounded-full px-6 py-2.5 text-xs font-extrabold tracking-wide flex items-center gap-2 border border-red-500/30 shadow-md hover:shadow-glow transform active:scale-95 uppercase"
             >
               <Mail className="w-3.5 h-3.5 text-amber-200" />
               <span>Inquire Now</span>
@@ -67,6 +67,14 @@ export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 3 })
 
           {/* Mobile Right Controls */}
           <div className="flex md:hidden items-center gap-2">
+            <button
+              onClick={onOpenInquire}
+              className="bg-[#C8102E] text-white p-2.5 rounded-full shadow-md text-xs font-bold"
+              aria-label="Inquire Now"
+            >
+              <Mail className="w-4 h-4 text-white" />
+            </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white focus:outline-none"
@@ -102,7 +110,7 @@ export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 3 })
                   setMobileMenuOpen(false);
                   onOpenInquire();
                 }}
-                className="w-full bg-[#C8102E] text-white hover:bg-[#9B0B21] py-3 rounded-full text-xs font-bold flex items-center justify-center gap-2 shadow-md"
+                className="w-full bg-[#C8102E] text-white hover:bg-[#9B0B21] py-3 rounded-full text-xs font-bold flex items-center justify-center gap-2 shadow-md uppercase tracking-wider"
               >
                 <Mail className="w-4 h-4 text-amber-200" />
                 <span>Inquire Now for Wholesale & Events</span>
