@@ -48,7 +48,7 @@ export default function IconicCatalog({ onEnquire, onAddToCart, onQuickView }) {
           </div>
           
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#231815] tracking-tight">
-            Iconic Confectionery Catalog
+            Iconic Confectionery Collection
           </h2>
 
           <p className="text-xs sm:text-base text-[#4F3A34] mt-1.5 sm:mt-3 font-normal leading-relaxed max-w-2xl mx-auto hidden sm:block">

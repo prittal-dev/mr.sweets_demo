@@ -5,8 +5,10 @@ import CraftBanner from './components/CraftBanner';
 import CollectionsGrid from './components/CollectionsGrid';
 import IconicCatalog from './components/IconicCatalog';
 import TrustSection from './components/TrustSection';
+import AboutUs from './components/AboutUs';
 import WholesaleB2B from './components/WholesaleB2B';
-import CustomerReviewsSection from './components/CustomerReviewsSection';
+import BlogSection from './components/BlogSection';
+import ContactSection from './components/ContactSection';
 import ProductQuickViewModal from './components/ProductQuickViewModal';
 import LeadGenModal from './components/LeadGenModal';
 import CartDrawer from './components/CartDrawer';
@@ -132,10 +134,13 @@ export default function App() {
           onRequestQuote={() => openLeadModal('wholesale')}
         />
 
+        {/* 1. About Us & Confectionery Heritage Section */}
+        <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
+
         {/* Craft & Ingredient Banner */}
         <CraftBanner />
 
-        {/* Collections Grid */}
+        {/* 2. Products Section (Collections Grid & Iconic Catalog) */}
         <CollectionsGrid
           onSelectCategory={(id) => scrollToSection('iconic-range')}
         />
@@ -156,8 +161,11 @@ export default function App() {
           onRequestB2BQuote={() => openLeadModal('wholesale')}
         />
 
-        {/* Customer Review Section (Loved Across Generations) & Newsletter */}
-        <CustomerReviewsSection />
+        {/* 3. Blogs & Insights Journal Section */}
+        <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
+
+        {/* 4. Contact Us & Atelier Concierge Section */}
+        <ContactSection />
       </main>
 
       {/* Footer */}

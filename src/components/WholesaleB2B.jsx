@@ -120,7 +120,7 @@ export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
             className="flex-1 sm:flex-initial bg-white text-[#110C0A] hover:bg-amber-100 transition-all duration-300 px-3 py-2.5 sm:px-8 sm:py-4 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg active:scale-95"
           >
             <Download className="w-3 h-3 sm:w-4 sm:h-4 text-[#110C0A]" />
-            <span>CATALOG (PDF)</span>
+            <span>BROCHURE (PDF)</span>
           </button>
 
           <button

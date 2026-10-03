@@ -210,7 +210,7 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
                 <div className="pt-4 border-t border-cream-200 flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-xs font-extrabold text-[#C8102E] uppercase tracking-wider">
-                      B2B Catalogue
+                      B2B Trade Range
                     </span>
                     <span className="text-[11px] font-bold text-[#8B7355] mt-0.5">
                       {product.weight}

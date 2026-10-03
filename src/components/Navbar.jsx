@@ -18,9 +18,11 @@ export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 0 })
   }, []);
 
   const navLinks = [
-    { name: 'Products', href: '#iconic-range' },
+    { name: 'Home', href: '#atelier-hero' },
     { name: 'About Us', href: '#atelier-craft' },
-    { name: 'Reviews', href: '#reviews' },
+    { name: 'Products', href: '#iconic-range' },
+    { name: 'Blogs', href: '#blogs' },
+    { name: 'Contact Us', href: '#contact' },
   ];
 
   return (

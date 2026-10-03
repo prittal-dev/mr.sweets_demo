@@ -42,23 +42,23 @@ export default function CollectionsGrid({ onSelectCategory }) {
   ];
 
   return (
-    <section id="iconic-range" className="w-full bg-[#FDFBF7] py-8 sm:py-20 px-3 sm:px-6 lg:px-8">
+    <section id="iconic-range" className="w-full bg-[#18110F] text-[#EFE8DA] py-8 sm:py-20 px-3 sm:px-6 lg:px-8 border-y border-[#362823]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 gap-2 sm:gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[#C8102E] text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-1 sm:mb-2">
-              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+            <div className="inline-flex items-center gap-1.5 text-[#D4AF37] text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-1 sm:mb-2">
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4AF37]" />
               <span>CURATED CONFECTIONERY COLLECTIONS</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#231815] tracking-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               Masterpiece{' '}
-              <span className="font-serif-italic text-[#C8102E] font-normal">
+              <span className="font-serif-italic text-[#D4AF37] font-normal">
                 Categories.
               </span>
             </h2>
           </div>
-          <p className="text-xs sm:text-base text-[#4F3A34] max-w-md font-normal hidden sm:block">
+          <p className="text-xs sm:text-base text-gray-300 max-w-md font-normal hidden sm:block">
             Explore our curated collections of artisanal sweets, signature choco cones, and luxury gifting boxes.
           </p>
         </div>

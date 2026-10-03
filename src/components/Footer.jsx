@@ -1,11 +1,11 @@
 import React from 'react';
-import { Mail, Sparkles, Instagram, Facebook, Twitter, ShieldCheck, CheckCircle2, Phone, MapPin } from 'lucide-react';
+import { Mail, Sparkles, Instagram, Facebook, ShieldCheck, CheckCircle2, Phone, MapPin } from 'lucide-react';
 
 export default function Footer({ onOpenInquire }) {
   return (
     <footer className="w-full bg-[#110C0A] text-[#EFE8DA] border-t border-[#231815]">
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto py-8 sm:py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-10">
+      <div className="max-w-7xl mx-auto py-8 sm:py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
         {/* Left Column: Logo, Description & Trust Badges */}
         <div className="col-span-2 lg:col-span-4 flex flex-col justify-between">
           <div>
@@ -43,8 +43,9 @@ export default function Footer({ onOpenInquire }) {
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2 sm:mb-0">
+            {/* Instagram Link */}
             <a
-              href="https://www.instagram.com/mr.___sweet/?hl=en"
+              href="https://www.instagram.com/p/DeB62UFPL5n/?stkn=MWx5cjZrbnRrY3RjcA=="
               target="_blank"
               rel="noopener noreferrer"
               className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#18110F] border border-[#362823] text-pink-400 hover:text-white hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
@@ -54,25 +55,21 @@ export default function Footer({ onOpenInquire }) {
               <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
 
+            {/* Facebook Profile Link */}
             <a
-              href="#"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#18110F] border border-[#362823] text-gray-300 hover:text-[#D4AF37] hover:border-[#D4AF37] flex items-center justify-center transition-all duration-300 hover:scale-110"
-              aria-label="Facebook"
+              href="https://www.facebook.com/profile.php?id=61581708972668"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#18110F] border border-[#362823] text-blue-400 hover:text-white hover:bg-[#1877F2] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+              aria-label="Mr. Sweet Facebook Profile"
+              title="Mr. Sweet Official Facebook Page"
             >
               <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
 
-            <a
-              href="#"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#18110F] border border-[#362823] text-gray-300 hover:text-[#D4AF37] hover:border-[#D4AF37] flex items-center justify-center transition-all duration-300 hover:scale-110"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-            </a>
-
             {/* Official Instagram Handle Badge */}
             <a
-              href="https://www.instagram.com/mr.___sweet/?hl=en"
+              href="https://www.instagram.com/p/DeB62UFPL5n/?stkn=MWx5cjZrbnRrY3RjcA=="
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white text-[10px] sm:text-[11px] font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md hover:opacity-90 transition-opacity active:scale-95"
@@ -83,7 +80,22 @@ export default function Footer({ onOpenInquire }) {
           </div>
         </div>
 
-        {/* Column 2: SWEET RANGES */}
+        {/* Column 2: QUICK LINKS */}
+        <div className="col-span-1 lg:col-span-2">
+          <h4 className="text-[10px] sm:text-xs font-extrabold text-[#D4AF37] uppercase tracking-widest mb-2 sm:mb-4">
+            QUICK LINKS
+          </h4>
+          <ul className="space-y-1.5 sm:space-y-2.5 text-[11px] sm:text-xs text-gray-400 font-medium">
+            <li><a href="#atelier-hero" className="hover:text-white transition-colors">Home</a></li>
+            <li><a href="#atelier-craft" className="hover:text-white transition-colors">About Us</a></li>
+            <li><a href="#iconic-range" className="hover:text-white transition-colors">Products</a></li>
+            <li><a href="#wholesale" className="hover:text-white transition-colors">Wholesale B2B</a></li>
+            <li><a href="#blogs" className="hover:text-white transition-colors">Blogs & Journal</a></li>
+            <li><a href="#contact" className="hover:text-white transition-colors">Contact Us</a></li>
+          </ul>
+        </div>
+
+        {/* Column 3: SWEET RANGES */}
         <div className="col-span-1 lg:col-span-3">
           <h4 className="text-[10px] sm:text-xs font-extrabold text-[#D4AF37] uppercase tracking-widest mb-2 sm:mb-4">
             SWEET RANGES
@@ -95,21 +107,6 @@ export default function Footer({ onOpenInquire }) {
             <li><a href="#iconic-range" className="hover:text-white transition-colors">Gold Coin 999.9 Jars</a></li>
             <li><a href="#iconic-range" className="hover:text-white transition-colors">Fun Pops Jelly Bears</a></li>
             <li><a href="#iconic-range" className="hover:text-white transition-colors">Novelty Lipstick Candies</a></li>
-          </ul>
-        </div>
-
-        {/* Column 3: TRADE & SERVICE */}
-        <div className="col-span-1 lg:col-span-2">
-          <h4 className="text-[10px] sm:text-xs font-extrabold text-[#D4AF37] uppercase tracking-widest mb-2 sm:mb-4">
-            TRADE & SERVICE
-          </h4>
-          <ul className="space-y-1.5 sm:space-y-2.5 text-[11px] sm:text-xs text-gray-400 font-medium">
-            <li><button onClick={onOpenInquire} className="hover:text-white transition-colors text-left">Bulk Order Booking</button></li>
-            <li><button onClick={onOpenInquire} className="hover:text-white transition-colors text-left">Distributor Partnerships</button></li>
-            <li><button onClick={onOpenInquire} className="hover:text-white transition-colors text-left">Custom Birthday Packs</button></li>
-            <li><a href="#wholesale" className="hover:text-white transition-colors">Track Order Dispatch</a></li>
-            <li><a href="#atelier-craft" className="hover:text-white transition-colors">Freshness Guarantee</a></li>
-            <li><a href="#atelier-craft" className="hover:text-white transition-colors">Quality Control Lab</a></li>
           </ul>
         </div>
 
@@ -125,7 +122,7 @@ export default function Footer({ onOpenInquire }) {
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
-              <a href="tel:+911800MRSWEET" className="hover:text-white transition-colors">+91 1800-MR-SWEET</a>
+              <a href="tel:+919999997877" className="hover:text-white transition-colors">+91 99999 97877</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-[#D4AF37] shrink-0" />
@@ -157,4 +154,3 @@ export default function Footer({ onOpenInquire }) {
     </footer>
   );
 }
-
