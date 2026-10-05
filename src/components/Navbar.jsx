@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Mail, ChevronRight, ShoppingBag } from 'lucide-react';
 
-export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 0 }) {
+export default function Navbar({ activePage = 'home', onNavigate, onOpenInquire, onOpenCart, cartItemCount = 0 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,41 +18,61 @@ export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 0 })
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#atelier-hero' },
-    { name: 'About Us', href: '#atelier-craft' },
-    { name: 'Products', href: '#iconic-range' },
-    { name: 'Blogs', href: '#blogs' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'Home', id: 'home', href: '#atelier-hero' },
+    { name: 'About Us', id: 'about', href: '#atelier-craft' },
+    { name: 'Products', id: 'products', href: '#iconic-range' },
+    { name: 'Blogs', id: 'blogs', href: '#blogs' },
+    { name: 'Contact Us', id: 'contact', href: '#contact' },
   ];
 
+  const handleLinkClick = (e, linkId) => {
+    e.preventDefault();
+    if (onNavigate) {
+      onNavigate(linkId);
+    }
+  };
+
+  const isDarkBg = activePage !== 'home' || scrolled;
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 w-full transition-all duration-300">
+    <header
+      className={`${
+        activePage !== 'home' ? 'sticky top-0 z-50 bg-[#110C0A] border-b border-[#231815] shadow-xl' : 'absolute top-0 left-0 right-0 z-50'
+      } w-full transition-all duration-300`}
+    >
       {/* Main Navigation Bar */}
-      <nav className="w-full bg-transparent py-4">
+      <nav className={`w-full py-3 sm:py-4 ${scrolled && activePage === 'home' ? 'bg-[#110C0A]/95 backdrop-blur-md shadow-lg border-b border-white/10' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           {/* Left Logo Container */}
-          <a
-            href="#"
-            className="flex items-center group focus:outline-none py-1"
+          <button
+            onClick={(e) => handleLinkClick(e, 'home')}
+            className="flex items-center group focus:outline-none py-1 text-left"
           >
             <img
               src="/mr_sweet_logo.svg"
               alt="Mr. Sweet Haute Confectionery"
-              className="h-12 sm:h-15 md:h-18 lg:h-22 w-auto object-contain transition-transform group-hover:scale-105 filter drop-shadow-xl"
+              className="h-10 sm:h-14 md:h-16 lg:h-20 w-auto object-contain transition-transform group-hover:scale-105 filter drop-shadow-xl"
             />
-          </a>
+          </button>
 
-          {/* 3 Nav Links (Products, About Us, Reviews) */}
+          {/* Desktop Nav Links */}
           <div className="hidden md:flex items-center gap-8 lg:gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-base font-bold text-white/90 hover:text-white transition-colors relative py-1 drop-shadow-sm after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-[#FF4D6D] hover:after:w-full after:transition-all after:duration-300"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activePage === link.id;
+              return (
+                <button
+                  key={link.name}
+                  onClick={(e) => handleLinkClick(e, link.id)}
+                  className={`text-base font-bold transition-colors relative py-1 drop-shadow-sm ${
+                    isActive ? 'text-[#D4AF37] font-extrabold' : 'text-white/90 hover:text-white'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-[#FF4D6D] ${
+                    isActive ? 'after:w-full' : 'after:w-0 hover:after:w-full'
+                  } after:transition-all after:duration-300`}
+                >
+                  {link.name}
+                </button>
+              );
+            })}
           </div>
 
           {/* Desktop Right Tools */}
@@ -87,22 +107,29 @@ export default function Navbar({ onOpenInquire, onOpenCart, cartItemCount = 0 })
           </div>
         </div>
 
-        {/* 3. Mobile Navigation Drawer */}
+        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-black/90 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 shadow-2xl animate-fadeIn text-white">
+          <div className="lg:hidden bg-black/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 shadow-2xl animate-fadeIn text-white">
             {/* Mobile Links */}
             <div className="flex flex-col gap-2 mb-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/10 text-sm font-semibold text-white/90"
-                >
-                  <span>{link.name}</span>
-                  <ChevronRight className="w-4 h-4 text-gray-400" />
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = activePage === link.id;
+                return (
+                  <button
+                    key={link.name}
+                    onClick={(e) => {
+                      setMobileMenuOpen(false);
+                      handleLinkClick(e, link.id);
+                    }}
+                    className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm font-semibold transition-colors ${
+                      isActive ? 'bg-[#C8102E]/20 text-[#D4AF37] border border-[#C8102E]/40' : 'hover:bg-white/10 text-white/90'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    <ChevronRight className="w-4 h-4 text-gray-400" />
+                  </button>
+                );
+              })}
             </div>
 
             {/* Mobile Actions */}

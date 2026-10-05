@@ -1,7 +1,13 @@
 import React from 'react';
 import { Mail, Sparkles, Instagram, Facebook, ShieldCheck, CheckCircle2, Phone, MapPin } from 'lucide-react';
 
-export default function Footer({ onOpenInquire }) {
+export default function Footer({ onOpenInquire, onNavigate }) {
+  const handleNav = (id) => {
+    if (onNavigate) {
+      onNavigate(id);
+    }
+  };
+
   return (
     <footer className="w-full bg-[#110C0A] text-[#EFE8DA] border-t border-[#231815]">
       {/* Main Footer Content */}
@@ -10,13 +16,13 @@ export default function Footer({ onOpenInquire }) {
         <div className="col-span-2 lg:col-span-4 flex flex-col justify-between">
           <div>
             {/* Logo */}
-            <div className="flex items-center mb-3 sm:mb-4">
+            <button onClick={() => handleNav('home')} className="flex items-center mb-3 sm:mb-4 text-left">
               <img
                 src="/mr_sweet_logo.svg"
                 alt="Mr. Sweet Haute Confectionery"
                 className="h-10 sm:h-20 md:h-24 w-auto object-contain filter drop-shadow-xl"
               />
-            </div>
+            </button>
 
             {/* Description */}
             <p className="text-[11px] sm:text-xs text-gray-300 font-normal leading-relaxed max-w-sm mb-4 sm:mb-6">
@@ -86,12 +92,12 @@ export default function Footer({ onOpenInquire }) {
             QUICK LINKS
           </h4>
           <ul className="space-y-1.5 sm:space-y-2.5 text-[11px] sm:text-xs text-gray-400 font-medium">
-            <li><a href="#atelier-hero" className="hover:text-white transition-colors">Home</a></li>
-            <li><a href="#atelier-craft" className="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="#iconic-range" className="hover:text-white transition-colors">Products</a></li>
-            <li><a href="#wholesale" className="hover:text-white transition-colors">Wholesale B2B</a></li>
-            <li><a href="#blogs" className="hover:text-white transition-colors">Blogs & Journal</a></li>
-            <li><a href="#contact" className="hover:text-white transition-colors">Contact Us</a></li>
+            <li><button onClick={() => handleNav('home')} className="hover:text-white transition-colors text-left">Home</button></li>
+            <li><button onClick={() => handleNav('about')} className="hover:text-white transition-colors text-left">About Us</button></li>
+            <li><button onClick={() => handleNav('products')} className="hover:text-white transition-colors text-left">Products</button></li>
+            <li><button onClick={() => handleNav('contact')} className="hover:text-white transition-colors text-left">Wholesale B2B</button></li>
+            <li><button onClick={() => handleNav('blogs')} className="hover:text-white transition-colors text-left">Blogs & Journal</button></li>
+            <li><button onClick={() => handleNav('contact')} className="hover:text-white transition-colors text-left">Contact Us</button></li>
           </ul>
         </div>
 

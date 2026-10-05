@@ -15,6 +15,7 @@ import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [activePage, setActivePage] = useState('home'); // 'home' | 'about' | 'products' | 'blogs' | 'contact'
   const [quickViewProduct, setQuickViewProduct] = useState(null);
 
   // Cart Drawer State with default initial items
@@ -69,6 +70,11 @@ export default function App() {
     };
   }, [isLeadModalOpen, isCartOpen, quickViewProduct]);
 
+  const handleNavigate = (pageId) => {
+    setActivePage(pageId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const openLeadModal = (tab = 'product', product = null) => {
     setLeadModalTab(tab);
     setPrefilledProduct(product);
@@ -109,9 +115,15 @@ export default function App() {
   };
 
   const scrollToSection = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    if (activePage !== 'home') {
+      setActivePage('home');
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -121,56 +133,112 @@ export default function App() {
     <div className="min-h-screen bg-[#FDFBF7] text-[#231815] flex flex-col font-sans">
       {/* Navbar */}
       <Navbar
+        activePage={activePage}
+        onNavigate={handleNavigate}
         onOpenInquire={() => openLeadModal('wholesale')}
         onOpenCart={() => setIsCartOpen(true)}
         cartItemCount={cartItemCount}
       />
 
-      {/* Main Sections */}
+      {/* Page Title Header Banner for Sub-Pages */}
+      {activePage !== 'home' && (
+        <div className="bg-[#18110F] text-white py-8 px-4 sm:px-8 border-b border-[#362823]">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <div className="text-[10px] sm:text-xs font-bold text-[#D4AF37] uppercase tracking-widest mb-1 flex items-center gap-2">
+                <button onClick={() => handleNavigate('home')} className="hover:underline text-gray-400">Home</button>
+                <span>/</span>
+                <span className="capitalize">{activePage === 'about' ? 'About Us' : activePage}</span>
+              </div>
+              <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+                {activePage === 'about' && 'About Us — Brand Heritage & Craftsmanship'}
+                {activePage === 'products' && 'Products — Confectionery Collection'}
+                {activePage === 'blogs' && 'Blogs & Journal — Confectionery Insights'}
+                {activePage === 'contact' && 'Contact Us — Atelier Concierge & Trade'}
+              </h1>
+            </div>
+
+            <button
+              onClick={() => handleNavigate('home')}
+              className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-full border border-white/20 transition-all flex items-center gap-1.5"
+            >
+              <span>← Back to Full Home</span>
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Main Content Sections */}
       <main className="flex-grow">
-        {/* Hero Section */}
-        <Hero
-          onExploreCatalog={() => scrollToSection('iconic-range')}
-          onRequestQuote={() => openLeadModal('wholesale')}
-        />
+        {/* 1. Full Home Experience */}
+        {activePage === 'home' && (
+          <>
+            <Hero
+              onExploreCatalog={() => scrollToSection('iconic-range')}
+              onRequestQuote={() => openLeadModal('wholesale')}
+            />
+            <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
+            <CraftBanner />
+            <CollectionsGrid onSelectCategory={(id) => scrollToSection('iconic-range')} />
+            <IconicCatalog
+              onEnquire={(product) => openLeadModal('product', product)}
+              onAddToCart={handleAddToCart}
+              onQuickView={(product) => setQuickViewProduct(product)}
+            />
+            <TrustSection />
+            <WholesaleB2B
+              onDownloadCatalog={handleDownloadCatalog}
+              onRequestB2BQuote={() => openLeadModal('wholesale')}
+            />
+            <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
+            <ContactSection />
+          </>
+        )}
 
-        {/* 1. About Us & Confectionery Heritage Section */}
-        <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
+        {/* 2. Dedicated About Us Page */}
+        {activePage === 'about' && (
+          <>
+            <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
+            <CraftBanner />
+            <TrustSection />
+          </>
+        )}
 
-        {/* Craft & Ingredient Banner */}
-        <CraftBanner />
+        {/* 3. Dedicated Products Page */}
+        {activePage === 'products' && (
+          <>
+            <CollectionsGrid onSelectCategory={(id) => scrollToSection('iconic-range')} />
+            <IconicCatalog
+              onEnquire={(product) => openLeadModal('product', product)}
+              onAddToCart={handleAddToCart}
+              onQuickView={(product) => setQuickViewProduct(product)}
+            />
+          </>
+        )}
 
-        {/* 2. Products Section (Collections Grid & Iconic Catalog) */}
-        <CollectionsGrid
-          onSelectCategory={(id) => scrollToSection('iconic-range')}
-        />
+        {/* 4. Dedicated Blogs Page */}
+        {activePage === 'blogs' && (
+          <>
+            <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
+          </>
+        )}
 
-        {/* Iconic Confectionery Catalog (AUTHENTIC PACKAGED RANGE) */}
-        <IconicCatalog
-          onEnquire={(product) => openLeadModal('product', product)}
-          onAddToCart={handleAddToCart}
-          onQuickView={(product) => setQuickViewProduct(product)}
-        />
-
-        {/* Why Confectionery Lovers Trust Mr. Sweet */}
-        <TrustSection />
-
-        {/* Commercial Distribution & Wholesale B2B Section */}
-        <WholesaleB2B
-          onDownloadCatalog={handleDownloadCatalog}
-          onRequestB2BQuote={() => openLeadModal('wholesale')}
-        />
-
-        {/* 3. Blogs & Insights Journal Section */}
-        <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
-
-        {/* 4. Contact Us & Atelier Concierge Section */}
-        <ContactSection />
+        {/* 5. Dedicated Contact Us Page */}
+        {activePage === 'contact' && (
+          <>
+            <ContactSection />
+            <WholesaleB2B
+              onDownloadCatalog={handleDownloadCatalog}
+              onRequestB2BQuote={() => openLeadModal('wholesale')}
+            />
+          </>
+        )}
       </main>
 
       {/* Footer */}
       <Footer
         onOpenInquire={() => openLeadModal('wholesale')}
+        onNavigate={handleNavigate}
       />
 
       {/* Cart Drawer Modal */}
