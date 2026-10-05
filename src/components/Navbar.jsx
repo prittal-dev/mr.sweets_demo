@@ -18,11 +18,11 @@ export default function Navbar({ activePage = 'home', onNavigate, onOpenInquire,
   }, []);
 
   const navLinks = [
-    { name: 'Home', id: 'home', href: '#atelier-hero' },
-    { name: 'About Us', id: 'about', href: '#atelier-craft' },
-    { name: 'Products', id: 'products', href: '#iconic-range' },
-    { name: 'Blogs', id: 'blogs', href: '#blogs' },
-    { name: 'Contact Us', id: 'contact', href: '#contact' },
+    { name: 'Home', id: 'home', href: '/' },
+    { name: 'About Us', id: 'about', href: '/about' },
+    { name: 'Products', id: 'products', href: '/products' },
+    { name: 'Blogs', id: 'blogs', href: '/blogs' },
+    { name: 'Contact Us', id: 'contact', href: '/contact' },
   ];
 
   const handleLinkClick = (e, linkId) => {

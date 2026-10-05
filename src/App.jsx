@@ -14,9 +14,33 @@ import LeadGenModal from './components/LeadGenModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 
+const getPageFromUrl = () => {
+  const path = window.location.pathname.replace(/^\//, '').toLowerCase();
+  const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+
+  const validPages = ['about', 'products', 'blogs', 'contact'];
+  if (validPages.includes(path)) return path;
+  if (validPages.includes(hash)) return hash;
+  return 'home';
+};
+
 export default function App() {
-  const [activePage, setActivePage] = useState('home'); // 'home' | 'about' | 'products' | 'blogs' | 'contact'
+  const [activePage, setActivePage] = useState(getPageFromUrl);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+
+  // Sync active page state with browser back/forward and URL changes
+  React.useEffect(() => {
+    const handleUrlChange = () => {
+      setActivePage(getPageFromUrl());
+    };
+
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, []);
 
   // Cart Drawer State with default initial items
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -72,6 +96,10 @@ export default function App() {
 
   const handleNavigate = (pageId) => {
     setActivePage(pageId);
+    const targetUrl = pageId === 'home' ? '/' : `/${pageId}`;
+    if (window.location.pathname !== targetUrl) {
+      window.history.pushState({}, '', targetUrl);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
