@@ -14,7 +14,7 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
       id: '01',
       title: 'Conching',
       subtitle: 'Kettle Caramel & Cocoa',
-      image: '/atelier_conching_stream.jpg',
+      image: '/romeo choco cone.png',
       video: '/chocolate_factory.mp4',
       badge: 'Live Atelier Factory Stream • Master Chocolate Conching',
       temp: '48°C Pure Conching',

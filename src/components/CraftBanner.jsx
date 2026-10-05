@@ -1,38 +1,38 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, Cookie, IceCream, Cherry, Gift, ShieldCheck } from 'lucide-react';
 
 export default function CraftBanner() {
   const ingredients = [
     {
-      icon: '🍫',
+      icon: Cookie,
       title: 'Rich Dutch Cocoa',
       desc: 'Velvety cocoa solids blended for smooth Dairy Cones, Brawo rice bars, and gold coins.',
       badge1: '100% Veg',
       badge2: 'Pure Cocoa'
     },
     {
-      icon: '🍦',
+      icon: IceCream,
       title: 'Crispy Wafer Cones',
       desc: 'Golden-baked multi-layer wafers foil-wrapped to preserve signature crunch.',
       badge1: 'Airtight Sealed',
       badge2: 'Fresh Baked'
     },
     {
-      icon: '🍓',
+      icon: Cherry,
       title: 'Real Fruit Flavors',
       desc: 'Authentic fruit pectin formulations power Bunny Pops & Sundae Jellies.',
       badge1: 'Natural Taste',
       badge2: 'Gelatin-Free'
     },
     {
-      icon: '🎁',
+      icon: Gift,
       title: 'Safe Surprise Toys',
       desc: 'Non-toxic, child-safe collectible toys packaged inside Krispy Toy & Mr. Joe boxes.',
       badge1: 'Child Safe',
       badge2: 'BIS Certified'
     },
     {
-      icon: '🪙',
+      icon: ShieldCheck,
       title: 'Hygiene Sealed Tubs',
       desc: 'Airtight food-grade containers protect Gold Coins & Morning Jelly Tubs.',
       badge1: 'Food Grade',
@@ -42,9 +42,6 @@ export default function CraftBanner() {
 
   return (
     <section className="w-full bg-white text-[#231815] py-8 sm:py-16 px-3 sm:px-6 lg:px-8 border-y border-cream-200 relative overflow-hidden">
-      {/* Background Subtle Shimmer Grid */}
-      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#C8102E_1px,transparent_1px)] [background-size:24px_24px]" />
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-12">
@@ -65,30 +62,33 @@ export default function CraftBanner() {
 
         {/* 5 Ingredient Highlight Cards - White Theme */}
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 sm:gap-4">
-          {ingredients.map((item, idx) => (
-            <div
-              key={idx}
-              className={`bg-[#FDFBF7] border border-amber-900/10 p-3 sm:p-5 rounded-2xl hover:border-[#C8102E]/40 hover:bg-white hover:shadow-lg transition-all duration-300 group flex flex-col justify-between ${
-                idx === ingredients.length - 1 ? 'col-span-2 sm:col-span-1' : ''
-              }`}
-            >
-              <div>
-                <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-white border border-amber-900/10 flex items-center justify-center text-base sm:text-2xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform shadow-sm">
-                  {item.icon}
+          {ingredients.map((item, idx) => {
+            const IconComp = item.icon;
+            return (
+              <div
+                key={idx}
+                className={`bg-[#FDFBF7] border border-amber-900/10 p-3 sm:p-5 rounded-2xl hover:border-[#C8102E]/40 hover:bg-white hover:shadow-lg transition-all duration-300 group flex flex-col justify-between ${
+                  idx === ingredients.length - 1 ? 'col-span-2 sm:col-span-1' : ''
+                }`}
+              >
+                <div>
+                  <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#FFF5F5] border border-[#C8102E]/20 flex items-center justify-center text-[#C8102E] mb-2 sm:mb-4 group-hover:bg-[#C8102E] group-hover:text-white group-hover:scale-110 transition-all shadow-sm">
+                    <IconComp className="w-4 h-4 sm:w-6 sm:h-6" />
+                  </div>
+                  <h3 className="text-xs sm:text-base font-bold text-[#231815] mb-1 sm:mb-2 group-hover:text-[#C8102E] transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-[#5C453D] font-normal leading-tight sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-xs sm:text-base font-bold text-[#231815] mb-1 sm:mb-2 group-hover:text-[#C8102E] transition-colors leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-[11px] sm:text-xs text-[#5C453D] font-normal leading-tight sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
-                  {item.desc}
-                </p>
+                <div className="mt-2 sm:mt-4 pt-2 sm:pt-3 border-t border-amber-900/10 flex items-center justify-between text-[9px] sm:text-[11px] text-[#C8102E] font-bold">
+                  <span>{item.badge1}</span>
+                  <span>{item.badge2}</span>
+                </div>
               </div>
-              <div className="mt-2 sm:mt-4 pt-2 sm:pt-3 border-t border-amber-900/10 flex items-center justify-between text-[9px] sm:text-[11px] text-[#C8102E] font-bold">
-                <span>{item.badge1}</span>
-                <span>{item.badge2}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
