@@ -134,19 +134,21 @@
   transform: rotateY(180deg);
 }
 
-/* Sticker Pill Lozenges - Maintains tilt angle while scaling subtly on hover */
+/* Sticker Pill Lozenges - Maintains tilt angle with prominent playful scale on hover */
 .pill-sticker {
+  position: relative;
   transform: rotate(var(--rot, 0deg)) scale(1);
-  transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.22s ease;
+  transition: transform 0.25s cubic-bezier(0.34, 1.4, 0.64, 1), box-shadow 0.25s ease;
   will-change: transform;
 }
 
 .pill-sticker:hover {
-  transform: rotate(var(--rot, 0deg)) scale(1.035);
+  transform: rotate(var(--rot, 0deg)) scale(1.085);
+  z-index: 20;
 }
 
 .pill-sticker:active {
-  transform: rotate(var(--rot, 0deg)) scale(0.98);
+  transform: rotate(var(--rot, 0deg)) scale(0.97);
 }
 
 

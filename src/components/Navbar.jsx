@@ -46,7 +46,7 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
               <button
                 key={link.name}
                 onClick={(e) => handleLinkClick(e, link.id)}
-                className={`text-xs xl:text-sm font-outfit font-extrabold transition-all duration-300 relative py-1.5 whitespace-nowrap cursor-pointer ${
+                className={`text-base xl:text-lg font-outfit font-extrabold tracking-tight transition-all duration-300 relative py-2 whitespace-nowrap cursor-pointer ${
                   isActive
                     ? 'text-[#C8102E]'
                     : 'text-gray-800 hover:text-[#C8102E]'
@@ -55,7 +55,7 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
                 <span>{link.name}</span>
                 {/* Active & Hover Underline Pill */}
                 <span
-                  className={`absolute bottom-0 left-0 h-[2.5px] rounded-full transition-all duration-300 bg-[#C8102E] ${
+                  className={`absolute bottom-0 left-0 h-[3px] rounded-full transition-all duration-300 bg-[#C8102E] ${
                     isActive ? 'w-full' : 'w-0 hover:w-full'
                   }`}
                 />
@@ -116,7 +116,7 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
                       setMobileMenuOpen(false);
                       handleLinkClick(e, link.id);
                     }}
-                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all ${
+                    className={`flex items-center justify-between px-4 py-3 rounded-xl text-left text-sm sm:text-base font-bold transition-all ${
                       isActive
                         ? 'bg-black/30 text-amber-300 border border-amber-300/40 font-bold'
                         : 'hover:bg-white/10 text-white/90'

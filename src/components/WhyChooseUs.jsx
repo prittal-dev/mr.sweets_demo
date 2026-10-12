@@ -89,15 +89,15 @@ export default function WhyChooseUs({ onOpenInquire }) {
         </div>
 
         {/* PLAYFUL STICKER COLLAGE CLUSTER */}
-        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 my-6 sm:my-10 px-2 max-w-5xl mx-auto select-none">
+        <div className="flex flex-col items-center justify-center gap-y-4 sm:gap-y-5 md:gap-y-6 my-6 sm:my-8 px-2 max-w-5xl mx-auto select-none">
           {/* Row 1: Yellow Pill + Red Pill */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full">
+          <div className="flex flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-5 md:gap-x-6 gap-y-3.5 sm:gap-y-4.5 w-full">
             {/* Pill 1: Formats? We make 'em. */}
             <button
               type="button"
               onClick={onOpenInquire}
               style={{ '--rot': `${pills[0].deg}deg` }}
-              className={`pill-sticker ${pills[0].bg} ${pills[0].shadow} ${pills[0].hoverShadow} px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
+              className={`pill-sticker ${pills[0].bg} ${pills[0].shadow} ${pills[0].hoverShadow} my-1 sm:my-1.5 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
             >
               <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[0].boldColor} tracking-tight leading-none`}>
                 {pills[0].textBold}
@@ -117,7 +117,7 @@ export default function WhyChooseUs({ onOpenInquire }) {
               type="button"
               onClick={onOpenInquire}
               style={{ '--rot': `${pills[1].deg}deg` }}
-              className={`pill-sticker ${pills[1].bg} ${pills[1].shadow} ${pills[1].hoverShadow} px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-white/10`}
+              className={`pill-sticker ${pills[1].bg} ${pills[1].shadow} ${pills[1].hoverShadow} my-1 sm:my-1.5 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-white/10`}
             >
               <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[1].boldColor} tracking-tight leading-none`}>
                 {pills[1].textBold}
@@ -134,13 +134,13 @@ export default function WhyChooseUs({ onOpenInquire }) {
           </div>
 
           {/* Row 2: Mint Pill + Blue Pill */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full">
+          <div className="flex flex-wrap items-center justify-center gap-x-3.5 sm:gap-x-5 md:gap-x-6 gap-y-3.5 sm:gap-y-4.5 w-full">
             {/* Pill 3: Zero shortcuts. */}
             <button
               type="button"
               onClick={onOpenInquire}
               style={{ '--rot': `${pills[2].deg}deg` }}
-              className={`pill-sticker ${pills[2].bg} ${pills[2].shadow} ${pills[2].hoverShadow} px-6 sm:px-8 md:px-9 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
+              className={`pill-sticker ${pills[2].bg} ${pills[2].shadow} ${pills[2].hoverShadow} my-1 sm:my-1.5 px-6 sm:px-8 md:px-9 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
             >
               <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[2].boldColor} tracking-tight leading-none`}>
                 {pills[2].textBold}
@@ -160,7 +160,7 @@ export default function WhyChooseUs({ onOpenInquire }) {
               type="button"
               onClick={onOpenInquire}
               style={{ '--rot': `${pills[3].deg}deg` }}
-              className={`pill-sticker ${pills[3].bg} ${pills[3].shadow} ${pills[3].hoverShadow} px-6 sm:px-8 md:px-9 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-white/10`}
+              className={`pill-sticker ${pills[3].bg} ${pills[3].shadow} ${pills[3].hoverShadow} my-1 sm:my-1.5 px-6 sm:px-8 md:px-9 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-white/10`}
             >
               <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[3].boldColor} tracking-tight leading-none`}>
                 {pills[3].textBold}
@@ -182,7 +182,7 @@ export default function WhyChooseUs({ onOpenInquire }) {
               type="button"
               onClick={onOpenInquire}
               style={{ '--rot': `${pills[4].deg}deg` }}
-              className={`pill-sticker ${pills[4].bg} ${pills[4].shadow} ${pills[4].hoverShadow} px-7 sm:px-10 md:px-12 py-3.5 sm:py-4.5 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
+              className={`pill-sticker ${pills[4].bg} ${pills[4].shadow} ${pills[4].hoverShadow} my-1 sm:my-1.5 px-7 sm:px-10 md:px-12 py-3.5 sm:py-4.5 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
             >
               <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[4].boldColor} tracking-tight leading-none`}>
                 {pills[4].textBold}

@@ -186,8 +186,8 @@ export default function IconicCatalog({
               </button>
             </div>
           ) : isFullView ? (
-            /* Full Grid Mode (Exact match to reference mockup: 5-column grid of white cards with colored squircles) */
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-5 md:gap-6 pt-2 pb-6">
+            /* Full Grid Mode (4-column grid of white cards with colored squircles) */
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 pt-2 pb-6">
               {filteredProducts.map((product) => renderGridCard(product, onQuickView, onAddToCart, onEnquire))}
             </div>
           ) : (
