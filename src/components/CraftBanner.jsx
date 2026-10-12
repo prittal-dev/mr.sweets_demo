@@ -201,10 +201,6 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
     if (onSelectCategory) {
       onSelectCategory(id);
     }
-    const el = document.getElementById('products');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   return (
@@ -217,7 +213,8 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
               <button
                 key={cat.id}
                 onClick={() => handleClick(cat.id)}
-                className="flex flex-col items-center justify-center group focus:outline-none cursor-pointer perspective-1000 select-none"
+                className="flex flex-col items-center justify-center group focus:outline-none cursor-pointer perspective-1000 select-none active:scale-95 transition-transform"
+                title={`Explore ${cat.label}`}
               >
                 {/* 3D Flipping Card Container */}
                 <div
@@ -229,7 +226,7 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
                   <div
                     className={`absolute inset-0 w-full h-full rounded-full border-2 sm:border-[2.5px] border-white flex items-center justify-center backface-hidden bg-[#C8102E] transition-all duration-300 ${
                       isSelected
-                        ? 'ring-4 ring-amber-300 ring-offset-2 ring-offset-[#C8102E] bg-white/10'
+                        ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#C8102E]'
                         : ''
                     }`}
                   >
@@ -238,12 +235,12 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
 
                   {/* BACK FACE (Flipped 3D: White Circle, Crimson "EXPLORE" Button) */}
                   <div
-                    className="absolute inset-0 w-full h-full rounded-full border-2 sm:border-[2.5px] border-white flex flex-col items-center justify-center backface-hidden rotate-y-180 bg-white text-[#C8102E] shadow-2xl p-2"
+                    className="absolute inset-0 w-full h-full rounded-full border-2 sm:border-[2.5px] border-white flex flex-col items-center justify-center backface-hidden rotate-y-180 bg-white text-[#C8102E] shadow-2xl p-2 cursor-pointer hover:bg-amber-50 transition-colors"
                   >
-                    <span className="font-outfit font-black text-xs sm:text-sm md:text-base tracking-wider uppercase text-[#C8102E] leading-none mb-1.5">
+                    <span className="font-outfit font-black text-xs sm:text-sm md:text-base tracking-wider uppercase text-[#C8102E] leading-none mb-1.5 pointer-events-none">
                       EXPLORE
                     </span>
-                    <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#C8102E] text-white shadow-xs">
+                    <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#C8102E] text-white shadow-xs pointer-events-none">
                       <span className="text-xs sm:text-sm leading-none font-bold">→</span>
                     </span>
                   </div>
@@ -251,10 +248,10 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
 
                 {/* Category Label Below */}
                 <span
-                  className={`font-outfit font-black tracking-wider text-xs sm:text-sm md:text-base uppercase transition-colors text-center ${
+                  className={`font-outfit font-black tracking-wider text-xs sm:text-sm md:text-base uppercase transition-colors text-center text-white ${
                     isSelected
-                      ? 'text-amber-300 underline underline-offset-4 decoration-amber-300'
-                      : 'text-white group-hover:text-amber-200'
+                      ? 'underline underline-offset-4 decoration-white/80'
+                      : 'hover:text-white/90'
                   }`}
                 >
                   {cat.label}

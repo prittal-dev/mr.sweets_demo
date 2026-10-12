@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ShieldCheck, CheckCircle2, Factory, ArrowRight } from 'lucide-react';
+import { Sparkles, ShieldCheck, CheckCircle2, Factory } from 'lucide-react';
 
 export default function AboutUs({ onOpenInquire }) {
   return (
@@ -78,18 +78,9 @@ export default function AboutUs({ onOpenInquire }) {
             </p>
 
             {/* Supporting Paragraph */}
-            <p className="text-xs sm:text-sm text-gray-600 font-normal leading-relaxed mb-6 sm:mb-8">
+            <p className="text-xs sm:text-sm text-gray-600 font-normal leading-relaxed">
               From signature crispy Romeo Choco Cones and slow-conched Swiss cream wafers to fruit jellies, gold coin jars, and surprise toy novelty boxes, every treat is crafted under strict ISO 22000 food safety protocols with 100% vegetarian purity.
             </p>
-
-            {/* Know More CTA Button */}
-            <button
-              onClick={onOpenInquire}
-              className="bg-[#C8102E] text-white hover:bg-[#9B0B21] transition-all duration-300 px-8 py-4 rounded-full text-xs sm:text-sm font-fredoka font-bold uppercase tracking-wider shadow-lg hover:shadow-glow transform active:scale-95 border border-red-500/40 flex items-center gap-2.5 group"
-            >
-              <span>KNOW OUR STORY</span>
-              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
-            </button>
           </motion.div>
         </div>
       </div>

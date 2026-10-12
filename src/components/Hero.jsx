@@ -1,81 +1,58 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, ShieldCheck, Award, Factory, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Award, Factory, Sparkles } from 'lucide-react';
+import { getProductImage, handleImageError } from '../utils/imageUrl';
 
 export default function Hero({ onExploreCatalog, onRequestQuote }) {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.play().catch(() => {});
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [isPlaying]);
-
   return (
-    <section id="atelier-hero" className="w-full relative overflow-hidden bg-black min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-28 sm:pb-16 lg:py-32">
-      {/* Background Video Stream */}
-      <video
-        ref={videoRef}
-        src="/chocolate_factory.mp4"
-        poster="/romeo choco cone.png"
-        autoPlay
-        loop
-        playsInline
-        muted
-        className="absolute inset-0 w-full h-full object-cover opacity-85 filter brightness-105 saturate-110 scale-105 pointer-events-none"
-      />
-
-      {/* Subtle Dark Vignette & Soft Ambient Radial Lighting Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/60 pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.1)_0%,rgba(0,0,0,0)_70%)] pointer-events-none" />
+    <section
+      id="atelier-hero"
+      className="w-full relative bg-[#FAF7EE] text-[#191938] py-10 sm:py-14 md:py-16 border-b border-[#EFE9DA] overflow-hidden"
+    >
+      {/* Decorative Subtle Corner Glows */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-100/50 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Eyebrow, Main Headline & CTAs */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          
+          {/* Left Column: Brand Purpose Badge, Chunky Headline, Paragraph & Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start"
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
-            {/* Small Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 bg-black/60 border border-white/25 text-amber-300 px-4 py-1.5 rounded-full shadow-lg mb-4 sm:mb-6 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-              <span className="text-[10px] sm:text-xs font-fredoka font-bold uppercase tracking-[0.2em]">
-                CRAFTING SWEET MOMENTS
-              </span>
+            {/* Pill Badge (Reference Pink/Coral Style) */}
+            <div className="inline-block bg-[#FFA7BF] text-[#191938] font-fredoka font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-xs mb-4 sm:mb-5">
+              Crafting sweet moments
             </div>
 
-            {/* Large Fluid Display Typography Headline */}
-            <h1 className="text-hero-display font-outfit font-black text-white tracking-tight mb-4 sm:mb-6 [text-shadow:_0_4px_30px_rgba(0,0,0,0.8)]">
-              Made to Delight.{' '}
-              <span className="font-serif-italic text-amber-300 font-normal block sm:inline drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-                Loved at Every Bite.
+            {/* Giant Chunky Display Headline matching Reference Website Typography */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[62px] xl:text-[68px] font-black tracking-[-0.035em] leading-[1.05] text-[#191938] mb-4 sm:mb-5">
+              Made to delight.{' '}
+              <span className="font-serif italic font-normal text-[#C8102E] block sm:inline">
+                Loved at every bite.
               </span>
             </h1>
 
             {/* Short Supporting Paragraph */}
-            <p className="text-sm sm:text-lg text-white/90 font-medium leading-relaxed max-w-2xl mb-8 sm:mb-10 text-center lg:text-left [text-shadow:_0_2px_10px_rgba(0,0,0,0.8)]">
+            <p className="text-sm sm:text-base md:text-lg text-[#4A4E69] font-normal leading-relaxed max-w-xl mb-6 sm:mb-8 text-center lg:text-left">
               From our signature crispy Romeo Choco Cones and slow-conched Swiss cream wafers to royal gold coin jars, experience India's premier confectionery manufacturer committed to uncompromised purity and taste.
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 sm:gap-5 w-full sm:w-auto">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3.5 w-full sm:w-auto">
               {/* Primary CTA */}
               <button
                 onClick={() => {
                   if (onExploreCatalog) onExploreCatalog();
                 }}
-                className="w-full sm:w-auto bg-[#C8102E] text-white hover:bg-white hover:text-[#C8102E] transition-all duration-300 px-7 py-3.5 sm:px-9 sm:py-4 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-xl hover:shadow-glow transform active:scale-95 border border-red-400/40 flex items-center justify-center gap-2.5 group"
+                className="w-full sm:w-auto bg-[#C8102E] hover:bg-[#9B0B21] text-white px-7 py-3 sm:px-8 sm:py-3.5 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider shadow-md hover:shadow-lg transition-all transform active:scale-95 flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <span>EXPLORE PRODUCTS</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:text-[#C8102E] group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </button>
 
               {/* Secondary CTA */}
@@ -83,120 +60,143 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
                 onClick={() => {
                   if (onRequestQuote) onRequestQuote();
                 }}
-                className="w-full sm:w-auto bg-white/10 backdrop-blur-md text-white hover:bg-white hover:text-[#111827] border border-white/30 transition-all duration-300 px-7 py-3.5 sm:px-9 sm:py-4 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-lg transform active:scale-95 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-white hover:bg-gray-50 text-[#191938] border border-gray-300 px-6 py-3 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow-xs transition-all transform active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <span>ABOUT MR SWEETS →</span>
               </button>
             </div>
           </motion.div>
 
-          {/* Right Column: Hero Showcase Product Card */}
+          {/* Right Column: Playful Circular Collage with Products & Tooltips */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
-            className="lg:col-span-5 w-full"
+            transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+            className="lg:col-span-6 w-full"
           >
-            <div className="relative bg-black/70 border border-white/20 backdrop-blur-xl p-5 sm:p-8 rounded-3xl sm:rounded-4xl shadow-2xl overflow-hidden group text-white">
-              {/* Card Header Badge */}
-              <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/15">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span className="text-[10px] sm:text-xs font-fredoka font-bold text-amber-300 uppercase tracking-widest">
-                    SIGNATURE CRAFT SELECTION
-                  </span>
+            <div className="relative w-full max-w-[460px] sm:max-w-[500px] mx-auto h-[380px] sm:h-[440px] md:h-[470px] flex items-center justify-center select-none">
+              
+              {/* 1. Large Royal Blue Circle (Upper Right) */}
+              <div className="absolute top-2 right-2 sm:right-6 w-56 h-56 sm:w-72 sm:h-72 md:w-76 md:h-76 rounded-full bg-[#2563EB] shadow-xl flex items-center justify-center z-10">
+                {/* 4-point Red Sparkle Accent */}
+                <div className="absolute -top-3 left-6 sm:left-8 text-[#E63946] z-30">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 fill-current drop-shadow-sm" viewBox="0 0 24 24">
+                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" />
+                  </svg>
                 </div>
-                <span className="bg-emerald-950/80 text-emerald-300 text-[9.5px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-500/40">
-                  100% Pure Veg
-                </span>
-              </div>
 
-              {/* Showcase Product Image Box */}
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-black/40 border border-white/15 p-4 flex items-center justify-center mb-4 group/img shadow-inner">
+                {/* Standing Romeo Choco Cone bursting out of the blue circle (Transparent Cutout) */}
                 <img
-                  src="/brawo box.png"
-                  alt="Mr. Sweet Brawo Choco Rice Crunch Bar"
-                  className="w-full h-full object-contain group-hover/img:scale-108 transition-transform duration-700 filter drop-shadow-2xl"
+                  src={getProductImage('/romeo-cone-cutout.png')}
+                  alt="Mr. Sweet Romeo Choco Cone"
+                  className="w-48 sm:w-60 md:w-68 max-h-[300px] sm:max-h-[340px] object-contain filter drop-shadow-2xl -mt-6 sm:-mt-10 z-20 transition-transform duration-500 hover:scale-105 pointer-events-auto"
+                  decoding="async"
+                  onError={(e) => handleImageError(e, '/romeo-cone-cutout.png')}
                 />
-                
-                <div className="absolute top-2 left-2 bg-[#FFC709] text-[#111827] font-fredoka text-[9px] sm:text-[10.5px] font-bold px-2.5 py-1 rounded-full shadow-md">
-                  ★ BESTSELLER
-                </div>
-
-                <div className="absolute bottom-2 right-2 bg-black/80 backdrop-blur-md border border-white/20 text-white text-[9px] sm:text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
-                  Crispy Choco Rice Crunch
-                </div>
               </div>
 
-              {/* Product Info */}
-              <div className="text-left">
-                <h3 className="text-lg sm:text-2xl font-outfit font-black text-white mb-1 group-hover:text-amber-300 transition-colors">
-                  Brawo Choco Rice Crunch Bar
-                </h3>
-                <p className="text-xs sm:text-sm text-white/80 font-normal leading-relaxed mb-4">
-                  Crispy roasted rice crispies enrobed in rich 70% dark cocoa and velvety milk chocolate coating.
-                </p>
+              {/* 2. Overlapping Warm Golden-Yellow Circle (Bottom Left) */}
+              <div className="absolute bottom-2 left-2 sm:left-6 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-[#FFBC00] shadow-lg flex items-center justify-center z-15">
+                {/* Brawo Rice Crunch Tub/Pack inside Yellow Circle (Transparent Cutout) */}
+                <img
+                  src={getProductImage('/brawo-box-cutout.png')}
+                  alt="Mr. Sweet Brawo Rice Crunch"
+                  className="w-40 sm:w-48 md:w-52 max-h-[220px] sm:max-h-[240px] object-contain filter drop-shadow-xl z-25 transition-transform duration-500 hover:scale-105 pointer-events-auto"
+                  decoding="async"
+                  onError={(e) => handleImageError(e, '/brawo-box-cutout.png')}
+                />
+              </div>
 
-                {/* 4 Quality Check Icons */}
-                <div className="grid grid-cols-2 gap-2 pt-3 border-t border-white/15 text-[10px] sm:text-xs text-white/90 font-semibold">
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>ISO 22000 Certified</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                    <span>Airtight Seal Lock</span>
-                  </div>
-                </div>
+              {/* 3. Horizontal Wafer Bar spanning across lower section (Transparent Cutout) */}
+              <div className="absolute top-[48%] right-0 sm:right-2 z-25 w-52 sm:w-64 md:w-72">
+                <img
+                  src={getProductImage('/nutymax-cutout.png')}
+                  alt="Mr. Sweet NUTYMAX Wafer Bar"
+                  className="w-full max-h-[210px] object-contain filter drop-shadow-2xl transition-transform duration-500 hover:scale-105 pointer-events-auto"
+                  decoding="async"
+                  onError={(e) => handleImageError(e, '/nutymax-cutout.png')}
+                />
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Corporate Trust & Credibility Footer Strip */}
+        {/* Corporate Trust & Credibility Value Cards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mt-10 sm:mt-16 pt-6 border-t border-white/10 bg-black/60 backdrop-blur-md rounded-2xl p-4 sm:p-6 border border-white/15 text-white"
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 mt-10 sm:mt-14"
         >
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 text-amber-300 flex items-center justify-center shrink-0">
-              <Award className="w-5 h-5" />
+          {/* 1. Quality */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-4.5 border border-[#EFE5D3] hover:border-amber-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30 group-hover:scale-110 transition-transform">
+              <Award className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div className="text-left">
-              <div className="text-xs sm:text-sm font-extrabold text-white">QUALITY</div>
-              <div className="text-[10px] sm:text-xs text-white/80">100% Pure Veg Ingredients</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 text-amber-300 flex items-center justify-center shrink-0">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <div className="text-left">
-              <div className="text-xs sm:text-sm font-extrabold text-white">TASTE</div>
-              <div className="text-[10px] sm:text-xs text-white/80">Slow-Conched Cocoa</div>
+            <div className="text-left min-w-0">
+              <span className="text-[9px] sm:text-[10px] font-fredoka font-bold text-amber-600 uppercase tracking-wider block">
+                100% PURE VEG
+              </span>
+              <h4 className="text-xs sm:text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+                Signature Quality
+              </h4>
+              <p className="text-[10px] sm:text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                Finest cocoa & purity
+              </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 text-amber-300 flex items-center justify-center shrink-0">
-              <Factory className="w-5 h-5" />
+          {/* 2. Taste */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-4.5 border border-[#EFE5D3] hover:border-red-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#E61E2A] to-[#A80B1E] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-500/30 group-hover:scale-110 transition-transform">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div className="text-left">
-              <div className="text-xs sm:text-sm font-extrabold text-white">MANUFACTURING</div>
-              <div className="text-[10px] sm:text-xs text-white/80">ISO 22000 Automated Plant</div>
+            <div className="text-left min-w-0">
+              <span className="text-[9px] sm:text-[10px] font-fredoka font-bold text-[#E61E2A] uppercase tracking-wider block">
+                DELIGHTFUL TASTE
+              </span>
+              <h4 className="text-xs sm:text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+                Slow-Conched Cocoa
+              </h4>
+              <p className="text-[10px] sm:text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                Velvet chocolate layers
+              </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 text-amber-300 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-5 h-5" />
+          {/* 3. Manufacturing */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-4.5 border border-[#EFE5D3] hover:border-blue-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/30 group-hover:scale-110 transition-transform">
+              <Factory className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
-            <div className="text-left">
-              <div className="text-xs sm:text-sm font-extrabold text-white">TRUST</div>
-              <div className="text-[10px] sm:text-xs text-white/80">50,000+ Retail Counters</div>
+            <div className="text-left min-w-0">
+              <span className="text-[9px] sm:text-[10px] font-fredoka font-bold text-blue-600 uppercase tracking-wider block">
+                ISO 22000 PLANT
+              </span>
+              <h4 className="text-xs sm:text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+                Automated Plant
+              </h4>
+              <p className="text-[10px] sm:text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                Zero-touch hygiene
+              </p>
+            </div>
+          </div>
+
+          {/* 4. Trust */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-4.5 border border-[#EFE5D3] hover:border-emerald-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform">
+              <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6" />
+            </div>
+            <div className="text-left min-w-0">
+              <span className="text-[9px] sm:text-[10px] font-fredoka font-bold text-emerald-600 uppercase tracking-wider block">
+                PAN-INDIA TRUST
+              </span>
+              <h4 className="text-xs sm:text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+                50,000+ Counters
+              </h4>
+              <p className="text-[10px] sm:text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                Trusted by families
+              </p>
             </div>
           </div>
         </motion.div>
@@ -204,5 +204,6 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
     </section>
   );
 }
+
 
 

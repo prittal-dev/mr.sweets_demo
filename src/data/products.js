@@ -37,7 +37,7 @@ export const iconicProducts = [
     priceUSD: '11.99',
     priceINR: '110',
     moq: '10 cartons',
-    tag: '₹10 Pack',
+    tag: 'Snack Pack',
     image: '/mr.joe.png',
     description: 'Multi-layered crispy wafer bar coated with rich milk chocolate, chewy caramel, and rice crispies.'
   },
@@ -191,7 +191,7 @@ export const iconicProducts = [
     priceUSD: '6.99',
     priceINR: '65',
     moq: '15 cartons',
-    tag: '₹5 Pack',
+    tag: 'Retail Pack',
     image: '/brawo.png',
     description: 'Crispy cocoa wafer bar filled with rich chocolate cream and crunchy rice crispies.'
   },

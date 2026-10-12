@@ -2,15 +2,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Eye, ShoppingBag, Mail } from 'lucide-react';
 import { showcaseProducts } from '../data/products';
+import { getProductImage, handleImageError } from '../utils/imageUrl';
 
 export default function IconicCatalog({
   onEnquire,
   onAddToCart,
   onQuickView,
   selectedCategory = 'all',
-  onSelectCategory
+  onSelectCategory,
+  forceFullView = false
 }) {
-  const [isFullView, setIsFullView] = useState(false);
+  const [isFullView, setIsFullView] = useState(forceFullView || selectedCategory !== 'all');
+
+  // Auto-expand full view when forceFullView is enabled or category is filtered
+  useEffect(() => {
+    if (forceFullView || selectedCategory !== 'all') {
+      setIsFullView(true);
+    }
+  }, [forceFullView, selectedCategory]);
+
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollContainerRef = useRef(null);
 
@@ -223,10 +233,11 @@ function renderGridCard(product, onQuickView, onAddToCart, onEnquire) {
         {/* Inner Pure White Circle */}
         <div className="w-[80%] h-[80%] rounded-full bg-white flex items-center justify-center p-2 sm:p-2.5 shadow-xs group-hover:scale-108 transition-transform duration-300">
           <img
-            src={product.image}
+            src={getProductImage(product.image)}
             alt={product.name}
             className="w-full h-full max-h-[85%] max-w-[85%] object-contain filter drop-shadow-sm"
-            loading="lazy"
+            decoding="async"
+            onError={(e) => handleImageError(e, product.image)}
           />
         </div>
       </div>
@@ -267,10 +278,11 @@ function renderArchCard(product, onQuickView, onAddToCart, onEnquire) {
       {/* Top Pure White Circle Cutout holding the crisp product image */}
       <div className="w-44 h-44 sm:w-52 sm:h-52 rounded-full bg-white flex items-center justify-center p-4 sm:p-5 shadow-sm mx-auto mt-2 sm:mt-3 mb-5 group-hover:scale-105 transition-transform duration-300">
         <img
-          src={product.image}
+          src={getProductImage(product.image)}
           alt={product.name}
           className="h-32 sm:h-38 w-auto max-w-[85%] max-h-[85%] object-contain filter drop-shadow-md"
-          loading="lazy"
+          decoding="async"
+          onError={(e) => handleImageError(e, product.image)}
         />
       </div>
 
@@ -294,12 +306,12 @@ function renderArchCard(product, onQuickView, onAddToCart, onEnquire) {
         {product.description}
       </p>
 
-      {/* Card Action Controls & Price */}
+      {/* Card Action Controls & Trade Details */}
       <div className="pt-3 border-t border-black/10 flex items-center justify-between mt-auto">
-        <span className="text-sm font-extrabold text-[#111827]">
-          ₹{product.priceINR}
+        <span className="text-xs font-bold text-[#111827]/70 uppercase tracking-wider truncate mr-2">
+          {product.pack || product.tag || product.moq || 'Wholesale Range'}
         </span>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1.5 shrink-0">
           <button
             onClick={(e) => {
               e.stopPropagation();

@@ -142,7 +142,7 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                       />
                       <div>
                         <div className="text-xs font-bold text-[#111827]">{sweet.name}</div>
-                        <div className="text-[11px] text-[#C8102E] font-semibold">₹{sweet.unitPrice} / pc</div>
+                        <div className="text-[11px] text-gray-500 font-medium">B2B Trade Confectionery</div>
                       </div>
                     </div>
 

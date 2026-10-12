@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import HeroBannerSlider from './components/HeroBannerSlider';
 import Hero from './components/Hero';
 import MarqueeBanner from './components/MarqueeBanner';
 import DualTickerBanner from './components/DualTickerBanner';
@@ -221,18 +222,16 @@ export default function App() {
 
   const handleSelectCategory = (categoryId) => {
     setSelectedCategory(categoryId);
-    if (activePage !== 'home' && activePage !== 'products') {
+    // When clicking Explore on any category circle, open the dedicated Products page with all items opened
+    if (activePage !== 'products') {
       handleNavigate('products');
-      setTimeout(() => {
-        const el = document.getElementById('products');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      setTimeout(() => {
-        const el = document.getElementById('products');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 50);
     }
+    setTimeout(() => {
+      const el = document.getElementById('products');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 150);
   };
 
   const cartItemCount = cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
@@ -284,12 +283,14 @@ export default function App() {
         {/* 1. Full Home Experience */}
         {activePage === 'home' && (
           <>
+            {/* 5-Banner Autoscroll Slider (Uncropped & 3-sec interval) */}
+            <HeroBannerSlider />
+            {/* Atelier Hero Section */}
             <Hero
               onExploreCatalog={() => handleNavigate('products')}
               onRequestQuote={() => openLeadModal('wholesale')}
             />
             <DualTickerBanner />
-            <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
             <CraftBanner
               selectedCategory={selectedCategory}
               onSelectCategory={handleSelectCategory}
@@ -304,7 +305,6 @@ export default function App() {
             <MarqueeBanner theme="crimson" />
             <WhyChooseUs onOpenInquire={() => openLeadModal('wholesale')} />
             <TestimonialsSection />
-            <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
             <ContactSection />
             <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
@@ -328,16 +328,13 @@ export default function App() {
         {/* 3. Dedicated Products Page */}
         {activePage === 'products' && (
           <>
-            <CraftBanner
-              selectedCategory={selectedCategory}
-              onSelectCategory={handleSelectCategory}
-            />
             <IconicCatalog
               selectedCategory={selectedCategory}
-              onSelectCategory={setSelectedCategory}
+              onSelectCategory={handleSelectCategory}
               onEnquire={(product) => openLeadModal('product', product)}
               onAddToCart={handleAddToCart}
               onQuickView={(product) => setQuickViewProduct(product)}
+              forceFullView={true}
             />
             <MarqueeBanner theme="dark" />
             <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Trash2, ShoppingBag, Check, ArrowRight, Truck } from 'lucide-react';
+import { getProductImage, handleImageError } from '../utils/imageUrl';
 
 export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantity, onRemoveItem, onCheckout }) {
   const [promoCode, setPromoCode] = useState('');
@@ -78,10 +79,11 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
                   className="bg-white border border-red-100 p-3.5 rounded-2xl flex gap-3 shadow-sm"
                 >
                   <img
-                    src={item.image}
+                    src={getProductImage(item.image)}
                     alt={item.name}
-                    className="w-16 h-16 rounded-xl object-cover"
-                    loading="lazy"
+                    className="w-16 h-16 rounded-xl object-contain p-1"
+                    decoding="async"
+                    onError={(e) => handleImageError(e, item.image)}
                   />
                   <div className="flex-1 flex flex-col justify-between">
                     <div>

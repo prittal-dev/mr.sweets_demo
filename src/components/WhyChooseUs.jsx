@@ -1,144 +1,211 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import {
-  ShieldCheck,
-  Factory,
-  Sparkles,
-  Truck,
-  Layers,
-  TrendingUp,
-  CheckCircle2,
-  Award
-} from 'lucide-react';
+import { Award, ArrowRight, Sparkles } from 'lucide-react';
 
 export default function WhyChooseUs({ onOpenInquire }) {
-  const whyFeatures = [
+  const pills = [
     {
-      number: '01',
-      title: 'QUALITY & PURITY',
-      tagline: '100% Pure Vegetarian',
-      desc: 'Every product is crafted with a commitment to consistent taste, pure cocoa butter, milk solids, and zero animal gelatin.',
-      highlight: 'Green Dot Certified'
+      id: 0,
+      deg: -3.5,
+      bg: 'bg-[#FFBC00]',
+      shadow: 'shadow-[0_10px_25px_rgba(255,188,0,0.35)]',
+      hoverShadow: 'hover:shadow-[0_16px_35px_rgba(255,188,0,0.5)]',
+      textBold: 'Formats?',
+      boldColor: 'text-[#0F172A]',
+      textItalic: "We make 'em.",
+      italicColor: 'text-[#C8102E]'
     },
     {
-      number: '02',
-      title: 'MODERN MANUFACTURING',
-      tagline: '100,000+ Sq. Ft. Plant',
-      desc: 'State-of-the-art continuous thermal conching tanks and automated wafer baking lines engineered for velvet smoothness.',
-      highlight: 'Swiss-Grade Refiners'
+      id: 1,
+      deg: 2.5,
+      bg: 'bg-[#C8102E]',
+      shadow: 'shadow-[0_10px_25px_rgba(200,16,46,0.35)]',
+      hoverShadow: 'hover:shadow-[0_16px_35px_rgba(200,16,46,0.5)]',
+      textBold: 'Great treats',
+      boldColor: 'text-white',
+      textItalic: 'for everyone.',
+      italicColor: 'text-[#FFBC00]'
     },
     {
-      number: '03',
-      title: 'PRODUCT INNOVATION',
-      tagline: '35+ Iconic SKUs',
-      desc: 'Creating iconic confectionery treats from velvet choco cones and wafer rolls to interactive surprise toy tubs that bring something fresh to the shelf.',
-      highlight: '35+ Original SKUs'
+      id: 2,
+      deg: -2,
+      bg: 'bg-[#38BFA7]',
+      shadow: 'shadow-[0_10px_25px_rgba(56,191,167,0.35)]',
+      hoverShadow: 'hover:shadow-[0_16px_35px_rgba(56,191,167,0.5)]',
+      textBold: 'Zero',
+      boldColor: 'text-[#0F172A]',
+      textItalic: 'shortcuts.',
+      italicColor: 'text-[#0F172A]'
     },
     {
-      number: '04',
-      title: 'RELIABLE DISTRIBUTION',
-      tagline: '50,000+ Outlets Served',
-      desc: 'Nationwide distribution network supplying over 15,000+ pincodes through climate-controlled express logistics.',
-      highlight: '15,000+ Pincodes Served'
+      id: 3,
+      deg: 3,
+      bg: 'bg-[#2563EB]',
+      shadow: 'shadow-[0_10px_25px_rgba(37,99,235,0.35)]',
+      hoverShadow: 'hover:shadow-[0_16px_35px_rgba(37,99,235,0.5)]',
+      textBold: 'Never hard',
+      boldColor: 'text-white',
+      textItalic: 'to find.',
+      italicColor: 'text-[#FFBC00]'
     },
     {
-      number: '05',
-      title: 'HYGIENE & CLEANROOMS',
-      tagline: 'Class 100k Cleanroom',
-      desc: 'Positive air-pressure HEPA air filtration and multi-barrier foil wrapping locking in freshness and crunch for 12+ months.',
-      highlight: 'Airtight Moisture Lock'
-    },
-    {
-      number: '06',
-      title: 'HIGH B2B MARGINS',
-      tagline: 'Direct Factory Terms',
-      desc: 'Direct manufacturer pricing structures and flexible MOQ tiers designed to maximize profitability for trade partners.',
-      highlight: 'High Merchant ROI'
+      id: 4,
+      deg: 1.5,
+      bg: 'bg-[#FFA7BF]',
+      shadow: 'shadow-[0_10px_25px_rgba(255,167,191,0.4)]',
+      hoverShadow: 'hover:shadow-[0_16px_35px_rgba(255,167,191,0.55)]',
+      textBold: 'Solve for India.',
+      boldColor: 'text-[#0F172A]',
+      textItalic: 'Win anywhere.',
+      italicColor: 'text-[#C8102E]'
     }
   ];
 
   return (
-    <section id="why-choose" className="w-full bg-[#FAF9F6] text-[#111827] py-16 sm:py-28 px-3 sm:px-6 lg:px-8 border-t border-gray-200 relative overflow-hidden">
-      {/* Background Subtle Warm Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(200,16,46,0.04)_0%,rgba(255,255,255,0)_70%)] pointer-events-none" />
+    <section
+      id="why-choose"
+      className="w-full bg-[#FAF7EE] text-[#111827] py-16 sm:py-24 px-4 sm:px-6 lg:px-8 border-t border-[#EFE9DA] relative overflow-hidden"
+    >
+      {/* Subtle Warm Background Ambient Circles */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(255,188,0,0.08)_0%,rgba(250,247,238,0)_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* SECTION HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20">
-          <div className="inline-flex items-center gap-2 bg-white border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-fredoka font-bold uppercase tracking-widest mb-4 shadow-sm">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 bg-white border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-fredoka font-bold uppercase tracking-widest mb-4 shadow-xs">
             <Award className="w-3.5 h-3.5 text-[#C8102E]" />
             <span>THE MR. SWEET ADVANTAGE</span>
           </div>
 
-          <h2 className="text-section-display font-outfit font-black text-[#111827] tracking-tight mb-5">
+          <h2 className="text-section-display font-outfit font-black text-[#111827] tracking-tight mb-4">
             Why Retailers & Confectionery Lovers{' '}
             <span className="font-serif-italic text-[#C8102E] font-normal block sm:inline">
               Choose Mr. Sweet.
             </span>
           </h2>
 
-          <p className="text-xs sm:text-base text-gray-600 font-medium leading-relaxed max-w-3xl mx-auto">
+          <p className="text-xs sm:text-base text-gray-600 font-medium leading-relaxed max-w-2xl mx-auto">
             Combining 30+ years of confectionery heritage with automated continuous conching, certified food safety standards, and nationwide distribution power.
           </p>
         </div>
 
-        {/* 6 EDITORIAL NUMBERED FEATURE CARDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          {whyFeatures.map((item, idx) => {
-            const gradients = [
-              'bg-gradient-to-br from-[#9B0B21] to-[#C8102E] border-red-400/40',
-              'bg-gradient-to-br from-[#B45309] to-[#D97706] border-amber-300/40',
-              'bg-gradient-to-br from-[#BE185D] to-[#EC4899] border-pink-300/40',
-              'bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] border-blue-300/40',
-              'bg-gradient-to-br from-[#047857] to-[#10B981] border-emerald-300/40',
-              'bg-gradient-to-br from-[#6D28D9] to-[#A855F7] border-purple-300/40'
-            ];
-            const cardGradient = gradients[idx % gradients.length];
+        {/* PLAYFUL STICKER COLLAGE CLUSTER */}
+        <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 my-6 sm:my-10 px-2 max-w-5xl mx-auto select-none">
+          {/* Row 1: Yellow Pill + Red Pill */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full">
+            {/* Pill 1: Formats? We make 'em. */}
+            <button
+              type="button"
+              onClick={onOpenInquire}
+              style={{ '--rot': `${pills[0].deg}deg` }}
+              className={`pill-sticker ${pills[0].bg} ${pills[0].shadow} ${pills[0].hoverShadow} px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
+            >
+              <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[0].boldColor} tracking-tight leading-none`}>
+                {pills[0].textBold}
+              </span>
+              <span className={`font-playfair italic font-normal text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[0].italicColor} ml-2.5 sm:ml-3.5 leading-none`}>
+                {pills[0].textItalic}
+              </span>
+            </button>
 
-            return (
-              <motion.div
-                key={item.number}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`${cardGradient} border p-6 sm:p-8 rounded-3xl shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden text-white`}
-              >
-                {/* Large Visual Background Number */}
-                <div className="text-5xl sm:text-7xl font-outfit font-black text-white/20 group-hover:text-white/35 transition-colors tracking-tight mb-4 leading-none">
-                  {item.number}
-                </div>
+            {/* Red Plus 1 */}
+            <span className="text-[#C8102E] font-black text-2xl sm:text-3xl md:text-4xl select-none leading-none px-1">
+              +
+            </span>
 
-                <div>
-                  {/* Tagline Pill */}
-                  <div className="text-[10px] sm:text-xs font-fredoka font-bold text-amber-300 uppercase tracking-widest mb-2">
-                    {item.tagline}
-                  </div>
+            {/* Pill 2: Great treats for everyone. */}
+            <button
+              type="button"
+              onClick={onOpenInquire}
+              style={{ '--rot': `${pills[1].deg}deg` }}
+              className={`pill-sticker ${pills[1].bg} ${pills[1].shadow} ${pills[1].hoverShadow} px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-white/10`}
+            >
+              <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[1].boldColor} tracking-tight leading-none`}>
+                {pills[1].textBold}
+              </span>
+              <span className={`font-playfair italic font-normal text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[1].italicColor} ml-2.5 sm:ml-3.5 leading-none`}>
+                {pills[1].textItalic}
+              </span>
+            </button>
 
-                  {/* Heading */}
-                  <h3 className="text-lg sm:text-2xl font-outfit font-black text-white mb-3 group-hover:text-amber-200 transition-colors leading-snug">
-                    {item.title}
-                  </h3>
+            {/* Red Plus 2 */}
+            <span className="text-[#C8102E] font-black text-2xl sm:text-3xl md:text-4xl select-none leading-none px-1 hidden lg:inline">
+              +
+            </span>
+          </div>
 
-                  {/* Short Description */}
-                  <p className="text-xs sm:text-sm text-white/90 font-normal leading-relaxed mb-6">
-                    {item.desc}
-                  </p>
-                </div>
+          {/* Row 2: Mint Pill + Blue Pill */}
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5 w-full">
+            {/* Pill 3: Zero shortcuts. */}
+            <button
+              type="button"
+              onClick={onOpenInquire}
+              style={{ '--rot': `${pills[2].deg}deg` }}
+              className={`pill-sticker ${pills[2].bg} ${pills[2].shadow} ${pills[2].hoverShadow} px-6 sm:px-8 md:px-9 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
+            >
+              <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[2].boldColor} tracking-tight leading-none`}>
+                {pills[2].textBold}
+              </span>
+              <span className={`font-playfair italic font-normal text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[2].italicColor} ml-2.5 sm:ml-3.5 leading-none`}>
+                {pills[2].textItalic}
+              </span>
+            </button>
 
-                {/* Bottom Highlight Pill */}
-                <div className="pt-4 border-t border-white/20 flex items-center justify-between">
-                  <span className="text-[11px] sm:text-xs font-bold text-amber-200 flex items-center gap-1.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
-                    <span>{item.highlight}</span>
-                  </span>
-                </div>
-              </motion.div>
-            );
-          })}
+            {/* Red Plus 3 */}
+            <span className="text-[#C8102E] font-black text-2xl sm:text-3xl md:text-4xl select-none leading-none px-1">
+              +
+            </span>
+
+            {/* Pill 4: Never hard to find. */}
+            <button
+              type="button"
+              onClick={onOpenInquire}
+              style={{ '--rot': `${pills[3].deg}deg` }}
+              className={`pill-sticker ${pills[3].bg} ${pills[3].shadow} ${pills[3].hoverShadow} px-6 sm:px-8 md:px-9 py-3 sm:py-4 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-white/10`}
+            >
+              <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[3].boldColor} tracking-tight leading-none`}>
+                {pills[3].textBold}
+              </span>
+              <span className={`font-playfair italic font-normal text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[3].italicColor} ml-2.5 sm:ml-3.5 leading-none`}>
+                {pills[3].textItalic}
+              </span>
+            </button>
+
+            {/* Red Plus 4 */}
+            <span className="text-[#C8102E] font-black text-2xl sm:text-3xl md:text-4xl select-none leading-none px-1 hidden lg:inline">
+              +
+            </span>
+          </div>
+
+          {/* Row 3: Pink Pill: Solve for India. Win anywhere. */}
+          <div className="flex items-center justify-center w-full">
+            <button
+              type="button"
+              onClick={onOpenInquire}
+              style={{ '--rot': `${pills[4].deg}deg` }}
+              className={`pill-sticker ${pills[4].bg} ${pills[4].shadow} ${pills[4].hoverShadow} px-7 sm:px-10 md:px-12 py-3.5 sm:py-4.5 md:py-5 rounded-full cursor-pointer flex items-center shrink-0 border border-black/5`}
+            >
+              <span className={`font-outfit font-black text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[4].boldColor} tracking-tight leading-none`}>
+                {pills[4].textBold}
+              </span>
+              <span className={`font-playfair italic font-normal text-xl sm:text-2xl md:text-3xl lg:text-[36px] ${pills[4].italicColor} ml-2.5 sm:ml-3.5 leading-none`}>
+                {pills[4].textItalic}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom CTA Button */}
+        <div className="mt-10 sm:mt-12 text-center">
+          <button
+            onClick={onOpenInquire}
+            className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#9B0B21] text-white font-fredoka font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-full shadow-md hover:shadow-glow transition-all active:scale-95 cursor-pointer"
+          >
+            <Sparkles className="w-4 h-4 text-amber-200" />
+            <span>Partner with Mr. Sweet Wholesale</span>
+            <ArrowRight className="w-4 h-4 text-white" />
+          </button>
         </div>
       </div>
     </section>
   );
 }
-

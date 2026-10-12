@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Star, Mail, ShieldCheck, Sparkles, ZoomIn, ShoppingBag, Check } from 'lucide-react';
+import { getProductImage, handleImageError } from '../utils/imageUrl';
 
 export default function ProductQuickViewModal({ product, onClose, onOpenInquire, onAddToCart }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -76,10 +77,11 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
               className="relative bg-red-50/40 border-b md:border-b-0 md:border-r border-gray-100 min-h-[260px] sm:min-h-[340px] md:min-h-full flex items-center justify-center p-6 cursor-pointer group/modalimg min-w-0"
             >
               <img
-                src={product.image}
+                src={getProductImage(product.image)}
                 alt={product.name}
                 className="w-full h-full max-h-[320px] sm:max-h-[380px] object-contain group-hover/modalimg:scale-105 transition-transform duration-300"
-                loading="lazy"
+                decoding="async"
+                onError={(e) => handleImageError(e, product.image)}
               />
 
               {/* Badge */}
@@ -173,9 +175,11 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
 
           <div className="max-w-5xl max-h-[90vh] flex flex-col items-center justify-center" onClick={(e) => e.stopPropagation()}>
             <img
-              src={product.image}
+              src={getProductImage(product.image)}
               alt={product.name}
               className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl"
+              decoding="async"
+              onError={(e) => handleImageError(e, product.image)}
             />
             <div className="mt-4 text-center">
               <h3 className="text-white text-lg font-bold">{product.name}</h3>

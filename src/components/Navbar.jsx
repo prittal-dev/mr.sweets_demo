@@ -23,22 +23,18 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
 
   return (
     <header
-      className={`${
-        activePage !== 'home'
-          ? 'relative bg-white border-b border-gray-200 shadow-sm py-2.5 sm:py-3.5 text-[#111827]'
-          : 'absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent border-none py-3.5 sm:py-5 text-white'
-      } z-50 w-full transition-all duration-300`}
+      className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm py-2 sm:py-3 text-[#111827] transition-all duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Left: Brand Logo */}
         <button
           onClick={(e) => handleLinkClick(e, 'home')}
-          className="flex items-center group focus:outline-none py-1 text-left shrink-0"
+          className="flex items-center group focus:outline-none py-1 text-left shrink-0 cursor-pointer"
         >
           <img
             src="/mr_sweet_logo.svg"
             alt="Mr. Sweet Haute Confectionery"
-            className="h-10 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-lg"
+            className="h-10 sm:h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105 filter drop-shadow-sm"
           />
         </button>
 
@@ -50,22 +46,18 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
               <button
                 key={link.name}
                 onClick={(e) => handleLinkClick(e, link.id)}
-                className={`text-xs xl:text-sm font-outfit font-extrabold transition-all duration-300 relative py-1.5 whitespace-nowrap ${
-                  activePage !== 'home'
-                    ? isActive
-                      ? 'text-[#C8102E]'
-                      : 'text-gray-800 hover:text-[#C8102E]'
-                    : isActive
-                      ? 'text-amber-300'
-                      : 'text-white/90 hover:text-white'
+                className={`text-xs xl:text-sm font-outfit font-extrabold transition-all duration-300 relative py-1.5 whitespace-nowrap cursor-pointer ${
+                  isActive
+                    ? 'text-[#C8102E]'
+                    : 'text-gray-800 hover:text-[#C8102E]'
                 }`}
               >
                 <span>{link.name}</span>
                 {/* Active & Hover Underline Pill */}
                 <span
-                  className={`absolute bottom-0 left-0 h-[2.5px] rounded-full transition-all duration-300 ${
-                    activePage !== 'home' ? 'bg-[#C8102E]' : 'bg-amber-300'
-                  } ${isActive ? 'w-full' : 'w-0 hover:w-full'}`}
+                  className={`absolute bottom-0 left-0 h-[2.5px] rounded-full transition-all duration-300 bg-[#C8102E] ${
+                    isActive ? 'w-full' : 'w-0 hover:w-full'
+                  }`}
                 />
               </button>
             );
@@ -76,7 +68,7 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={onOpenInquire}
-            className="bg-[#C8102E] text-white hover:bg-[#7A0819] transition-all duration-300 rounded-full px-5 py-2.5 xl:px-6 xl:py-2.5 text-xs font-extrabold tracking-wider flex items-center gap-2 border border-red-400/40 shadow-md hover:shadow-glow transform active:scale-95 uppercase"
+            className="bg-[#C8102E] text-white hover:bg-[#7A0819] transition-all duration-300 rounded-full px-5 py-2.5 xl:px-6 xl:py-2.5 text-xs font-extrabold tracking-wider flex items-center gap-2 border border-red-400/40 shadow-md hover:shadow-glow transform active:scale-95 uppercase cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5 text-amber-200" />
             <span>Enquire Now</span>
@@ -87,7 +79,7 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={onOpenInquire}
-            className="bg-[#C8102E] text-white px-3 py-2 rounded-full shadow-md text-xs font-bold flex items-center gap-1.5"
+            className="bg-[#C8102E] text-white px-3 py-2 rounded-full shadow-md text-xs font-bold flex items-center gap-1.5 cursor-pointer"
             aria-label="Enquire Now"
           >
             <Mail className="w-3.5 h-3.5 text-white" />
@@ -96,10 +88,10 @@ export default function Navbar({ activePage = 'home', activeSection = 'home', on
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white focus:outline-none active:scale-95 transition-transform"
+            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-800 focus:outline-none active:scale-95 transition-transform cursor-pointer"
             aria-label="Toggle navigation"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5 text-amber-300" /> : <Menu className="w-5 h-5 text-white" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-[#C8102E]" /> : <Menu className="w-5 h-5 text-gray-800" />}
           </button>
         </div>
       </div>
