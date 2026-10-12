@@ -30,7 +30,7 @@ export default function CustomerReviewsSection() {
   ];
 
   return (
-    <section id="reviews" className="w-full bg-[#FDFBF7] py-6 sm:py-20 px-3 sm:px-6 lg:px-8 border-t border-amber-900/10 overflow-hidden">
+    <section id="reviews" className="w-full bg-[#FAF9F6] py-6 sm:py-20 px-3 sm:px-6 lg:px-8 border-t border-gray-200 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 sm:mb-12 gap-2 sm:gap-4">
@@ -39,12 +39,12 @@ export default function CustomerReviewsSection() {
               <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span>AUTHENTIC SWEET MOMENTS</span>
             </div>
-            <h2 className="text-xl sm:text-4xl md:text-5xl font-extrabold text-[#231815] tracking-tight">
+            <h2 className="text-xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight">
               Loved Across Generations
             </h2>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 bg-white border border-amber-900/15 px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-xs text-[10px] sm:text-xs font-bold text-[#8B7355] self-start md:self-auto">
+          <div className="inline-flex items-center gap-1.5 bg-white border border-gray-200 px-3 py-1 sm:px-4 sm:py-2 rounded-full shadow-xs text-[10px] sm:text-xs font-bold text-gray-500 self-start md:self-auto">
             <div className="flex text-amber-500">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400" />
@@ -59,7 +59,7 @@ export default function CustomerReviewsSection() {
           {reviews.map((item) => (
             <div
               key={item.id}
-              className="snap-center shrink-0 w-[82vw] md:w-auto bg-white border border-amber-900/15 p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              className="snap-center shrink-0 w-[82vw] md:w-auto bg-white border border-gray-200 p-4 sm:p-8 rounded-2xl sm:rounded-3xl shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Rating Stars */}
@@ -70,20 +70,20 @@ export default function CustomerReviewsSection() {
                 </div>
 
                 {/* Review Title */}
-                <h3 className="text-xs sm:text-base font-extrabold text-[#231815] mb-1.5 sm:mb-3 leading-snug group-hover:text-[#C8102E] transition-colors">
+                <h3 className="text-xs sm:text-base font-extrabold text-[#111827] mb-1.5 sm:mb-3 leading-snug group-hover:text-[#C8102E] transition-colors">
                   {item.title}
                 </h3>
 
                 {/* Review Quote */}
-                <p className="text-[11px] sm:text-sm text-[#4F3A34] font-normal leading-relaxed mb-3 sm:mb-6">
+                <p className="text-[11px] sm:text-sm text-gray-600 font-normal leading-relaxed mb-3 sm:mb-6">
                   {item.quote}
                 </p>
               </div>
 
               {/* Author Info */}
-              <div className="pt-2.5 sm:pt-4 border-t border-amber-900/10">
-                <div className="font-extrabold text-[11px] sm:text-xs text-[#231815]">{item.author}</div>
-                <div className="text-[10px] sm:text-[11px] text-[#8B7355] font-medium mt-0.5">{item.location}</div>
+              <div className="pt-2.5 sm:pt-4 border-t border-gray-100">
+                <div className="font-extrabold text-[11px] sm:text-xs text-[#111827]">{item.author}</div>
+                <div className="text-[10px] sm:text-[11px] text-gray-500 font-medium mt-0.5">{item.location}</div>
               </div>
             </div>
           ))}

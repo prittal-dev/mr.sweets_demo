@@ -30,8 +30,12 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'Cormorant Garamond', 'serif'],
+        sans: ['Plus Jakarta Sans', 'Outfit', 'sans-serif'],
+        outfit: ['Outfit', 'sans-serif'],
+        fredoka: ['Fredoka', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
+        playfair: ['Playfair Display', 'serif'],
+        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
       },
       borderRadius: {
         '2xl': '18px',

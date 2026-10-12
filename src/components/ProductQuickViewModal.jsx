@@ -57,14 +57,14 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
         aria-labelledby="modal-product-title"
       >
         <div
-          className="bg-[#FDFBF7] border border-cream-300 w-full max-w-3xl sm:max-w-4xl rounded-3xl overflow-hidden shadow-2xl relative my-auto max-h-[92vh] flex flex-col min-w-0"
+          className="bg-white border border-gray-200 w-full max-w-3xl sm:max-w-4xl rounded-3xl overflow-hidden shadow-2xl relative my-auto max-h-[92vh] flex flex-col min-w-0"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 sm:p-2.5 rounded-full bg-white/90 border border-cream-300 text-[#231815] hover:bg-[#C8102E] hover:text-white transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#C8102E]"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 sm:p-2.5 rounded-full bg-white/90 border border-gray-200 text-[#111827] hover:bg-[#C8102E] hover:text-white transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#C8102E]"
           >
             <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
@@ -73,7 +73,7 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
             {/* Product Image Box */}
             <div
               onClick={() => setIsLightboxOpen(true)}
-              className="relative bg-[#F5F2EB] border-b md:border-b-0 md:border-r border-cream-200 min-h-[260px] sm:min-h-[340px] md:min-h-full flex items-center justify-center p-6 cursor-pointer group/modalimg min-w-0"
+              className="relative bg-red-50/40 border-b md:border-b-0 md:border-r border-gray-100 min-h-[260px] sm:min-h-[340px] md:min-h-full flex items-center justify-center p-6 cursor-pointer group/modalimg min-w-0"
             >
               <img
                 src={product.image}
@@ -84,14 +84,14 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
 
               {/* Badge */}
               <div className="absolute top-4 left-4 z-10">
-                <span className="bg-[#110C0A] text-[#D4AF37] text-[11px] font-extrabold px-3 py-1 rounded-full border border-[#D4AF37]/30 tracking-wider shadow-sm">
-                  {product.badge || 'ATELIER SPECIAL'}
+                <span className="bg-[#9B0B21] text-amber-300 text-[11px] font-extrabold px-3 py-1 rounded-full border border-red-700/50 tracking-wider shadow-sm">
+                  {product.badge || 'MR. SWEETS SPECIAL'}
                 </span>
               </div>
 
               {/* Click to Zoom Overlay Indicator */}
-              <div className="absolute bottom-4 right-4 bg-[#110C0A]/80 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 opacity-90 group-hover/modalimg:bg-[#C8102E] transition-all shadow-md">
-                <ZoomIn className="w-3.5 h-3.5 text-[#D4AF37]" />
+              <div className="absolute bottom-4 right-4 bg-[#7A0819]/90 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 opacity-90 group-hover/modalimg:bg-[#C8102E] transition-all shadow-md">
+                <ZoomIn className="w-3.5 h-3.5 text-amber-300" />
                 <span>Click to Expand</span>
               </div>
             </div>
@@ -99,16 +99,16 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
             {/* Product Details */}
             <div className="p-5 sm:p-8 flex flex-col justify-between min-w-0 w-full">
               <div>
-                <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#8B7355] font-bold uppercase tracking-widest mb-1">
+                <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#C8102E] font-bold uppercase tracking-widest mb-1">
                   <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
-                  <span>MR. SWEET HAUTE COLLECTION</span>
+                  <span>MR. SWEETS CONFECTIONERY</span>
                 </div>
 
-                <h2 id="modal-product-title" className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#231815] mb-2 leading-tight break-words">
+                <h2 id="modal-product-title" className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#111827] mb-2 leading-tight break-words">
                   {product.name}
                 </h2>
 
-                <p className="text-xs text-[#8B7355] font-semibold mb-3">
+                <p className="text-xs text-gray-500 font-semibold mb-3">
                   {product.tagline || '100% Veg • Premium Packaged Confectionery'}
                 </p>
 
@@ -123,13 +123,13 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm text-[#4F3A34] mb-5 sm:mb-6 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-600 mb-5 sm:mb-6 leading-relaxed">
                   {product.description}
                 </p>
 
                 {/* Ingredients & Dietary Guarantee */}
-                <div className="bg-white border border-cream-300 p-3.5 rounded-2xl mb-6 text-xs flex flex-col gap-1.5">
-                  <div className="flex items-center gap-2 font-bold text-[#231815]">
+                <div className="bg-red-50/50 border border-red-100 p-3.5 rounded-2xl mb-6 text-xs flex flex-col gap-1.5">
+                  <div className="flex items-center gap-2 font-bold text-[#111827]">
                     <ShieldCheck className="w-4 h-4 text-emerald-700" />
                     <span>100% Pure Vegetarian & Preservative Free</span>
                   </div>
@@ -140,7 +140,7 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
               </div>
 
               {/* Bottom Action: Send Inquiry */}
-              <div className="pt-4 border-t border-cream-200">
+              <div className="pt-4 border-t border-gray-100">
                 <button
                   onClick={() => {
                     onClose();

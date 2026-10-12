@@ -37,28 +37,28 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
       aria-label="Shopping Bag"
     >
       <div className="absolute inset-y-0 right-0 max-w-full flex pl-10" onClick={(e) => e.stopPropagation()}>
-        <div className="w-screen max-w-md bg-[#FDFBF7] border-l border-cream-300 shadow-2xl flex flex-col justify-between">
+        <div className="w-screen max-w-md bg-white border-l border-red-100 shadow-2xl flex flex-col justify-between">
           {/* Drawer Header */}
-          <div className="p-5 border-b border-cream-200 bg-white flex items-center justify-between">
+          <div className="p-5 border-b border-red-100 bg-white flex items-center justify-between">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-[#C8102E]" />
-              <h2 className="text-base font-extrabold text-[#231815] uppercase tracking-wider">
+              <h2 className="text-base font-extrabold text-[#111827] uppercase tracking-wider">
                 Your Shopping Bag ({totalItemCount})
               </h2>
             </div>
             <button
               onClick={onClose}
               aria-label="Close drawer"
-              className="p-2 rounded-full text-gray-400 hover:text-[#C8102E] hover:bg-cream-100 transition-all focus:outline-none"
+              className="p-2 rounded-full text-gray-400 hover:text-[#C8102E] hover:bg-red-50 transition-all focus:outline-none"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Incentive Banner */}
-          <div className="bg-[#110C0A] text-[#EFE8DA] px-5 py-2.5 text-xs font-semibold flex items-center gap-2 justify-between">
+          <div className="bg-[#9B0B21] text-white px-5 py-2.5 text-xs font-semibold flex items-center gap-2 justify-between">
             <div className="flex items-center gap-1.5 text-amber-200">
-              <Truck className="w-4 h-4 text-[#D4AF37]" />
+              <Truck className="w-4 h-4 text-amber-300" />
               <span>🎉 Priority B2B Packaging & Express Dispatch Ready</span>
             </div>
           </div>
@@ -68,14 +68,14 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
             {cartItems.length === 0 ? (
               <div className="text-center py-12">
                 <ShoppingBag className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-                <p className="text-sm font-bold text-[#231815]">Your shopping bag is empty</p>
+                <p className="text-sm font-bold text-[#111827]">Your shopping bag is empty</p>
                 <p className="text-xs text-gray-500 mt-1">Explore our haute confections and add treats!</p>
               </div>
             ) : (
               cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-white border border-cream-300 p-3.5 rounded-2xl flex gap-3 shadow-sm"
+                  className="bg-white border border-red-100 p-3.5 rounded-2xl flex gap-3 shadow-sm"
                 >
                   <img
                     src={item.image}
@@ -86,7 +86,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
                   <div className="flex-1 flex flex-col justify-between">
                     <div>
                       <div className="flex items-start justify-between">
-                        <h4 className="text-xs font-bold text-[#231815] leading-tight">
+                        <h4 className="text-xs font-bold text-[#111827] leading-tight">
                           {item.name}
                         </h4>
                         <button
@@ -102,7 +102,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
 
                     <div className="flex items-center justify-end pt-2">
                       {/* Quantity Controller */}
-                      <div className="flex items-center border border-cream-300 rounded-full bg-cream-50 px-2 py-0.5 text-xs font-bold">
+                      <div className="flex items-center border border-red-100 rounded-full bg-red-50 px-2 py-0.5 text-xs font-bold text-[#111827]">
                         <button
                           onClick={() => onUpdateQuantity(item.id, Math.max(1, (item.quantity || 1) - 1))}
                           aria-label="Decrease quantity"
@@ -128,18 +128,18 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
 
           {/* Drawer Footer & Checkout */}
           {cartItems.length > 0 && (
-            <div className="p-5 border-t border-cream-200 bg-white space-y-3">
+            <div className="p-5 border-t border-red-100 bg-white space-y-3">
               {/* Order Summary Breakdown */}
-              <div className="space-y-1 text-xs text-gray-600 pt-2 border-t border-cream-200">
+              <div className="space-y-1 text-xs text-gray-600 pt-2 border-t border-red-100">
                 <div className="flex justify-between">
                   <span>Selected Products</span>
-                  <span className="font-bold text-[#231815]">{cartItems.length} Variety Types</span>
+                  <span className="font-bold text-[#111827]">{cartItems.length} Variety Types</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Total Quantity</span>
-                  <span className="font-bold text-[#231815]">{totalItemCount} Units</span>
+                  <span className="font-bold text-[#111827]">{totalItemCount} Units</span>
                 </div>
-                <div className="flex justify-between text-sm font-extrabold text-[#231815] pt-2 border-t border-cream-200">
+                <div className="flex justify-between text-sm font-extrabold text-[#111827] pt-2 border-t border-red-100">
                   <span>Price Quote</span>
                   <span className="text-[#C8102E]">Available On Inquiry</span>
                 </div>

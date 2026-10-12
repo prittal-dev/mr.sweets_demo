@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import MarqueeBanner from './components/MarqueeBanner';
+import DualTickerBanner from './components/DualTickerBanner';
 import CraftBanner from './components/CraftBanner';
-import CollectionsGrid from './components/CollectionsGrid';
 import IconicCatalog from './components/IconicCatalog';
-import TrustSection from './components/TrustSection';
 import AboutUs from './components/AboutUs';
-import WholesaleB2B from './components/WholesaleB2B';
+import WhyChooseUs from './components/WhyChooseUs';
+import TestimonialsSection from './components/TestimonialsSection';
+import ContactCTA from './components/ContactCTA';
 import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
 import ProductQuickViewModal from './components/ProductQuickViewModal';
@@ -14,10 +16,17 @@ import LeadGenModal from './components/LeadGenModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 
+const sectionIdMap = {
+  home: 'atelier-hero',
+  about: 'about',
+  products: 'products',
+  blogs: 'blogs',
+  contact: 'contact'
+};
+
 const getPageFromUrl = () => {
   const path = window.location.pathname.replace(/^\//, '').toLowerCase();
   const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-
   const validPages = ['about', 'products', 'blogs', 'contact'];
   if (validPages.includes(path)) return path;
   if (validPages.includes(hash)) return hash;
@@ -26,7 +35,9 @@ const getPageFromUrl = () => {
 
 export default function App() {
   const [activePage, setActivePage] = useState(getPageFromUrl);
+  const [activeSection, setActiveSection] = useState('home');
   const [quickViewProduct, setQuickViewProduct] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   // Sync active page state with browser back/forward and URL changes
   React.useEffect(() => {
@@ -35,12 +46,60 @@ export default function App() {
     };
 
     window.addEventListener('popstate', handleUrlChange);
-    window.addEventListener('hashchange', handleUrlChange);
     return () => {
       window.removeEventListener('popstate', handleUrlChange);
-      window.removeEventListener('hashchange', handleUrlChange);
     };
   }, []);
+
+  // ScrollSpy to track active section while scrolling according to website
+  React.useEffect(() => {
+    if (activePage !== 'home') return;
+
+    const sections = [
+      { id: 'atelier-hero', name: 'home' },
+      { id: 'about', name: 'about' },
+      { id: 'products', name: 'products' },
+      { id: 'contact', name: 'contact' },
+    ];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 180;
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sections[i].id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(sections[i].name);
+            return;
+          }
+        }
+      }
+      setActiveSection('home');
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activePage]);
+
+  // Handle initial hash scrolling on mount or hashchange
+  React.useEffect(() => {
+    const handleInitialHash = () => {
+      const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+      if (hash && sectionIdMap[hash] && activePage === 'home') {
+        setTimeout(() => {
+          const el = document.getElementById(sectionIdMap[hash]);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 200);
+      }
+    };
+
+    handleInitialHash();
+    window.addEventListener('hashchange', handleInitialHash);
+    return () => window.removeEventListener('hashchange', handleInitialHash);
+  }, [activePage]);
 
   // Cart Drawer State with default initial items
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -95,12 +154,17 @@ export default function App() {
   }, [isLeadModalOpen, isCartOpen, quickViewProduct]);
 
   const handleNavigate = (pageId) => {
-    setActivePage(pageId);
-    const targetUrl = pageId === 'home' ? '/' : `/${pageId}`;
-    if (window.location.pathname !== targetUrl) {
-      window.history.pushState({}, '', targetUrl);
-    }
+    const validPages = ['home', 'about', 'products', 'blogs', 'contact'];
+    const targetPage = validPages.includes(pageId) ? pageId : 'home';
+
+    setActivePage(targetPage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (targetPage === 'home') {
+      window.history.pushState({}, '', '/');
+    } else {
+      window.history.pushState({}, '', `/${targetPage}`);
+    }
   };
 
   const openLeadModal = (tab = 'product', product = null) => {
@@ -155,13 +219,30 @@ export default function App() {
     }
   };
 
+  const handleSelectCategory = (categoryId) => {
+    setSelectedCategory(categoryId);
+    if (activePage !== 'home' && activePage !== 'products') {
+      handleNavigate('products');
+      setTimeout(() => {
+        const el = document.getElementById('products');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      setTimeout(() => {
+        const el = document.getElementById('products');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
+  };
+
   const cartItemCount = cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
 
   return (
-    <div className="min-h-screen bg-[#FDFBF7] text-[#231815] flex flex-col font-sans">
+    <div className="min-h-screen bg-white text-[#111827] flex flex-col font-sans">
       {/* Navbar */}
       <Navbar
         activePage={activePage}
+        activeSection={activeSection}
         onNavigate={handleNavigate}
         onOpenInquire={() => openLeadModal('wholesale')}
         onOpenCart={() => setIsCartOpen(true)}
@@ -170,25 +251,27 @@ export default function App() {
 
       {/* Page Title Header Banner for Sub-Pages */}
       {activePage !== 'home' && (
-        <div className="bg-[#18110F] text-white py-8 px-4 sm:px-8 border-b border-[#362823]">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="bg-[#C8102E] text-white py-8 sm:py-12 px-4 sm:px-8 border-b border-[#9B0B21] shadow-inner relative overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
             <div>
-              <div className="text-[10px] sm:text-xs font-bold text-[#D4AF37] uppercase tracking-widest mb-1 flex items-center gap-2">
-                <button onClick={() => handleNavigate('home')} className="hover:underline text-gray-400">Home</button>
-                <span>/</span>
-                <span className="capitalize">{activePage === 'about' ? 'About Us' : activePage}</span>
+              <div className="text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest mb-1.5 flex items-center gap-2">
+                <button onClick={() => handleNavigate('home')} className="hover:underline text-amber-100/90 cursor-pointer">Home</button>
+                <span className="text-white/60">/</span>
+                <span className="capitalize font-extrabold text-white">
+                  {activePage === 'about' ? 'About Us' : activePage === 'products' ? 'Products' : activePage === 'contact' ? 'Contact' : activePage}
+                </span>
               </div>
-              <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                {activePage === 'about' && 'About Us — Brand Heritage & Craftsmanship'}
-                {activePage === 'products' && 'Products — Confectionery Collection'}
-                {activePage === 'blogs' && 'Blogs & Journal — Confectionery Insights'}
-                {activePage === 'contact' && 'Contact Us — Atelier Concierge & Trade'}
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-outfit font-black text-white tracking-tight">
+                {activePage === 'about' && 'About Us — Heritage & Craftsmanship'}
+                {activePage === 'products' && 'Product Portfolio — Confectionery Range'}
+                {activePage === 'blogs' && 'Journal & Stories — Confectionery Insights'}
+                {activePage === 'contact' && 'Contact Us — Inquiries & Partnerships'}
               </h1>
             </div>
 
             <button
               onClick={() => handleNavigate('home')}
-              className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-full border border-white/20 transition-all flex items-center gap-1.5"
+              className="bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-full border border-white/30 transition-all flex items-center gap-2 shadow-sm cursor-pointer shrink-0"
             >
               <span>← Back to Full Home</span>
             </button>
@@ -202,24 +285,28 @@ export default function App() {
         {activePage === 'home' && (
           <>
             <Hero
-              onExploreCatalog={() => scrollToSection('iconic-range')}
+              onExploreCatalog={() => handleNavigate('products')}
               onRequestQuote={() => openLeadModal('wholesale')}
             />
+            <DualTickerBanner />
             <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
-            <CraftBanner />
-            <CollectionsGrid onSelectCategory={(id) => scrollToSection('iconic-range')} />
+            <CraftBanner
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleSelectCategory}
+            />
             <IconicCatalog
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
               onEnquire={(product) => openLeadModal('product', product)}
               onAddToCart={handleAddToCart}
               onQuickView={(product) => setQuickViewProduct(product)}
             />
-            <TrustSection />
-            <WholesaleB2B
-              onDownloadCatalog={handleDownloadCatalog}
-              onRequestB2BQuote={() => openLeadModal('wholesale')}
-            />
+            <MarqueeBanner theme="crimson" />
+            <WhyChooseUs onOpenInquire={() => openLeadModal('wholesale')} />
+            <TestimonialsSection />
             <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
             <ContactSection />
+            <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
         )}
 
@@ -227,20 +314,33 @@ export default function App() {
         {activePage === 'about' && (
           <>
             <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
-            <CraftBanner />
-            <TrustSection />
+            <MarqueeBanner theme="dark" />
+            <WhyChooseUs onOpenInquire={() => openLeadModal('wholesale')} />
+            <CraftBanner
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleSelectCategory}
+            />
+            <TestimonialsSection />
+            <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
         )}
 
         {/* 3. Dedicated Products Page */}
         {activePage === 'products' && (
           <>
-            <CollectionsGrid onSelectCategory={(id) => scrollToSection('iconic-range')} />
+            <CraftBanner
+              selectedCategory={selectedCategory}
+              onSelectCategory={handleSelectCategory}
+            />
             <IconicCatalog
+              selectedCategory={selectedCategory}
+              onSelectCategory={setSelectedCategory}
               onEnquire={(product) => openLeadModal('product', product)}
               onAddToCart={handleAddToCart}
               onQuickView={(product) => setQuickViewProduct(product)}
             />
+            <MarqueeBanner theme="dark" />
+            <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
         )}
 
@@ -248,17 +348,15 @@ export default function App() {
         {activePage === 'blogs' && (
           <>
             <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
+            <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
         )}
 
-        {/* 5. Dedicated Contact Us Page */}
+        {/* 7. Dedicated Contact Us Page */}
         {activePage === 'contact' && (
           <>
             <ContactSection />
-            <WholesaleB2B
-              onDownloadCatalog={handleDownloadCatalog}
-              onRequestB2BQuote={() => openLeadModal('wholesale')}
-            />
+            <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
         )}
       </main>
@@ -296,3 +394,6 @@ export default function App() {
     </div>
   );
 }
+
+
+

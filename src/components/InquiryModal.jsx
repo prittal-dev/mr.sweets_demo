@@ -40,13 +40,13 @@ export default function InquiryModal({ isOpen, onClose }) {
       aria-labelledby="inquiry-modal-title"
     >
       <div
-        className="bg-[#FDFBF7] border border-cream-300 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
+        className="bg-white border border-gray-200 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-4 right-4 p-2.5 rounded-full bg-white border border-cream-300 text-gray-400 hover:text-[#C8102E] transition-all focus:outline-none"
+          className="absolute top-4 right-4 p-2.5 rounded-full bg-white border border-gray-200 text-gray-400 hover:text-[#C8102E] transition-all focus:outline-none"
         >
           <X className="w-5 h-5" />
         </button>
@@ -54,13 +54,13 @@ export default function InquiryModal({ isOpen, onClose }) {
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-1.5 text-[#C8102E] text-xs font-extrabold uppercase tracking-widest mb-1">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>MR. SWEET ATELIER CONCIERGE</span>
+            <span>MR. SWEETS ATELIER CONCIERGE</span>
           </div>
-          <h3 id="inquiry-modal-title" className="text-2xl font-extrabold text-[#231815]">
+          <h3 id="inquiry-modal-title" className="text-2xl font-extrabold text-[#111827]">
             Inquire for Gifting & B2B
           </h3>
-          <p className="text-xs text-[#8B7355] font-medium mt-1">
-            Request custom gold foil embossing, tasting boxes & volume pricing.
+          <p className="text-xs text-gray-500 font-medium mt-1">
+            Request custom packaging, tasting boxes & volume pricing.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function InquiryModal({ isOpen, onClose }) {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="inquiry-name" className="block text-xs font-bold text-[#231815] mb-1">Full Name *</label>
+              <label htmlFor="inquiry-name" className="block text-xs font-bold text-[#111827] mb-1">Full Name *</label>
               <input
                 id="inquiry-name"
                 type="text"
@@ -85,13 +85,13 @@ export default function InquiryModal({ isOpen, onClose }) {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. Ananya Sharma"
-                className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2.5 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
               />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label htmlFor="inquiry-email" className="block text-xs font-bold text-[#231815] mb-1">Email *</label>
+                <label htmlFor="inquiry-email" className="block text-xs font-bold text-[#111827] mb-1">Email *</label>
                 <input
                   id="inquiry-email"
                   type="email"
@@ -99,11 +99,11 @@ export default function InquiryModal({ isOpen, onClose }) {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   placeholder="ananya@example.com"
-                  className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2.5 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                 />
               </div>
               <div>
-                <label htmlFor="inquiry-phone" className="block text-xs font-bold text-[#231815] mb-1">Phone / WhatsApp *</label>
+                <label htmlFor="inquiry-phone" className="block text-xs font-bold text-[#111827] mb-1">Phone / WhatsApp *</label>
                 <input
                   id="inquiry-phone"
                   type="tel"
@@ -111,19 +111,19 @@ export default function InquiryModal({ isOpen, onClose }) {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   placeholder="+91 99999 97877"
-                  className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2.5 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label htmlFor="inquiry-purpose" className="block text-xs font-bold text-[#231815] mb-1">Inquiry Purpose</label>
+                <label htmlFor="inquiry-purpose" className="block text-xs font-bold text-[#111827] mb-1">Inquiry Purpose</label>
                 <select
                   id="inquiry-purpose"
                   value={formData.inquiryType}
                   onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
-                  className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2.5 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                 >
                   <option>Wedding & Celebration Hampers</option>
                   <option>Corporate Milestone Gifting</option>
@@ -132,12 +132,12 @@ export default function InquiryModal({ isOpen, onClose }) {
                 </select>
               </div>
               <div>
-                <label htmlFor="inquiry-boxes" className="block text-xs font-bold text-[#231815] mb-1">Estimated Boxes</label>
+                <label htmlFor="inquiry-boxes" className="block text-xs font-bold text-[#111827] mb-1">Estimated Boxes</label>
                 <select
                   id="inquiry-boxes"
                   value={formData.boxQuantity}
                   onChange={(e) => setFormData({ ...formData, boxQuantity: e.target.value })}
-                  className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2.5 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                 >
                   <option>10 – 50 Boxes</option>
                   <option>50 – 200 Boxes</option>
@@ -148,22 +148,22 @@ export default function InquiryModal({ isOpen, onClose }) {
             </div>
 
             <div>
-              <label htmlFor="inquiry-msg" className="block text-xs font-bold text-[#231815] mb-1">Customization Requirements</label>
+              <label htmlFor="inquiry-msg" className="block text-xs font-bold text-[#111827] mb-1">Customization Requirements</label>
               <textarea
                 id="inquiry-msg"
                 rows="3"
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                placeholder="Mention event date, desired sweets, monogram details..."
-                className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2.5 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                placeholder="Mention event date, desired sweets, logo details..."
+                className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2.5 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-[#110C0A] text-white hover:bg-[#C8102E] transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2"
+              className="w-full bg-[#9B0B21] text-white hover:bg-[#C8102E] transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2"
             >
-              <Mail className="w-4 h-4 text-[#D4AF37]" />
+              <Mail className="w-4 h-4 text-amber-300" />
               <span>SUBMIT CONCIERGE REQUEST</span>
             </button>
           </form>

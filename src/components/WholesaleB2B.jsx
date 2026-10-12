@@ -1,138 +1,249 @@
-import React from 'react';
-import { Download, Mail, Percent, Gift, Truck } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Factory,
+  ShieldCheck,
+  Truck,
+  Sparkles,
+  Layers,
+  Box,
+  CheckCircle2,
+  Cpu,
+  Flame,
+  ThermometerSun,
+  Warehouse,
+  Play,
+  Download,
+  Mail
+} from 'lucide-react';
 
 export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
+  const manufacturingSteps = [
+    {
+      step: '01',
+      title: 'Automated Conching & Swiss-Grade Refining',
+      tag: 'MODERN MACHINERY & TECHNOLOGY',
+      badge: 'Zero-Touch Conching',
+      icon: Cpu,
+      desc: 'Our state-of-the-art continuous thermal conching tanks refine raw cocoa butter and milk solids for 24+ hours at controlled temperatures, achieving silky melt-in-mouth micro-fineness.',
+      highlights: ['Swiss-Grade Refiners', 'Precision Thermal Sensors', 'Automated Flow Rate Control'],
+      mediaType: 'video',
+      videoSrc: '/chocolate_factory.mp4',
+      fallbackImage: '/romeo choco cone.png'
+    },
+    {
+      step: '02',
+      title: 'Multi-Layer Wafer Baking & Precision Cream Injection',
+      tag: 'PRODUCTION PROCESS & MOULDING',
+      badge: 'Continuous High-Speed Line',
+      icon: Flame,
+      desc: 'High-capacity automated baking plates produce golden, ultra-crispy wafer sheets. Liquid hazelnut and rich chocolate creams are injected in micro-dosed layers under strict humidity locks.',
+      highlights: ['Gas-Fired Baking Plates', 'Micro-Dose Cream Injection', 'Real-Time Sheet Crispness Check'],
+      mediaType: 'image',
+      image: '/brawo.png'
+    },
+    {
+      step: '03',
+      title: 'Class 100,000 Cleanroom Packaging & Hermetic Barriers',
+      tag: 'HYGIENE & STERILE PACKAGING',
+      badge: '100% Moisture Lock',
+      icon: Box,
+      desc: 'All wrappers, snap-lid tubs, and foil pouches are sealed in dust-free HEPA-filtered cleanrooms. Touchless automated wrappers seal out humidity, locking in freshness and crunch for 12+ months.',
+      highlights: ['HEPA Air Filtration (Class 100k)', 'Multi-Barrier Aluminum Foils', 'Tamper-Evident Snap-Lid Tubs'],
+      mediaType: 'image',
+      image: '/swiss choclate.png'
+    },
+    {
+      step: '04',
+      title: '18°C Climate-Controlled Storage & Cold-Chain Logistics',
+      tag: 'STORAGE & LOGISTICS HUB',
+      badge: 'Cold-Chain Dispatch',
+      icon: Warehouse,
+      desc: 'Finished master boxes are stored in an 18°C temperature and 50% relative humidity controlled warehouse before being dispatched via temperature-regulated logistics across 50,000+ retail partners.',
+      highlights: ['18°C / 50% RH Controlled Hub', 'Automated Robot Palletizing', 'Real-Time QR Batch Tracking'],
+      mediaType: 'image',
+      image: '/super heros box.png'
+    }
+  ];
+
+  const plantStats = [
+    { label: 'Cleanroom Facility', value: '100,000+ Sq. Ft.', sub: 'HEPA Air Filtered' },
+    { label: 'Daily Output Capacity', value: '50+ Tons', sub: 'High-Capacity Lines' },
+    { label: 'Automated Efficiency', value: '100%', sub: 'Zero-Touch Conching' },
+    { label: 'Retail Outlets Supplied', value: '50,000+', sub: 'Pan-India Distribution' }
+  ];
+
   return (
-    <section id="wholesale" className="w-full bg-[#110C0A] text-[#EFE8DA] py-5 sm:py-24 px-3 sm:px-6 lg:px-8 border-t border-[#231815] relative overflow-hidden">
-      {/* Subtle Warm Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[radial-gradient(ellipse_at_center,rgba(79,58,52,0.25)_0%,rgba(17,12,10,0)_70%)] pointer-events-none" />
+    <section id="infrastructure" className="w-full bg-[#FAF9F6] text-[#111827] py-16 sm:py-28 px-3 sm:px-6 lg:px-8 border-t border-red-100 relative overflow-hidden">
+      {/* Background Radial Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(200,16,46,0.05)_0%,rgba(255,255,255,0)_70%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-12 items-center">
-          {/* Left Column: Heading, Description & 2 Information Cards */}
-          <div className="lg:col-span-7 flex flex-col items-start">
-            {/* Top Pill */}
-            <div className="inline-flex items-center gap-1 bg-[#18110F] border border-[#D4AF37]/30 text-[#D4AF37] px-2.5 py-0.5 sm:px-4 sm:py-1.5 rounded-full text-[9px] sm:text-xs font-bold uppercase tracking-wider mb-2 sm:mb-5 shadow-sm">
-              <span className="text-amber-400 text-[10px]">▣</span>
-              <span>MR. SWEET WHOLESALE & BULK SUPPLY</span>
+        {/* SECTION 1 HEADER */}
+        <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20">
+          <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 shadow-xs">
+            <Factory className="w-3.5 h-3.5 text-[#C8102E]" />
+            <span>EDITORIAL MANUFACTURING & QUALITY</span>
+          </div>
+
+          <h2 className="text-section-display font-extrabold text-[#111827] tracking-tight mb-5">
+            Behind Every Sweet{' '}
+            <span className="font-serif italic text-[#C8102E] font-normal block sm:inline">
+              Is a Standard We Don&apos;t Compromise.
+            </span>
+          </h2>
+
+          <p className="text-xs sm:text-base text-gray-600 font-normal leading-relaxed max-w-3xl mx-auto">
+            From automated Swiss-grade thermal conching to sterile HEPA-filtered cleanrooms, our manufacturing plant combines modern technology, strict hygiene standards, and climate-controlled storage to supply over 50,000+ retail partners.
+          </p>
+        </div>
+
+        {/* STATS STRIP */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-16 sm:mb-24">
+          {plantStats.map((st, i) => (
+            <motion.div
+              key={st.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-white border border-red-100 p-4 sm:p-6 rounded-2xl sm:rounded-3xl text-center shadow-sm hover:border-red-300 transition-colors"
+            >
+              <div className="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#C8102E] tracking-tight mb-1">
+                {st.value}
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-[#111827] mb-0.5">{st.label}</div>
+              <div className="text-[10px] sm:text-xs text-gray-500">{st.sub}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* 4 ALTERNATING MANUFACTURING PROCESS CARDS */}
+        <div className="space-y-8 sm:space-y-14 mb-16 sm:mb-24">
+          {manufacturingSteps.map((step, idx) => {
+            const IconComp = step.icon;
+            const isReverse = idx % 2 !== 0;
+
+            return (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className={`bg-white border border-red-100 p-5 sm:p-10 rounded-3xl shadow-lg grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 items-center ${
+                  isReverse ? 'lg:flex-row-reverse' : ''
+                }`}
+              >
+                {/* Media Container (Image or Video) */}
+                <div className={`lg:col-span-6 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}>
+                  <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-gray-50 border border-gray-200 group shadow-md">
+                    {step.mediaType === 'video' ? (
+                      <div className="relative w-full h-full">
+                        <video
+                          src={step.videoSrc}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+                        <div className="absolute bottom-3 left-3 bg-[#C8102E] text-white text-[10px] sm:text-xs font-extrabold px-3 py-1 rounded-full border border-red-400 flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                          <span>LIVE FACTORY FEED</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <img
+                          src={step.image}
+                          alt={step.title}
+                          className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-700 filter drop-shadow-md"
+                        />
+                        <div className="absolute top-3 left-3 bg-[#C8102E] text-white text-[10px] sm:text-xs font-extrabold px-3 py-1 rounded-full border border-red-400">
+                          {step.badge}
+                        </div>
+                      </>
+                    )}
+
+                    <div className="absolute top-3 right-3 bg-[#7A0819] text-white text-xs sm:text-sm font-extrabold px-3 py-1 rounded-full border border-red-800">
+                      PHASE {step.step}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Text Description & Highlights */}
+                <div className={`lg:col-span-6 ${isReverse ? 'lg:order-1' : 'lg:order-2'} flex flex-col items-start text-left`}>
+                  <div className="inline-flex items-center gap-2 text-[#C8102E] text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-2">
+                    <IconComp className="w-4 h-4 text-[#C8102E]" />
+                    <span>{step.tag}</span>
+                  </div>
+
+                  <h3 className="text-xl sm:text-3xl font-extrabold text-[#111827] mb-3 leading-snug">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-gray-600 font-normal leading-relaxed mb-6">
+                    {step.desc}
+                  </p>
+
+                  {/* Bullet Highlights */}
+                  <div className="w-full space-y-2.5 pt-4 border-t border-red-100">
+                    {step.highlights.map((point) => (
+                      <div key={point} className="flex items-center gap-2.5 text-xs sm:text-sm text-gray-700 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* BOTTOM ACTION BAR FOR BROCHURE & B2B QUOTE */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-[#7A0819] via-[#9B0B21] to-[#7A0819] border border-red-500/40 p-6 sm:p-10 rounded-3xl text-center max-w-5xl mx-auto shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 text-white"
+        >
+          <div className="text-left max-w-2xl">
+            <div className="text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest mb-1 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <span>DIRECT MANUFACTURER SUPPLIER & TRADE TERMS</span>
             </div>
-
-            {/* Heading */}
-            <h2 className="text-lg sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight mb-2 sm:mb-4">
-              Bulk Supply for Distributors, Retail Stores & Party Packs?
-            </h2>
-
-            {/* Description */}
-            <p className="text-[11px] sm:text-base text-gray-300 font-normal leading-tight sm:leading-relaxed mb-3 sm:mb-6 max-w-2xl">
-              Partner directly with Mr. Sweet Confectionery for bulk counter dispenser jars, display cartons of Dairy Cones, Krispy Toys, and festive gift hampers.
+            <h3 className="text-xl sm:text-3xl font-extrabold text-white mb-2">
+              Interested in Bulk Supply, Super Stockist or Export Enquiries?
+            </h3>
+            <p className="text-xs sm:text-sm text-red-100 font-normal">
+              Download our complete 2026 Commercial Confectionery Infrastructure Brochure or talk directly with our B2B trade desk.
             </p>
-
-            {/* Two Information Cards - 2 columns grid on mobile */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-4 w-full mb-3 sm:mb-8">
-              {/* Info Card 1 */}
-              <div className="bg-[#18110F] border border-[#362823] hover:border-[#D4AF37]/40 p-2.5 sm:p-6 rounded-xl sm:rounded-3xl transition-all duration-300 group shadow-soft">
-                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-2xl bg-[#231815] border border-[#362823] text-[#D4AF37] flex items-center justify-center mb-1.5 sm:mb-4 group-hover:scale-110 transition-transform">
-                  <Percent className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-                </div>
-                <h3 className="text-[11px] sm:text-base font-bold text-white mb-0.5 sm:mb-2 group-hover:text-[#D4AF37] transition-colors leading-tight">
-                  Wholesale Merchant Margins
-                </h3>
-                <p className="text-[9.5px] sm:text-xs text-gray-400 leading-tight sm:leading-relaxed">
-                  High-margin trade terms for distributors, retail shops & bulk buyers.
-                </p>
-              </div>
-
-              {/* Info Card 2 */}
-              <div className="bg-[#18110F] border border-[#362823] hover:border-[#D4AF37]/40 p-2.5 sm:p-6 rounded-xl sm:rounded-3xl transition-all duration-300 group shadow-soft">
-                <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-2xl bg-[#231815] border border-[#362823] text-[#D4AF37] flex items-center justify-center mb-1.5 sm:mb-4 group-hover:scale-110 transition-transform">
-                  <Gift className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-                </div>
-                <h3 className="text-[11px] sm:text-base font-bold text-white mb-0.5 sm:mb-2 group-hover:text-[#D4AF37] transition-colors leading-tight">
-                  Party & Return Gifts
-                </h3>
-                <p className="text-[9.5px] sm:text-xs text-gray-400 leading-tight sm:leading-relaxed">
-                  Branded return gift packs and surprise toy boxes for festive events.
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Right Column: Product Dispatch Preview Card */}
-          <div className="lg:col-span-5 w-full">
-            <div className="bg-[#18110F] border border-[#362823] hover:border-[#D4AF37]/40 p-3 sm:p-8 rounded-xl sm:rounded-4xl shadow-xl relative overflow-hidden group">
-              {/* Top Dispatch Badge */}
-              <div className="flex items-center justify-between mb-2.5 sm:mb-6 pb-2 sm:pb-4 border-b border-[#362823]">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="text-[9px] sm:text-xs font-extrabold uppercase tracking-widest text-[#D4AF37]">
-                    MR. SWEET DISPATCH HUB
-                  </span>
-                </div>
-                <span className="bg-[#231815] text-gray-300 text-[8.5px] sm:text-[10px] font-bold px-2 py-0.5 rounded-full border border-[#362823]">
-                  Ready Stock
-                </span>
-              </div>
+          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
+            <button
+              onClick={onDownloadCatalog}
+              className="w-full sm:w-auto bg-white text-[#C8102E] hover:bg-red-50 transition-all duration-300 px-6 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-95"
+            >
+              <Download className="w-4 h-4 text-[#C8102E]" />
+              <span>Brochure (PDF)</span>
+            </button>
 
-              {/* Two Product Images Preview */}
-              <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-2.5 sm:mb-6">
-                <div className="relative aspect-square rounded-lg sm:rounded-2xl overflow-hidden border border-[#362823] bg-gradient-to-b from-[#231815] to-[#18110F] p-1 sm:p-2 flex items-center justify-center">
-                  <img
-                    src="/gold coin.png"
-                    alt="999.9 Gold Coin Jar"
-                    className="w-full h-full object-contain group-hover:scale-108 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-1 left-1 right-1 bg-black/85 backdrop-blur-md text-amber-300 text-[8.5px] sm:text-[10px] font-bold px-1 py-0.5 rounded text-center truncate border border-amber-500/20">
-                    Gold Coin Jar
-                  </div>
-                </div>
-
-                <div className="relative aspect-square rounded-lg sm:rounded-2xl overflow-hidden border border-[#362823] bg-gradient-to-b from-[#231815] to-[#18110F] p-1 sm:p-2 flex items-center justify-center">
-                  <img
-                    src="/krispy toy box.jpeg"
-                    alt="Krispy Toy Surprise Box"
-                    className="w-full h-full object-cover rounded-md sm:rounded-xl group-hover:scale-108 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-1 left-1 right-1 bg-black/85 backdrop-blur-md text-amber-300 text-[8.5px] sm:text-[10px] font-bold px-1 py-0.5 rounded text-center truncate border border-amber-500/20">
-                    Krispy Toy Box
-                  </div>
-                </div>
-              </div>
-
-              {/* Dispatch Text */}
-              <div className="bg-[#110C0A] border border-[#362823] p-2 sm:p-4 rounded-lg sm:rounded-2xl flex items-center justify-between text-[10px] sm:text-xs font-bold text-white mb-1.5">
-                <div className="flex items-center gap-1.5">
-                  <Truck className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#D4AF37] shrink-0" />
-                  <span>Bulk Cartons Dispatched Same-Day</span>
-                </div>
-                <span className="text-emerald-400 text-[9px] sm:text-[11px] shrink-0">Express</span>
-              </div>
-              <p className="text-[9.5px] sm:text-[11px] text-gray-400 text-center font-normal hidden sm:block">
-                Moisture-sealed protective freight across 15,000+ pincodes in India & Export Shipping.
-              </p>
-            </div>
+            <button
+              onClick={onRequestB2BQuote}
+              className="w-full sm:w-auto bg-[#C8102E] text-white hover:bg-[#7A0819] transition-all duration-300 px-6 py-3.5 rounded-full text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-glow active:scale-95 border border-red-400/40"
+            >
+              <Mail className="w-4 h-4 text-white" />
+              <span>Request B2B Quote</span>
+            </button>
           </div>
-        </div>
-
-        {/* Bottom Responsive CTAs */}
-        <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 mt-4 sm:mt-12 pt-3 sm:pt-8 border-t border-[#231815]">
-          <button
-            onClick={onDownloadCatalog}
-            className="flex-1 sm:flex-initial bg-white text-[#110C0A] hover:bg-amber-100 transition-all duration-300 px-3 py-2.5 sm:px-8 sm:py-4 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg active:scale-95"
-          >
-            <Download className="w-3 h-3 sm:w-4 sm:h-4 text-[#110C0A]" />
-            <span>BROCHURE (PDF)</span>
-          </button>
-
-          <button
-            onClick={onRequestB2BQuote}
-            className="flex-1 sm:flex-initial bg-[#C8102E] text-white hover:bg-red-700 transition-all duration-300 px-3 py-2.5 sm:px-8 sm:py-4 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-lg hover:shadow-glow active:scale-95"
-          >
-            <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-[#D4AF37]" />
-            <span>B2B QUOTE</span>
-          </button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
 

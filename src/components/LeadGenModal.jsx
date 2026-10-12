@@ -149,14 +149,14 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
       aria-labelledby="lead-gen-title"
     >
       <div
-        className="bg-[#FDFBF7] border border-cream-300 w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
+        className="bg-white border border-gray-200 w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={handleResetAndClose}
           aria-label="Close enquiry modal"
-          className="absolute top-4 right-4 p-2.5 rounded-full bg-white border border-cream-300 text-gray-400 hover:text-[#C8102E] transition-all focus:outline-none"
+          className="absolute top-4 right-4 p-2.5 rounded-full bg-white border border-gray-200 text-gray-400 hover:text-[#C8102E] transition-all focus:outline-none"
         >
           <X className="w-5 h-5" />
         </button>
@@ -167,10 +167,10 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
             <Sparkles className="w-3.5 h-3.5" />
             <span>MR. SWEET ATELIER CONCIERGE</span>
           </div>
-          <h2 id="lead-gen-title" className="text-2xl sm:text-3xl font-extrabold text-[#231815]">
+          <h2 id="lead-gen-title" className="text-2xl sm:text-3xl font-extrabold text-[#111827]">
             Submit Trade & Retail Enquiry
           </h2>
-          <p className="text-xs text-[#8B7355] font-medium mt-1">
+          <p className="text-xs text-gray-500 font-medium mt-1">
             Direct response within 2 business hours • ISO & FSSAI Certified Atelier
           </p>
         </div>
@@ -191,7 +191,7 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
             <div className="pt-4">
               <button
                 onClick={handleResetAndClose}
-                className="bg-[#110C0A] text-white hover:bg-[#C8102E] transition-all px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider"
+                className="bg-[#9B0B21] text-white hover:bg-[#C8102E] transition-all px-8 py-3 rounded-full text-xs font-bold uppercase tracking-wider"
               >
                 CLOSE WINDOW
               </button>
@@ -200,13 +200,13 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
         ) : (
           <>
             {/* Reusable Form Tabs */}
-            <div className="flex items-center justify-center gap-1.5 p-1 bg-cream-200 rounded-full mb-6 text-xs font-bold">
+            <div className="flex items-center justify-center gap-1.5 p-1 bg-red-50/60 rounded-full mb-6 text-xs font-bold">
               <button
                 onClick={() => { setActiveTab('product'); setErrorMsg(''); }}
                 className={`flex-1 py-2 px-3 rounded-full transition-all flex items-center justify-center gap-1 ${
                   activeTab === 'product'
-                    ? 'bg-[#110C0A] text-white shadow-sm'
-                    : 'text-[#362823] hover:text-[#C8102E]'
+                    ? 'bg-[#9B0B21] text-white shadow-sm'
+                    : 'text-[#111827] hover:text-[#C8102E]'
                 }`}
               >
                 <PackageCheck className="w-3.5 h-3.5" />
@@ -217,11 +217,11 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                 onClick={() => { setActiveTab('wholesale'); setErrorMsg(''); }}
                 className={`flex-1 py-2 px-3 rounded-full transition-all flex items-center justify-center gap-1 ${
                   activeTab === 'wholesale'
-                    ? 'bg-[#110C0A] text-white shadow-sm'
-                    : 'text-[#362823] hover:text-[#C8102E]'
+                    ? 'bg-[#9B0B21] text-white shadow-sm'
+                    : 'text-[#111827] hover:text-[#C8102E]'
                 }`}
               >
-                <Building2 className="w-3.5 h-3.5 text-[#D4AF37]" />
+                <Building2 className="w-3.5 h-3.5 text-amber-300" />
                 <span>Wholesale & B2B</span>
               </button>
             </div>
@@ -237,7 +237,7 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
             {activeTab === 'product' && (
               <form onSubmit={handleProductSubmit} className="space-y-3.5">
                 <div>
-                  <label htmlFor="p-name" className="block text-xs font-bold text-[#231815] mb-1">Full Name *</label>
+                  <label htmlFor="p-name" className="block text-xs font-bold text-[#111827] mb-1">Full Name *</label>
                   <input
                     id="p-name"
                     type="text"
@@ -245,13 +245,13 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                     value={productForm.name}
                     onChange={(e) => setProductForm({ ...productForm, name: e.target.value })}
                     placeholder="e.g. Vikramaditya Sharma"
-                    className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                    className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="p-phone" className="block text-xs font-bold text-[#231815] mb-1">Phone Number *</label>
+                    <label htmlFor="p-phone" className="block text-xs font-bold text-[#111827] mb-1">Phone Number *</label>
                     <input
                       id="p-phone"
                       type="tel"
@@ -259,11 +259,11 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={productForm.phone}
                       onChange={(e) => setProductForm({ ...productForm, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="p-email" className="block text-xs font-bold text-[#231815] mb-1">Email Address *</label>
+                    <label htmlFor="p-email" className="block text-xs font-bold text-[#111827] mb-1">Email Address *</label>
                     <input
                       id="p-email"
                       type="email"
@@ -271,14 +271,14 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={productForm.email}
                       onChange={(e) => setProductForm({ ...productForm, email: e.target.value })}
                       placeholder="vikram@example.com"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="p-item" className="block text-xs font-bold text-[#231815] mb-1">Product Interested *</label>
+                    <label htmlFor="p-item" className="block text-xs font-bold text-[#111827] mb-1">Product Interested *</label>
                     <input
                       id="p-item"
                       type="text"
@@ -286,16 +286,16 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={productForm.product}
                       onChange={(e) => setProductForm({ ...productForm, product: e.target.value })}
                       placeholder="Product name"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="p-qty" className="block text-xs font-bold text-[#231815] mb-1">Quantity / Cartons</label>
+                    <label htmlFor="p-qty" className="block text-xs font-bold text-[#111827] mb-1">Quantity / Cartons</label>
                     <select
                       id="p-qty"
                       value={productForm.quantity}
                       onChange={(e) => setProductForm({ ...productForm, quantity: e.target.value })}
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     >
                       <option>1 – 5 Cartons</option>
                       <option>5 – 20 Cartons</option>
@@ -306,7 +306,7 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                 </div>
 
                 <div>
-                  <label htmlFor="p-city" className="block text-xs font-bold text-[#231815] mb-1">City / Location *</label>
+                  <label htmlFor="p-city" className="block text-xs font-bold text-[#111827] mb-1">City / Location *</label>
                   <input
                     id="p-city"
                     type="text"
@@ -314,28 +314,28 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                     value={productForm.city}
                     onChange={(e) => setProductForm({ ...productForm, city: e.target.value })}
                     placeholder="e.g. Mumbai, Delhi, Bengaluru..."
-                    className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                    className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="p-msg" className="block text-xs font-bold text-[#231815] mb-1">Message (Optional)</label>
+                  <label htmlFor="p-msg" className="block text-xs font-bold text-[#111827] mb-1">Message (Optional)</label>
                   <textarea
                     id="p-msg"
                     rows="2"
                     value={productForm.message}
                     onChange={(e) => setProductForm({ ...productForm, message: e.target.value })}
                     placeholder="Specify delivery timeline, retail requirements..."
-                    className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                    className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#C8102E] text-white hover:bg-red-700 transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2 mt-2"
+                  className="w-full bg-[#C8102E] text-white hover:bg-[#9B0B21] transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2 mt-2"
                 >
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Mail className="w-4 h-4 text-[#D4AF37]" />}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Mail className="w-4 h-4 text-amber-300" />}
                   <span>{loading ? 'SUBMITTING ENQUIRY...' : 'SUBMIT PRODUCT ENQUIRY'}</span>
                 </button>
               </form>
@@ -346,7 +346,7 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
               <form onSubmit={handleB2bSubmit} className="space-y-3.5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="b-biz" className="block text-xs font-bold text-[#231815] mb-1">Business Name *</label>
+                    <label htmlFor="b-biz" className="block text-xs font-bold text-[#111827] mb-1">Business Name *</label>
                     <input
                       id="b-biz"
                       type="text"
@@ -354,11 +354,11 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={b2bForm.businessName}
                       onChange={(e) => setB2bForm({ ...b2bForm, businessName: e.target.value })}
                       placeholder="e.g. Apex Supermarkets Ltd."
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="b-contact" className="block text-xs font-bold text-[#231815] mb-1">Contact Person *</label>
+                    <label htmlFor="b-contact" className="block text-xs font-bold text-[#111827] mb-1">Contact Person *</label>
                     <input
                       id="b-contact"
                       type="text"
@@ -366,14 +366,14 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={b2bForm.contactPerson}
                       onChange={(e) => setB2bForm({ ...b2bForm, contactPerson: e.target.value })}
                       placeholder="e.g. Rajesh Mehta"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="b-phone" className="block text-xs font-bold text-[#231815] mb-1">Phone Number *</label>
+                    <label htmlFor="b-phone" className="block text-xs font-bold text-[#111827] mb-1">Phone Number *</label>
                     <input
                       id="b-phone"
                       type="tel"
@@ -381,11 +381,11 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={b2bForm.phone}
                       onChange={(e) => setB2bForm({ ...b2bForm, phone: e.target.value })}
                       placeholder="+91 98765 43210"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="b-email" className="block text-xs font-bold text-[#231815] mb-1">Email Address *</label>
+                    <label htmlFor="b-email" className="block text-xs font-bold text-[#111827] mb-1">Email Address *</label>
                     <input
                       id="b-email"
                       type="email"
@@ -393,14 +393,14 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={b2bForm.email}
                       onChange={(e) => setB2bForm({ ...b2bForm, email: e.target.value })}
                       placeholder="rajesh@apexretail.com"
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="b-city" className="block text-xs font-bold text-[#231815] mb-1">City *</label>
+                    <label htmlFor="b-city" className="block text-xs font-bold text-[#111827] mb-1">City *</label>
                     <input
                       id="b-city"
                       type="text"
@@ -408,16 +408,16 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                       value={b2bForm.city}
                       onChange={(e) => setB2bForm({ ...b2bForm, city: e.target.value })}
                       placeholder="e.g. Ahmedabad, Surat, Dubai..."
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="b-type" className="block text-xs font-bold text-[#231815] mb-1">Business Type</label>
+                    <label htmlFor="b-type" className="block text-xs font-bold text-[#111827] mb-1">Business Type</label>
                     <select
                       id="b-type"
                       value={b2bForm.businessType}
                       onChange={(e) => setB2bForm({ ...b2bForm, businessType: e.target.value })}
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     >
                       <option>Retail Supermarket</option>
                       <option>School / College Canteen</option>
@@ -430,23 +430,23 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="b-prod" className="block text-xs font-bold text-[#231815] mb-1">Products Interested</label>
+                    <label htmlFor="b-prod" className="block text-xs font-bold text-[#111827] mb-1">Products Interested</label>
                     <input
                       id="b-prod"
                       type="text"
                       value={b2bForm.productsInterested}
                       onChange={(e) => setB2bForm({ ...b2bForm, productsInterested: e.target.value })}
                       placeholder="Romeo Cones, Gold Coins, Wafers..."
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     />
                   </div>
                   <div>
-                    <label htmlFor="b-est" className="block text-xs font-bold text-[#231815] mb-1">Estimated Monthly Units</label>
+                    <label htmlFor="b-est" className="block text-xs font-bold text-[#111827] mb-1">Estimated Monthly Units</label>
                     <select
                       id="b-est"
                       value={b2bForm.estimatedQuantity}
                       onChange={(e) => setB2bForm({ ...b2bForm, estimatedQuantity: e.target.value })}
-                      className="w-full bg-white border border-cream-300 rounded-xl px-3 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                      className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                     >
                       <option>50 – 200 Units</option>
                       <option>200 – 1,000 Units</option>
@@ -457,23 +457,23 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
                 </div>
 
                 <div>
-                  <label htmlFor="b-msg" className="block text-xs font-bold text-[#231815] mb-1">Message (Optional)</label>
+                  <label htmlFor="b-msg" className="block text-xs font-bold text-[#111827] mb-1">Message (Optional)</label>
                   <textarea
                     id="b-msg"
                     rows="2"
                     value={b2bForm.message}
                     onChange={(e) => setB2bForm({ ...b2bForm, message: e.target.value })}
                     placeholder="Mention margin expectations, GST details..."
-                    className="w-full bg-white border border-cream-300 rounded-xl px-3.5 py-2 text-xs text-[#231815] focus:border-[#C8102E] focus:outline-none"
+                    className="w-full bg-white border border-gray-200 rounded-xl px-3.5 py-2 text-xs text-[#111827] focus:border-[#C8102E] focus:outline-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-[#110C0A] text-white hover:bg-[#C8102E] transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2 mt-2"
+                  className="w-full bg-[#9B0B21] text-white hover:bg-[#C8102E] transition-all py-3.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-md flex items-center justify-center gap-2 mt-2"
                 >
-                  {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Mail className="w-4 h-4 text-[#D4AF37]" />}
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin text-white" /> : <Mail className="w-4 h-4 text-amber-300" />}
                   <span>{loading ? 'SUBMITTING B2B REQUEST...' : 'SUBMIT WHOLESALE / B2B ENQUIRY'}</span>
                 </button>
               </form>

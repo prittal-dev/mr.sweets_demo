@@ -47,12 +47,12 @@ export default function PressReviews() {
   ];
 
   return (
-    <section id="reviews" className="w-full bg-[#FDFBF7] py-20 px-4 sm:px-6 lg:px-8 border-t border-cream-200">
+    <section id="reviews" className="w-full bg-[#FAF9F6] py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         {/* Press Accolades Banner */}
-        <div className="bg-[#18110F] text-[#EFE8DA] p-8 sm:p-12 rounded-3xl md:rounded-4xl border border-[#362823] shadow-floating mb-16 relative overflow-hidden">
+        <div className="bg-[#7A0819] text-white p-8 sm:p-12 rounded-3xl md:rounded-4xl border border-red-900 shadow-floating mb-16 relative overflow-hidden">
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 text-[#D4AF37] text-xs font-extrabold uppercase tracking-[0.25em] mb-4">
+            <div className="inline-flex items-center gap-2 text-amber-300 text-xs font-extrabold uppercase tracking-[0.25em] mb-4">
               <Award className="w-4 h-4" />
               <span>ACCLAIM & PRESS RECOGNITION</span>
             </div>
@@ -64,10 +64,10 @@ export default function PressReviews() {
             </p>
 
             <div className="flex flex-col items-center">
-              <span className="text-sm font-extrabold text-[#D4AF37] tracking-widest uppercase">
+              <span className="text-sm font-extrabold text-amber-300 tracking-widest uppercase">
                 — {pressQuotes[activeReview].publication}
               </span>
-              <span className="text-xs text-gray-400 mt-1 font-medium">
+              <span className="text-xs text-red-200/70 mt-1 font-medium">
                 {pressQuotes[activeReview].tag}
               </span>
             </div>
@@ -79,7 +79,7 @@ export default function PressReviews() {
                   key={idx}
                   onClick={() => setActiveReview(idx)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    activeReview === idx ? 'bg-[#C8102E] w-8' : 'bg-white/20'
+                    activeReview === idx ? 'bg-amber-400 w-8' : 'bg-white/20'
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />
@@ -91,7 +91,7 @@ export default function PressReviews() {
         {/* Customer Testimonials Grid */}
         <div>
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#231815] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] tracking-tight">
               Loved by Sweettooths{' '}
               <span className="font-serif-italic text-[#C8102E] font-normal">
                 Worldwide.
@@ -103,7 +103,7 @@ export default function PressReviews() {
             {customerReviews.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white border border-cream-300 p-6 rounded-3xl shadow-soft flex flex-col justify-between hover:border-[#C8102E]/30 transition-all"
+                className="bg-white border border-gray-200 p-6 rounded-3xl shadow-soft flex flex-col justify-between hover:border-[#C8102E]/30 transition-all"
               >
                 <div>
                   <div className="flex items-center gap-1 text-amber-500 mb-4">
@@ -112,14 +112,14 @@ export default function PressReviews() {
                     ))}
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#4F3A34] mb-6 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-gray-600 mb-6 leading-relaxed font-normal">
                     "{item.review}"
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-cream-200 flex items-center justify-between text-xs">
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between text-xs">
                   <div>
-                    <div className="font-bold text-[#231815]">{item.name}</div>
+                    <div className="font-bold text-[#111827]">{item.name}</div>
                     <div className="text-gray-400 text-[11px]">{item.location}</div>
                   </div>
                   <span className="text-gray-400 text-[11px] font-medium">{item.date}</span>

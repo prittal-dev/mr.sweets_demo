@@ -34,24 +34,24 @@ export default function Boutiques({ onBookTasting }) {
   ];
 
   return (
-    <section className="w-full bg-[#110C0A] text-[#EFE8DA] py-20 px-4 sm:px-6 lg:px-8 border-t border-[#231815]">
+    <section className="w-full bg-[#9B0B21] text-white py-20 px-4 sm:px-6 lg:px-8 border-t border-[#7A0819]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 text-[#D4AF37] text-xs font-extrabold uppercase tracking-[0.25em] mb-2">
+            <div className="inline-flex items-center gap-2 text-amber-300 text-xs font-extrabold uppercase tracking-[0.25em] mb-2">
               <MapPin className="w-3.5 h-3.5" />
               <span>VISIT OUR CONFECTIONERY BOUTIQUES</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
               Flagship Tasting{' '}
-              <span className="font-serif-italic text-[#D4AF37] font-normal">
+              <span className="font-serif-italic text-amber-300 font-normal">
                 Salons.
               </span>
             </h2>
           </div>
           <button
             onClick={onBookTasting}
-            className="bg-[#C8102E] text-white hover:bg-red-700 transition-all px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 self-start md:self-auto shadow-md"
+            className="bg-[#C8102E] text-white hover:bg-white hover:text-[#C8102E] transition-all px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 self-start md:self-auto shadow-md border border-red-400/40"
           >
             <Calendar className="w-4 h-4" />
             <span>Book Tasting Reservation</span>
@@ -63,34 +63,34 @@ export default function Boutiques({ onBookTasting }) {
           {stores.map((store, idx) => (
             <div
               key={idx}
-              className="bg-[#18110F] border border-[#362823] p-6 rounded-3xl hover:border-[#D4AF37]/50 transition-all flex flex-col justify-between group"
+              className="bg-[#7A0819] border border-red-500/30 p-6 rounded-3xl hover:border-amber-300/50 transition-all flex flex-col justify-between group"
             >
               <div>
-                <span className="bg-[#110C0A] text-[#D4AF37] text-[10px] font-extrabold px-3 py-1 rounded-full border border-[#D4AF37]/30 inline-block mb-3">
+                <span className="bg-[#9B0B21] text-amber-300 text-[10px] font-extrabold px-3 py-1 rounded-full border border-amber-300/40 inline-block mb-3">
                   {store.tag}
                 </span>
 
-                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-[#D4AF37] transition-colors">
+                <h3 className="text-lg font-bold text-white mb-3 group-hover:text-amber-300 transition-colors">
                   {store.city}
                 </h3>
 
-                <p className="text-xs text-gray-300 mb-4 font-normal leading-relaxed flex items-start gap-2">
-                  <MapPin className="w-4 h-4 text-[#C8102E] shrink-0 mt-0.5" />
+                <p className="text-xs text-red-100 mb-4 font-normal leading-relaxed flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
                   <span>{store.address}</span>
                 </p>
 
-                <p className="text-[11px] text-gray-400 mb-2 flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5 text-gray-500" />
+                <p className="text-[11px] text-red-200 mb-2 flex items-center gap-2">
+                  <Clock className="w-3.5 h-3.5 text-red-300" />
                   <span>{store.hours}</span>
                 </p>
 
-                <p className="text-[11px] text-gray-400 flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-gray-500" />
+                <p className="text-[11px] text-red-200 flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5 text-red-300" />
                   <span>{store.phone}</span>
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-[#362823] flex items-center justify-between text-xs font-bold text-[#D4AF37]">
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-bold text-amber-300">
                 <span>Get Directions</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>

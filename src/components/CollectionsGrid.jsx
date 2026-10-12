@@ -1,118 +1,110 @@
 import React from 'react';
-import { ArrowUpRight, Sparkles } from 'lucide-react';
+import DualTickerBanner from './DualTickerBanner';
 
 export default function CollectionsGrid({ onSelectCategory }) {
-  const collections = [
+  const categories = [
     {
       id: 'wafers',
-      title: 'Wafer Cones & Crisp Bars',
-      subtitle: 'Dairy Cones, Swiss Wafer Rolls & NutyMax',
-      image: '/dairy cone.png',
-      badge: 'Crispy Crunch',
-      count: '9 Formats',
-      tagline: 'Dairy Cones • Wafers'
+      title: 'Baked Treats',
+      bgColor: 'bg-[#FFC709]',
+      textColor: 'text-[#111827]',
+      btnColor: 'text-[#111827]',
+      image: '/romeo choco cone.png',
+      alt: 'Baked treats & wafer cones'
     },
     {
-      id: 'toys',
-      title: 'Surprise Toys & Novelties',
-      subtitle: 'Krispy Toy, Super Heroes & Mr. Joe',
+      id: 'chocolates',
+      title: 'Chocolates',
+      bgColor: 'bg-[#FF85B3]',
+      textColor: 'text-[#111827]',
+      btnColor: 'text-[#111827]',
+      image: '/swiss choclate.png',
+      alt: 'Artisanal chocolates'
+    },
+    {
+      id: 'jellies',
+      title: 'Jellies',
+      bgColor: 'bg-[#2F65FF]',
+      textColor: 'text-white',
+      btnColor: 'text-white',
       image: '/morning jelly.png',
-      badge: 'Toy Edition',
-      count: '5 Creations',
-      tagline: 'Surprise Toys'
+      alt: 'Fruit jellies & gummies'
     },
     {
-      id: 'gummies',
-      title: 'Fruit Jellies & Gummies',
-      subtitle: 'Bunny Pops, Sundae Jellies & Sour Belts',
-      image: '/hunny bunny pops.png',
-      badge: 'Real Fruit',
-      count: '6 Varieties',
-      tagline: 'Fruity Jellies'
-    },
-    {
-      id: 'tins',
-      title: 'Snack & Festive Tubs',
-      subtitle: 'Brawo Choco Bars & Gold Coins Tubs',
-      image: '/brawo.png',
-      badge: 'Keepsake Tubs',
-      count: 'Bulk Jars',
-      tagline: 'Snack Tubs'
+      id: 'candies',
+      title: 'Candies',
+      bgColor: 'bg-[#20D09B]',
+      textColor: 'text-[#111827]',
+      btnColor: 'text-[#111827]',
+      image: '/chingum.png',
+      alt: 'Sweet candies & bubble gums'
     }
   ];
 
   return (
-    <section id="iconic-range" className="w-full bg-[#18110F] text-[#EFE8DA] py-8 sm:py-20 px-3 sm:px-6 lg:px-8 border-y border-[#362823]">
+    <section id="products" className="w-full bg-[#FAF9F6] pt-12 sm:pt-24 pb-4 sm:pb-8 px-4 sm:px-6 lg:px-8 border-t border-red-100/60">
       <div className="max-w-7xl mx-auto">
+        {/* Top Catalogue Pill Badge */}
+        <div className="mb-4">
+          <span className="bg-[#FFC709] text-[#111827] font-fredoka text-xs font-bold px-4 py-1.5 rounded-full inline-block shadow-xs uppercase tracking-wider">
+            The Mr. Sweets catalogue
+          </span>
+        </div>
+
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-12 gap-2 sm:gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 gap-6">
           <div>
-            <div className="inline-flex items-center gap-1.5 text-[#D4AF37] text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-1 sm:mb-2">
-              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D4AF37]" />
-              <span>CURATED CONFECTIONERY COLLECTIONS</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-              Masterpiece{' '}
-              <span className="font-serif-italic text-[#D4AF37] font-normal">
-                Categories.
+            <h2 className="text-4xl sm:text-6xl md:text-7xl font-outfit font-black text-[#111827] tracking-tight leading-[1.05]">
+              Every treat,{' '}
+              <span className="font-serif-italic font-normal text-[#C8102E] block sm:inline">
+                in one place.
               </span>
             </h2>
           </div>
-          <p className="text-xs sm:text-base text-gray-300 max-w-md font-normal hidden sm:block">
-            Explore our curated collections of artisanal sweets, signature choco cones, and luxury gifting boxes.
+
+          <p className="text-xs sm:text-sm text-gray-600 max-w-xs font-medium leading-relaxed">
+            Chocolates, baked treats, jellies and candies from Mr. Sweets. Pick a lane or browse it all.
           </p>
         </div>
 
-        {/* Collections Grid - 2 columns on mobile, 2 columns on desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-3 sm:gap-6 lg:gap-8">
-          {collections.map((item) => (
+        {/* 4 Pastel Color Category Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          {categories.map((cat) => (
             <div
-              key={item.id}
-              onClick={() => onSelectCategory(item.id)}
-              className="group relative bg-white border border-cream-300 rounded-2xl sm:rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 cursor-pointer flex flex-col justify-between min-h-[210px] sm:min-h-[420px]"
+              key={cat.id}
+              onClick={() => onSelectCategory && onSelectCategory(cat.id)}
+              className={`${cat.bgColor} ${cat.textColor} rounded-3xl p-5 sm:p-7 relative overflow-hidden flex flex-col justify-between min-h-[220px] sm:min-h-[260px] shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group`}
             >
-              {/* Background Image Container */}
-              <div className="absolute inset-0 overflow-hidden bg-[#18110F]">
+              {/* Top Left Explore Link */}
+              <div className="relative z-10 flex items-center justify-between">
+                <span className={`text-[11px] sm:text-xs font-fredoka font-bold uppercase tracking-wider flex items-center gap-1 ${cat.btnColor}`}>
+                  EXPLORE →
+                </span>
+              </div>
+
+              {/* Top Right White Circle Pod holding Product Image */}
+              <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-white p-3.5 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500 z-0">
                 <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90"
+                  src={cat.image}
+                  alt={cat.alt}
+                  className="w-full h-full object-contain filter drop-shadow-md"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#110C0A] via-[#110C0A]/60 to-black/30 pointer-events-none" />
               </div>
 
-              {/* Top Card Badge */}
-              <div className="relative z-10 p-3 sm:p-6 flex items-center justify-between gap-1">
-                <span className="bg-white/90 backdrop-blur-md text-[#231815] text-[9px] sm:text-xs font-bold px-2 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full shadow-sm truncate">
-                  {item.badge}
-                </span>
-                <span className="bg-[#110C0A]/80 backdrop-blur-md text-[#D4AF37] text-[9px] sm:text-xs font-semibold px-2 py-0.5 sm:px-3 sm:py-1.5 rounded-full border border-[#D4AF37]/30 shrink-0">
-                  {item.count}
-                </span>
-              </div>
-
-              {/* Bottom Card Content */}
-              <div className="relative z-10 p-3 sm:p-8 text-white">
-                <div className="text-[9px] sm:text-xs font-bold text-amber-300 uppercase tracking-wider mb-0.5 sm:mb-1 truncate">
-                  {item.tagline}
-                </div>
-                <h3 className="text-sm sm:text-3xl font-extrabold text-white mb-0.5 sm:mb-2 group-hover:text-amber-200 transition-colors leading-tight">
-                  {item.title}
+              {/* Bottom Left Category Title */}
+              <div className="relative z-10 mt-auto pt-20 sm:pt-24">
+                <h3 className="text-2xl sm:text-3xl font-outfit font-black tracking-tight leading-none">
+                  {cat.title}
                 </h3>
-                <p className="text-[10px] sm:text-sm text-gray-300 mb-2 sm:mb-4 font-normal line-clamp-1 hidden sm:block">
-                  {item.subtitle}
-                </p>
-
-                <div className="inline-flex items-center gap-1 sm:gap-2 text-[9px] sm:text-xs font-bold uppercase tracking-wider text-white group-hover:text-[#C8102E] transition-colors">
-                  <span>EXPLORE</span>
-                  <div className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-white/20 group-hover:bg-[#C8102E] flex items-center justify-center transition-all">
-                    <ArrowUpRight className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
-                  </div>
-                </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Overlapping Dual Ticker Banner below the 4 cards leading into Product Showcase Portfolio */}
+      <div className="-mx-4 sm:-mx-6 lg:-mx-8">
+        <DualTickerBanner variant="catalogue" />
       </div>
     </section>
   );

@@ -60,31 +60,31 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
   };
 
   return (
-    <section className="w-full bg-[#18110F] text-[#EFE8DA] py-20 px-4 sm:px-6 lg:px-8 border-t border-[#362823] relative">
+    <section className="w-full bg-[#FAF9F6] text-[#111827] py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-200 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 text-[#D4AF37] text-xs font-extrabold uppercase tracking-[0.25em] mb-2">
+          <div className="inline-flex items-center gap-2 text-[#C8102E] text-xs font-extrabold uppercase tracking-[0.25em] mb-2">
             <Gift className="w-3.5 h-3.5" />
             <span>INTERACTIVE CONFECTIONERY STUDIO</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight">
             Build Your Own{' '}
-            <span className="font-serif-italic text-[#D4AF37] font-normal">
+            <span className="font-serif-italic text-[#C8102E] font-normal">
               Haute Gift Box.
             </span>
           </h2>
-          <p className="text-gray-400 text-sm sm:text-base mt-3 font-normal">
-            Hand-pick your favorite artisanal confections piece by piece into our gold-embossed velvet box.
+          <p className="text-gray-600 text-sm sm:text-base mt-3 font-normal">
+            Hand-pick your favorite artisanal confections piece by piece into our custom gift box.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Sweet Selection Options */}
-          <div className="lg:col-span-7 bg-[#231815] border border-[#362823] p-6 sm:p-8 rounded-3xl">
+          <div className="lg:col-span-7 bg-white border border-gray-200 p-6 sm:p-8 rounded-3xl shadow-sm">
             {/* Step 1: Select Box Size */}
             <div className="mb-8">
-              <label className="block text-xs font-bold uppercase tracking-wider text-[#D4AF37] mb-3">
+              <label className="block text-xs font-bold uppercase tracking-wider text-[#C8102E] mb-3">
                 Step 1: Choose Box Size
               </label>
               <div className="grid grid-cols-3 gap-3">
@@ -99,12 +99,12 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                     }}
                     className={`py-3 px-4 rounded-2xl text-xs sm:text-sm font-bold border transition-all text-center ${
                       boxSize === size
-                        ? 'bg-[#C8102E] text-white border-[#C8102E] shadow-glow'
-                        : 'bg-[#110C0A] text-gray-300 border-[#362823] hover:border-white/20'
+                        ? 'bg-[#C8102E] text-white border-[#C8102E] shadow-sm'
+                        : 'bg-red-50/50 text-[#111827] border-gray-200 hover:border-[#C8102E]'
                     }`}
                   >
                     <div>{size} Pieces</div>
-                    <div className="text-[10px] text-amber-200/80 font-normal mt-0.5">
+                    <div className={boxSize === size ? 'text-amber-200 text-[10px] font-normal mt-0.5' : 'text-gray-500 text-[10px] font-normal mt-0.5'}>
                       {size === 4 ? 'Personal Vault' : size === 9 ? 'Signature Box' : 'Royal Hamper'}
                     </div>
                   </button>
@@ -115,13 +115,13 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
             {/* Step 2: Add Individual Sweets */}
             <div className="mb-6">
               <div className="flex items-center justify-between mb-3">
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#D4AF37]">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#C8102E]">
                   Step 2: Add Artisanal Sweets ({selectedPieces.length}/{boxSize} Filled)
                 </label>
                 {selectedPieces.length > 0 && (
                   <button
                     onClick={() => setSelectedPieces([])}
-                    className="text-xs text-red-400 hover:underline flex items-center gap-1"
+                    className="text-xs text-red-600 hover:underline flex items-center gap-1 font-bold"
                   >
                     <RefreshCw className="w-3 h-3" /> Clear Box
                   </button>
@@ -132,7 +132,7 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                 {sweetOptions.map((sweet) => (
                   <div
                     key={sweet.id}
-                    className="bg-[#110C0A] border border-[#362823] p-3 rounded-2xl flex items-center justify-between hover:border-[#D4AF37]/40 transition-all"
+                    className="bg-red-50/40 border border-gray-200 p-3 rounded-2xl flex items-center justify-between hover:border-[#C8102E]/40 transition-all"
                   >
                     <div className="flex items-center gap-3">
                       <img
@@ -141,8 +141,8 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                         className="w-12 h-12 rounded-xl object-cover"
                       />
                       <div>
-                        <div className="text-xs font-bold text-white">{sweet.name}</div>
-                        <div className="text-[11px] text-[#D4AF37]">₹{sweet.unitPrice} / pc</div>
+                        <div className="text-xs font-bold text-[#111827]">{sweet.name}</div>
+                        <div className="text-[11px] text-[#C8102E] font-semibold">₹{sweet.unitPrice} / pc</div>
                       </div>
                     </div>
 
@@ -151,8 +151,8 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                       disabled={selectedPieces.length >= boxSize}
                       className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${
                         selectedPieces.length >= boxSize
-                          ? 'bg-gray-800 text-gray-600 cursor-not-allowed'
-                          : 'bg-[#C8102E] text-white hover:bg-red-700'
+                          ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                          : 'bg-[#C8102E] text-white hover:bg-[#9B0B21]'
                       }`}
                     >
                       <Plus className="w-4 h-4" />
@@ -163,20 +163,20 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
             </div>
 
             {/* Ribbon & Custom Message */}
-            <div className="pt-6 border-t border-[#362823] grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="pt-6 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs font-bold text-gray-300 mb-2">
+                <label className="block text-xs font-bold text-gray-700 mb-2">
                   Ribbon Accent Color:
                 </label>
                 <div className="flex gap-2">
-                  {['Crimson Red', 'Royal Gold', 'Midnight Gold'].map((color) => (
+                  {['Crimson Red', 'Royal Gold', 'Metallic Silver'].map((color) => (
                     <button
                       key={color}
                       onClick={() => setRibbonColor(color)}
                       className={`px-3 py-1.5 rounded-full text-xs font-bold border ${
                         ribbonColor === color
-                          ? 'bg-[#D4AF37] text-black border-[#D4AF37]'
-                          : 'bg-[#110C0A] text-gray-400 border-[#362823]'
+                          ? 'bg-[#C8102E] text-white border-[#C8102E]'
+                          : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
                       }`}
                     >
                       {color}
@@ -186,35 +186,35 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-gray-300 mb-1">
+                <label className="block text-xs font-bold text-gray-700 mb-1">
                   Complimentary Gift Note:
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. Wishing you sweetness on your wedding day!"
+                  placeholder="e.g. Wishing you sweetness on your special day!"
                   value={giftMessage}
                   onChange={(e) => setGiftMessage(e.target.value)}
-                  className="w-full bg-[#110C0A] border border-[#362823] rounded-xl px-3 py-2 text-xs text-white placeholder:text-gray-600 focus:border-[#D4AF37] focus:outline-none"
+                  className="w-full bg-white border border-gray-200 rounded-xl px-3 py-2 text-xs text-[#111827] placeholder:text-gray-400 focus:border-[#C8102E] focus:outline-none"
                 />
               </div>
             </div>
           </div>
 
           {/* Right Column: Live Box Visual Preview */}
-          <div className="lg:col-span-5 bg-[#110C0A] border-2 border-[#362823] p-6 sm:p-8 rounded-3xl shadow-floating flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-[#7A0819] border-2 border-red-900 p-6 sm:p-8 rounded-3xl shadow-floating flex flex-col justify-between text-white">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs font-bold text-[#D4AF37] uppercase tracking-widest flex items-center gap-1.5">
+                <span className="text-xs font-bold text-amber-300 uppercase tracking-widest flex items-center gap-1.5">
                   <Package className="w-4 h-4" /> Live Box Preview
                 </span>
-                <span className="text-xs font-bold text-gray-400">
+                <span className="text-xs font-bold text-gray-200">
                   {selectedPieces.length} / {boxSize} Slots
                 </span>
               </div>
 
               {/* Grid Box Container */}
               <div
-                className={`grid gap-3 p-4 bg-[#18110F] border border-[#362823] rounded-2xl mb-6 ${
+                className={`grid gap-3 p-4 bg-[#9B0B21] border border-red-800 rounded-2xl mb-6 ${
                   boxSize === 4 ? 'grid-cols-2' : boxSize === 9 ? 'grid-cols-3' : 'grid-cols-4'
                 }`}
               >
@@ -225,8 +225,8 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                       key={idx}
                       className={`aspect-square rounded-xl border-2 flex items-center justify-center relative transition-all overflow-hidden ${
                         piece
-                          ? 'border-[#D4AF37] bg-[#231815]'
-                          : 'border-dashed border-white/20 bg-black/40'
+                          ? 'border-amber-400 bg-[#7A0819]'
+                          : 'border-dashed border-white/30 bg-black/20'
                       }`}
                     >
                       {piece ? (
@@ -244,7 +244,7 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                           </button>
                         </div>
                       ) : (
-                        <span className="text-[10px] text-gray-600 font-bold">Slot {idx + 1}</span>
+                        <span className="text-[10px] text-red-200/60 font-bold">Slot {idx + 1}</span>
                       )}
                     </div>
                   );
@@ -252,10 +252,10 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
               </div>
 
               {/* Box Summary Box */}
-              <div className="space-y-2 text-xs text-gray-300 border-t border-[#362823] pt-4 mb-6">
+              <div className="space-y-2 text-xs text-gray-200 border-t border-red-800/80 pt-4 mb-6">
                 <div className="flex justify-between">
-                  <span>Base Velvet Box & Foil Packaging:</span>
-                  <span className="font-semibold text-[#D4AF37]">
+                  <span>Base Box & Foil Packaging:</span>
+                  <span className="font-semibold text-amber-300">
                     Included
                   </span>
                 </div>
@@ -265,9 +265,9 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
                     {selectedPieces.length} of {boxSize} Slots Filled
                   </span>
                 </div>
-                <div className="flex justify-between text-sm font-extrabold text-white pt-2 border-t border-[#362823]">
+                <div className="flex justify-between text-sm font-extrabold text-white pt-2 border-t border-red-800/80">
                   <span>Box Quote Status:</span>
-                  <span className="text-[#D4AF37]">Custom B2B Quote</span>
+                  <span className="text-amber-300">Custom B2B Quote</span>
                 </div>
               </div>
             </div>
@@ -285,15 +285,15 @@ export default function CustomBoxBuilder({ onInquireCustomBox }) {
               disabled={selectedPieces.length < boxSize}
               className={`w-full py-4 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 shadow-lg ${
                 selectedPieces.length < boxSize
-                  ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
-                  : 'bg-[#C8102E] text-white hover:bg-red-700 shadow-glow'
+                  ? 'bg-red-950/60 text-red-300/50 cursor-not-allowed border border-red-900'
+                  : 'bg-[#C8102E] text-white hover:bg-[#9B0B21] active:scale-98'
               }`}
             >
               {selectedPieces.length < boxSize ? (
                 <span>Fill Remaining {boxSize - selectedPieces.length} Slots to Complete Box</span>
               ) : (
                 <>
-                  <Mail className="w-4 h-4 text-amber-200" />
+                  <Mail className="w-4 h-4 text-amber-300" />
                   <span>Inquire Custom Gift Box</span>
                 </>
               )}

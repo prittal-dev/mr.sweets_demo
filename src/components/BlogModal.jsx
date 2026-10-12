@@ -122,14 +122,14 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
       aria-labelledby="article-modal-title"
     >
       <div
-        className="bg-[#FDFBF7] border border-cream-300 w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl relative my-auto max-h-[90vh] flex flex-col min-w-0 text-[#231815]"
+        className="bg-white border border-red-100 w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl relative my-auto max-h-[90vh] flex flex-col min-w-0 text-[#111827]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close modal"
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-white/90 border border-cream-300 text-[#231815] hover:bg-[#C8102E] hover:text-white transition-all shadow-md"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-white/90 border border-red-100 text-[#111827] hover:bg-[#C8102E] hover:text-white transition-all shadow-md"
         >
           <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
@@ -142,12 +142,12 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
           </div>
 
           {/* Title */}
-          <h2 id="article-modal-title" className="text-xl sm:text-3xl font-extrabold text-[#231815] mb-3 leading-snug">
+          <h2 id="article-modal-title" className="text-xl sm:text-3xl font-extrabold text-[#111827] mb-3 leading-snug">
             {article.title}
           </h2>
 
           {/* Meta Info Bar */}
-          <div className="flex flex-wrap items-center gap-3 text-xs text-[#8B7355] font-semibold mb-6 pb-4 border-b border-amber-900/10">
+          <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 font-semibold mb-6 pb-4 border-b border-red-100">
             <div className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5" />
               <span>{article.date}</span>
@@ -158,13 +158,13 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
               <span>{article.readTime}</span>
             </div>
             <span>•</span>
-            <span className="bg-[#110C0A] text-[#D4AF37] text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-[#D4AF37]/30">
+            <span className="bg-[#C8102E] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full border border-red-400">
               {article.tag}
             </span>
           </div>
 
           {/* Featured Image */}
-          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-[#F7F5F0] border border-amber-900/15 mb-6 flex items-center justify-center p-4">
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-gray-50 border border-red-100 mb-6 flex items-center justify-center p-4">
             <img
               src={article.image}
               alt={article.title}
@@ -173,15 +173,15 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
           </div>
 
           {/* Excerpt Lead Paragraph */}
-          <p className="text-xs sm:text-base text-[#231815] font-semibold leading-relaxed mb-6 bg-white p-4 rounded-xl border border-amber-900/15 italic">
+          <p className="text-xs sm:text-base text-[#111827] font-semibold leading-relaxed mb-6 bg-red-50 p-4 rounded-xl border border-red-100 italic">
             "{article.excerpt}"
           </p>
 
           {/* Article Sections */}
-          <div className="space-y-6 text-xs sm:text-sm text-[#4F3A34] leading-relaxed mb-8">
+          <div className="space-y-6 text-xs sm:text-sm text-gray-600 leading-relaxed mb-8">
             {details.sections.map((sec, idx) => (
               <div key={idx} className="space-y-2">
-                <h3 className="text-sm sm:text-lg font-extrabold text-[#231815]">
+                <h3 className="text-sm sm:text-lg font-extrabold text-[#111827]">
                   {sec.heading}
                 </h3>
                 <p className="font-normal text-gray-700 leading-relaxed">
@@ -192,15 +192,15 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
           </div>
 
           {/* Highlights Box */}
-          <div className="bg-[#110C0A] text-[#EFE8DA] p-4 sm:p-6 rounded-2xl mb-6 border border-[#362823]">
-            <div className="flex items-center gap-2 text-[#D4AF37] text-xs font-extrabold uppercase tracking-widest mb-3">
+          <div className="bg-[#9B0B21] text-white p-4 sm:p-6 rounded-2xl mb-6 border border-[#7A0819]">
+            <div className="flex items-center gap-2 text-amber-300 text-xs font-extrabold uppercase tracking-widest mb-3">
               <Sparkles className="w-4 h-4" />
               <span>KEY HIGHLIGHTS</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {details.highlights.map((h, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs font-bold text-white bg-[#18110F] p-2.5 rounded-xl border border-[#362823]">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div key={idx} className="flex items-center gap-2 text-xs font-bold text-white bg-[#7A0819] p-2.5 rounded-xl border border-red-500/30">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-300 shrink-0" />
                   <span>{h}</span>
                 </div>
               ))}
@@ -208,7 +208,7 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
           </div>
 
           {/* Actions Bar */}
-          <div className="pt-4 border-t border-amber-900/15 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="pt-4 border-t border-red-100 flex flex-col sm:flex-row items-center justify-between gap-3">
             <button
               onClick={() => {
                 onClose();
@@ -216,13 +216,13 @@ export default function BlogModal({ article, onClose, onOpenInquire }) {
               }}
               className="w-full sm:w-auto bg-[#C8102E] text-white hover:bg-[#9B0B21] transition-all px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md active:scale-95"
             >
-              <Mail className="w-4 h-4 text-amber-200" />
+              <Mail className="w-4 h-4 text-white" />
               <span>Inquire Commercial Supply</span>
             </button>
 
             <button
               onClick={onClose}
-              className="w-full sm:w-auto bg-white border border-amber-900/15 text-[#231815] hover:bg-amber-100 transition-all px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider"
+              className="w-full sm:w-auto bg-gray-100 border border-gray-200 text-[#111827] hover:bg-gray-200 transition-all px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider"
             >
               Close Article
             </button>

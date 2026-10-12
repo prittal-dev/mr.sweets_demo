@@ -111,7 +111,7 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
   };
 
   return (
-    <section id="curated-box" className="w-full bg-[#FDFBF7] py-20 px-4 sm:px-6 lg:px-8 border-t border-cream-200">
+    <section id="curated-box" className="w-full bg-[#FAF9F6] py-20 px-4 sm:px-6 lg:px-8 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
@@ -119,14 +119,14 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
             <Sparkles className="w-3.5 h-3.5" />
             <span>ARTISANAL CATALOGUE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#231815] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight">
             Our Signature{' '}
             <span className="font-serif-italic text-[#C8102E] font-normal">
               Haute Confections.
             </span>
           </h2>
-          <p className="text-[#4F3A34] text-sm sm:text-base mt-3 font-normal">
-            Handcrafted daily in small batches using pure A2 Desi Ghee, Kashmiri Saffron, and single-origin cocoa.
+          <p className="text-gray-600 text-sm sm:text-base mt-3 font-normal">
+            Handcrafted daily in small batches using pure ingredients, fine cocoa, and authentic flavors.
           </p>
         </div>
 
@@ -138,8 +138,8 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
               onClick={() => setActiveTab(cat.id)}
               className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-sm ${
                 activeTab === cat.id
-                  ? 'bg-[#110C0A] text-[#D4AF37] border border-[#362823] shadow-md scale-105'
-                  : 'bg-white text-[#362823] border border-cream-300 hover:border-[#C8102E] hover:text-[#C8102E]'
+                  ? 'bg-[#C8102E] text-white border border-[#C8102E] shadow-md scale-105'
+                  : 'bg-white text-[#111827] border border-gray-200 hover:border-[#C8102E] hover:text-[#C8102E]'
               }`}
             >
               {cat.label}
@@ -152,10 +152,10 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white border border-cream-300 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 flex flex-col justify-between group"
+              className="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-soft hover:shadow-floating transition-all duration-500 flex flex-col justify-between group"
             >
               {/* Product Image & Badges */}
-              <div className="relative aspect-square overflow-hidden bg-[#F7F5F0] cursor-pointer" onClick={() => onQuickView(product)}>
+              <div className="relative aspect-square overflow-hidden bg-red-50/30 cursor-pointer" onClick={() => onQuickView(product)}>
                 <img
                   src={product.image}
                   alt={product.name}
@@ -164,7 +164,7 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
                 
                 {/* Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="bg-[#110C0A]/90 backdrop-blur-md text-[#D4AF37] text-[10px] font-extrabold px-3 py-1 rounded-full border border-[#D4AF37]/30 tracking-wider">
+                  <span className="bg-[#9B0B21]/95 backdrop-blur-md text-amber-300 text-[10px] font-extrabold px-3 py-1 rounded-full border border-red-700/50 tracking-wider">
                     {product.badge}
                   </span>
                 </div>
@@ -175,7 +175,7 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
                     e.stopPropagation();
                     onQuickView(product);
                   }}
-                  className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md text-[#231815] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#C8102E] hover:text-white hover:scale-110"
+                  className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-md text-[#111827] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-[#C8102E] hover:text-white hover:scale-110"
                   aria-label="Quick View"
                 >
                   <Eye className="w-4 h-4" />
@@ -196,32 +196,32 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
 
                   <h3
                     onClick={() => onQuickView(product)}
-                    className="text-lg font-bold text-[#231815] hover:text-[#C8102E] transition-colors cursor-pointer mb-1 leading-snug"
+                    className="text-lg font-bold text-[#111827] hover:text-[#C8102E] transition-colors cursor-pointer mb-1 leading-snug"
                   >
                     {product.name}
                   </h3>
 
-                  <p className="text-xs text-[#8B7355] font-semibold mb-3">
+                  <p className="text-xs text-gray-500 font-semibold mb-3">
                     {product.tagline}
                   </p>
                 </div>
 
                 {/* Price & Action Button */}
-                <div className="pt-4 border-t border-cream-200 flex items-center justify-between">
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-xs font-extrabold text-[#C8102E] uppercase tracking-wider">
                       B2B Trade Range
                     </span>
-                    <span className="text-[11px] font-bold text-[#8B7355] mt-0.5">
+                    <span className="text-[11px] font-bold text-gray-500 mt-0.5">
                       {product.weight}
                     </span>
                   </div>
 
                   <button
                     onClick={() => onOpenInquire(product)}
-                    className="px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 shadow-sm active:scale-95 bg-[#110C0A] text-white hover:bg-[#C8102E]"
+                    className="px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-1.5 shadow-sm active:scale-95 bg-[#9B0B21] text-white hover:bg-[#C8102E]"
                   >
-                    <Mail className="w-3.5 h-3.5 text-[#D4AF37]" />
+                    <Mail className="w-3.5 h-3.5 text-amber-300" />
                     <span>Inquire Now</span>
                   </button>
                 </div>
