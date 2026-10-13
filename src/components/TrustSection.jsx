@@ -24,10 +24,10 @@ export default function TrustSection() {
     },
     {
       id: 'fssai',
-      name: 'FSSAI Approved & Licensed',
+      name: 'FSSAI Lic. No. 12720052000625',
       badge: 'Govt. Food Safety Compliance',
       icon: FileCheck,
-      desc: 'Central Government licensed food business operation guaranteeing raw material purity, sanitary processing, and honest labeling.'
+      desc: 'Licensed food business operator under FSSAI Lic. No. 12720052000625, ensuring highest standards of raw material purity, sterile processing, and honest labeling.'
     },
     {
       id: 'veg',

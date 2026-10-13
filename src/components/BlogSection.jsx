@@ -13,7 +13,7 @@ export default function BlogSection({ onOpenInquire }) {
       readTime: '4 min read',
       title: 'The Art of Crispy Waffle Cones: Preserving Unmatched Crunchiness',
       excerpt: 'Discover how multi-layered baked wafer cones are foil-wrapped to seal in maximum crunchiness and rich cocoa cream flavor.',
-      image: '/romeo choco cone.png',
+      image: '/romeo choco cone.webp',
       tag: 'Crispy Wafers'
     },
     {
@@ -23,7 +23,7 @@ export default function BlogSection({ onOpenInquire }) {
       readTime: '5 min read',
       title: 'Festive Gifting Trends: Why 999.9 Gold Coin Jars Are #1 Choice',
       excerpt: 'Explore the royal tradition of gold chocolate gifting for Diwali, weddings, birthday party return gifts, and corporate hampers.',
-      image: '/gold coin.png',
+      image: '/gold coin.webp',
       tag: 'Festive Hampers'
     },
     {
@@ -33,7 +33,7 @@ export default function BlogSection({ onOpenInquire }) {
       readTime: '3 min read',
       title: '100% Pure Veg Confectionery: Gelatin-Free Sweet Formulations',
       excerpt: 'Learn how zero-animal gelatin and authentic fruit pectin create delicious, worry-free gummies and soft jelly pops for kids.',
-      image: '/swiss choclate.png',
+      image: '/swiss choclate.webp',
       tag: 'Pure Veg'
     },
     {
@@ -43,7 +43,7 @@ export default function BlogSection({ onOpenInquire }) {
       readTime: '6 min read',
       title: 'Maximizing Counter Sales: Retail Display Jar Merchandising',
       excerpt: 'How counter display tubs of Brawo Choco Rice and Krispy Toy surprise boxes boost impulse purchases for retail merchants.',
-      image: '/brawo box.png',
+      image: '/brawo box.webp',
       tag: 'Retail Trade'
     },
     {
@@ -53,7 +53,7 @@ export default function BlogSection({ onOpenInquire }) {
       readTime: '4 min read',
       title: 'Behind the Recipe: Slow-Churned Cocoa & Caramel Conching',
       excerpt: 'Take an insider peek at our atelier conching kettles where Dutch cocoa and golden caramel blend for creamy NutyMax bars.',
-      image: '/nuty max box .png',
+      image: '/nuty max box .webp',
       tag: 'Factory Secrets'
     }
   ];

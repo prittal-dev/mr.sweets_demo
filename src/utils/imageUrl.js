@@ -3,7 +3,7 @@
  * Handles spaces in filenames and ensures valid URI encoding for all web servers.
  */
 export function getProductImage(path) {
-  if (!path) return '/swiss choclate.png';
+  if (!path) return '/swiss choclate.webp';
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
     return path;
   }
@@ -48,6 +48,6 @@ export function handleImageError(e, originalPath) {
 
   if (!img.dataset.triedFallback) {
     img.dataset.triedFallback = 'true';
-    img.src = '/swiss choclate.png';
+    img.src = '/swiss choclate.webp';
   }
 }

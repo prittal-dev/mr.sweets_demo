@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { X, Star, Mail, ShieldCheck, Sparkles, ZoomIn, ShoppingBag, Check } from 'lucide-react';
+import { 
+  X, Star, Mail, ShieldCheck, Sparkles, ZoomIn, 
+  Package, Clock, Scale, Tag, Gift, BadgePercent, MessageCircle
+} from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
 export default function ProductQuickViewModal({ product, onClose, onOpenInquire, onAddToCart }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
 
   useEffect(() => {
     if (product) {
@@ -30,129 +32,248 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
 
   if (!product) return null;
 
-  const handleAddToCart = () => {
-    if (onAddToCart) {
-      onAddToCart({
-        id: product.id,
-        name: product.name,
-        tagline: product.tagline || `${product.moq || ''} ${product.tag || ''}`,
-        priceINR: parseInt(product.priceINR) || 99,
-        priceUSD: parseFloat(product.priceUSD) || 9.99,
-        weight: product.tag || product.weight || 'Standard Pack',
-        image: product.image,
-        quantity: 1
-      });
-    }
-    setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 1500);
-  };
-
   return (
     <>
       {/* Quick View Modal Container */}
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-sm animate-fadeIn overflow-y-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/75 backdrop-blur-md animate-fadeIn overflow-y-auto"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-product-title"
       >
         <div
-          className="bg-white border border-gray-200 w-full max-w-3xl sm:max-w-4xl rounded-3xl overflow-hidden shadow-2xl relative my-auto max-h-[92vh] flex flex-col min-w-0"
+          className="bg-white border border-gray-100/80 w-full max-w-4xl rounded-[28px] sm:rounded-[32px] overflow-hidden shadow-2xl relative my-auto max-h-[92vh] flex flex-col min-w-0 ring-1 ring-black/5"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="absolute top-3 right-3 sm:top-4 sm:right-4 z-20 p-2 sm:p-2.5 rounded-full bg-white/90 border border-gray-200 text-[#111827] hover:bg-[#C8102E] hover:text-white transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-[#C8102E]"
+            className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-20 w-10 h-10 rounded-full bg-white/95 border border-gray-200 text-gray-700 hover:text-white hover:bg-[#E02438] hover:border-[#E02438] transition-all duration-200 shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-[#E02438] active:scale-95"
           >
-            <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            <X className="w-5 h-5 stroke-[2.5]" />
           </button>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 min-w-0 w-full overflow-y-auto">
-            {/* Product Image Box */}
+          <div className="grid grid-cols-1 md:grid-cols-12 min-w-0 w-full overflow-y-auto">
+            {/* Left: Product Showcase Panel (5 cols) */}
             <div
               onClick={() => setIsLightboxOpen(true)}
-              className="relative bg-red-50/40 border-b md:border-b-0 md:border-r border-gray-100 min-h-[260px] sm:min-h-[340px] md:min-h-full flex items-center justify-center p-6 cursor-pointer group/modalimg min-w-0"
+              className="md:col-span-5 relative bg-gradient-to-br from-amber-50/70 via-rose-50/30 to-yellow-50/50 border-b md:border-b-0 md:border-r border-gray-100 min-h-[290px] sm:min-h-[360px] md:min-h-full flex flex-col items-center justify-center p-6 sm:p-8 cursor-pointer group/modalimg min-w-0 select-none overflow-hidden"
             >
-              <img
-                src={getProductImage(product.image)}
-                alt={product.name}
-                className="w-full h-full max-h-[320px] sm:max-h-[380px] object-contain group-hover/modalimg:scale-105 transition-transform duration-300"
-                decoding="async"
-                onError={(e) => handleImageError(e, product.image)}
-              />
-
-              {/* Badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="bg-[#9B0B21] text-amber-300 text-[11px] font-extrabold px-3 py-1 rounded-full border border-red-700/50 tracking-wider shadow-sm">
-                  {product.badge || 'MR. SWEETS SPECIAL'}
-                </span>
+              {/* Confectionery Ambient Background Glow */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-tr from-amber-300/30 via-red-400/15 to-transparent blur-2xl" />
+                <div className="absolute -top-10 -left-10 w-36 h-36 rounded-full bg-yellow-300/25 blur-xl" />
+                <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-red-400/20 blur-xl" />
               </div>
 
-              {/* Click to Zoom Overlay Indicator */}
-              <div className="absolute bottom-4 right-4 bg-[#7A0819]/90 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-bold flex items-center gap-1.5 opacity-90 group-hover/modalimg:bg-[#C8102E] transition-all shadow-md">
+              {/* Floating Top Badges */}
+              <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-1.5 max-w-[80%]">
+                <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#E02438] to-[#B91C1C] text-white text-[11px] font-black px-3.5 py-1.5 rounded-full shadow-md shadow-red-500/20 tracking-wider uppercase">
+                  <Sparkles className="w-3 h-3 text-amber-300" />
+                  {product.badge || 'MR. SWEET POPULAR'}
+                </span>
+                {product.section && (
+                  <span className="inline-flex items-center bg-white/95 backdrop-blur-md text-gray-800 text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-gray-200/90 shadow-2xs uppercase tracking-wide">
+                    {product.section}
+                  </span>
+                )}
+              </div>
+
+              {/* Showcase Product Image with Drop Shadow & Smooth Hover */}
+              <div className="relative z-10 w-full flex items-center justify-center py-4 my-auto">
+                <img
+                  src={getProductImage(product.image)}
+                  alt={product.name}
+                  className="w-full max-h-[240px] sm:max-h-[310px] md:max-h-[340px] object-contain drop-shadow-[0_16px_24px_rgba(0,0,0,0.15)] group-hover/modalimg:scale-108 group-hover/modalimg:-rotate-1 transition-all duration-300 ease-out"
+                  decoding="async"
+                  onError={(e) => handleImageError(e, product.image)}
+                />
+              </div>
+
+              {/* Bottom Badges: 100% Veg & Zoom in */}
+              <div className="absolute bottom-4 left-4 z-10 bg-white/95 backdrop-blur-md border border-emerald-200/80 px-2.5 py-1.5 rounded-xl shadow-xs flex items-center gap-2">
+                <div className="w-3.5 h-3.5 border-2 border-emerald-600 rounded-xs flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                </div>
+                <span className="text-[10px] font-black text-emerald-800 tracking-tight uppercase">100% Pure Veg</span>
+              </div>
+
+              <div className="absolute bottom-4 right-4 z-10 bg-black/75 group-hover/modalimg:bg-[#E02438] backdrop-blur-md text-white px-3.5 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1.5 transition-all shadow-md group-hover/modalimg:scale-105">
                 <ZoomIn className="w-3.5 h-3.5 text-amber-300" />
-                <span>Click to Expand</span>
+                <span>Zoom In</span>
               </div>
             </div>
 
-            {/* Product Details */}
-            <div className="p-5 sm:p-8 flex flex-col justify-between min-w-0 w-full">
+            {/* Right: Product Details & Commercial Matrix (7 cols) */}
+            <div className="md:col-span-7 p-5 sm:p-7 md:p-8 flex flex-col justify-between min-w-0 w-full bg-white">
               <div>
-                <div className="flex items-center gap-2 text-[11px] sm:text-xs text-[#C8102E] font-bold uppercase tracking-widest mb-1">
-                  <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
-                  <span>MR. SWEETS CONFECTIONERY</span>
+                {/* Brand Eyebrow */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-red-50 to-amber-50 border border-red-200/60 text-[#E02438] text-[11px] font-black uppercase tracking-wider mb-2">
+                  <Sparkles className="w-3.5 h-3.5 text-[#E02438]" />
+                  <span>Mr. Sweet Confectionery</span>
                 </div>
 
-                <h2 id="modal-product-title" className="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#111827] mb-2 leading-tight break-words">
+                {/* Product Title */}
+                <h2 id="modal-product-title" className="text-xl sm:text-2xl md:text-[25px] font-black text-[#111827] mb-1.5 leading-tight tracking-tight break-words">
                   {product.name}
                 </h2>
 
-                <p className="text-xs text-gray-500 font-semibold mb-3">
-                  {product.tagline || '100% Veg • Premium Packaged Confectionery'}
+                {/* Subtitle / Tagline */}
+                <p className="text-xs sm:text-[13px] text-gray-500 font-semibold mb-3">
+                  {product.tagline || '100% Veg • Authentic Packaged Confectionery'}
                 </p>
 
-                <div className="flex items-center flex-wrap gap-2 sm:gap-3 mb-4">
-                  <div className="flex items-center text-amber-500 font-bold text-xs sm:text-sm">
-                    <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 mr-1" />
-                    <span>{product.rating}</span>
+                {/* Rating & Stock Status */}
+                <div className="flex items-center flex-wrap gap-2.5 mb-3.5">
+                  <div className="flex items-center gap-1 bg-amber-50 border border-amber-200 text-amber-900 font-black text-xs px-2.5 py-1 rounded-lg shadow-2xs">
+                    <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    <span>{product.rating || '4.9'}</span>
                   </div>
-                  <span className="text-gray-300">•</span>
-                  <span className="text-xs text-emerald-700 font-semibold">
-                    In Stock
-                  </span>
+                  <div className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold text-xs px-2.5 py-1 rounded-lg shadow-2xs">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>In Stock & Ready for Dispatch</span>
+                  </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-600 mb-5 sm:mb-6 leading-relaxed">
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-gray-600 mb-4 leading-relaxed">
                   {product.description}
                 </p>
 
-                {/* Ingredients & Dietary Guarantee */}
-                <div className="bg-red-50/50 border border-red-100 p-3.5 rounded-2xl mb-6 text-xs flex flex-col gap-1.5">
-                  <div className="flex items-center gap-2 font-bold text-[#111827]">
-                    <ShieldCheck className="w-4 h-4 text-emerald-700" />
-                    <span>100% Pure Vegetarian & Preservative Free</span>
+                {/* Bento Pricing Matrix */}
+                <div className="grid grid-cols-2 gap-2.5 mb-3">
+                  {/* Box / Jar MRP Card */}
+                  <div className="bg-gradient-to-br from-red-50 via-rose-50/50 to-white border border-red-200/90 rounded-2xl p-3 flex flex-col justify-between shadow-2xs">
+                    <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-[#E02438] mb-0.5">
+                      <span>Box / Jar MRP</span>
+                      <Tag className="w-3.5 h-3.5 text-[#E02438]" />
+                    </div>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-2xl sm:text-3xl font-black text-[#E02438] tracking-tight">
+                        ₹{product.boxMrp || product.priceINR}
+                      </span>
+                      <span className="text-[10px] font-extrabold text-red-500 uppercase">Retail Box</span>
+                    </div>
                   </div>
-                  <div className="text-gray-500 text-[11px] leading-normal">
-                    Crafted with premium food-grade ingredients, 100% vegetarian & zero animal gelatin.
+
+                  {/* Unit Retail or Wholesale Card */}
+                  <div className="bg-gradient-to-br from-amber-50 via-yellow-50/40 to-white border border-amber-200/90 rounded-2xl p-3 flex flex-col justify-between shadow-2xs">
+                    <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider text-amber-900 mb-0.5">
+                      <span>{product.unitMrp ? 'Unit Retail' : 'Wholesale Rate'}</span>
+                      <BadgePercent className="w-3.5 h-3.5 text-amber-700" />
+                    </div>
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-2xl sm:text-3xl font-black text-amber-950 tracking-tight">
+                        {product.unitMrp ? `${product.unitMrp}` : (product.kcPrice ? `₹${product.kcPrice}` : 'Wholesale')}
+                      </span>
+                      <span className="text-[10px] font-extrabold text-amber-800 uppercase">
+                        {product.unitMrp ? '/ pc' : 'per box'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Logistics Bento Specifications */}
+                <div className="grid grid-cols-3 gap-2 mb-3 text-xs">
+                  {/* Packing */}
+                  <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl p-2.5 flex flex-col justify-center">
+                    <div className="flex items-center gap-1.5 text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">
+                      <Package className="w-3 h-3 text-gray-600 shrink-0" />
+                      <span>Packing</span>
+                    </div>
+                    <span className="font-mono font-black text-gray-900 text-[11px] sm:text-xs truncate block">
+                      {product.packing || '1X24X33PCS'}
+                    </span>
+                  </div>
+
+                  {/* Net Weight */}
+                  <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl p-2.5 flex flex-col justify-center">
+                    <div className="flex items-center gap-1.5 text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">
+                      <Scale className="w-3 h-3 text-gray-600 shrink-0" />
+                      <span>Net Weight</span>
+                    </div>
+                    <span className="font-bold text-gray-900 text-[11px] sm:text-xs truncate block">
+                      {product.weight || 'Standard'}
+                    </span>
+                  </div>
+
+                  {/* Shelf Life */}
+                  <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl p-2.5 flex flex-col justify-center">
+                    <div className="flex items-center gap-1.5 text-gray-500 text-[10px] font-bold uppercase tracking-wider mb-0.5">
+                      <Clock className="w-3 h-3 text-gray-600 shrink-0" />
+                      <span>Shelf Life</span>
+                    </div>
+                    <span className="font-bold text-gray-900 text-[11px] sm:text-xs truncate block">
+                      {product.shelfLife || '12 Months'}
+                    </span>
+                  </div>
+                </div>
+
+                {/* 50+1 Scheme Banner */}
+                <div className="bg-gradient-to-r from-amber-500/10 via-red-500/10 to-amber-500/10 border border-amber-300/80 rounded-2xl p-2.5 sm:p-3 mb-3 flex items-center justify-between gap-3 shadow-2xs">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-amber-950 flex items-center justify-center shrink-0 shadow-xs">
+                      <Gift className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-xs font-black text-[#111827] flex items-center gap-1.5">
+                        <span>Trade Scheme 50+1 Active</span>
+                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+                      </div>
+                      <p className="text-[11px] text-gray-600 truncate">
+                        Buy 50 cases & get 1 case completely FREE on this SKU!
+                      </p>
+                    </div>
+                  </div>
+                  <span className="shrink-0 bg-[#E02438] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-full shadow-xs">
+                    50+1 FREE
+                  </span>
+                </div>
+
+                {/* FSSAI & Quality Guarantee */}
+                <div className="bg-emerald-50/50 border border-emerald-100/90 rounded-2xl p-2.5 sm:p-3 mb-4 flex items-center justify-between gap-2 text-xs">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <div className="min-w-0">
+                      <div className="font-bold text-emerald-950 text-[11px] sm:text-xs truncate">
+                        100% Pure Vegetarian • Quality Assured
+                      </div>
+                      <div className="text-[10px] text-emerald-800/80 truncate">
+                        Hygiene sealed. Store in a cool, dry place away from direct sunlight.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <span className="inline-block bg-white border border-emerald-200 text-emerald-900 text-[10px] font-black px-2 py-0.5 rounded-md shadow-2xs">
+                      Lic. 12720052000625
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Action: Send Inquiry */}
-              <div className="pt-4 border-t border-gray-100">
+              {/* Bottom Actions: Inquire Wholesale & WhatsApp Trade */}
+              <div className="pt-2 border-t border-gray-100 flex flex-col sm:flex-row gap-2.5">
                 <button
                   onClick={() => {
                     onClose();
                     onOpenInquire(product);
                   }}
-                  className="w-full py-3 sm:py-3.5 px-6 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-[#C8102E] text-white hover:bg-[#9B0B21] shadow-md active:scale-95"
+                  className="flex-1 py-3.5 px-5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-[#E02438] via-[#C8102E] to-[#B91C1C] hover:from-[#C8102E] hover:to-[#991B1B] text-white shadow-lg shadow-red-500/25 active:scale-98 cursor-pointer"
                 >
                   <Mail className="w-4 h-4 text-amber-200" />
-                  <span>Inquire Now for Bulk & Wholesale</span>
+                  <span>Inquire Wholesale</span>
                 </button>
+                <a
+                  href={`https://wa.me/919350060606?text=Hello%20Prince%20Ghai,%20I%20am%20inquiring%20about%20${encodeURIComponent(product.name)}%20(Packing:%20${encodeURIComponent(product.packing || '')},%20MRP:%20₹${product.boxMrp || product.priceINR}).`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-3.5 px-5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-600 via-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-emerald-500/25 active:scale-98"
+                >
+                  <MessageCircle className="w-4 h-4 text-emerald-100" />
+                  <span>WhatsApp Trade</span>
+                </a>
               </div>
             </div>
           </div>
@@ -162,12 +283,12 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
       {/* Fullscreen Image Lightbox Modal */}
       {isLightboxOpen && (
         <div
-          className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
+          className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-fadeIn"
           onClick={() => setIsLightboxOpen(false)}
         >
           <button
             onClick={() => setIsLightboxOpen(false)}
-            className="absolute top-6 right-6 text-white bg-white/20 hover:bg-[#C8102E] p-3 rounded-full transition-all shadow-xl"
+            className="absolute top-6 right-6 text-white bg-white/20 hover:bg-[#E02438] p-3 rounded-full transition-all shadow-xl"
             aria-label="Close fullscreen view"
           >
             <X className="w-6 h-6" />

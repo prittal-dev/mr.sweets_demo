@@ -9,7 +9,7 @@ export default function CollectionsGrid({ onSelectCategory }) {
       bgColor: 'bg-[#FFC709]',
       textColor: 'text-[#111827]',
       btnColor: 'text-[#111827]',
-      image: '/romeo choco cone.png',
+      image: '/romeo choco cone.webp',
       alt: 'Baked treats & wafer cones'
     },
     {
@@ -18,7 +18,7 @@ export default function CollectionsGrid({ onSelectCategory }) {
       bgColor: 'bg-[#FF85B3]',
       textColor: 'text-[#111827]',
       btnColor: 'text-[#111827]',
-      image: '/swiss choclate.png',
+      image: '/swiss choclate.webp',
       alt: 'Artisanal chocolates'
     },
     {
@@ -27,7 +27,7 @@ export default function CollectionsGrid({ onSelectCategory }) {
       bgColor: 'bg-[#2F65FF]',
       textColor: 'text-white',
       btnColor: 'text-white',
-      image: '/morning jelly.png',
+      image: '/morning jelly.webp',
       alt: 'Fruit jellies & gummies'
     },
     {
@@ -36,7 +36,7 @@ export default function CollectionsGrid({ onSelectCategory }) {
       bgColor: 'bg-[#20D09B]',
       textColor: 'text-[#111827]',
       btnColor: 'text-[#111827]',
-      image: '/chingum.png',
+      image: '/chingum.webp',
       alt: 'Sweet candies & bubble gums'
     }
   ];

@@ -10,7 +10,7 @@ export default function BrandStory() {
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-4/3 rounded-3xl overflow-hidden border-2 border-red-500/40 shadow-2xl">
               <img
-                src="/romeo choco cone.png"
+                src="/romeo choco cone.webp"
                 alt="Confectionery manufacturing"
                 className="w-full h-full object-cover"
               />

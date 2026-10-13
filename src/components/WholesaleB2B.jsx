@@ -29,7 +29,7 @@ export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
       highlights: ['Swiss-Grade Refiners', 'Precision Thermal Sensors', 'Automated Flow Rate Control'],
       mediaType: 'video',
       videoSrc: '/chocolate_factory.mp4',
-      fallbackImage: '/romeo choco cone.png'
+      fallbackImage: '/romeo choco cone.webp'
     },
     {
       step: '02',
@@ -40,7 +40,7 @@ export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
       desc: 'High-capacity automated baking plates produce golden, ultra-crispy wafer sheets. Liquid hazelnut and rich chocolate creams are injected in micro-dosed layers under strict humidity locks.',
       highlights: ['Gas-Fired Baking Plates', 'Micro-Dose Cream Injection', 'Real-Time Sheet Crispness Check'],
       mediaType: 'image',
-      image: '/brawo.png'
+      image: '/brawo.webp'
     },
     {
       step: '03',
@@ -51,7 +51,7 @@ export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
       desc: 'All wrappers, snap-lid tubs, and foil pouches are sealed in dust-free HEPA-filtered cleanrooms. Touchless automated wrappers seal out humidity, locking in freshness and crunch for 12+ months.',
       highlights: ['HEPA Air Filtration (Class 100k)', 'Multi-Barrier Aluminum Foils', 'Tamper-Evident Snap-Lid Tubs'],
       mediaType: 'image',
-      image: '/swiss choclate.png'
+      image: '/swiss choclate.webp'
     },
     {
       step: '04',
@@ -62,7 +62,7 @@ export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
       desc: 'Finished master boxes are stored in an 18°C temperature and 50% relative humidity controlled warehouse before being dispatched via temperature-regulated logistics across 50,000+ retail partners.',
       highlights: ['18°C / 50% RH Controlled Hub', 'Automated Robot Palletizing', 'Real-Time QR Batch Tracking'],
       mediaType: 'image',
-      image: '/super heros box.png'
+      image: '/super heros box.webp'
     }
   ];
 

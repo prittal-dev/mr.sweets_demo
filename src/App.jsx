@@ -112,7 +112,7 @@ export default function App() {
       priceINR: 195,
       priceUSD: 18.99,
       weight: 'Master Box',
-      image: '/brawo box.png',
+      image: '/brawo box.webp',
       quantity: 1
     },
     {
@@ -122,7 +122,7 @@ export default function App() {
       priceINR: 150,
       priceUSD: 14.99,
       weight: 'Waffle Cone',
-      image: '/romeo choco cone.png',
+      image: '/romeo choco cone.webp',
       quantity: 2
     },
     {
@@ -132,7 +132,7 @@ export default function App() {
       priceINR: 135,
       priceUSD: 12.99,
       weight: 'Swiss Cocoa',
-      image: '/swiss choclate.png',
+      image: '/swiss choclate.webp',
       quantity: 1
     }
   ]);
@@ -204,7 +204,13 @@ export default function App() {
   };
 
   const handleDownloadCatalog = () => {
-    alert('Downloading Mr. Sweet Wholesale & B2B Commercial Product Catalog (PDF)...');
+    const link = document.createElement('a');
+    link.href = '/Mr sweets banner .pdf';
+    link.download = 'Mr_Sweet_Price_List_2026.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const scrollToSection = (id) => {

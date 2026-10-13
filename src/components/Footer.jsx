@@ -40,12 +40,16 @@ export default function Footer({ onOpenInquire, onNavigate }) {
 
               <span className="bg-[#231815] border border-[#362823] text-amber-300 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
                 <ShieldCheck className="w-3 h-3 text-amber-300" />
-                <span>FSSAI Approved</span>
+                <span>FSSAI Lic: 12720052000625</span>
               </span>
 
               <span className="bg-[#231815] border border-[#362823] text-amber-200 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
                 <Sparkles className="w-3 h-3 text-amber-300" />
                 <span>ISO 22000 Certified</span>
+              </span>
+
+              <span className="bg-[#231815] border border-[#362823] text-orange-300 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                <span>🇮🇳 Make in India</span>
               </span>
             </div>
           </div>
@@ -126,7 +130,7 @@ export default function Footer({ onOpenInquire, onNavigate }) {
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <a href="tel:+919999997877" className="hover:text-amber-300 font-bold transition-colors">+91 99999 97877</a>
+              <a href="tel:+919350060606" className="hover:text-amber-300 font-bold transition-colors">+91 93500 60606</a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
@@ -191,8 +195,8 @@ export default function Footer({ onOpenInquire, onNavigate }) {
               )}
               {legalModal === 'fssai' && (
                 <>
-                  <p>Manufacturing facility operated under Central FSSAI License No. 10821005000...</p>
-                  <p>100% compliant with ISO 22000:2018 food safety standards and Class 100,000 cleanroom packaging.</p>
+                  <p>Manufacturing facility operated under FSSAI License No. <strong>12720052000625</strong>.</p>
+                  <p>100% compliant with Food Safety and Standards Authority of India (FSSAI) guidelines, ISO 22000:2018 food safety standards, and Class 100,000 cleanroom packaging.</p>
                 </>
               )}
             </div>

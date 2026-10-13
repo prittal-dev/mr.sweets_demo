@@ -22,7 +22,7 @@ export default function AboutUs({ onOpenInquire }) {
           >
             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-red-100 bg-white p-4 shadow-xl group">
               <img
-                src="/romeo choco cone.png"
+                src="/romeo choco cone.webp"
                 alt="Mr. Sweet Confectionery Manufacturing"
                 className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 filter drop-shadow-2xl"
               />

@@ -45,7 +45,7 @@ export default function BusinessExportCTA({ onOpenInquire, onDownloadCatalog }) 
 
             <div className="flex items-center gap-2 text-xs sm:text-sm text-red-100 font-bold">
               <Phone className="w-4 h-4 text-emerald-300" />
-              <span>Direct Trade Line: <a href="tel:+919999997877" className="text-white hover:text-amber-300 underline">+91 99999 97877</a></span>
+              <span>Direct Trade Line: <a href="tel:+919350060606" className="text-white hover:text-amber-300 underline">+91 93500 60606</a></span>
             </div>
           </div>
 

@@ -87,11 +87,11 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
 
                 {/* Standing Romeo Choco Cone bursting out of the blue circle (Transparent Cutout) */}
                 <img
-                  src={getProductImage('/romeo-cone-cutout.png')}
+                  src={getProductImage('/romeo-cone-cutout.webp')}
                   alt="Mr. Sweet Romeo Choco Cone"
-                  className="w-48 sm:w-60 md:w-68 max-h-[300px] sm:max-h-[340px] object-contain filter drop-shadow-2xl -mt-6 sm:-mt-10 z-20 transition-transform duration-500 hover:scale-105 pointer-events-auto"
+                  className="w-48 sm:w-60 md:w-68 max-h-[300px] sm:max-h-[340px] object-contain filter drop-shadow-2xl -mt-6 sm:-mt-10 z-20 transition-transform duration-500 hover:scale-[1.15] pointer-events-auto"
                   decoding="async"
-                  onError={(e) => handleImageError(e, '/romeo-cone-cutout.png')}
+                  onError={(e) => handleImageError(e, '/romeo-cone-cutout.webp')}
                 />
               </div>
 
@@ -99,22 +99,22 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
               <div className="absolute bottom-2 left-2 sm:left-6 w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full bg-[#FFBC00] shadow-lg flex items-center justify-center z-15">
                 {/* Brawo Rice Crunch Tub/Pack inside Yellow Circle (Transparent Cutout) */}
                 <img
-                  src={getProductImage('/brawo-box-cutout.png')}
+                  src={getProductImage('/brawo-box-cutout.webp')}
                   alt="Mr. Sweet Brawo Rice Crunch"
-                  className="w-40 sm:w-48 md:w-52 max-h-[220px] sm:max-h-[240px] object-contain filter drop-shadow-xl z-25 transition-transform duration-500 hover:scale-105 pointer-events-auto"
+                  className="w-40 sm:w-48 md:w-52 max-h-[220px] sm:max-h-[240px] object-contain filter drop-shadow-xl z-25 transition-transform duration-500 hover:scale-[1.15] pointer-events-auto"
                   decoding="async"
-                  onError={(e) => handleImageError(e, '/brawo-box-cutout.png')}
+                  onError={(e) => handleImageError(e, '/brawo-box-cutout.webp')}
                 />
               </div>
 
               {/* 3. Horizontal Wafer Bar spanning across lower section (Transparent Cutout) */}
               <div className="absolute top-[48%] right-0 sm:right-2 z-25 w-52 sm:w-64 md:w-72">
                 <img
-                  src={getProductImage('/nutymax-cutout.png')}
+                  src={getProductImage('/nutymax-cutout.webp')}
                   alt="Mr. Sweet NUTYMAX Wafer Bar"
-                  className="w-full max-h-[210px] object-contain filter drop-shadow-2xl transition-transform duration-500 hover:scale-105 pointer-events-auto"
+                  className="w-full max-h-[210px] object-contain filter drop-shadow-2xl transition-transform duration-500 hover:scale-[1.15] pointer-events-auto"
                   decoding="async"
-                  onError={(e) => handleImageError(e, '/nutymax-cutout.png')}
+                  onError={(e) => handleImageError(e, '/nutymax-cutout.webp')}
                 />
               </div>
             </div>

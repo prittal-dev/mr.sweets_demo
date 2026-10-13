@@ -123,7 +123,7 @@ export default function ContactSection() {
                     Industrial Confectionery Park, Sector 4, Food Hub, India.
                   </p>
                   <span className="inline-block text-[10px] text-[#C8102E] font-semibold mt-1">
-                    ISO 22000:2018 & FSSAI Certified Plant
+                    FSSAI Lic. No. 12720052000625 • Make in India Certified Plant
                   </span>
                 </div>
               </div>
@@ -136,7 +136,7 @@ export default function ContactSection() {
                 <div>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1">Phone & Direct Trade Line</div>
                   <div className="text-xs sm:text-sm text-[#111827] font-bold">
-                    <a href="tel:+919999997877" className="hover:text-[#C8102E] transition-colors">+91 99999 97877</a>
+                    <a href="tel:+919350060606" className="hover:text-[#C8102E] transition-colors">+91 93500 60606</a>
                   </div>
                   <div className="text-[11px] text-gray-500 mt-0.5">
                     WhatsApp Desk Available
@@ -209,7 +209,7 @@ export default function ContactSection() {
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://wa.me/919999997877"
+                    href="https://wa.me/919350060606"
                     target="_blank"
                     rel="noreferrer"
                     className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-600 hover:border-emerald-500 flex items-center justify-center transition-all"
@@ -318,7 +318,7 @@ export default function ContactSection() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 99999 97877"
+                      placeholder="+91 93500 60606"
                       className="w-full bg-[#FAFAFA] border border-gray-200 focus:border-[#C8102E] text-[#111827] text-xs sm:text-sm rounded-xl px-4 py-3 outline-none transition-colors"
                       required
                     />
