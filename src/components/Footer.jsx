@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Sparkles, Instagram, Facebook, ShieldCheck, CheckCircle2, Phone, MapPin, X, Lock, FileText } from 'lucide-react';
+import { Mail, Instagram, Facebook, ShieldCheck, CheckCircle2, Phone, MapPin, X, Lock, Clock } from 'lucide-react';
 
 export default function Footer({ onOpenInquire, onNavigate }) {
   const [legalModal, setLegalModal] = useState(null); // 'privacy' | 'terms' | 'fssai' | null
@@ -11,56 +11,64 @@ export default function Footer({ onOpenInquire, onNavigate }) {
   };
 
   return (
-    <footer className="w-full bg-[#18110F] text-white border-t border-[#362823] relative overflow-hidden">
+    <footer className="w-full bg-[#18110F] text-white border-t border-[#2F1F1A] relative overflow-hidden">
+      {/* Decorative Warm Ambient Glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle,rgba(200,16,46,0.06)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-[radial-gradient(circle,rgba(255,188,0,0.04)_0%,transparent_70%)] pointer-events-none" />
+
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto py-10 sm:py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8">
-        {/* Left Column: Logo, Description & Trust Badges */}
-        <div className="col-span-2 lg:col-span-4 flex flex-col justify-between">
+      <div className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
+        
+        {/* Column 1: Brand Identity, About & Trust Badges (4 cols) */}
+        <div className="sm:col-span-2 lg:col-span-4 flex flex-col justify-between">
           <div>
             {/* Logo */}
-            <button onClick={() => handleNav('home')} className="flex items-center mb-3 sm:mb-4 text-left group">
+            <button
+              onClick={() => handleNav('home')}
+              className="flex items-center mb-4 text-left group focus:outline-none cursor-pointer"
+              aria-label="Mr. Sweet Home"
+            >
               <img
                 src="/mr_sweet_logo.svg"
                 alt="Mr. Sweet Haute Confectionery"
-                className="h-12 sm:h-20 md:h-24 w-auto object-contain filter drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
+                className="h-14 sm:h-20 md:h-22 w-auto object-contain filter drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
               />
             </button>
 
             {/* Description */}
-            <p className="text-[11px] sm:text-xs text-amber-100/80 font-normal leading-relaxed max-w-sm mb-4 sm:mb-6">
-              Crafting India’s favorite crispy wafer cones, slow-conched chocolates, and joyful confections with modern food engineering, dust-free cleanrooms, and uncompromised purity.
+            <p className="text-xs sm:text-[13px] text-amber-100/75 font-normal leading-relaxed max-w-sm mb-5">
+              Crafting India&apos;s favorite crispy wafer cones, slow-conched chocolates, and joyful confections with modern food engineering, dust-free cleanrooms, and uncompromised purity.
             </p>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4 sm:mb-6">
-              <span className="bg-[#231815] border border-[#362823] text-emerald-300 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                <CheckCircle2 className="w-3 h-3 text-emerald-300" />
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="bg-[#241714] border border-[#3A2621] text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>100% Pure Veg</span>
               </span>
 
-              <span className="bg-[#231815] border border-[#362823] text-amber-300 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                <ShieldCheck className="w-3 h-3 text-amber-300" />
+              <span className="bg-[#241714] border border-[#3A2621] text-amber-300 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                 <span>FSSAI Lic: 12720052000625</span>
               </span>
 
-              <span className="bg-[#231815] border border-[#362823] text-amber-200 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                <Sparkles className="w-3 h-3 text-amber-300" />
+              <span className="bg-[#241714] border border-[#3A2621] text-amber-200 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
                 <span>ISO 22000 Certified</span>
               </span>
 
-              <span className="bg-[#231815] border border-[#362823] text-orange-300 text-[10px] sm:text-[11px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-                <span>🇮🇳 Make in India</span>
+              <span className="bg-[#241714] border border-[#3A2621] text-orange-300 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+                <span>Make in India</span>
               </span>
             </div>
           </div>
 
           {/* Social Links */}
-          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-2 sm:mb-0">
+          <div className="flex flex-wrap items-center gap-2.5">
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-[#231815] border border-[#362823] text-pink-300 hover:text-white hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+              className="w-9 h-9 rounded-full bg-[#241714] border border-[#3A2621] text-pink-300 hover:text-white hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
               aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
@@ -70,7 +78,7 @@ export default function Footer({ onOpenInquire, onNavigate }) {
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-[#231815] border border-[#362823] text-blue-300 hover:text-white hover:bg-[#1877F2] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+              className="w-9 h-9 rounded-full bg-[#241714] border border-[#3A2621] text-blue-300 hover:text-white hover:bg-[#1877F2] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
               aria-label="Facebook"
             >
               <Facebook className="w-4 h-4" />
@@ -80,91 +88,161 @@ export default function Footer({ onOpenInquire, onNavigate }) {
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white text-[10px] sm:text-[11px] font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md hover:opacity-90 transition-opacity active:scale-95"
+              className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md hover:opacity-90 transition-opacity active:scale-95"
             >
               <Instagram className="w-3.5 h-3.5" />
-              <span>@mr.sweets_official</span>
+              <span>@mr.sweet_official</span>
             </a>
           </div>
         </div>
 
-        {/* Column 2: QUICK LINKS */}
-        <div className="col-span-1 lg:col-span-2">
-          <h4 className="text-[10px] sm:text-xs font-extrabold text-amber-300 uppercase tracking-widest mb-3 sm:mb-4">
+        {/* Column 2: QUICK NAVIGATION (2 cols) */}
+        <div className="lg:col-span-2">
+          <h4 className="text-xs font-black text-amber-300 uppercase tracking-widest mb-4">
             QUICK NAVIGATION
           </h4>
-          <ul className="space-y-2 text-[11px] sm:text-xs text-amber-100/80 font-medium">
-            <li><button onClick={() => handleNav('home')} className="hover:text-amber-300 transition-colors text-left">Home</button></li>
-            <li><button onClick={() => handleNav('about')} className="hover:text-amber-300 transition-colors text-left">About Us</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Products Catalog</button></li>
-            <li><button onClick={() => handleNav('blogs')} className="hover:text-amber-300 transition-colors text-left">Blogs & Insights</button></li>
-            <li><button onClick={() => handleNav('contact')} className="hover:text-amber-300 transition-colors text-left">Contact Us</button></li>
+          <ul className="space-y-2.5 text-xs text-amber-100/80 font-medium">
+            <li>
+              <button onClick={() => handleNav('home')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Home
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('about')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                About Us
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Products Catalog
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('contact')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Contact Us
+              </button>
+            </li>
+            <li>
+              <button onClick={onOpenInquire} className="text-amber-300 font-bold hover:text-white hover:translate-x-1 transition-all text-left cursor-pointer">
+                Wholesale Inquiry →
+              </button>
+            </li>
           </ul>
         </div>
 
-        {/* Column 3: PRODUCT CATEGORIES */}
-        <div className="col-span-1 lg:col-span-3">
-          <h4 className="text-[10px] sm:text-xs font-extrabold text-amber-300 uppercase tracking-widest mb-3 sm:mb-4">
+        {/* Column 3: PRODUCT CATEGORIES (3 cols) */}
+        <div className="lg:col-span-3">
+          <h4 className="text-xs font-black text-amber-300 uppercase tracking-widest mb-4">
             PRODUCT CATEGORIES
           </h4>
-          <ul className="space-y-2 text-[11px] sm:text-xs text-amber-100/80 font-medium">
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Romeo Choco Cones</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Swiss Cocoa Wafers</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">NutyMax Caramel Bars</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Gold Coin 999.9 Jars</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Jellies & Gummies</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Surprise Novelty Toys</button></li>
-            <li><button onClick={() => handleNav('products')} className="hover:text-amber-300 transition-colors text-left">Festive Gift & Snack Tubs</button></li>
+          <ul className="space-y-2.5 text-xs text-amber-100/80 font-medium">
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Romeo Choco Cones
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Swiss Cocoa Wafers
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                NutyMax Caramel Bars
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Gold Coin 999.9 Jars
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Jellies, Gummies & Candies
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Surprise Novelty LED Toys
+              </button>
+            </li>
+            <li>
+              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
+                Festive Gift & Snack Tubs
+              </button>
+            </li>
           </ul>
         </div>
 
-        {/* Column 4: CONTACT INFORMATION */}
-        <div className="col-span-2 lg:col-span-3">
-          <h4 className="text-[10px] sm:text-xs font-extrabold text-amber-300 uppercase tracking-widest mb-3 sm:mb-4">
+        {/* Column 4: CORPORATE TRADE DESK (3 cols) */}
+        <div className="lg:col-span-3">
+          <h4 className="text-xs font-black text-amber-300 uppercase tracking-widest mb-4">
             CORPORATE DESK
           </h4>
-          <ul className="space-y-2.5 text-[11px] sm:text-xs text-amber-100/80 font-medium">
-            <li className="flex items-start gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#C8102E] shrink-0 mt-0.5" />
-              <span>Industrial Confectionery Park, Sector 4, Food Hub, India.</span>
+          <ul className="space-y-3.5 text-xs text-amber-100/85 font-medium">
+            <li className="flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 text-[#E02438] shrink-0 mt-0.5" />
+              <span className="leading-relaxed">
+                Mr. Sweet Foods Industry Ltd.<br />
+                Industrial Confectionery Park, Sector 4, Food Hub, India.
+              </span>
             </li>
-            <li className="flex items-center gap-2">
-              <Phone className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-              <a href="tel:+919350060606" className="hover:text-amber-300 font-bold transition-colors">+91 93500 60606</a>
+            <li className="flex items-center gap-2.5">
+              <Phone className="w-4 h-4 text-amber-300 shrink-0" />
+              <div>
+                <a href="tel:+919350060606" className="hover:text-amber-300 font-bold transition-colors block">
+                  +91 93500 60606
+                </a>
+                <span className="text-[10px] text-emerald-400 font-semibold">Direct Trade & WhatsApp Line</span>
+              </div>
             </li>
-            <li className="flex items-center gap-2">
-              <Mail className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
-              <a href="mailto:info@mrsweets.in" className="hover:text-amber-300 transition-colors">info@mrsweets.in</a>
+            <li className="flex items-center gap-2.5">
+              <Mail className="w-4 h-4 text-emerald-300 shrink-0" />
+              <a href="mailto:info@mrsweets.in" className="hover:text-amber-300 transition-colors">
+                info@mrsweets.in
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Clock className="w-4 h-4 text-amber-300/80 shrink-0" />
+              <span className="text-[11px] text-amber-100/70">
+                Mon – Sat: 9:00 AM – 7:00 PM IST
+              </span>
             </li>
           </ul>
         </div>
       </div>
 
       {/* Bottom Divider */}
-      <div className="w-full h-px bg-[#362823]" />
+      <div className="w-full h-px bg-[#2F1F1A]" />
 
       {/* Bottom Copyright & Legal Links */}
-      <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8 text-[10px] sm:text-xs text-amber-200/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8 text-[11px] text-amber-200/60 flex flex-col sm:flex-row items-center justify-between gap-3">
         <div>
           © 2026 Mr. Sweet Foods Industry Ltd. All rights reserved.
         </div>
 
-        <div className="flex items-center gap-3 text-[10px] sm:text-[11px] font-medium flex-wrap justify-center">
-          <button onClick={() => setLegalModal('privacy')} className="hover:text-amber-300 transition-colors">Privacy Policy</button>
-          <span className="text-[#362823]">•</span>
-          <button onClick={() => setLegalModal('terms')} className="hover:text-amber-300 transition-colors">Terms of Service</button>
-          <span className="text-[#362823]">•</span>
-          <button onClick={() => setLegalModal('fssai')} className="hover:text-amber-300 transition-colors">FSSAI Compliance</button>
+        <div className="flex items-center gap-4 text-[11px] font-medium flex-wrap justify-center">
+          <button onClick={() => setLegalModal('privacy')} className="hover:text-amber-300 transition-colors cursor-pointer">
+            Privacy Policy
+          </button>
+          <span className="text-[#3A2621]">•</span>
+          <button onClick={() => setLegalModal('terms')} className="hover:text-amber-300 transition-colors cursor-pointer">
+            Terms of Service
+          </button>
+          <span className="text-[#3A2621]">•</span>
+          <button onClick={() => setLegalModal('fssai')} className="hover:text-amber-300 transition-colors cursor-pointer">
+            FSSAI Compliance
+          </button>
         </div>
       </div>
 
       {/* LEGAL POPUP MODAL */}
       {legalModal && (
         <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-[#231815] border border-[#362823] text-white p-6 sm:p-8 rounded-3xl max-w-xl w-full shadow-2xl relative">
+          <div className="bg-[#231815] border border-[#3A2621] text-white p-6 sm:p-8 rounded-3xl max-w-xl w-full shadow-2xl relative">
             <button
               onClick={() => setLegalModal(null)}
-              className="absolute top-4 right-4 text-gray-300 hover:text-white p-1 rounded-full bg-[#18110F]"
+              className="absolute top-4 right-4 text-gray-300 hover:text-white p-1 rounded-full bg-[#18110F] cursor-pointer"
             >
               <X className="w-5 h-5" />
             </button>
@@ -180,11 +258,11 @@ export default function Footer({ onOpenInquire, onNavigate }) {
               {legalModal === 'fssai' && 'FSSAI & Food Safety Standards'}
             </h3>
 
-            <div className="text-xs text-slate-300 space-y-3 leading-relaxed max-h-60 overflow-y-auto pr-2 border-t border-slate-800 pt-4">
+            <div className="text-xs sm:text-sm text-amber-100/80 space-y-3 leading-relaxed max-h-[60vh] overflow-y-auto pr-2">
               {legalModal === 'privacy' && (
                 <>
-                  <p>Mr. Sweet Foods Industry Ltd. respects customer privacy. All personal and commercial information collected via enquiry forms is strictly confidential.</p>
-                  <p>We do not sell, rent, or trade business contacts with third-party advertising networks.</p>
+                  <p>Mr. Sweet Foods Industry Ltd. respects your privacy and is committed to protecting confidential commercial trade, B2B procurement records, and personal customer data.</p>
+                  <p>We do not sell, rent, or trade trade customer information to any third parties.</p>
                 </>
               )}
               {legalModal === 'terms' && (
@@ -204,7 +282,7 @@ export default function Footer({ onOpenInquire, onNavigate }) {
             <div className="mt-6 text-right">
               <button
                 onClick={() => setLegalModal(null)}
-                className="bg-[#C8102E] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-white hover:text-[#C8102E] transition-colors"
+                className="bg-[#C8102E] text-white text-xs font-bold px-6 py-2.5 rounded-full hover:bg-white hover:text-[#C8102E] transition-colors cursor-pointer"
               >
                 Close Policy Window
               </button>

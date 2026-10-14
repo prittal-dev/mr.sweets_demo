@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ShieldCheck, CheckCircle2, Factory } from 'lucide-react';
+import { ShieldCheck, CheckCircle2, Factory } from 'lucide-react';
 
 export default function AboutUs({ onOpenInquire }) {
   return (
@@ -60,7 +60,6 @@ export default function AboutUs({ onOpenInquire }) {
           >
             {/* Small Eyebrow Label */}
             <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-fredoka font-bold uppercase tracking-widest mb-4 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
               <span>EDITORIAL BRAND STORY</span>
             </div>
 

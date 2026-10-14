@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
 
 export default function DualTickerBanner({ variant = 'default' }) {
   const isCatalogue = variant === 'catalogue';
@@ -58,7 +57,7 @@ export default function DualTickerBanner({ variant = 'default' }) {
               >
                 {item.text}
               </span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 fill-amber-300 shrink-0" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-300 shrink-0 opacity-80" />
             </div>
           ))}
         </div>
@@ -78,7 +77,7 @@ export default function DualTickerBanner({ variant = 'default' }) {
               >
                 {item.text}
               </span>
-              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-[#E51920] fill-[#E51920] shrink-0" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#E51920] shrink-0 opacity-80" />
             </div>
           ))}
         </div>

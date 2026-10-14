@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, ArrowRight, Sparkles } from 'lucide-react';
+import { Award, ArrowRight } from 'lucide-react';
 
 export default function WhyChooseUs({ onOpenInquire }) {
   const pills = [
@@ -200,7 +200,6 @@ export default function WhyChooseUs({ onOpenInquire }) {
             onClick={onOpenInquire}
             className="inline-flex items-center gap-2 bg-[#C8102E] hover:bg-[#9B0B21] text-white font-fredoka font-bold text-xs sm:text-sm uppercase tracking-wider px-8 py-3.5 rounded-full shadow-md hover:shadow-glow transition-all active:scale-95 cursor-pointer"
           >
-            <Sparkles className="w-4 h-4 text-amber-200" />
             <span>Partner with Mr. Sweet Wholesale</span>
             <ArrowRight className="w-4 h-4 text-white" />
           </button>

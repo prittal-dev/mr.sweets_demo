@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ShieldCheck,
-  Sparkles,
   Award,
   CheckCircle2,
   FileCheck,
@@ -74,7 +73,6 @@ export default function TrustSection() {
         {/* SECTION 2 HEADER */}
         <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-20">
           <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-fredoka font-bold uppercase tracking-widest mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
             <span>QUALITY & CERTIFICATIONS</span>
           </div>
 
@@ -172,8 +170,8 @@ export default function TrustSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             {hygienePillars.map((pillar) => (
               <div key={pillar.title} className="p-4 rounded-2xl bg-[#7A0819] border border-red-500/30">
-                <div className="w-10 h-10 rounded-full bg-amber-300/20 text-amber-300 flex items-center justify-center mx-auto mb-3 font-bold">
-                  ✓
+                <div className="w-10 h-10 rounded-full bg-amber-300/20 text-amber-300 flex items-center justify-center mx-auto mb-3">
+                  <Check className="w-5 h-5" />
                 </div>
                 <h4 className="text-base sm:text-lg font-bold text-white mb-2">{pillar.title}</h4>
                 <p className="text-xs sm:text-sm text-red-100 leading-relaxed">{pillar.desc}</p>

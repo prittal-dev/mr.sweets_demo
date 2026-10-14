@@ -60,7 +60,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
           <div className="bg-[#9B0B21] text-white px-5 py-2.5 text-xs font-semibold flex items-center gap-2 justify-between">
             <div className="flex items-center gap-1.5 text-amber-200">
               <Truck className="w-4 h-4 text-amber-300" />
-              <span>🎉 Priority B2B Packaging & Express Dispatch Ready</span>
+              <span>Priority B2B Packaging & Express Dispatch Ready</span>
             </div>
           </div>
 

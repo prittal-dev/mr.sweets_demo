@@ -1,5 +1,4 @@
 import React from 'react';
-import { Sparkles } from 'lucide-react';
 
 export default function MarqueeBanner({ theme = 'dark' }) {
   const items = [
@@ -29,7 +28,7 @@ export default function MarqueeBanner({ theme = 'dark' }) {
             <span className="text-sm sm:text-base md:text-lg font-black uppercase tracking-[0.22em] font-sans text-amber-300 drop-shadow-xs">
               {text}
             </span>
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400 fill-amber-400 shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0 opacity-80" />
           </div>
         ))}
       </div>

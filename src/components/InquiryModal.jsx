@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Mail, Sparkles, Check } from 'lucide-react';
+import { X, Mail, Check } from 'lucide-react';
 
 export default function InquiryModal({ isOpen, onClose }) {
   const [submitted, setSubmitted] = useState(false);
@@ -53,8 +53,7 @@ export default function InquiryModal({ isOpen, onClose }) {
 
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-1.5 text-[#C8102E] text-xs font-extrabold uppercase tracking-widest mb-1">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>MR. SWEETS ATELIER CONCIERGE</span>
+            <span>MR. SWEET ATELIER CONCIERGE</span>
           </div>
           <h3 id="inquiry-modal-title" className="text-2xl font-extrabold text-[#111827]">
             Inquire for Gifting & B2B

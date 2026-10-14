@@ -11,7 +11,6 @@ import {
   Globe2,
   Store,
   Boxes,
-  Sparkles,
   CheckCircle2
 } from 'lucide-react';
 

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { X, Search, FileText, Download, Phone, ShieldCheck, Tag, Sparkles, Printer } from 'lucide-react';
+import { X, Search, FileText, Download, Phone, ShieldCheck, Tag, Printer } from 'lucide-react';
 import { showcaseProducts, pdfMeta } from '../data/products';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
@@ -134,9 +134,10 @@ export default function PriceListTableModal({ isOpen, onClose, onEnquire }) {
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 text-xs font-bold"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700"
+                  aria-label="Clear search"
                 >
-                  ✕
+                  <X className="w-3.5 h-3.5" />
                 </button>
               )}
             </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  X, Star, Mail, ShieldCheck, Sparkles, ZoomIn, 
+  X, Star, Mail, ShieldCheck, ZoomIn, 
   Package, Clock, Scale, Tag, Gift, BadgePercent, MessageCircle
 } from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
@@ -71,7 +71,6 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
               {/* Floating Top Badges */}
               <div className="absolute top-4 left-4 z-10 flex flex-wrap gap-1.5 max-w-[80%]">
                 <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-[#E02438] to-[#B91C1C] text-white text-[11px] font-black px-3.5 py-1.5 rounded-full shadow-md shadow-red-500/20 tracking-wider uppercase">
-                  <Sparkles className="w-3 h-3 text-amber-300" />
                   {product.badge || 'MR. SWEET POPULAR'}
                 </span>
                 {product.section && (
@@ -111,7 +110,6 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
               <div>
                 {/* Brand Eyebrow */}
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-red-50 to-amber-50 border border-red-200/60 text-[#E02438] text-[11px] font-black uppercase tracking-wider mb-2">
-                  <Sparkles className="w-3.5 h-3.5 text-[#E02438]" />
                   <span>Mr. Sweet Confectionery</span>
                 </div>
 

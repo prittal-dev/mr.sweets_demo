@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Mail, Sparkles, CheckCircle2, Loader2, Building2, Gift, PackageCheck } from 'lucide-react';
+import { X, Mail, CheckCircle2, Loader2, Building2, Gift, PackageCheck } from 'lucide-react';
 import { submitEnquiry } from '../utils/api';
 
 export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', prefilledProduct = null }) {
@@ -164,7 +164,6 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
         {/* Modal Header */}
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-1.5 text-[#C8102E] text-xs font-extrabold uppercase tracking-widest mb-1">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>MR. SWEET ATELIER CONCIERGE</span>
           </div>
           <h2 id="lead-gen-title" className="text-2xl sm:text-3xl font-extrabold text-[#111827]">

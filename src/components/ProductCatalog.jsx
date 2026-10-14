@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Eye, Mail, Sparkles, Filter } from 'lucide-react';
+import { Star, Eye, Mail, Filter } from 'lucide-react';
 
 export default function ProductCatalog({ onQuickView, onOpenInquire }) {
   const [activeTab, setActiveTab] = useState('all');
@@ -116,7 +116,6 @@ export default function ProductCatalog({ onQuickView, onOpenInquire }) {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 text-[#C8102E] text-xs font-extrabold uppercase tracking-[0.25em] mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>ARTISANAL CATALOGUE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight">

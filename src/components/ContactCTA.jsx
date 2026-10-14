@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight, Sparkles, CheckCircle2, Truck, Clock } from 'lucide-react';
+import { Phone, ArrowRight, CheckCircle2, Truck, Clock } from 'lucide-react';
 
 export default function ContactCTA({ onOpenInquire }) {
   return (
@@ -28,7 +28,6 @@ export default function ContactCTA({ onOpenInquire }) {
             {/* Left Side: Badge, Heading, Copy & Mini Trust Pills */}
             <div className="max-w-xl">
               <div className="inline-flex items-center gap-1.5 bg-black/25 backdrop-blur-sm border border-amber-300/40 text-amber-300 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-3 shadow-sm">
-                <Sparkles className="w-3 h-3 text-[#FFBC00]" />
                 <span>PARTNERSHIP & CAMPAIGN DESK</span>
               </div>
 

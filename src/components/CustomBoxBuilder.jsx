@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Gift, Plus, Trash2, Sparkles, Check, Package, RefreshCw, Mail } from 'lucide-react';
+import { Gift, Plus, Trash2, Check, Package, RefreshCw, Mail } from 'lucide-react';
 
 export default function CustomBoxBuilder({ onInquireCustomBox }) {
   const [boxSize, setBoxSize] = useState(9); // 4, 9, or 16

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Sparkles, Award } from 'lucide-react';
+import { Flame, Award } from 'lucide-react';
 
 export default function BrandStory() {
   return (
@@ -36,7 +36,6 @@ export default function BrandStory() {
           {/* Right Column: Editorial Text */}
           <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 text-amber-300 text-xs font-extrabold uppercase tracking-[0.25em] mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>THE MR. SWEET PHILOSOPHY</span>
             </div>
 

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Eye, ShoppingBag, Mail, Search, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Eye, ShoppingBag, Mail, Search, X } from 'lucide-react';
 import { showcaseProducts, pdfMeta } from '../data/products';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
@@ -185,9 +185,10 @@ export default function IconicCatalog({
             {catalogSearch && (
               <button
                 onClick={() => setCatalogSearch('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 text-xs font-bold"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700"
+                aria-label="Clear search"
               >
-                ✕
+                <X className="w-3.5 h-3.5" />
               </button>
             )}
           </div>

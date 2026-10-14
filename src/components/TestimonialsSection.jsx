@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Quote, ChevronLeft, ChevronRight, Sparkles, MapPin, Building2 } from 'lucide-react';
+import { Star, Quote, ChevronLeft, ChevronRight, MapPin, Building2 } from 'lucide-react';
 
 export default function TestimonialsSection() {
   const testimonials = [
@@ -81,7 +81,6 @@ export default function TestimonialsSection() {
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
             <span>AUTHENTIC SWEET MOMENTS</span>
           </div>
 

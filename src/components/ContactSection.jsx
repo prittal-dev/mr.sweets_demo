@@ -6,7 +6,6 @@ import {
   MapPin,
   Clock,
   Send,
-  Sparkles,
   CheckCircle2,
   Building2,
   Share2,
@@ -86,7 +85,6 @@ export default function ContactSection() {
         {/* SECTION HEADER */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
           <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-[#C8102E] px-4 py-1.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#C8102E]" />
             <span>COMMERCIAL DESK & CONCIERGE</span>
           </div>
 

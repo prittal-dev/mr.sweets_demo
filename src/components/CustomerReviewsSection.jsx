@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, Sparkles } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export default function CustomerReviewsSection() {
   const reviews = [
@@ -36,7 +36,6 @@ export default function CustomerReviewsSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-4 sm:mb-12 gap-2 sm:gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 text-[#C8102E] text-[10px] sm:text-xs font-extrabold uppercase tracking-widest mb-1">
-              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span>AUTHENTIC SWEET MOMENTS</span>
             </div>
             <h2 className="text-xl sm:text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight">

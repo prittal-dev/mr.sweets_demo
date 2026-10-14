@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Sparkles, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Mail, CheckCircle2, ShieldCheck } from 'lucide-react';
 
 export default function GiftingConcierge({ onOpenInquire }) {
   const [embossedText, setEmbossedText] = useState('Ananya & Rohan');
@@ -12,7 +12,6 @@ export default function GiftingConcierge({ onOpenInquire }) {
           {/* Left Column: Information & Form Preview */}
           <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-2 text-[#C8102E] text-xs font-extrabold uppercase tracking-[0.25em] mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
               <span>BESPOKE WEDDING & CORPORATE CONCIERGE</span>
             </div>
 

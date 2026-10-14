@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, Award, Factory, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Award, Factory, Heart } from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
 export default function Hero({ onExploreCatalog, onRequestQuote }) {
@@ -24,9 +24,15 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="lg:col-span-6 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
-            {/* Pill Badge (Reference Pink/Coral Style) */}
-            <div className="inline-block bg-[#FFA7BF] text-[#191938] font-fredoka font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-xs mb-4 sm:mb-5">
-              Crafting sweet moments
+            {/* Pill Badge (Premium Confectionery Glaze Style) */}
+            <div className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#FFF0F4] via-[#FFE2E9] to-[#FFF0F4] border border-[#FFB8C8] text-[#9B0B21] px-4.5 py-1.5 sm:py-2 rounded-full shadow-[0_4px_16px_rgba(255,167,191,0.35)] mb-4 sm:mb-5 hover:scale-105 transition-transform duration-300 select-none">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E02438] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C8102E]" />
+              </span>
+              <span className="font-outfit font-extrabold text-xs sm:text-sm tracking-wide">
+                Crafting sweet moments
+              </span>
             </div>
 
             {/* Giant Chunky Display Headline matching Reference Website Typography */}
@@ -149,7 +155,7 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
           {/* 2. Taste */}
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 sm:p-4.5 border border-[#EFE5D3] hover:border-red-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#E61E2A] to-[#A80B1E] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-500/30 group-hover:scale-110 transition-transform">
-              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+              <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div className="text-left min-w-0">
               <span className="text-[9px] sm:text-[10px] font-fredoka font-bold text-[#E61E2A] uppercase tracking-wider block">

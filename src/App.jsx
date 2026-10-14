@@ -10,27 +10,30 @@ import AboutUs from './components/AboutUs';
 import WhyChooseUs from './components/WhyChooseUs';
 import TestimonialsSection from './components/TestimonialsSection';
 import ContactCTA from './components/ContactCTA';
-import BlogSection from './components/BlogSection';
 import ContactSection from './components/ContactSection';
 import ProductQuickViewModal from './components/ProductQuickViewModal';
 import LeadGenModal from './components/LeadGenModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
+import NotFoundPage from './components/NotFoundPage';
 
 const sectionIdMap = {
   home: 'atelier-hero',
   about: 'about',
   products: 'products',
-  blogs: 'blogs',
   contact: 'contact'
 };
 
 const getPageFromUrl = () => {
   const path = window.location.pathname.replace(/^\//, '').toLowerCase();
   const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-  const validPages = ['about', 'products', 'blogs', 'contact'];
+  const validPages = ['about', 'products', 'contact'];
+  if (path === '404' || hash === '404') return '404';
   if (validPages.includes(path)) return path;
   if (validPages.includes(hash)) return hash;
+  if (path && path !== '' && path !== 'home' && path !== 'index.html') {
+    return '404';
+  }
   return 'home';
 };
 
@@ -155,8 +158,8 @@ export default function App() {
   }, [isLeadModalOpen, isCartOpen, quickViewProduct]);
 
   const handleNavigate = (pageId) => {
-    const validPages = ['home', 'about', 'products', 'blogs', 'contact'];
-    const targetPage = validPages.includes(pageId) ? pageId : 'home';
+    const validPages = ['home', 'about', 'products', 'contact', '404'];
+    const targetPage = validPages.includes(pageId) ? pageId : '404';
 
     setActivePage(targetPage);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -255,7 +258,7 @@ export default function App() {
       />
 
       {/* Page Title Header Banner for Sub-Pages */}
-      {activePage !== 'home' && (
+      {activePage !== 'home' && activePage !== '404' && (
         <div className="bg-[#C8102E] text-white py-8 sm:py-12 px-4 sm:px-8 border-b border-[#9B0B21] shadow-inner relative overflow-hidden">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
             <div>
@@ -269,7 +272,6 @@ export default function App() {
               <h1 className="text-2xl sm:text-4xl md:text-5xl font-outfit font-black text-white tracking-tight">
                 {activePage === 'about' && 'About Us — Heritage & Craftsmanship'}
                 {activePage === 'products' && 'Product Portfolio — Confectionery Range'}
-                {activePage === 'blogs' && 'Journal & Stories — Confectionery Insights'}
                 {activePage === 'contact' && 'Contact Us — Inquiries & Partnerships'}
               </h1>
             </div>
@@ -347,13 +349,6 @@ export default function App() {
           </>
         )}
 
-        {/* 4. Dedicated Blogs Page */}
-        {activePage === 'blogs' && (
-          <>
-            <BlogSection onOpenInquire={() => openLeadModal('wholesale')} />
-            <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
-          </>
-        )}
 
         {/* 7. Dedicated Contact Us Page */}
         {activePage === 'contact' && (
@@ -361,6 +356,14 @@ export default function App() {
             <ContactSection />
             <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
           </>
+        )}
+
+        {/* 8. Dedicated 404 Page Not Found */}
+        {activePage === '404' && (
+          <NotFoundPage
+            onNavigate={handleNavigate}
+            onOpenInquire={() => openLeadModal('wholesale')}
+          />
         )}
       </main>
 

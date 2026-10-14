@@ -4,7 +4,6 @@ import {
   Factory,
   ShieldCheck,
   Truck,
-  Sparkles,
   Layers,
   Box,
   CheckCircle2,
@@ -212,7 +211,6 @@ export default function WholesaleB2B({ onDownloadCatalog, onRequestB2BQuote }) {
         >
           <div className="text-left max-w-2xl">
             <div className="text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest mb-1 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
               <span>DIRECT MANUFACTURER SUPPLIER & TRADE TERMS</span>
             </div>
             <h3 className="text-xl sm:text-3xl font-extrabold text-white mb-2">
