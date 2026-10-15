@@ -259,28 +259,30 @@ export default function App() {
 
       {/* Page Title Header Banner for Sub-Pages */}
       {activePage !== 'home' && activePage !== '404' && (
-        <div className="bg-[#C8102E] text-white py-8 sm:py-12 px-4 sm:px-8 border-b border-[#9B0B21] shadow-inner relative overflow-hidden">
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
-            <div>
-              <div className="text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest mb-1.5 flex items-center gap-2">
+        <div className="bg-[#C8102E] text-white py-3 sm:py-7 md:py-9 px-3.5 sm:px-6 lg:px-8 border-b border-[#9B0B21] shadow-xs relative overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-row items-center justify-between gap-3 relative z-10">
+            <div className="min-w-0 pr-2">
+              <div className="text-[9px] sm:text-xs font-bold text-amber-300 uppercase tracking-wider mb-0.5 sm:mb-1 flex items-center gap-1.5 truncate">
                 <button onClick={() => handleNavigate('home')} className="hover:underline text-amber-100/90 cursor-pointer">Home</button>
                 <span className="text-white/60">/</span>
                 <span className="capitalize font-extrabold text-white">
                   {activePage === 'about' ? 'About Us' : activePage === 'products' ? 'Products' : activePage === 'contact' ? 'Contact' : activePage}
                 </span>
               </div>
-              <h1 className="text-2xl sm:text-4xl md:text-5xl font-outfit font-black text-white tracking-tight">
-                {activePage === 'about' && 'About Us — Heritage & Craftsmanship'}
-                {activePage === 'products' && 'Product Portfolio — Confectionery Range'}
-                {activePage === 'contact' && 'Contact Us — Inquiries & Partnerships'}
+              <h1 className="text-[13.5px] sm:text-2xl md:text-3xl font-outfit font-black text-white tracking-tight leading-tight truncate">
+                {activePage === 'about' && 'About Us — Heritage'}
+                {activePage === 'products' && 'Product Portfolio'}
+                {activePage === 'contact' && 'Contact Us — Inquiries'}
               </h1>
             </div>
 
             <button
               onClick={() => handleNavigate('home')}
-              className="bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 rounded-full border border-white/30 transition-all flex items-center gap-2 shadow-sm cursor-pointer shrink-0"
+              className="bg-white/15 hover:bg-white/25 active:scale-95 text-white text-[10px] sm:text-xs font-extrabold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-white/30 transition-all flex items-center gap-1.5 shadow-xs cursor-pointer shrink-0"
+              aria-label="Back to Home"
             >
-              <span>← Back to Full Home</span>
+              <span>← Back</span>
+              <span className="hidden sm:inline">to Home</span>
             </button>
           </div>
         </div>

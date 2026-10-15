@@ -6,7 +6,7 @@ export const siteConfig = {
   phone: "+91 93500 60606",
   phoneRaw: "+919350060606",
   effectiveDate: "01-06-2026",
-  email: "trade@mrsweets.in",
+  email: "aadyaconfactioners@gmail.com",
   address: "Industrial Confectionery Park, Sector 4, Food Hub, India.",
   freeShippingThresholdINR: 350,
   freeShippingThresholdUSD: 35,

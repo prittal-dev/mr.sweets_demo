@@ -8,7 +8,7 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
       icon: (
         <svg
           viewBox="0 0 100 100"
-          className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 fill-none stroke-white"
+          className="w-8 h-8 sm:w-14 sm:h-14 md:w-18 md:h-18 fill-none stroke-white"
           strokeWidth="2.4"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -54,7 +54,7 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
       icon: (
         <svg
           viewBox="0 0 100 100"
-          className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 fill-none stroke-white"
+          className="w-8 h-8 sm:w-14 sm:h-14 md:w-18 md:h-18 fill-none stroke-white"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -96,7 +96,7 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
       icon: (
         <svg
           viewBox="0 0 100 100"
-          className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 fill-none stroke-white"
+          className="w-8 h-8 sm:w-14 sm:h-14 md:w-18 md:h-18 fill-none stroke-white"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -152,7 +152,7 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
       icon: (
         <svg
           viewBox="0 0 100 100"
-          className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 fill-none stroke-white"
+          className="w-8 h-8 sm:w-14 sm:h-14 md:w-18 md:h-18 fill-none stroke-white"
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -204,9 +204,9 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
   };
 
   return (
-    <section className="w-full bg-[#C8102E] text-white py-10 sm:py-14 md:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden shadow-sm">
+    <section className="w-full bg-[#C8102E] text-white py-4 sm:py-10 md:py-14 px-2 sm:px-6 lg:px-8 relative overflow-hidden shadow-sm">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-4 gap-1.5 sm:gap-6 md:gap-8 lg:gap-12">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
@@ -218,13 +218,13 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
               >
                 {/* 3D Flipping Card Container */}
                 <div
-                  className={`relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full mb-3 sm:mb-4 transition-transform duration-500 ease-out preserve-3d group-hover-flip shadow-lg ${
+                  className={`relative w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full mb-1.5 sm:mb-3 md:mb-4 transition-transform duration-500 ease-out preserve-3d group-hover-flip shadow-sm sm:shadow-lg ${
                     isSelected ? 'scale-105' : ''
                   }`}
                 >
                   {/* FRONT FACE (White Outline Icon on Brand Red Pod) */}
                   <div
-                    className={`absolute inset-0 w-full h-full rounded-full border-2 sm:border-[2.5px] border-white flex items-center justify-center backface-hidden bg-[#C8102E] transition-all duration-300 ${
+                    className={`absolute inset-0 w-full h-full rounded-full border-[1.5px] sm:border-2 md:border-[2.5px] border-white flex items-center justify-center backface-hidden bg-[#C8102E] transition-all duration-300 ${
                       isSelected
                         ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#C8102E]'
                         : ''
@@ -235,22 +235,22 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
 
                   {/* BACK FACE (Flipped 3D: White Circle, Crimson "EXPLORE" Button) */}
                   <div
-                    className="absolute inset-0 w-full h-full rounded-full border-2 sm:border-[2.5px] border-white flex flex-col items-center justify-center backface-hidden rotate-y-180 bg-white text-[#C8102E] shadow-2xl p-2 cursor-pointer hover:bg-amber-50 transition-colors"
+                    className="absolute inset-0 w-full h-full rounded-full border-[1.5px] sm:border-2 md:border-[2.5px] border-white flex flex-col items-center justify-center backface-hidden rotate-y-180 bg-white text-[#C8102E] shadow-2xl p-1 sm:p-2 cursor-pointer hover:bg-amber-50 transition-colors"
                   >
-                    <span className="font-outfit font-black text-xs sm:text-sm md:text-base tracking-wider uppercase text-[#C8102E] leading-none mb-1.5 pointer-events-none">
+                    <span className="font-outfit font-black text-[7px] sm:text-xs md:text-sm tracking-wider uppercase text-[#C8102E] leading-none mb-0.5 sm:mb-1.5 pointer-events-none">
                       EXPLORE
                     </span>
-                    <span className="inline-flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#C8102E] text-white shadow-xs pointer-events-none">
-                      <span className="text-xs sm:text-sm leading-none font-bold">→</span>
+                    <span className="inline-flex items-center justify-center w-4 h-4 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full bg-[#C8102E] text-white shadow-xs pointer-events-none">
+                      <span className="text-[8px] sm:text-xs md:text-sm leading-none font-bold">→</span>
                     </span>
                   </div>
                 </div>
 
                 {/* Category Label Below */}
                 <span
-                  className={`font-outfit font-black tracking-wider text-xs sm:text-sm md:text-base uppercase transition-colors text-center text-white ${
+                  className={`font-outfit font-black tracking-tight sm:tracking-wider text-[8px] sm:text-xs md:text-sm uppercase transition-colors text-center text-white leading-tight ${
                     isSelected
-                      ? 'underline underline-offset-4 decoration-white/80'
+                      ? 'underline underline-offset-2 sm:underline-offset-4 decoration-white/80'
                       : 'hover:text-white/90'
                   }`}
                 >

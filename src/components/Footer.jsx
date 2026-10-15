@@ -17,7 +17,7 @@ export default function Footer({ onOpenInquire, onNavigate }) {
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-[radial-gradient(circle,rgba(255,188,0,0.04)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto py-12 sm:py-16 px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 relative z-10">
+      <div className="max-w-7xl mx-auto py-7 sm:py-14 px-3.5 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 relative z-10">
         
         {/* Column 1: Brand Identity, About & Trust Badges (4 cols) */}
         <div className="sm:col-span-2 lg:col-span-4 flex flex-col justify-between">
@@ -25,186 +25,189 @@ export default function Footer({ onOpenInquire, onNavigate }) {
             {/* Logo */}
             <button
               onClick={() => handleNav('home')}
-              className="flex items-center mb-4 text-left group focus:outline-none cursor-pointer"
+              className="flex items-center mb-3 sm:mb-4 text-left group focus:outline-none cursor-pointer"
               aria-label="Mr. Sweet Home"
             >
               <img
                 src="/mr_sweet_logo.svg"
                 alt="Mr. Sweet Haute Confectionery"
-                className="h-14 sm:h-20 md:h-22 w-auto object-contain filter drop-shadow-xl group-hover:scale-105 transition-transform duration-300"
+                className="h-10 sm:h-16 md:h-18 w-auto object-contain filter drop-shadow-lg group-hover:scale-105 transition-transform duration-300"
               />
             </button>
 
             {/* Description */}
-            <p className="text-xs sm:text-[13px] text-amber-100/75 font-normal leading-relaxed max-w-sm mb-5">
+            <p className="text-[11px] sm:text-[13px] text-amber-100/75 font-normal leading-relaxed max-w-sm mb-3.5 sm:mb-5">
               Crafting India&apos;s favorite crispy wafer cones, slow-conched chocolates, and joyful confections with modern food engineering, dust-free cleanrooms, and uncompromised purity.
             </p>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-6">
-              <span className="bg-[#241714] border border-[#3A2621] text-emerald-300 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-4 sm:mb-6">
+              <span className="bg-[#241714] border border-[#3A2621] text-emerald-300 text-[9px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full flex items-center gap-1 shadow-2xs">
+                <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400 shrink-0" />
                 <span>100% Pure Veg</span>
               </span>
 
-              <span className="bg-[#241714] border border-[#3A2621] text-amber-300 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+              <span className="bg-[#241714] border border-[#3A2621] text-amber-300 text-[9px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full flex items-center gap-1 shadow-2xs">
+                <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 shrink-0" />
                 <span>FSSAI Lic: 12720052000625</span>
               </span>
 
-              <span className="bg-[#241714] border border-[#3A2621] text-amber-200 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+              <span className="bg-[#241714] border border-[#3A2621] text-amber-200 text-[9px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full flex items-center gap-1 shadow-2xs">
                 <span>ISO 22000 Certified</span>
               </span>
 
-              <span className="bg-[#241714] border border-[#3A2621] text-orange-300 text-[10px] sm:text-[11px] font-bold px-3 py-1 rounded-full flex items-center gap-1.5 shadow-2xs">
+              <span className="bg-[#241714] border border-[#3A2621] text-orange-300 text-[9px] sm:text-[11px] font-bold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full flex items-center gap-1 shadow-2xs">
                 <span>Make in India</span>
               </span>
             </div>
           </div>
 
           {/* Social Links */}
-          <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex flex-wrap items-center gap-2">
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-[#241714] border border-[#3A2621] text-pink-300 hover:text-white hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+              className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#241714] border border-[#3A2621] text-pink-300 hover:text-white hover:bg-gradient-to-tr hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm"
               aria-label="Instagram"
             >
-              <Instagram className="w-4 h-4" />
+              <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
 
             <a
               href="https://www.facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-9 h-9 rounded-full bg-[#241714] border border-[#3A2621] text-blue-300 hover:text-white hover:bg-[#1877F2] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm"
+              className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-[#241714] border border-[#3A2621] text-blue-300 hover:text-white hover:bg-[#1877F2] hover:border-transparent flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-sm"
               aria-label="Facebook"
             >
-              <Facebook className="w-4 h-4" />
+              <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
 
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-md hover:opacity-90 transition-opacity active:scale-95"
+              className="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white text-[9.5px] sm:text-[11px] font-bold px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full flex items-center gap-1 shadow-md hover:opacity-90 transition-opacity active:scale-95"
             >
-              <Instagram className="w-3.5 h-3.5" />
+              <Instagram className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
               <span>@mr.sweet_official</span>
             </a>
           </div>
         </div>
 
-        {/* Column 2: QUICK NAVIGATION (2 cols) */}
-        <div className="lg:col-span-2">
-          <h4 className="text-xs font-black text-amber-300 uppercase tracking-widest mb-4">
-            QUICK NAVIGATION
-          </h4>
-          <ul className="space-y-2.5 text-xs text-amber-100/80 font-medium">
-            <li>
-              <button onClick={() => handleNav('home')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Home
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('about')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                About Us
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Products Catalog
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('contact')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Contact Us
-              </button>
-            </li>
-            <li>
-              <button onClick={onOpenInquire} className="text-amber-300 font-bold hover:text-white hover:translate-x-1 transition-all text-left cursor-pointer">
-                Wholesale Inquiry →
-              </button>
-            </li>
-          </ul>
-        </div>
+        {/* Grouped 2-Column Section for Navigation & Categories on Mobile */}
+        <div className="col-span-1 sm:col-span-2 lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-6 pt-1 sm:pt-0 border-t border-[#2F1F1A]/80 sm:border-t-0">
+          {/* Column 2: QUICK NAVIGATION */}
+          <div>
+            <h4 className="text-[10px] sm:text-xs font-black text-amber-300 uppercase tracking-widest mb-2.5 sm:mb-4">
+              QUICK NAVIGATION
+            </h4>
+            <ul className="space-y-1.5 sm:space-y-2.5 text-[10.5px] sm:text-xs text-amber-100/80 font-medium">
+              <li>
+                <button onClick={() => handleNav('home')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Home
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('about')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Products Catalog
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('contact')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Contact Us
+                </button>
+              </li>
+              <li>
+                <button onClick={onOpenInquire} className="text-amber-300 font-bold hover:text-white hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Wholesale Inquiry →
+                </button>
+              </li>
+            </ul>
+          </div>
 
-        {/* Column 3: PRODUCT CATEGORIES (3 cols) */}
-        <div className="lg:col-span-3">
-          <h4 className="text-xs font-black text-amber-300 uppercase tracking-widest mb-4">
-            PRODUCT CATEGORIES
-          </h4>
-          <ul className="space-y-2.5 text-xs text-amber-100/80 font-medium">
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Romeo Choco Cones
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Swiss Cocoa Wafers
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                NutyMax Caramel Bars
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Gold Coin 999.9 Jars
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Jellies, Gummies & Candies
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Surprise Novelty LED Toys
-              </button>
-            </li>
-            <li>
-              <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer">
-                Festive Gift & Snack Tubs
-              </button>
-            </li>
-          </ul>
+          {/* Column 3: PRODUCT CATEGORIES */}
+          <div>
+            <h4 className="text-[10px] sm:text-xs font-black text-amber-300 uppercase tracking-widest mb-2.5 sm:mb-4">
+              PRODUCT CATEGORIES
+            </h4>
+            <ul className="space-y-1.5 sm:space-y-2.5 text-[10.5px] sm:text-xs text-amber-100/80 font-medium">
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Romeo Choco Cones
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Swiss Cocoa Wafers
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  NutyMax Caramel Bars
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Gold Coin 999.9 Jars
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Jellies, Gummies & Candies
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Surprise Novelty LED Toys
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNav('products')} className="hover:text-amber-300 hover:translate-x-0.5 transition-all text-left cursor-pointer">
+                  Festive Gift & Snack Tubs
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Column 4: CORPORATE TRADE DESK (3 cols) */}
-        <div className="lg:col-span-3">
-          <h4 className="text-xs font-black text-amber-300 uppercase tracking-widest mb-4">
+        <div className="col-span-1 sm:col-span-2 lg:col-span-3 pt-1 sm:pt-0 border-t border-[#2F1F1A]/80 sm:border-t-0">
+          <h4 className="text-[10px] sm:text-xs font-black text-amber-300 uppercase tracking-widest mb-2.5 sm:mb-4">
             CORPORATE DESK
           </h4>
-          <ul className="space-y-3.5 text-xs text-amber-100/85 font-medium">
-            <li className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-[#E02438] shrink-0 mt-0.5" />
+          <ul className="space-y-2.5 sm:space-y-3.5 text-[10.5px] sm:text-xs text-amber-100/85 font-medium">
+            <li className="flex items-start gap-2">
+              <MapPin className="w-3.5 h-3.5 text-[#E02438] shrink-0 mt-0.5" />
               <span className="leading-relaxed">
                 Mr. Sweet Foods Industry Ltd.<br />
                 Industrial Confectionery Park, Sector 4, Food Hub, India.
               </span>
             </li>
-            <li className="flex items-center gap-2.5">
-              <Phone className="w-4 h-4 text-amber-300 shrink-0" />
+            <li className="flex items-center gap-2">
+              <Phone className="w-3.5 h-3.5 text-amber-300 shrink-0" />
               <div>
                 <a href="tel:+919350060606" className="hover:text-amber-300 font-bold transition-colors block">
                   +91 93500 60606
                 </a>
-                <span className="text-[10px] text-emerald-400 font-semibold">Direct Trade & WhatsApp Line</span>
+                <span className="text-[9.5px] text-emerald-400 font-semibold">Direct Trade & WhatsApp Line</span>
               </div>
             </li>
-            <li className="flex items-center gap-2.5">
-              <Mail className="w-4 h-4 text-emerald-300 shrink-0" />
-              <a href="mailto:info@mrsweets.in" className="hover:text-amber-300 transition-colors">
-                info@mrsweets.in
+            <li className="flex items-center gap-2">
+              <Mail className="w-3.5 h-3.5 text-emerald-300 shrink-0" />
+              <a href="mailto:aadyaconfactioners@gmail.com" className="hover:text-amber-300 transition-colors truncate block">
+                aadyaconfactioners@gmail.com
               </a>
             </li>
-            <li className="flex items-center gap-2.5">
-              <Clock className="w-4 h-4 text-amber-300/80 shrink-0" />
-              <span className="text-[11px] text-amber-100/70">
+            <li className="flex items-center gap-2">
+              <Clock className="w-3.5 h-3.5 text-amber-300/80 shrink-0" />
+              <span className="text-[10px] sm:text-[11px] text-amber-100/70">
                 Mon – Sat: 9:00 AM – 7:00 PM IST
               </span>
             </li>
@@ -216,12 +219,12 @@ export default function Footer({ onOpenInquire, onNavigate }) {
       <div className="w-full h-px bg-[#2F1F1A]" />
 
       {/* Bottom Copyright & Legal Links */}
-      <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8 text-[11px] text-amber-200/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto py-3.5 sm:py-5 px-3.5 sm:px-6 lg:px-8 text-[9.5px] sm:text-[11px] text-amber-200/60 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
         <div>
           © 2026 Mr. Sweet Foods Industry Ltd. All rights reserved.
         </div>
 
-        <div className="flex items-center gap-4 text-[11px] font-medium flex-wrap justify-center">
+        <div className="flex items-center gap-3 sm:gap-4 text-[9.5px] sm:text-[11px] font-medium flex-wrap justify-center">
           <button onClick={() => setLegalModal('privacy')} className="hover:text-amber-300 transition-colors cursor-pointer">
             Privacy Policy
           </button>

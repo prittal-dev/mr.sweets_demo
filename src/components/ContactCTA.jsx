@@ -4,14 +4,14 @@ import { Phone, ArrowRight, CheckCircle2, Truck, Clock } from 'lucide-react';
 
 export default function ContactCTA({ onOpenInquire }) {
   return (
-    <section className="w-full bg-[#FAF9F6] py-6 sm:py-10 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="w-full bg-[#FAF9F6] py-4 sm:py-10 px-3 sm:px-6 lg:px-8 relative overflow-hidden">
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="bg-gradient-to-br from-[#8A081C] via-[#B50E29] to-[#6B0515] border border-amber-300/30 px-5 py-6 sm:px-10 sm:py-8 md:px-12 md:py-9 rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_rgba(155,11,33,0.28)] relative overflow-hidden"
+          className="bg-gradient-to-br from-[#8A081C] via-[#B50E29] to-[#6B0515] border border-amber-300/30 px-4 py-5 sm:px-10 sm:py-8 md:px-12 md:py-9 rounded-2xl sm:rounded-3xl shadow-[0_20px_50px_rgba(155,11,33,0.28)] relative overflow-hidden"
         >
           {/* Decorative Ambient Golden & Ruby Glows */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-[radial-gradient(circle,rgba(255,188,0,0.28)_0%,rgba(255,188,0,0)_70%)] pointer-events-none" />
@@ -24,35 +24,35 @@ export default function ContactCTA({ onOpenInquire }) {
             }}
           />
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-8 text-center lg:text-left">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 lg:gap-8 text-center lg:text-left">
             {/* Left Side: Badge, Heading, Copy & Mini Trust Pills */}
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-1.5 bg-black/25 backdrop-blur-sm border border-amber-300/40 text-amber-300 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-widest mb-3 shadow-sm">
+              <div className="inline-flex items-center gap-1.5 bg-black/25 backdrop-blur-sm border border-amber-300/40 text-amber-300 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-bold uppercase tracking-widest mb-2 sm:mb-3 shadow-sm">
                 <span>PARTNERSHIP & CAMPAIGN DESK</span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-2">
+              <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight mb-1.5 sm:mb-2">
                 Let’s Make{' '}
                 <span className="font-serif italic text-[#FFBC00] font-normal drop-shadow-sm">
                   Something Sweet.
                 </span>
               </h2>
 
-              <p className="text-xs sm:text-sm text-red-100/90 font-normal leading-relaxed mb-4">
+              <p className="text-[11px] sm:text-sm text-red-100/90 font-normal leading-relaxed mb-3 sm:mb-4">
                 For retail supply, distributor partnerships, corporate gift hampers, or export enquiries — connect directly with our commercial team.
               </p>
 
               {/* Compact Trust Highlights */}
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[10px] sm:text-xs font-semibold text-amber-100/95">
-                <span className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-2.5 py-1 rounded-full">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-1.5 sm:gap-2 text-[9.5px] sm:text-xs font-semibold text-amber-100/95">
+                <span className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
                   <Clock className="w-3 h-3 text-[#FFBC00]" />
                   2-Hr Response
                 </span>
-                <span className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
                   <Truck className="w-3 h-3 text-[#FFBC00]" />
                   Pan-India Supply
                 </span>
-                <span className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-2.5 py-1 rounded-full">
+                <span className="inline-flex items-center gap-1 bg-white/10 border border-white/15 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full">
                   <CheckCircle2 className="w-3 h-3 text-[#FFBC00]" />
                   Bulk & Export Ready
                 </span>
@@ -60,10 +60,10 @@ export default function ContactCTA({ onOpenInquire }) {
             </div>
 
             {/* Right Side: High-Contrast Action Buttons */}
-            <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center justify-center gap-3 w-full sm:w-auto shrink-0">
+            <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
               <button
                 onClick={() => onOpenInquire && onOpenInquire('wholesale')}
-                className="w-full sm:w-auto bg-[#FFBC00] hover:bg-amber-300 text-[#111827] px-6 py-3 rounded-full text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(255,188,0,0.4)] hover:shadow-[0_12px_30px_rgba(255,188,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95 group cursor-pointer"
+                className="w-full sm:w-auto bg-[#FFBC00] hover:bg-amber-300 text-[#111827] px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[10.5px] sm:text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_8px_25px_rgba(255,188,0,0.4)] hover:shadow-[0_12px_30px_rgba(255,188,0,0.6)] transition-all duration-300 hover:-translate-y-0.5 active:scale-95 group cursor-pointer"
               >
                 <span>ENQUIRE NOW</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#111827] group-hover:translate-x-1 transition-transform" />
@@ -71,7 +71,7 @@ export default function ContactCTA({ onOpenInquire }) {
 
               <a
                 href="tel:+919350060606"
-                className="w-full sm:w-auto bg-white hover:bg-red-50 text-[#9B0B21] px-6 py-3 rounded-full text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
+                className="w-full sm:w-auto bg-white hover:bg-red-50 text-[#9B0B21] px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-[10.5px] sm:text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all duration-300 hover:-translate-y-0.5 active:scale-95"
               >
                 <Phone className="w-3.5 h-3.5 text-[#C8102E]" />
                 <span>+91 93500 60606</span>
