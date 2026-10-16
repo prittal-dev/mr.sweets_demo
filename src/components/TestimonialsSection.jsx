@@ -53,50 +53,117 @@ export default function TestimonialsSection() {
     }
   ];
 
+  // Repeat testimonials 4 times for seamless infinite looping
+  const infiniteTestimonials = [
+    ...testimonials.map((t) => ({ ...t, keyId: `set1-${t.id}` })),
+    ...testimonials.map((t) => ({ ...t, keyId: `set2-${t.id}` })),
+    ...testimonials.map((t) => ({ ...t, keyId: `set3-${t.id}` })),
+    ...testimonials.map((t) => ({ ...t, keyId: `set4-${t.id}` })),
+  ];
+
   const scrollRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const pauseTimerRef = useRef(null);
+
+  // Initialize scroll position to Set 2 so user can scroll left or right infinitely
+  useEffect(() => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const card = container.children[0];
+      if (card) {
+        const cardWidthWithGap = card.offsetWidth + 24;
+        const singleSetWidth = cardWidthWithGap * testimonials.length;
+        container.scrollLeft = singleSetWidth;
+      }
+    }
+  }, []);
+
+  const temporarilyPause = () => {
+    setIsPaused(true);
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    pauseTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 5000);
+  };
 
   const handleScroll = () => {
     if (scrollRef.current) {
-      const { scrollLeft } = scrollRef.current;
-      const firstCard = scrollRef.current.children[0];
-      if (firstCard) {
-        const cardWidth = firstCard.offsetWidth + 14;
-        const index = Math.round(scrollLeft / cardWidth);
-        setActiveSlide(Math.min(Math.max(0, index), testimonials.length - 1));
+      const container = scrollRef.current;
+      const card = container.children[0];
+      if (!card) return;
+
+      const cardWidthWithGap = card.offsetWidth + 24;
+      const singleSetWidth = cardWidthWithGap * testimonials.length;
+
+      // Seamless infinite wrap-around
+      if (container.scrollLeft >= singleSetWidth * 2.8) {
+        container.scrollLeft -= singleSetWidth;
+      } else if (container.scrollLeft <= singleSetWidth * 0.2) {
+        container.scrollLeft += singleSetWidth;
       }
+
+      const normalizedScroll = container.scrollLeft % singleSetWidth;
+      const index = Math.round(normalizedScroll / cardWidthWithGap) % testimonials.length;
+      setActiveSlide(Math.min(Math.max(0, index), testimonials.length - 1));
     }
   };
 
   const scrollToSlide = (index) => {
+    temporarilyPause();
     if (scrollRef.current) {
-      const card = scrollRef.current.children[index];
+      const container = scrollRef.current;
+      const card = container.children[0];
       if (card) {
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        const cardWidthWithGap = card.offsetWidth + 24;
+        const singleSetWidth = cardWidthWithGap * testimonials.length;
+        const targetScroll = singleSetWidth + index * cardWidthWithGap;
+        container.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth'
+        });
+        setActiveSlide(index);
       }
     }
   };
 
   const handleNext = () => {
-    const nextIdx = (activeSlide + 1) % testimonials.length;
-    scrollToSlide(nextIdx);
+    temporarilyPause();
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const card = container.children[0];
+      const scrollStep = card ? card.offsetWidth + 24 : 360;
+      container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    }
   };
 
   const handlePrev = () => {
-    const prevIdx = (activeSlide - 1 + testimonials.length) % testimonials.length;
-    scrollToSlide(prevIdx);
+    temporarilyPause();
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const card = container.children[0];
+      const scrollStep = card ? card.offsetWidth + 24 : 360;
+      container.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    }
   };
 
-  // Auto advance smoothly
+  // Continuous infinite transition (ONLY scrolls inside the container, never moves the page)
   useEffect(() => {
-    const timer = setInterval(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
       if (scrollRef.current) {
-        const nextIdx = (activeSlide + 1) % testimonials.length;
-        scrollToSlide(nextIdx);
+        const container = scrollRef.current;
+        const card = container.children[0];
+        if (card) {
+          const scrollStep = card.offsetWidth + 24;
+          container.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
       }
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [activeSlide, testimonials.length]);
+    }, 3800);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <section id="testimonials" className="w-full bg-[#FAF9F6] text-[#111827] py-8 sm:py-20 md:py-24 px-3 sm:px-6 lg:px-8 border-t border-red-100 relative overflow-hidden">
@@ -127,11 +194,15 @@ export default function TestimonialsSection() {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex items-stretch gap-3 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-3 pt-1 px-3 sm:px-4 scroll-smooth"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={temporarilyPause}
+            className="relative flex items-stretch gap-3 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-3 pt-1 px-3 sm:px-4 scroll-smooth"
           >
-            {testimonials.map((item) => (
+            {infiniteTestimonials.map((item) => (
               <div
-                key={item.id}
+                key={item.keyId}
                 className="w-[84vw] max-w-[325px] sm:w-[380px] md:w-[400px] shrink-0 snap-center bg-white border border-red-100 p-4 sm:p-7 rounded-2xl sm:rounded-3xl shadow-sm hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden"
               >
                 <Quote className="absolute top-3 right-3 sm:top-5 sm:right-5 w-7 h-7 sm:w-12 sm:h-12 text-[#C8102E]/10 pointer-events-none" />
@@ -171,18 +242,16 @@ export default function TestimonialsSection() {
             ))}
           </div>
 
-          {/* Navigation Controls: Dots + Auto status + Arrows */}
+          {/* Navigation Controls: Dots + Arrows */}
           <div className="flex items-center justify-between mt-3 sm:mt-6 px-3">
-            {/* Slider Indicator Dots + Auto Status */}
+            {/* Slider Indicator Dots + Infinite badge */}
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 {testimonials.map((_, idx) => (
                   <button
                     key={idx}
-                    onClick={() => {
-                      lastInteractionTime.current = Date.now();
-                      scrollToSlide(idx);
-                    }}
+                    type="button"
+                    onClick={() => scrollToSlide(idx)}
                     className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       activeSlide === idx ? 'bg-[#C8102E] w-5 sm:w-7' : 'bg-gray-200 w-1.5 sm:w-2 hover:bg-red-200'
                     }`}
@@ -191,29 +260,30 @@ export default function TestimonialsSection() {
                 ))}
               </div>
 
-              {/* Subtle Auto-playing Pill */}
-              <div className="inline-flex items-center gap-1 text-[9px] sm:text-[10.5px] font-medium text-gray-400 bg-red-50/60 border border-red-100/80 px-2 py-0.5 rounded-full">
+              <div className="inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] font-bold text-gray-400 bg-red-50/50 border border-red-100/70 px-2 py-0.5 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#C8102E] animate-pulse" />
-                <span>Auto-changing</span>
+                <span>Infinite Stream</span>
               </div>
             </div>
 
             {/* Prev & Next Arrow Buttons */}
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-2">
               <button
+                type="button"
                 onClick={handlePrev}
-                className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white border border-red-100 text-[#111827] hover:border-[#C8102E] hover:text-[#C8102E] transition-all flex items-center justify-center shadow-xs active:scale-95 cursor-pointer"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border border-red-200 text-[#111827] hover:border-[#C8102E] hover:text-[#C8102E] hover:bg-red-50/50 transition-all flex items-center justify-center shadow-xs active:scale-90 cursor-pointer"
                 aria-label="Previous Testimonial"
               >
-                <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
               <button
+                type="button"
                 onClick={handleNext}
-                className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white border border-red-100 text-[#111827] hover:border-[#C8102E] hover:text-[#C8102E] transition-all flex items-center justify-center shadow-xs active:scale-95 cursor-pointer"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white border border-red-200 text-[#111827] hover:border-[#C8102E] hover:text-[#C8102E] hover:bg-red-50/50 transition-all flex items-center justify-center shadow-xs active:scale-90 cursor-pointer"
                 aria-label="Next Testimonial"
               >
-                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
             </div>
           </div>

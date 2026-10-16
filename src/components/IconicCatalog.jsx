@@ -123,7 +123,7 @@ export default function IconicCatalog({
   return (
     <section id="products" className="w-full bg-[#FAF7EE] py-6 sm:py-20 md:py-24 px-2 sm:px-6 lg:px-8 border-t border-[#F0EBE0] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Top Badges & Trade Callout */}
+        {/* Top Badges */}
         <div className="hidden sm:flex flex-wrap items-center justify-between gap-3 mb-4">
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center bg-[#2EC4B6] text-[#0F172A] font-fredoka font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-xs uppercase tracking-wider">
@@ -132,10 +132,6 @@ export default function IconicCatalog({
             <span className="inline-flex items-center bg-[#C8102E] text-white font-fredoka font-bold text-xs px-3 py-1.5 rounded-full tracking-wider animate-pulse">
               {pdfMeta.activeOffer}
             </span>
-          </div>
-
-          <div className="text-xs font-bold text-gray-700 bg-white/80 px-3.5 py-1.5 rounded-full border border-gray-200">
-            Effective: {pdfMeta.effectiveDate} • Desk: {pdfMeta.contactPerson} ({pdfMeta.phone})
           </div>
         </div>
 
@@ -297,32 +293,41 @@ export default function IconicCatalog({
   );
 }
 
+// Helper to extract clean piece count from wholesale packaging string (e.g. '1X24X30 PCS' -> '30 PCS')
+function formatPieces(packing) {
+  if (!packing) return '';
+  const match = packing.match(/(\d+)\s*PCS/i);
+  return match ? `${match[1]} PCS` : packing;
+}
+
 // Clean White Card with PDF specifications (Packing, Box MRP, Unit MRP, Rate/KC)
 function renderGridCard(product, onQuickView, onAddToCart, onEnquire) {
   return (
     <div
       key={product.id}
       onClick={() => (onQuickView ? onQuickView(product) : onEnquire && onEnquire(product))}
-      className="bg-white rounded-xl sm:rounded-3xl p-1.5 sm:p-3.5 md:p-4.5 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col justify-between group cursor-pointer relative"
+      className="bg-white rounded-xl sm:rounded-3xl p-1.5 sm:p-3.5 md:p-4 shadow-xs hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col justify-between group cursor-pointer relative"
     >
       {/* Top Rounded Colored Squircle Pod holding the White Circle & Product Image */}
       <div
-        className={`${product.bgColor} w-full aspect-square rounded-lg sm:rounded-2xl md:rounded-3xl flex items-center justify-center p-1 sm:p-2.5 md:p-3.5 mb-1.5 sm:mb-3 relative overflow-hidden`}
+        className={`${product.bgColor} w-full aspect-square rounded-lg sm:rounded-2xl md:rounded-3xl flex items-center justify-center p-1 sm:p-2 md:p-2.5 mb-1.5 sm:mb-3 relative overflow-hidden`}
       >
-        {/* Inner Pure White Circle */}
-        <div className="w-[84%] h-[84%] rounded-full bg-white flex items-center justify-center p-1 sm:p-2 md:p-2.5 shadow-xs group-hover:scale-105 transition-transform duration-300">
-          <img
-            src={getProductImage(product.image)}
-            alt={product.name}
-            className="w-full h-full max-h-[88%] max-w-[88%] object-contain filter drop-shadow-sm"
-            decoding="async"
-            onError={(e) => handleImageError(e, product.image)}
-          />
+        {/* Inner Pure White Circle Window */}
+        <div className="w-[88%] h-[88%] rounded-full bg-white p-1 sm:p-1.5 shadow-xs flex items-center justify-center overflow-hidden border border-white/90 group-hover:scale-105 transition-transform duration-300">
+          <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
+            <img
+              src={getProductImage(product.image)}
+              alt={product.name}
+              className="w-full h-full object-cover rounded-full"
+              decoding="async"
+              onError={(e) => handleImageError(e, product.image)}
+            />
+          </div>
         </div>
 
         {/* Badge */}
         {product.badge && (
-          <div className="absolute top-1 left-1 sm:top-2 sm:left-2 bg-[#0F172A]/85 backdrop-blur-xs text-white text-[6.5px] sm:text-[9.5px] font-extrabold px-1 sm:px-2 py-0.5 rounded-full truncate max-w-[90%] leading-none">
+          <div className="absolute top-1 left-1 sm:top-2 sm:left-2 bg-[#0F172A]/85 backdrop-blur-xs text-white text-[6.5px] sm:text-[9.5px] font-extrabold px-1 sm:px-2 py-0.5 rounded-full truncate max-w-[90%] leading-none z-10">
             {product.badge}
           </div>
         )}
@@ -343,10 +348,13 @@ function renderGridCard(product, onQuickView, onAddToCart, onEnquire) {
             {product.name}
           </h4>
 
-          {/* Packaging specifications from PDF */}
-          <div className="bg-gray-50 border border-gray-200/80 rounded-md sm:rounded-xl px-1 py-0.5 sm:px-2.5 sm:py-1 mb-1 sm:mb-2 font-mono text-[6.5px] sm:text-[10px] text-gray-700 flex items-center justify-between gap-0.5">
-            <span className="text-gray-500 font-bold uppercase text-[5.5px] sm:text-[8.5px] shrink-0">PACK</span>
-            <span className="font-bold truncate text-[6.5px] sm:text-[9.5px]">{product.packing}</span>
+          {/* Pieces specification */}
+          <div
+            className="bg-gray-50 border border-gray-200/80 rounded-md sm:rounded-xl px-1 py-0.5 sm:px-2.5 sm:py-1 mb-1 sm:mb-2 font-mono text-[6.5px] sm:text-[10px] text-gray-700 flex items-center justify-between gap-0.5"
+            title={`Full Carton Packaging: ${product.packing}`}
+          >
+            <span className="text-gray-500 font-bold uppercase text-[5.5px] sm:text-[8.5px] shrink-0">PIECES</span>
+            <span className="font-bold truncate text-[6.5px] sm:text-[9.5px]">{formatPieces(product.packing)}</span>
           </div>
         </div>
 
@@ -388,15 +396,17 @@ function renderArchCard(product, onQuickView, onAddToCart, onEnquire) {
       onClick={() => (onQuickView ? onQuickView(product) : onEnquire && onEnquire(product))}
       className={`${product.bgColor} w-[205px] sm:w-[310px] md:w-[325px] shrink-0 rounded-t-[102px] sm:rounded-t-[140px] rounded-b-[16px] sm:rounded-b-[24px] p-2.5 sm:p-5 md:p-6 flex flex-col justify-between select-none snap-start shadow-sm sm:shadow-md hover:shadow-xl transition-all duration-300 relative group cursor-pointer`}
     >
-      {/* Top Pure White Circle Cutout holding the crisp product image */}
-      <div className="w-36 h-36 sm:w-48 sm:h-48 md:w-52 md:h-52 rounded-full bg-white flex items-center justify-center p-2.5 sm:p-4.5 shadow-xs sm:shadow-sm mx-auto mt-0.5 sm:mt-2.5 mb-2 sm:mb-4 group-hover:scale-105 transition-transform duration-300">
-        <img
-          src={getProductImage(product.image)}
-          alt={product.name}
-          className="h-26 sm:h-34 md:h-38 w-auto max-w-[86%] max-h-[86%] object-contain filter drop-shadow-md"
-          decoding="async"
-          onError={(e) => handleImageError(e, product.image)}
-        />
+      {/* Top Pure White Circle Window holding the crisp product image */}
+      <div className="w-32 h-32 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full bg-white p-2 sm:p-2.5 shadow-md mx-auto mt-0.5 sm:mt-1 mb-2.5 sm:mb-4 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center overflow-hidden border-2 sm:border-4 border-white/95 ring-1 ring-black/5">
+        <div className="w-full h-full rounded-full overflow-hidden bg-white flex items-center justify-center">
+          <img
+            src={getProductImage(product.image)}
+            alt={product.name}
+            className="w-full h-full object-cover rounded-full"
+            decoding="async"
+            onError={(e) => handleImageError(e, product.image)}
+          />
+        </div>
       </div>
 
       {/* Pill Tag: Brand */}

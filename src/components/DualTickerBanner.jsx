@@ -44,7 +44,7 @@ export default function DualTickerBanner({ variant = 'default' }) {
   return (
     <div className="w-full relative overflow-hidden py-2 sm:py-5 md:py-6 bg-[#FAF9F6] border-y border-red-100/60 flex flex-col gap-1.5 sm:gap-3.5">
       {/* 1. Top Red Ticker Banner */}
-      <div className="w-full bg-[#C8102E] text-white py-1.5 sm:py-3.5 md:py-4.5 shadow-xs sm:shadow-md overflow-hidden relative z-10">
+      <div className="w-full bg-[#C8102E] text-white py-1.5 sm:py-3.5 md:py-4 shadow-xs sm:shadow-md overflow-hidden relative z-10">
         <div className="animate-marquee flex items-center gap-5 sm:gap-10 md:gap-12 whitespace-nowrap">
           {[...redBannerItems, ...redBannerItems, ...redBannerItems, ...redBannerItems].map((item, idx) => (
             <div key={idx} className="flex items-center gap-3.5 sm:gap-7 md:gap-9 shrink-0">
@@ -64,7 +64,7 @@ export default function DualTickerBanner({ variant = 'default' }) {
       </div>
 
       {/* 2. Bottom Angled Yellow Ticker Banner with Visible Gap */}
-      <div className="w-full bg-[#FFC709] text-[#111827] py-1.5 sm:py-3.5 md:py-4.5 shadow-xs sm:shadow-md overflow-hidden relative z-20 -rotate-1 scale-[1.02] origin-center mt-0.5 sm:mt-1.5">
+      <div className="w-full bg-[#FFC709] text-[#111827] py-1.5 sm:py-3.5 md:py-4 shadow-xs sm:shadow-md overflow-hidden relative z-20 -rotate-1 scale-[1.02] origin-center mt-0.5 sm:mt-1.5">
         <div className="animate-marquee flex items-center gap-5 sm:gap-10 md:gap-12 whitespace-nowrap">
           {[...yellowBannerItems, ...yellowBannerItems, ...yellowBannerItems, ...yellowBannerItems].map((item, idx) => (
             <div key={idx} className="flex items-center gap-3.5 sm:gap-7 md:gap-9 shrink-0">

@@ -5,6 +5,12 @@ import {
 } from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
+function formatPieces(packing) {
+  if (!packing) return '30 PCS';
+  const match = packing.match(/(\d+)\s*PCS/i);
+  return match ? `${match[1]} PCS` : packing;
+}
+
 export default function ProductQuickViewModal({ product, onClose, onOpenInquire, onAddToCart }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -175,14 +181,14 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
 
                 {/* Logistics Bento Specifications */}
                 <div className="grid grid-cols-3 gap-1 sm:gap-2 mb-1.5 sm:mb-3 text-xs">
-                  {/* Packing */}
+                  {/* Pieces / Packing */}
                   <div className="bg-slate-50/80 border border-slate-200/80 rounded-md sm:rounded-xl p-1 sm:p-2.5 flex flex-col justify-center">
                     <div className="flex items-center gap-1 sm:gap-1.5 text-gray-500 text-[7px] sm:text-[10px] font-bold uppercase tracking-wider mb-0.5">
                       <Package className="w-2 h-2 sm:w-3 sm:h-3 text-gray-600 shrink-0" />
-                      <span>Packing</span>
+                      <span>Pieces</span>
                     </div>
-                    <span className="font-mono font-black text-gray-900 text-[8.5px] sm:text-xs truncate block">
-                      {product.packing || '1X24X33PCS'}
+                    <span className="font-mono font-black text-gray-900 text-[8.5px] sm:text-xs truncate block" title={`Full Carton: ${product.packing}`}>
+                      {formatPieces(product.packing)}
                     </span>
                   </div>
 

@@ -171,74 +171,74 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
           </div>
 
           {/* Right 50%: 4 Compact Value Cards Stacked Vertically */}
-          <div className="w-full flex flex-col gap-1.5 sm:gap-2.5">
+          <div className="w-full flex flex-col gap-2">
             {/* 1. Quality */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-[#EFE5D3] shadow-xs flex items-center gap-1.5 sm:gap-2.5">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs">
-                <Award className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl p-2.5 sm:p-3 border border-[#EFE5D3] shadow-sm flex items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-sm shadow-amber-400/25">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="text-left min-w-0 flex-1">
-                <span className="text-[6.5px] sm:text-[8px] font-fredoka font-bold text-amber-600 uppercase tracking-wider block leading-none">
+                <span className="text-[7.5px] sm:text-[9px] font-fredoka font-bold text-amber-600 uppercase tracking-wider block leading-tight">
                   100% PURE VEG
                 </span>
-                <h4 className="text-[9.5px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
+                <h4 className="text-[11px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
                   Signature Quality
                 </h4>
-                <p className="text-[7.5px] sm:text-[9px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                <p className="text-[8.5px] sm:text-[10px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
                   Finest cocoa & purity
                 </p>
               </div>
             </div>
 
             {/* 2. Taste */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-[#EFE5D3] shadow-xs flex items-center gap-1.5 sm:gap-2.5">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-gradient-to-br from-[#E61E2A] to-[#A80B1E] text-white flex items-center justify-center shrink-0 shadow-xs">
-                <Heart className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl p-2.5 sm:p-3 border border-[#EFE5D3] shadow-sm flex items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-[#E02438] to-[#9B0B21] text-white flex items-center justify-center shrink-0 shadow-sm shadow-red-500/25">
+                <Heart className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="text-left min-w-0 flex-1">
-                <span className="text-[6.5px] sm:text-[8px] font-fredoka font-bold text-[#E61E2A] uppercase tracking-wider block leading-none">
+                <span className="text-[7.5px] sm:text-[9px] font-fredoka font-bold text-[#E02438] uppercase tracking-wider block leading-tight">
                   DELIGHTFUL TASTE
                 </span>
-                <h4 className="text-[9.5px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
+                <h4 className="text-[11px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
                   Slow-Conched Cocoa
                 </h4>
-                <p className="text-[7.5px] sm:text-[9px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                <p className="text-[8.5px] sm:text-[10px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
                   Velvet chocolate layers
                 </p>
               </div>
             </div>
 
             {/* 3. Manufacturing */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-[#EFE5D3] shadow-xs flex items-center gap-1.5 sm:gap-2.5">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                <Factory className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl p-2.5 sm:p-3 border border-[#EFE5D3] shadow-sm flex items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-[#B45309] to-[#78350F] text-white flex items-center justify-center shrink-0 shadow-sm shadow-amber-800/25">
+                <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="text-left min-w-0 flex-1">
-                <span className="text-[6.5px] sm:text-[8px] font-fredoka font-bold text-blue-600 uppercase tracking-wider block leading-none">
+                <span className="text-[7.5px] sm:text-[9px] font-fredoka font-bold text-amber-700 uppercase tracking-wider block leading-tight">
                   ISO 22000 PLANT
                 </span>
-                <h4 className="text-[9.5px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
+                <h4 className="text-[11px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
                   Automated Plant
                 </h4>
-                <p className="text-[7.5px] sm:text-[9px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                <p className="text-[8.5px] sm:text-[10px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
                   Zero-touch hygiene
                 </p>
               </div>
             </div>
 
             {/* 4. Trust */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-[#EFE5D3] shadow-xs flex items-center gap-1.5 sm:gap-2.5">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                <ShieldCheck className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
+            <div className="bg-white/95 backdrop-blur-sm rounded-xl p-2.5 sm:p-3 border border-[#EFE5D3] shadow-sm flex items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shrink-0 shadow-sm shadow-emerald-500/25">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div className="text-left min-w-0 flex-1">
-                <span className="text-[6.5px] sm:text-[8px] font-fredoka font-bold text-emerald-600 uppercase tracking-wider block leading-none">
+                <span className="text-[7.5px] sm:text-[9px] font-fredoka font-bold text-emerald-600 uppercase tracking-wider block leading-tight">
                   PAN-INDIA TRUST
                 </span>
-                <h4 className="text-[9.5px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
+                <h4 className="text-[11px] sm:text-xs font-outfit font-black text-[#191938] leading-tight truncate mt-0.5">
                   50,000+ Counters
                 </h4>
-                <p className="text-[7.5px] sm:text-[9px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+                <p className="text-[8.5px] sm:text-[10px] text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
                   Trusted by families
                 </p>
               </div>
@@ -251,75 +251,75 @@ export default function Hero({ onExploreCatalog, onRequestQuote }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="hidden lg:grid w-full lg:grid-cols-4 gap-5 mt-14"
+          className="hidden lg:grid w-full lg:grid-cols-4 gap-4 xl:gap-5 mt-12 xl:mt-14"
         >
           {/* 1. Quality */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4.5 border border-[#EFE5D3] hover:border-amber-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-400/30 group-hover:scale-110 transition-transform">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 xl:p-5 border border-[#EFE5D3] hover:border-amber-400/70 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 xl:gap-4 group cursor-default">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-400/25 group-hover:scale-105 transition-transform">
               <Award className="w-6 h-6" />
             </div>
-            <div className="text-left min-w-0">
-              <span className="text-[10px] font-fredoka font-bold text-amber-600 uppercase tracking-wider block">
+            <div className="text-left min-w-0 flex-1">
+              <span className="text-[10px] font-fredoka font-bold text-amber-600 uppercase tracking-wider block leading-none">
                 100% PURE VEG
               </span>
-              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-snug truncate mt-1">
                 Signature Quality
               </h4>
-              <p className="text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+              <p className="text-xs text-[#5C6180] font-medium leading-snug truncate mt-0.5">
                 Finest cocoa & purity
               </p>
             </div>
           </div>
 
           {/* 2. Taste */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4.5 border border-[#EFE5D3] hover:border-red-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E61E2A] to-[#A80B1E] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-500/30 group-hover:scale-110 transition-transform">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 xl:p-5 border border-[#EFE5D3] hover:border-red-400/70 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 xl:gap-4 group cursor-default">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E02438] to-[#9B0B21] text-white flex items-center justify-center shrink-0 shadow-md shadow-red-500/25 group-hover:scale-105 transition-transform">
               <Heart className="w-6 h-6" />
             </div>
-            <div className="text-left min-w-0">
-              <span className="text-[10px] font-fredoka font-bold text-[#E61E2A] uppercase tracking-wider block">
+            <div className="text-left min-w-0 flex-1">
+              <span className="text-[10px] font-fredoka font-bold text-[#E02438] uppercase tracking-wider block leading-none">
                 DELIGHTFUL TASTE
               </span>
-              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-snug truncate mt-1">
                 Slow-Conched Cocoa
               </h4>
-              <p className="text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+              <p className="text-xs text-[#5C6180] font-medium leading-snug truncate mt-0.5">
                 Velvet chocolate layers
               </p>
             </div>
           </div>
 
           {/* 3. Manufacturing */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4.5 border border-[#EFE5D3] hover:border-blue-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/30 group-hover:scale-110 transition-transform">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 xl:p-5 border border-[#EFE5D3] hover:border-amber-600/70 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 xl:gap-4 group cursor-default">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B45309] to-[#78350F] text-white flex items-center justify-center shrink-0 shadow-md shadow-amber-800/25 group-hover:scale-105 transition-transform">
               <Factory className="w-6 h-6" />
             </div>
-            <div className="text-left min-w-0">
-              <span className="text-[10px] font-fredoka font-bold text-blue-600 uppercase tracking-wider block">
+            <div className="text-left min-w-0 flex-1">
+              <span className="text-[10px] font-fredoka font-bold text-amber-700 uppercase tracking-wider block leading-none">
                 ISO 22000 PLANT
               </span>
-              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-snug truncate mt-1">
                 Automated Plant
               </h4>
-              <p className="text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+              <p className="text-xs text-[#5C6180] font-medium leading-snug truncate mt-0.5">
                 Zero-touch hygiene
               </p>
             </div>
           </div>
 
           {/* 4. Trust */}
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4.5 border border-[#EFE5D3] hover:border-emerald-400/60 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 group cursor-default">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform">
+          <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-4 xl:p-5 border border-[#EFE5D3] hover:border-emerald-500/70 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-3.5 xl:gap-4 group cursor-default">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform">
               <ShieldCheck className="w-6 h-6" />
             </div>
-            <div className="text-left min-w-0">
-              <span className="text-[10px] font-fredoka font-bold text-emerald-600 uppercase tracking-wider block">
+            <div className="text-left min-w-0 flex-1">
+              <span className="text-[10px] font-fredoka font-bold text-emerald-600 uppercase tracking-wider block leading-none">
                 PAN-INDIA TRUST
               </span>
-              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-tight truncate">
+              <h4 className="text-sm font-outfit font-black text-[#191938] group-hover:text-[#C8102E] transition-colors leading-snug truncate mt-1">
                 50,000+ Counters
               </h4>
-              <p className="text-xs text-[#5C6180] font-medium leading-tight mt-0.5 truncate">
+              <p className="text-xs text-[#5C6180] font-medium leading-snug truncate mt-0.5">
                 Trusted by families
               </p>
             </div>
