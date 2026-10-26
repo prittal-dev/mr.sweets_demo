@@ -75,9 +75,11 @@ export default function PriceListTableModal({ isOpen, onClose, onEnquire }) {
                 <span className="bg-[#2EC4B6] text-[#0F172A] font-fredoka font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">
                   Official Trade Document
                 </span>
-                <span className="bg-[#C8102E] text-white font-fredoka font-bold text-xs px-3 py-1 rounded-full tracking-wider animate-pulse">
-                  {pdfMeta.activeOffer}
-                </span>
+                {pdfMeta.activeOffer && (
+                  <span className="bg-[#C8102E] text-white font-fredoka font-bold text-xs px-3 py-1 rounded-full tracking-wider animate-pulse">
+                    {pdfMeta.activeOffer}
+                  </span>
+                )}
                 <span className="text-xs font-bold text-gray-600 bg-white px-2.5 py-1 rounded-full border border-gray-200">
                   Effective: {pdfMeta.effectiveDate}
                 </span>
@@ -284,7 +286,6 @@ export default function PriceListTableModal({ isOpen, onClose, onEnquire }) {
               <li>NO FURTHER DISCOUNT WILL B GIVEN AFTER THIS PRICE LIST.</li>
               <li>ALL RATES INCLUDING OF GST.</li>
               <li>PAYMENT SYSTEM WILL B BILL TO BILL.</li>
-              <li>ACTIVE SCHEME: OFFER 50+1 (Buy 50 cartons/boxes, get 1 free).</li>
             </ol>
             <div className="mt-3 pt-3 border-t border-amber-200/80 flex flex-wrap items-center justify-between gap-3 text-gray-600">
               <div>

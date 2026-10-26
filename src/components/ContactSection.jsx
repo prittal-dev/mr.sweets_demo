@@ -117,11 +117,11 @@ export default function ContactSection() {
                 <div>
                   <div className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5 sm:mb-1">Corporate Address</div>
                   <p className="text-[11px] sm:text-sm text-[#111827] font-medium leading-relaxed">
-                    Mr. Sweet Foods Industry Ltd.<br />
-                    Industrial Confectionery Park, Sector 4, Food Hub, India.
+                    130, Library Road, Azad Market,<br />
+                    Delhi – 110006, India.
                   </p>
                   <span className="inline-block text-[9px] sm:text-[10px] text-[#C8102E] font-semibold mt-0.5 sm:mt-1">
-                    FSSAI Lic. No. 12720052000625 • Make in India Certified Plant
+                    FSSAI Lic. No. 12720052000625 • Quality Assured Confectionery
                   </span>
                 </div>
               </div>
@@ -132,12 +132,13 @@ export default function ContactSection() {
                   <Phone className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <div className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5 sm:mb-1">Phone & Direct Trade Line</div>
+                  <div className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase tracking-wider mb-0.5 sm:mb-1">Contact Person & Phone</div>
                   <div className="text-xs sm:text-sm text-[#111827] font-bold">
+                    Mr. Prince Ghai:{' '}
                     <a href="tel:+919350060606" className="hover:text-[#C8102E] transition-colors">+91 93500 60606</a>
                   </div>
                   <div className="text-[10px] sm:text-[11px] text-gray-500 mt-0.5">
-                    WhatsApp Desk Available
+                    Direct Trade & WhatsApp Line
                   </div>
                 </div>
               </div>

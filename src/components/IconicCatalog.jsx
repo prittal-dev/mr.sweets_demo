@@ -129,9 +129,11 @@ export default function IconicCatalog({
             <span className="inline-flex items-center bg-[#2EC4B6] text-[#0F172A] font-fredoka font-bold text-xs sm:text-sm px-4 py-1.5 rounded-full shadow-xs uppercase tracking-wider">
               Official 2026 Price List
             </span>
-            <span className="inline-flex items-center bg-[#C8102E] text-white font-fredoka font-bold text-xs px-3 py-1.5 rounded-full tracking-wider animate-pulse">
-              {pdfMeta.activeOffer}
-            </span>
+            {pdfMeta.activeOffer && (
+              <span className="inline-flex items-center bg-[#C8102E] text-white font-fredoka font-bold text-xs px-3 py-1.5 rounded-full tracking-wider animate-pulse">
+                {pdfMeta.activeOffer}
+              </span>
+            )}
           </div>
         </div>
 

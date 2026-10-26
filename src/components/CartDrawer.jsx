@@ -31,7 +31,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-hidden bg-black/60 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 overflow-hidden bg-black/60 backdrop-blur-sm animate-fadeIn overscroll-contain"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -65,7 +65,7 @@ export default function CartDrawer({ isOpen, onClose, cartItems, onUpdateQuantit
           </div>
 
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+          <div className="flex-1 overflow-y-auto p-5 space-y-4 overscroll-contain">
             {cartItems.length === 0 ? (
               <div className="text-center py-12">
                 <ShoppingBag className="w-12 h-12 text-gray-300 mx-auto mb-3" />

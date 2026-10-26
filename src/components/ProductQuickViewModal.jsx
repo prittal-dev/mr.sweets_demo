@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { 
   X, Star, Mail, ShieldCheck, ZoomIn, 
-  Package, Clock, Scale, Tag, Gift, BadgePercent, MessageCircle
+  Package, Clock, Scale, Tag, BadgePercent, MessageCircle
 } from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
+import { lockBodyScroll, unlockBodyScroll } from '../utils/scrollLock';
 
 function formatPieces(packing) {
   if (!packing) return '30 PCS';
@@ -16,13 +17,11 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
 
   useEffect(() => {
     if (product) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+      lockBodyScroll();
+      return () => {
+        unlockBodyScroll();
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [product]);
 
   useEffect(() => {
@@ -42,14 +41,14 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
     <>
       {/* Quick View Modal Container */}
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-5 bg-black/75 backdrop-blur-md animate-fadeIn overflow-y-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-5 bg-black/75 backdrop-blur-md animate-fadeIn overflow-y-auto overscroll-contain"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
         aria-labelledby="modal-product-title"
       >
         <div
-          className="bg-white border border-gray-100/80 w-full max-w-4xl rounded-[22px] sm:rounded-[32px] overflow-hidden shadow-2xl relative my-auto max-h-[92vh] flex flex-col min-w-0 ring-1 ring-black/5"
+          className="bg-white border border-gray-100/80 w-full max-w-4xl rounded-[22px] sm:rounded-[32px] overflow-hidden shadow-2xl relative my-auto max-h-[92vh] flex flex-col min-w-0 ring-1 ring-black/5 overscroll-contain"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Close Button */}
@@ -61,7 +60,7 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
             <X className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
           </button>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 min-w-0 w-full overflow-y-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 min-w-0 w-full overflow-y-auto overscroll-contain">
             {/* Left: Product Showcase Panel (5 cols) */}
             <div
               onClick={() => setIsLightboxOpen(true)}
@@ -213,27 +212,6 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire,
                       {product.shelfLife || '12 Months'}
                     </span>
                   </div>
-                </div>
-
-                {/* 50+1 Scheme Banner */}
-                <div className="bg-gradient-to-r from-amber-500/10 via-red-500/10 to-amber-500/10 border border-amber-300/80 rounded-lg sm:rounded-2xl p-1.5 sm:p-3 mb-1.5 sm:mb-3 flex items-center justify-between gap-1.5 sm:gap-3 shadow-2xs">
-                  <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
-                    <div className="w-5 h-5 sm:w-8 sm:h-8 rounded-md sm:rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-amber-950 flex items-center justify-center shrink-0 shadow-xs">
-                      <Gift className="w-3 h-3 sm:w-4 sm:h-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[9px] sm:text-xs font-black text-[#111827] flex items-center gap-1 sm:gap-1.5">
-                        <span>Trade Scheme 50+1 Active</span>
-                        <span className="inline-block w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
-                      </div>
-                      <p className="text-[8px] sm:text-[11px] text-gray-600 truncate">
-                        Buy 50 cases & get 1 case completely FREE on this SKU!
-                      </p>
-                    </div>
-                  </div>
-                  <span className="shrink-0 bg-[#E02438] text-white text-[7.5px] sm:text-[10px] font-black uppercase px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-xs">
-                    50+1 FREE
-                  </span>
                 </div>
 
                 {/* FSSAI & Quality Guarantee */}

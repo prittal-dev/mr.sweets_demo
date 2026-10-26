@@ -186,13 +186,14 @@ export default function Footer({ onOpenInquire, onNavigate }) {
             <li className="flex items-start gap-2">
               <MapPin className="w-3.5 h-3.5 text-[#E02438] shrink-0 mt-0.5" />
               <span className="leading-relaxed">
-                Mr. Sweet Foods Industry Ltd.<br />
-                Industrial Confectionery Park, Sector 4, Food Hub, India.
+                130, Library Road, Azad Market,<br />
+                Delhi – 110006, India.
               </span>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-3.5 h-3.5 text-amber-300 shrink-0" />
               <div>
+                <div className="text-[10px] text-amber-200/90 font-bold">Mr. Prince Ghai</div>
                 <a href="tel:+919350060606" className="hover:text-amber-300 font-bold transition-colors block">
                   +91 93500 60606
                 </a>

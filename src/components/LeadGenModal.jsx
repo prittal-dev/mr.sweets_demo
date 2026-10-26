@@ -142,14 +142,14 @@ export default function LeadGenModal({ isOpen, onClose, initialTab = 'product', 
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn overscroll-contain"
       onClick={handleResetAndClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="lead-gen-title"
     >
       <div
-        className="bg-white border border-gray-200 w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto"
+        className="bg-white border border-gray-200 w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl relative p-6 sm:p-8 max-h-[90vh] overflow-y-auto overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

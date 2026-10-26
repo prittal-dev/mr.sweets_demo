@@ -16,6 +16,11 @@
     color: #111827;
     -webkit-font-smoothing: antialiased;
   }
+  html.modal-open,
+  body.modal-open {
+    overflow: hidden !important;
+    overscroll-behavior: none !important;
+  }
 }
 
 /* Typography Font Style Utility Classes */

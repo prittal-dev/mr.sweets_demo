@@ -2010,9 +2010,10 @@ const fileContent = `/**
 
 export const pdfMeta = {
   effectiveDate: '01-06-2026',
-  contactPerson: 'Prince Ghai',
+  contactPerson: 'Mr. Prince Ghai',
   phone: '9350060606',
-  activeOffer: 'OFFER 50+1',
+  address: '130, Library Road, Azad Market, Delhi - 110006, India',
+  activeOffer: '',
   termsAndConditions: [
     'ALL RATES ARE FOR .',
     'NO FURTHER DISCOUNT WILL B GIVEN AFTER THIS PRICE LIST.',

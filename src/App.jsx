@@ -16,6 +16,9 @@ import LeadGenModal from './components/LeadGenModal';
 import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import NotFoundPage from './components/NotFoundPage';
+import StatCardsSection from './components/StatCardsSection';
+import FloatingSocialSidebar from './components/FloatingSocialSidebar';
+import { lockBodyScroll, unlockBodyScroll } from './utils/scrollLock';
 
 const sectionIdMap = {
   home: 'atelier-hero',
@@ -147,14 +150,13 @@ export default function App() {
 
   // Lock background body scroll whenever any modal is open
   React.useEffect(() => {
-    if (isLeadModalOpen || isCartOpen || !!quickViewProduct) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
+    const isAnyModalOpen = isLeadModalOpen || isCartOpen || !!quickViewProduct;
+    if (isAnyModalOpen) {
+      lockBodyScroll();
+      return () => {
+        unlockBodyScroll();
+      };
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isLeadModalOpen, isCartOpen, quickViewProduct]);
 
   const handleNavigate = (pageId) => {
@@ -301,6 +303,7 @@ export default function App() {
               onRequestQuote={() => openLeadModal('wholesale')}
             />
             <DualTickerBanner />
+            <StatCardsSection />
             <CraftBanner
               selectedCategory={selectedCategory}
               onSelectCategory={handleSelectCategory}
@@ -313,6 +316,7 @@ export default function App() {
               onQuickView={(product) => setQuickViewProduct(product)}
             />
             <MarqueeBanner theme="crimson" />
+            <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
             <WhyChooseUs onOpenInquire={() => openLeadModal('wholesale')} />
             <TestimonialsSection />
             <ContactSection />
@@ -368,6 +372,9 @@ export default function App() {
           />
         )}
       </main>
+
+      {/* Sticky Floating Social Media Sidebar (Matches Official Screen) */}
+      <FloatingSocialSidebar />
 
       {/* Footer */}
       <Footer
