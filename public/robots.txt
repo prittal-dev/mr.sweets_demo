@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mrsweetfoods.com
+
+# Sitemaps
+Sitemap: https://mrsweetfoods.com/sitemap.xml
