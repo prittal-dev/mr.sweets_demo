@@ -279,7 +279,6 @@ export default function App() {
             {/* Strong B2B / Pan-India Distribution Section Immediately After Hero */}
             <StatCardsSection
               onOpenInquire={() => openLeadModal('wholesale')}
-              onSelectCategory={handleSelectCategory}
             />
             <DualTickerBanner />
             <CraftBanner

@@ -3,39 +3,10 @@ import { motion } from 'framer-motion';
 import {
   Map,
   Users,
-  ArrowRight,
-  Layers,
-  Sparkles,
-  IceCream,
-  Egg,
-  Cookie,
-  Flame,
-  Smile,
-  Candy,
-  Lollipop
+  ArrowRight
 } from 'lucide-react';
 
-export default function StatCardsSection({ onOpenInquire, onSelectCategory }) {
-  const categoryPills = [
-    { name: 'Cream Waffer', slug: 'cream-waffer', icon: Layers },
-    { name: 'Waffer Sticks', slug: 'waffer-sticks', icon: Sparkles },
-    { name: 'Cones', slug: 'cones', icon: IceCream },
-    { name: 'Surprise Eggs', slug: 'surprise-eggs', icon: Egg },
-    { name: 'Chocolate Coated Waffer', slug: 'chocolate-waffer', icon: Cookie },
-    { name: 'Caramel Coated Waffers', slug: 'caramel-waffers', icon: Flame },
-    { name: 'Chewing Gum', slug: 'chewing-gum', icon: Smile },
-    { name: 'Candies / Toffee', slug: 'candies-toffee', icon: Candy },
-    { name: 'Jellies', slug: 'jellies', icon: Lollipop }
-  ];
-
-  const handlePillClick = (slug) => {
-    if (onSelectCategory) {
-      onSelectCategory(slug);
-    } else {
-      const el = document.getElementById('products');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+export default function StatCardsSection({ onOpenInquire }) {
 
   return (
     <section
@@ -159,33 +130,6 @@ export default function StatCardsSection({ onOpenInquire, onSelectCategory }) {
               <span>Direct factory pricing with protected regional exclusivity</span>
             </div>
           </motion.div>
-        </div>
-
-        {/* =========================================================
-            CATEGORY PILLS (Centered White Pill Buttons at the Bottom)
-            ========================================================= */}
-        <div className="mt-5 sm:mt-7 pt-4 sm:pt-5 border-t border-white/10">
-          <div className="text-center mb-3">
-            <span className="text-[10.5px] font-outfit font-extrabold uppercase tracking-widest text-amber-200/80">
-              EXPLORE BY CONFECTIONERY CATEGORY
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {categoryPills.map((cat) => {
-              const Icon = cat.icon;
-              return (
-                <button
-                  key={cat.name}
-                  onClick={() => handlePillClick(cat.slug)}
-                  className="bg-white hover:bg-[#FAF4EA] text-[#18110F] hover:text-[#8B001D] font-outfit font-extrabold text-[11px] sm:text-xs px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm hover:shadow-md transition-all transform active:scale-95 flex items-center gap-1.5 cursor-pointer border border-white/80 group"
-                >
-                  <Icon className="w-3.5 h-3.5 text-[#8B001D] transition-transform group-hover:scale-110" />
-                  <span>{cat.name}</span>
-                </button>
-              );
-            })}
-          </div>
         </div>
       </div>
     </section>

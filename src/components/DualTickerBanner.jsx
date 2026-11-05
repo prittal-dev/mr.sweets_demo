@@ -4,38 +4,39 @@ export default function DualTickerBanner({ variant = 'default' }) {
   const isCatalogue = variant === 'catalogue';
 
   const defaultRedItems = [
-    { text: '100% Premium quality product', italic: false },
-    { text: 'made with love in India', italic: true },
-    { text: 'Big smiles, tiny treats', italic: false },
-    { text: 'from our kitchen to your corner store', italic: true },
-    { text: 'crafted with pure passion', italic: false },
-    { text: '100% vegetarian delight', italic: true }
+    { text: 'Pan-India Distribution', italic: false },
+    { text: 'Premium Quality', italic: true },
+    { text: '100% Veg', italic: false },
+    { text: 'Made in India', italic: true },
+    { text: 'For the kid in all of us', italic: false },
+    { text: 'For the first bite after school', italic: true }
   ];
 
   const catalogueRedItems = [
-    { text: '100% Premium quality products', italic: false },
-    { text: 'find your favourite', italic: true },
-    { text: 'Chocolates • Wafers • Jellies • Candies', italic: true },
-    { text: 'Big smiles, tiny treats', italic: false },
-    { text: 'from our kitchen to your corner store', italic: true }
+    { text: 'Pan-India Distribution', italic: false },
+    { text: 'Premium Quality', italic: true },
+    { text: '100% Veg', italic: false },
+    { text: 'Made in India', italic: true },
+    { text: 'For the kid in all of us', italic: false },
+    { text: 'For the first bite after school', italic: true }
   ];
 
   const defaultYellowItems = [
     { text: 'For the first bite after school', italic: false },
-    { text: 'for the Diwali box on the table', italic: true },
-    { text: 'For the 4 pm chai break', italic: false },
-    { text: 'for the kid in all of us', italic: true },
-    { text: 'for late night cravings', italic: true },
-    { text: 'For birthday celebration hampers', italic: false }
+    { text: 'For the kid in all of us', italic: true },
+    { text: 'Made in India', italic: false },
+    { text: '100% Veg', italic: true },
+    { text: 'Premium Quality', italic: false },
+    { text: 'Pan-India Distribution', italic: true }
   ];
 
   const catalogueYellowItems = [
-    { text: 'Pouches for sharing', italic: false },
-    { text: 'trays for the party', italic: true },
-    { text: 'Packs for the counter', italic: false },
-    { text: 'boxes for gifting', italic: true },
-    { text: 'For the 4 pm chai break', italic: false },
-    { text: 'for the kid in all of us', italic: true }
+    { text: 'For the first bite after school', italic: false },
+    { text: 'For the kid in all of us', italic: true },
+    { text: 'Made in India', italic: false },
+    { text: '100% Veg', italic: true },
+    { text: 'Premium Quality', italic: false },
+    { text: 'Pan-India Distribution', italic: true }
   ];
 
   const redBannerItems = isCatalogue ? catalogueRedItems : defaultRedItems;
