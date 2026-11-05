@@ -68,12 +68,12 @@ export default function WhyChooseUs({ onOpenInquire }) {
   const benefitCards = [
     {
       id: 1,
-      title: '100% Vegetarian Purity',
+      title: 'Premium Quality & Pure Veg',
       description:
-        'Strict zero-gelatin formulation using natural plant pectin and certified Swiss-grade cocoa, ensuring authentic pure vegetarian integrity across all confections.',
+        'Strict zero-gelatin formulation using natural plant pectin and certified Swiss-grade cocoa, ensuring premium quality product standards and authentic pure vegetarian integrity across all confections.',
       icon: ShieldCheck,
       iconColor: 'text-emerald-700 bg-emerald-50 border-emerald-200',
-      tag: 'PURE VEG CERTIFIED'
+      tag: 'PREMIUM QUALITY CERTIFIED'
     },
     {
       id: 2,

@@ -1,7 +1,7 @@
 export const siteConfig = {
   brandName: "Mr. Sweet",
-  tagline: "HAUTE CONFECTIONERY",
-  subtitle: "Modern Confectionery Atelier & Commercial Wholesale",
+  tagline: "PREMIUM QUALITY CONFECTIONERY",
+  subtitle: "Premium Quality Confectionery Atelier & Commercial Wholesale",
   contactPerson: "Mr. Prince Ghai",
   phone: "+91 93500 60606",
   phoneRaw: "+919350060606",
@@ -33,6 +33,7 @@ export const siteConfig = {
   makeInIndia: true,
 
   trustBadges: [
+    "★ Premium Quality Product",
     "100% Pure Veg",
     "FSSAI Lic. 12720052000625",
     "Zero Animal Gelatin",

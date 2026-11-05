@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function MarqueeBanner({ theme = 'dark' }) {
   const items = [
+    '★ 100% PREMIUM QUALITY PRODUCT',
     'SWISS-GRADE CONCHING',
     'PURE DELIGHT',
     'AIRTIGHT CRISP SEALED',

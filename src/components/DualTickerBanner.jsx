@@ -4,7 +4,7 @@ export default function DualTickerBanner({ variant = 'default' }) {
   const isCatalogue = variant === 'catalogue';
 
   const defaultRedItems = [
-    { text: 'Revolutionising snacking', italic: false },
+    { text: '100% Premium quality product', italic: false },
     { text: 'made with love in India', italic: true },
     { text: 'Big smiles, tiny treats', italic: false },
     { text: 'from our kitchen to your corner store', italic: true },
@@ -13,7 +13,7 @@ export default function DualTickerBanner({ variant = 'default' }) {
   ];
 
   const catalogueRedItems = [
-    { text: 'Every treat, in one place', italic: false },
+    { text: '100% Premium quality products', italic: false },
     { text: 'find your favourite', italic: true },
     { text: 'Chocolates • Wafers • Jellies • Candies', italic: true },
     { text: 'Big smiles, tiny treats', italic: false },

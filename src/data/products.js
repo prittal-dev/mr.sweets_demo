@@ -144,7 +144,7 @@ export const showcaseProducts = [
     unitMrp: '₹5',
     kcPrice: 120,
     rate: '72/-',
-    image: '/dairy-rolls-blue.png'
+    image: '/daily-rolls-blue.png'
   },
   {
     id: 'ws-9',
@@ -443,16 +443,15 @@ export const showcaseProducts = [
   {
     id: 'se-30',
     srNo: 30,
-    name: 'Double Enjoy Jar',
+    name: 'Krispy Toy Jar',
     category: 'Surprise Eggs',
     categorySlug: 'surprise-eggs',
     section: 'Surprise Eggs',
     packing: '1X16X60 PCS',
     format: 'Jar / 60 Pcs',
-    boxMrp: 450,
-    unitMrp: '₹15',
-    kcPrice: 240,
-    image: ''
+    boxMrp: 300,
+    unitMrp: '₹5',
+    image: '/krispy toy.png'
   },
   {
     id: 'se-32',

@@ -119,8 +119,8 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire 
             <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between min-w-0 w-full bg-white text-left">
               <div>
                 {/* Brand Eyebrow */}
-                <div className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-red-50 border border-red-200/60 text-[#8B001D] text-[10.5px] font-outfit font-black uppercase tracking-wider mb-2">
-                  <span>Mr. Sweet Confectionery</span>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-50 border border-red-200/60 text-[#8B001D] text-[10.5px] font-outfit font-black uppercase tracking-wider mb-2">
+                  <span>★ Premium Quality Product</span>
                 </div>
 
                 {/* Product Title */}
@@ -130,7 +130,7 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire 
 
                 {/* Category Tagline */}
                 <p className="text-xs sm:text-sm font-outfit text-gray-500 font-semibold mb-3">
-                  {product.category} • 100% Pure Vegetarian
+                  {product.category} • Premium Quality • 100% Pure Vegetarian
                 </p>
 
                 {/* Packaging & Pricing Matrix */}

@@ -9,28 +9,24 @@ const banners = [
   {
     id: 2,
     image: '/hero-banner-2.png',
-    webp: '/hero-banner-2.webp',
     title: 'NUTYMAX Chocolate Wafer',
     alt: 'NUTYMAX Chocolate Wafer with Caramel Bar and Nuts'
   },
   {
     id: 3,
     image: '/hero-banner-3.png',
-    webp: '/hero-banner-3.webp',
     title: 'DAILY ROLLS Wafer Sticks',
     alt: 'DAILY ROLLS Chocolate Flavoured Crispy Wafer Roll'
   },
   {
     id: 4,
     image: '/hero-banner-4.png',
-    webp: '/hero-banner-4.webp',
     title: 'DAIRY CONE Milky Choco',
     alt: 'DAIRY CONE Milky Choco Wafer Cones Filled with Velvet Cream'
   },
   {
     id: 5,
     image: '/hero-banner-5.png',
-    webp: '/hero-banner-5.webp',
     title: 'SWISS Chocolate Wafer',
     alt: 'SWISS Chocolate Cream Filled Wafer Rolls'
   }
@@ -175,23 +171,15 @@ export default function HeroBannerSlider() {
               key={`${banner.id}-${index}`}
               className="w-full h-full flex-shrink-0 flex items-center justify-center"
             >
-              <picture className="w-full h-full block">
-                {banner.webp && (
-                  <source
-                    type="image/webp"
-                    srcSet={getProductImage(banner.webp)}
-                  />
-                )}
-                <img
-                  src={getProductImage(banner.image)}
-                  alt={banner.alt}
-                  className="w-full h-full object-cover object-center block"
-                  loading="eager"
-                  decoding="async"
-                  draggable={false}
-                  onError={(e) => handleImageError(e, banner.image)}
-                />
-              </picture>
+              <img
+                src={getProductImage(banner.image)}
+                alt={banner.alt}
+                className="w-full h-full object-cover object-center block"
+                loading="eager"
+                decoding="async"
+                draggable={false}
+                onError={(e) => handleImageError(e, banner.image)}
+              />
             </div>
           ))}
         </div>

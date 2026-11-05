@@ -38,13 +38,19 @@ export default function Hero({ onExploreCatalog, onAboutClick, onRequestQuote })
               </span>
             </h1>
 
-            {/* Authentic Existing Introductory Copy */}
+            {/* Authentic Introductory Copy with Premium Quality emphasis */}
             <p className="text-sm sm:text-base md:text-[17px] text-[#4F3A34] font-normal leading-relaxed max-w-xl mb-6 sm:mb-7">
-              From our signature crispy Romeo Choco Cones and slow-conched Swiss cream wafers to royal gold coin jars, experience India's premier confectionery manufacturer committed to uncompromised purity, crispness, and irresistible taste.
+              From our signature crispy Romeo Choco Cones and slow-conched Swiss cream wafers to royal gold coin jars, experience India's premier confectionery atelier committed to <strong className="font-bold text-[#18110F]">premium quality products</strong>, uncompromised purity, crispness, and irresistible taste.
             </p>
 
-            {/* Quality Badge */}
+            {/* Quality Badges */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-7 sm:mb-8 w-full">
+              <div className="inline-flex items-center gap-2 bg-[#FFFDF9] border border-amber-900/15 px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-outfit font-black text-[#8B001D] shadow-2xs">
+                <span className="w-4 h-4 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center text-[11px] font-black">
+                  ★
+                </span>
+                <span>Premium Quality Product</span>
+              </div>
               <div className="inline-flex items-center gap-2 bg-[#FFFDF9] border border-amber-900/10 px-3.5 py-1.5 rounded-full text-xs sm:text-[13px] font-outfit font-bold text-[#18110F] shadow-2xs">
                 <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] font-black">
                   ✓
@@ -94,9 +100,15 @@ export default function Hero({ onExploreCatalog, onAboutClick, onRequestQuote })
             <div className="w-full max-w-[480px] rounded-3xl sm:rounded-4xl bg-[#FFFDF9] border border-amber-900/15 shadow-floating p-5 sm:p-7 md:p-8 flex flex-col justify-between relative overflow-hidden transition-all">
               {/* Card Top: Flagship Selection Badge & Green Vegetarian Icon */}
               <div className="flex items-center justify-between gap-2 mb-3 sm:mb-5">
-                {/* ★ FLAGSHIP SELECTION */}
-                <div className="inline-flex items-center gap-1.5 bg-[#FAF4EB] border border-[#F6D5DA] text-[#8B001D] px-3 py-1 rounded-full text-[10.5px] sm:text-xs font-outfit font-black tracking-wider uppercase shadow-2xs">
-                  <span>★ FLAGSHIP SELECTION</span>
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  {/* ★ FLAGSHIP SELECTION */}
+                  <div className="inline-flex items-center gap-1 bg-[#FAF4EB] border border-[#F6D5DA] text-[#8B001D] px-2.5 py-1 rounded-full text-[10.5px] sm:text-xs font-outfit font-black tracking-wider uppercase shadow-2xs">
+                    <span>★ FLAGSHIP SELECTION</span>
+                  </div>
+                  {/* PREMIUM QUALITY */}
+                  <div className="inline-flex items-center gap-1 bg-[#FFFDF9] border border-amber-900/15 text-amber-900 px-2.5 py-1 rounded-full text-[10px] sm:text-[11px] font-outfit font-extrabold tracking-wider uppercase shadow-2xs">
+                    <span>★ PREMIUM QUALITY</span>
+                  </div>
                 </div>
 
                 {/* Upper Right: FSSAI Green Vegetarian Icon */}

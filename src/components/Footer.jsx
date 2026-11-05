@@ -67,19 +67,19 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
 
               {/* Short Brand Description */}
               <p className="text-xs sm:text-[13px] text-amber-100/75 font-normal leading-relaxed max-w-sm mb-5">
-                Crafting India's favorite crispy wafer cones, slow-conched chocolates, and joyful confections with modern food engineering, dust-free cleanrooms, and uncompromised purity.
+                Crafting India's favorite premium quality crispy wafer cones, slow-conched chocolates, and joyful confections with modern food engineering, dust-free cleanrooms, and uncompromised purity.
               </p>
 
               {/* Certification Badges */}
               <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="bg-white/10 border border-white/15 text-emerald-300 text-[10.5px] sm:text-xs font-outfit font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>FSSAI Certified</span>
+                <span className="bg-white/10 border border-white/15 text-amber-300 text-[10.5px] sm:text-xs font-outfit font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
+                  <span>★</span>
+                  <span>Premium Quality Product</span>
                 </span>
 
-                <span className="bg-white/10 border border-white/15 text-amber-300 text-[10.5px] sm:text-xs font-outfit font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
-                  <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>ISO 22000 Ready</span>
+                <span className="bg-white/10 border border-white/15 text-emerald-300 text-[10.5px] sm:text-xs font-outfit font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span>100% Pure Veg</span>
                 </span>
               </div>
             </div>

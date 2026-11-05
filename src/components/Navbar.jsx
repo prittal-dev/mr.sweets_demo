@@ -39,21 +39,24 @@ export default function Navbar({
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="bg-[#7B0D1E] text-white py-2 sm:py-2.5 px-3 sm:px-6 text-[10px] sm:text-[11.5px] md:text-xs font-bold tracking-wider uppercase border-b border-[#5A0614] relative z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-1.5 sm:gap-2.5 text-center leading-tight flex-wrap">
-          {/* Vegetarian Mark Symbol */}
           <span className="inline-flex items-center gap-1.5 text-white/95 shrink-0">
             <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-[2px] border border-emerald-400 bg-white/10 flex items-center justify-center shrink-0" title="100% Vegetarian Confectionery">
               <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-400" />
             </span>
-            <span className="tracking-wide">100% VEGETARIAN CONFECTIONERY</span>
+            <span className="tracking-wide">100% VEGETARIAN</span>
           </span>
 
-          <span className="text-amber-300/80 font-bold">•</span>
+          <span className="text-amber-300 font-bold">•</span>
+
+          <span className="tracking-wide text-amber-300 font-extrabold">★ 100% PREMIUM QUALITY PRODUCTS</span>
+
+          <span className="text-amber-300 font-bold">•</span>
 
           <span className="tracking-wide text-white/95">PAN-INDIA DISTRIBUTION</span>
 
-          <span className="text-amber-300/80 font-bold">•</span>
+          <span className="text-amber-300 font-bold">•</span>
 
-          <span className="tracking-wide text-white/95">SWISS-GRADE SLOW-CONCHED QUALITY</span>
+          <span className="tracking-wide text-white/95">SWISS-GRADE CONCHED QUALITY</span>
         </div>
       </div>
 
