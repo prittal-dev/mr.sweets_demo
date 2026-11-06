@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, ArrowRight, Sparkles } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 
 export default function ContactCTA({ onOpenInquire }) {
   return (
@@ -11,8 +11,7 @@ export default function ContactCTA({ onOpenInquire }) {
 
       <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
         {/* Small Text */}
-        <div className="inline-flex items-center gap-1.5 bg-[#18110F]/10 border border-[#18110F]/15 text-[#18110F] px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-fredoka font-semibold uppercase tracking-wider mb-2.5 sm:mb-3 shadow-2xs">
-          <Sparkles className="w-3 h-3 text-[#8B001D] fill-[#8B001D]" />
+        <div className="inline-flex items-center bg-[#18110F]/10 border border-[#18110F]/15 text-[#18110F] px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-fredoka font-semibold uppercase tracking-wider mb-2.5 sm:mb-3 shadow-2xs">
           <span>READY TO STOCK HIGH-VELOCITY TREATS?</span>
         </div>
 

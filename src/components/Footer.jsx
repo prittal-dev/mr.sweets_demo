@@ -5,7 +5,6 @@ import {
   Phone,
   MapPin,
   Mail,
-  Clock,
   X,
   FileText,
   Lock,
@@ -24,8 +23,12 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
     }
     if (sectionId) {
       setTimeout(() => {
-        const el = document.getElementById(sectionId);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (window.lenis) {
+          window.lenis.scrollTo(`#${sectionId}`, { offset: -70, duration: 1.2 });
+        } else {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
       }, 150);
     }
   };
@@ -44,91 +47,91 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-[radial-gradient(circle,rgba(139,0,29,0.08)_0%,transparent_70%)] pointer-events-none" />
 
       {/* Main Footer Container */}
-      <div className="max-w-7xl mx-auto py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12">
+      <div className="max-w-7xl mx-auto py-7 sm:py-14 md:py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12">
           
           {/* =======================================================
-              LEFT COLUMN: Brand, Description & Certifications (5 cols)
+              LEFT COLUMN: Brand, Description & Certifications (col-span-2 lg:col-span-4)
               ======================================================= */}
-          <div className="sm:col-span-2 lg:col-span-4 flex flex-col justify-between">
+          <div className="col-span-2 lg:col-span-4 flex flex-col justify-between">
             <div>
               {/* Brand Logo */}
               <button
                 onClick={() => handleNav('home', 'atelier-hero')}
-                className="flex items-center mb-4 text-left group focus:outline-none cursor-pointer"
+                className="flex items-center mb-2.5 sm:mb-4 text-left group focus:outline-none cursor-pointer"
                 aria-label="Mr. Sweet Home"
               >
                 <img
                   src="/mr_sweet_logo.svg"
                   alt="Mr. Sweet Logo"
-                  className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-8 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </button>
 
               {/* Short Brand Description */}
-              <p className="text-xs sm:text-[13px] text-amber-100/75 font-normal leading-relaxed max-w-sm mb-5">
+              <p className="text-[11.5px] sm:text-[13px] text-amber-100/75 font-normal leading-relaxed max-w-sm mb-3 sm:mb-5">
                 Crafting India's favorite premium quality crispy wafer cones, slow-conched chocolates, and joyful confections with modern food engineering, dust-free cleanrooms, and uncompromised purity.
               </p>
 
-              {/* Certification Badges */}
-              <div className="flex flex-wrap items-center gap-2 mb-6">
-                <span className="bg-white/10 border border-white/15 text-amber-300 text-[10.5px] sm:text-xs font-outfit font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
+              {/* Certification Badges & Social Row */}
+              <div className="flex flex-wrap items-center gap-2 mb-3.5 sm:mb-6">
+                <span className="bg-white/10 border border-white/15 text-amber-300 text-[9.5px] sm:text-xs font-outfit font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-2xs">
                   <span>★</span>
                   <span>Premium Quality Product</span>
                 </span>
 
-                <span className="bg-white/10 border border-white/15 text-emerald-300 text-[10.5px] sm:text-xs font-outfit font-black px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-2xs">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="bg-white/10 border border-white/15 text-emerald-300 text-[9.5px] sm:text-xs font-outfit font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-2xs">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
                   <span>100% Pure Veg</span>
                 </span>
               </div>
             </div>
 
             {/* Social & WhatsApp Connect */}
-            <div className="flex items-center gap-2 pt-2">
+            <div className="flex items-center gap-2 pt-0.5 sm:pt-2">
               <a
                 href="https://wa.me/919350060606"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-emerald-600/30 border border-emerald-500/40 text-emerald-400 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
                 title="Connect on WhatsApp"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
 
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 border border-white/15 text-pink-300 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-pink-300 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
                 title="Follow on Instagram"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
 
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 border border-white/15 text-blue-300 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-blue-300 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
                 title="Follow on Facebook"
                 aria-label="Facebook"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
             </div>
           </div>
 
           {/* =======================================================
-              COLUMN 2: QUICK NAVIGATION (2.5 cols)
+              COLUMN 2: QUICK NAVIGATION (col-span-1 lg:col-span-3)
               ======================================================= */}
-          <div className="lg:col-span-3">
-            <h4 className="text-xs font-outfit font-black text-amber-300 uppercase tracking-widest mb-4">
+          <div className="col-span-1 lg:col-span-3">
+            <h4 className="text-[10.5px] sm:text-xs font-outfit font-black text-amber-300 uppercase tracking-widest mb-2 sm:mb-4">
               QUICK NAVIGATION
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-amber-100/80 font-medium">
+            <ul className="space-y-1.5 sm:space-y-2.5 text-[11.5px] sm:text-[13px] text-amber-100/80 font-medium">
               <li>
                 <button
                   onClick={() => handleNav('home', 'atelier-hero')}
@@ -160,7 +163,7 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
                   }}
                   className="text-amber-300 font-bold hover:text-white hover:translate-x-1 transition-all text-left cursor-pointer"
                 >
-                  B2B Trade &amp; Dealership →
+                  B2B Dealership →
                 </button>
               </li>
               <li>
@@ -168,7 +171,7 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
                   onClick={() => handleNav('home', 'why-choose')}
                   className="hover:text-amber-300 hover:translate-x-1 transition-all text-left cursor-pointer"
                 >
-                  Quality &amp; Infrastructure
+                  Infrastructure
                 </button>
               </li>
               <li>
@@ -183,13 +186,13 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
           </div>
 
           {/* =======================================================
-              COLUMN 3: SWEET CATEGORIES (2.5 cols)
+              COLUMN 3: SWEET CATEGORIES (col-span-1 lg:col-span-2)
               ======================================================= */}
-          <div className="lg:col-span-2">
-            <h4 className="text-xs font-outfit font-black text-amber-300 uppercase tracking-widest mb-4">
+          <div className="col-span-1 lg:col-span-2">
+            <h4 className="text-[10.5px] sm:text-xs font-outfit font-black text-amber-300 uppercase tracking-widest mb-2 sm:mb-4">
               SWEET CATEGORIES
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-[13px] text-amber-100/80 font-medium">
+            <ul className="space-y-1.5 sm:space-y-2.5 text-[11.5px] sm:text-[13px] text-amber-100/80 font-medium">
               <li>
                 <button
                   onClick={() => handleCategoryClick('cones')}
@@ -242,27 +245,26 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
           </div>
 
           {/* =======================================================
-              COLUMN 4: CENTRAL WORKS (3 cols)
+              COLUMN 4: CENTRAL WORKS (col-span-2 lg:col-span-3)
               ======================================================= */}
-          <div className="lg:col-span-3">
-            <h4 className="text-xs font-outfit font-black text-amber-300 uppercase tracking-widest mb-4">
+          <div className="col-span-2 lg:col-span-3 pt-2 sm:pt-0 border-t border-white/10 lg:border-t-0">
+            <h4 className="text-[10.5px] sm:text-xs font-outfit font-black text-amber-300 uppercase tracking-widest mb-2.5 sm:mb-4">
               CENTRAL WORKS
             </h4>
-            <ul className="space-y-3.5 text-xs sm:text-[13px] text-amber-100/85 font-medium">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2.5 sm:gap-3.5 text-[11.5px] sm:text-[13px] text-amber-100/85 font-medium">
               {/* Address */}
-              <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#8B001D] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  130, Library Road, Azad Market,<br />
-                  Delhi – 110006, India.
+              <div className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-[#8B001D] shrink-0 mt-0.5" />
+                <span className="leading-snug">
+                  130, Library Road, Azad Market, Delhi – 110006, India.
                 </span>
-              </li>
+              </div>
 
               {/* Phone / Contact */}
-              <li className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2">
+                <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <div className="text-[11px] text-amber-200/90 font-bold">Mr. Prince Ghai</div>
+                  <span className="text-[10px] text-amber-200/90 font-bold block">Mr. Prince Ghai:</span>
                   <a
                     href="tel:+919350060606"
                     className="hover:text-amber-300 font-bold transition-colors block leading-tight text-xs sm:text-sm"
@@ -270,43 +272,34 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
                     +91 93500 60606
                   </a>
                 </div>
-              </li>
+              </div>
 
               {/* Email */}
-              <li className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2">
+                <Mail className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
                 <a
                   href="mailto:aadyaconfactioners@gmail.com"
                   className="hover:text-amber-300 transition-colors break-all font-medium leading-snug"
                 >
                   aadyaconfactioners@gmail.com
                 </a>
-              </li>
-
-              {/* Dispatch Hours */}
-              <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-amber-400/80 shrink-0 mt-0.5" />
-                <span className="text-[11px] text-amber-100/70 leading-snug">
-                  Mon – Sat: 9:00 AM – 7:00 PM IST<br />
-                  (Sunday Dispatch Desk Open)
-                </span>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-[#2F1F1A] my-8 sm:my-10" />
+        <div className="w-full h-px bg-[#2F1F1A] my-5 sm:my-10" />
 
         {/* =======================================================
             BOTTOM COPYRIGHT & LEGAL LINKS
             ======================================================= */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs text-amber-100/60">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[10.5px] sm:text-xs text-amber-100/60">
           <div>
             © 2025 Mr. Sweet Confectionery &amp; Sweet Goods Pvt Ltd. All Rights Reserved.
           </div>
 
-          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center font-medium">
+          <div className="flex items-center gap-3 sm:gap-6 flex-wrap justify-center font-medium">
             <button
               onClick={() => setLegalModal('food-safety')}
               className="hover:text-amber-300 transition-colors cursor-pointer"

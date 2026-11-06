@@ -41,8 +41,6 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
             <path d="M20 12 A 3 3 0 0 1 22 10 A 6 6 0 0 1 26 14" strokeWidth="1.8" />
           </g>
 
-          {/* Sparkle stars */}
-          <path d="M16 16 L18 11 L20 16 L25 18 L20 20 L18 25 L16 20 L11 18 Z" fill="white" stroke="none" />
           <circle cx="85" cy="20" r="1.5" fill="white" />
           <circle cx="12" cy="74" r="1.5" fill="white" />
         </svg>

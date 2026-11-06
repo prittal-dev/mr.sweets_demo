@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Sparkles,
+  Award,
   Users,
   Factory,
   TrendingUp,
@@ -19,7 +19,7 @@ export default function AboutUs({ onOpenInquire }) {
     {
       stage: 'STAGE 01 • YEAR 2000',
       title: 'Foundation of Dreams',
-      icon: Sparkles,
+      icon: Award,
       iconColor: 'text-amber-500 bg-amber-50 border-amber-200',
       stageBadgeColor: 'bg-[#FAF4EB] text-[#8B001D] border-[#F6D5DA]',
       description:

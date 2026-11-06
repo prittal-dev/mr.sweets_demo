@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Search, X, Sparkles, Eye, ArrowRight } from 'lucide-react';
+import { Mail, Search, X, Eye, ArrowRight } from 'lucide-react';
 import { showcaseProducts } from '../data/products';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
@@ -99,9 +99,9 @@ export default function IconicCatalog({
             ========================================================= */}
         <div className="mb-6 sm:mb-10 text-left">
           {/* Small Eyebrow Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-white border border-amber-900/10 text-[#8B001D] px-3.5 py-1.5 rounded-full text-xs font-outfit font-black uppercase tracking-wider mb-2.5 shadow-2xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-400" />
-            <span>OFFICIAL PRODUCT PORTFOLIO • {showcaseProducts.length} PREMIUM QUALITY PRODUCTS</span>
+          <div className="inline-flex items-center bg-white border border-amber-900/10 text-[#8B001D] px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[9.5px] sm:text-xs font-outfit font-black uppercase tracking-wider mb-2 sm:mb-2.5 shadow-2xs">
+            <span className="sm:hidden">{showcaseProducts.length} PREMIUM QUALITY PRODUCTS</span>
+            <span className="hidden sm:inline">OFFICIAL PRODUCT PORTFOLIO • {showcaseProducts.length} PREMIUM QUALITY PRODUCTS</span>
           </div>
 
           {/* Main Heading */}
@@ -187,7 +187,7 @@ export default function IconicCatalog({
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+          <div className="grid grid-cols-2 min-[540px]:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
             {displayedProducts.map((p) => {
               const bgTint = getProductCardBg(p);
               const cardImage = getCardImage(p);
@@ -203,23 +203,23 @@ export default function IconicCatalog({
                   onClick={() => {
                     if (onQuickView) onQuickView({ ...p, activeFlavor, displayImage: cardImage });
                   }}
-                  className="group relative rounded-2xl sm:rounded-3xl overflow-hidden border border-amber-900/10 bg-white shadow-soft hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer"
+                  className="group relative rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden border border-amber-900/10 bg-white shadow-xs sm:shadow-soft hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between cursor-pointer"
                 >
-                  {/* Top Image Container with generous height */}
-                  <div className={`relative ${bgTint} w-full h-[175px] sm:h-[195px] p-3 sm:p-3.5 flex flex-col justify-between border-b border-amber-900/5 transition-colors overflow-hidden`}>
+                  {/* Top Image Container with responsive mobile height */}
+                  <div className={`relative ${bgTint} w-full h-[120px] xs:h-[135px] sm:h-[165px] md:h-[190px] p-2 sm:p-3 flex flex-col justify-between border-b border-amber-900/5 transition-colors overflow-hidden`}>
                     {/* Top Row: Category Badge & Green Vegetarian Icon */}
-                    <div className="flex items-center justify-between gap-1.5 z-10">
+                    <div className="flex items-center justify-between gap-1 z-10">
                       {/* Product Category Badge */}
-                      <span className="bg-white/95 backdrop-blur-xs text-[#18110F] text-[9.5px] sm:text-[10.5px] font-outfit font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-2xs border border-black/5 truncate max-w-[140px]">
+                      <span className="bg-white/95 backdrop-blur-xs text-[#18110F] text-[8px] xs:text-[9px] sm:text-[10px] font-outfit font-extrabold uppercase tracking-wider px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-2xs border border-black/5 truncate max-w-[95px] xs:max-w-[120px] sm:max-w-[140px]">
                         {p.category}
                       </span>
 
                       {/* 100% Vegetarian Icon */}
                       <div
-                        className="w-4.5 h-4.5 rounded-[2px] border border-emerald-600 bg-white flex items-center justify-center shrink-0 shadow-2xs"
+                        className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5 rounded-[2px] border border-emerald-600 bg-white flex items-center justify-center shrink-0 shadow-2xs"
                         title="100% Pure Vegetarian Confectionery"
                       >
-                        <span className="w-2 h-2 rounded-full bg-emerald-600" />
+                        <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-600" />
                       </div>
                     </div>
 
@@ -230,7 +230,7 @@ export default function IconicCatalog({
                           key={cardImage}
                           src={getProductImage(cardImage)}
                           alt={p.name}
-                          className="max-h-[125px] sm:max-h-[145px] max-w-[85%] object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300 select-none animate-fadeIn"
+                          className="max-h-[85px] xs:max-h-[100px] sm:max-h-[125px] md:max-h-[145px] max-w-[85%] object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-300 select-none animate-fadeIn"
                           onError={(e) => handleImageError(e, cardImage)}
                           loading="lazy"
                           decoding="async"
@@ -242,30 +242,30 @@ export default function IconicCatalog({
 
                     {/* Quick View Hover Indicator */}
                     <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-                      <span className="bg-white/95 backdrop-blur-md text-[#18110F] text-[10.5px] font-outfit font-black px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
-                        <Eye className="w-3.5 h-3.5 text-[#8B001D]" />
+                      <span className="bg-white/95 backdrop-blur-md text-[#18110F] text-[9.5px] sm:text-[10.5px] font-outfit font-black px-2.5 sm:px-3 py-1 rounded-full shadow-md flex items-center gap-1.5">
+                        <Eye className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#8B001D]" />
                         <span>View Details</span>
                       </span>
                     </div>
                   </div>
 
                   {/* Content Area: Name, Flavours, and Inquire Button */}
-                  <div className="p-4 sm:p-4.5 flex-1 flex flex-col justify-between bg-white text-left">
+                  <div className="p-2.5 sm:p-4 flex-1 flex flex-col justify-between bg-white text-left">
                     <div>
                       {/* Category Label */}
-                      <span className="block text-[9.5px] sm:text-[10.5px] font-outfit font-extrabold tracking-[0.16em] text-gray-400 uppercase mb-1 truncate">
+                      <span className="block text-[8px] sm:text-[9.5px] font-outfit font-extrabold tracking-[0.14em] text-gray-400 uppercase mb-0.5 sm:mb-1 truncate">
                         {p.category}
                       </span>
 
                       {/* Product Name */}
-                      <h3 className="text-sm sm:text-base font-outfit font-black text-[#18110F] tracking-tight leading-snug group-hover:text-[#8B001D] transition-colors line-clamp-2 min-h-[2.5rem] sm:min-h-[2.8rem]">
+                      <h3 className="text-xs sm:text-sm md:text-base font-outfit font-black text-[#18110F] tracking-tight leading-snug group-hover:text-[#8B001D] transition-colors line-clamp-2 min-h-[2rem] sm:min-h-[2.6rem]">
                         {p.name}
                       </h3>
 
                       {/* Flavours Pills (if product has flavours) */}
                       {p.flavors && p.flavors.length > 0 && (
-                        <div className="mt-2.5 pt-2 border-t border-amber-900/10">
-                          <span className="block text-[9.5px] font-outfit font-extrabold uppercase tracking-wider text-gray-500 mb-1">
+                        <div className="mt-1.5 sm:mt-2.5 pt-1.5 sm:pt-2 border-t border-amber-900/10">
+                          <span className="block text-[8px] sm:text-[9.5px] font-outfit font-extrabold uppercase tracking-wider text-gray-500 mb-1">
                             4 Flavours:
                           </span>
                           <div className="flex flex-wrap gap-1">
@@ -282,7 +282,7 @@ export default function IconicCatalog({
                                       [p.id]: flavor
                                     }));
                                   }}
-                                  className={`text-[9.5px] sm:text-[10px] font-outfit font-bold px-2 py-0.5 rounded transition-all cursor-pointer ${
+                                  className={`text-[8px] sm:text-[9.5px] font-outfit font-bold px-1.5 sm:px-2 py-0.5 rounded transition-all cursor-pointer ${
                                     isSelected
                                       ? 'bg-[#8B001D] text-white shadow-xs'
                                       : 'bg-[#FAF4EB] hover:bg-[#F2E6D5] text-[#8B001D] border border-amber-900/10'
@@ -307,10 +307,10 @@ export default function IconicCatalog({
                           : p;
                         if (onEnquire) onEnquire(productToInquire);
                       }}
-                      className="w-full bg-[#8B001D] hover:bg-[#720617] active:scale-95 text-white py-2 sm:py-2.5 px-3 rounded-full text-[11px] sm:text-xs font-outfit font-black uppercase tracking-wider shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer mt-3.5"
+                      className="w-full bg-[#8B001D] hover:bg-[#720617] active:scale-95 text-white py-1.5 sm:py-2.5 px-2 sm:px-3 rounded-full text-[9px] sm:text-xs font-outfit font-black uppercase tracking-wider shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-1 sm:gap-1.5 cursor-pointer mt-2.5 sm:mt-3.5"
                     >
-                      <Mail className="w-3.5 h-3.5 text-amber-300" />
-                      <span>INQUIRE WHOLESALE</span>
+                      <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 shrink-0" />
+                      <span className="truncate">INQUIRE WHOLESALE</span>
                     </button>
                   </div>
                 </motion.div>

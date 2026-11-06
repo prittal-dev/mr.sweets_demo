@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, Mail, ChevronRight, Sparkles } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar({
