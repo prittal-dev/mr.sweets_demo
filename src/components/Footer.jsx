@@ -11,7 +11,9 @@ import {
   ArrowRight,
   Instagram,
   Facebook,
-  MessageCircle
+  MessageCircle,
+  Youtube,
+  Linkedin
 } from 'lucide-react';
 
 export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) {
@@ -101,22 +103,22 @@ export default function Footer({ onOpenInquire, onNavigate, onSelectCategory }) 
               </a>
 
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/mr.___sweet?cplk=bGIyMGdkODU5cnA1"
                 target="_blank"
                 rel="noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-pink-300 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
-                title="Follow on Instagram"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-pink-300 hover:bg-gradient-to-tr hover:from-[#FA7E1E] hover:to-[#962FBF] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Follow Instagram Hub (@mr.___sweet)"
                 aria-label="Instagram"
               >
                 <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </a>
 
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1Z7Z5CyP4V/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-blue-300 hover:bg-blue-600 hover:text-white flex items-center justify-center transition-all shadow-sm"
-                title="Follow on Facebook"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 border border-white/15 text-blue-300 hover:bg-[#1877F2] hover:text-white flex items-center justify-center transition-all shadow-sm"
+                title="Follow Facebook Page"
                 aria-label="Facebook"
               >
                 <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

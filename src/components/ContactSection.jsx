@@ -96,9 +96,9 @@ export default function ContactSection({ onNavigate }) {
 
           {/* Heading */}
           <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#18110F] tracking-tight leading-[1.1] mb-2 sm:mb-3">
-            Contact Mr. Sweet{' '}
-            <span className="font-serif-italic font-bold text-[#8B001D] block sm:inline">
-              Corporate Headquarters
+            Contact{' '}
+            <span className="font-serif-italic font-bold text-[#8B001D]">
+              Mr. Sweet
             </span>
           </h2>
 

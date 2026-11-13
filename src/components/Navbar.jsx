@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import SocialHubDropdown from './SocialHubDropdown';
 
 export default function Navbar({
   activePage = 'home',
@@ -84,16 +85,21 @@ export default function Navbar({
                 <button
                   key={item.id}
                   onClick={(e) => handleLinkClick(e, item)}
-                  className={`text-sm xl:text-[15px] font-bold tracking-tight transition-all duration-200 px-4 xl:px-5 py-2 xl:py-2.5 rounded-full whitespace-nowrap cursor-pointer select-none ${
+                  className={`text-sm xl:text-[15px] font-bold tracking-tight transition-all duration-200 px-4 xl:px-5 py-2 xl:py-2.5 rounded-full whitespace-nowrap cursor-pointer select-none border ${
                     active
-                      ? 'bg-[#FAF4EB] text-[#8B001D] border border-[#F6D5DA] shadow-pill-active'
-                      : 'text-[#18110F] hover:text-[#8B001D] hover:bg-[#FAF6EE] border border-transparent'
+                      ? 'bg-[#FDF2F4] text-[#E11D48] border-[#FCE2E6] shadow-xs'
+                      : 'text-[#18110F] hover:text-[#E11D48] hover:bg-[#FDF2F4] border-transparent hover:border-[#FCE2E6]'
                   }`}
                 >
                   {item.name}
                 </button>
               );
             })}
+
+            {/* Social Hub Dropdown (matches official channels style) */}
+            <div className="ml-1 xl:ml-1.5">
+              <SocialHubDropdown align="left" />
+            </div>
           </nav>
 
           {/* RIGHT: Hotline, Enquire Now Button, User/Account Icon */}
@@ -129,6 +135,11 @@ export default function Navbar({
 
           {/* MOBILE CONTROLS (Right side on mobile) */}
           <div className="flex lg:hidden items-center gap-1.5 sm:gap-2">
+            {/* Tablet/Medium screen Social Hub Trigger */}
+            <div className="hidden sm:block">
+              <SocialHubDropdown align="right" />
+            </div>
+
             {/* Mobile Phone Icon */}
             <a
               href="tel:+919350060606"
@@ -199,28 +210,33 @@ export default function Navbar({
                   <button
                     key={item.id}
                     onClick={(e) => handleLinkClick(e, item)}
-                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-full text-left text-xs sm:text-sm font-outfit font-extrabold tracking-tight transition-all cursor-pointer group ${
+                    className={`flex items-center justify-between px-3.5 py-2.5 rounded-full text-left text-xs sm:text-sm font-outfit font-extrabold tracking-tight transition-all cursor-pointer group border ${
                       active
-                        ? 'bg-[#FAF4EB] text-[#8B001D] border border-[#F6D5DA] shadow-xs'
-                        : 'text-[#18110F] hover:text-[#8B001D] hover:bg-[#FAF6EE]'
+                        ? 'bg-[#FDF2F4] text-[#E11D48] border-[#FCE2E6] shadow-xs'
+                        : 'text-[#18110F] hover:text-[#E11D48] hover:bg-[#FDF2F4] border-transparent hover:border-[#FCE2E6]'
                     }`}
                   >
                     <span className="flex items-center gap-2.5">
                       <span
                         className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                          active ? 'bg-[#8B001D]' : 'bg-transparent'
+                          active ? 'bg-[#E11D48]' : 'bg-transparent'
                         }`}
                       />
                       <span>{item.name}</span>
                     </span>
                     <ChevronRight
                       className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 ${
-                        active ? 'text-[#8B001D]' : 'text-gray-400'
+                        active ? 'text-[#E11D48]' : 'text-gray-400 group-hover:text-[#E11D48]'
                       }`}
                     />
                   </button>
                 );
               })}
+            </div>
+
+            {/* Social Hub Section in Mobile Drawer */}
+            <div className="max-w-lg mx-auto mb-3.5">
+              <SocialHubDropdown variant="mobile-inline" onItemClick={() => setMobileMenuOpen(false)} />
             </div>
 
             {/* Quick Hotline & Contact Strip */}

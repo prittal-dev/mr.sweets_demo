@@ -18,7 +18,6 @@ import CartDrawer from './components/CartDrawer';
 import Footer from './components/Footer';
 import NotFoundPage from './components/NotFoundPage';
 import StatCardsSection from './components/StatCardsSection';
-import FloatingSocialSidebar from './components/FloatingSocialSidebar';
 import { lockBodyScroll, unlockBodyScroll } from './utils/scrollLock';
 import Lenis from 'lenis';
 
@@ -427,9 +426,6 @@ export default function App() {
           </motion.div>
         </AnimatePresence>
       </main>
-
-      {/* Sticky Floating Social Media Sidebar (Matches Official Screen) */}
-      <FloatingSocialSidebar />
 
       {/* Footer */}
       <Footer

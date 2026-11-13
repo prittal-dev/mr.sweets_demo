@@ -1,8 +1,88 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
 
+const heroFeaturedProducts = [
+  {
+    id: 'daily-rolls',
+    title: 'Dairy Roll (Blue, Red, Dark)',
+    category: 'WAFFER STICKS',
+    tag: '★ FLAGSHIP SELECTION',
+    badge: 'Wholesale Available',
+    image: '/daily-rolls-box-cutout.png',
+    backupImage: '/daily-rolls-blue.png'
+  },
+  {
+    id: 'romeo-cone',
+    title: 'Romeo Choco Cone',
+    category: 'CRISPY WAFER CONES',
+    tag: '★ BESTSELLER CONE',
+    badge: 'Wholesale Available',
+    image: '/romeo-cone-cutout.png',
+    backupImage: '/romeo choco cone.png'
+  },
+  {
+    id: 'nutymax',
+    title: 'Nuty Max Rich Chocolate Bar',
+    category: 'CHOCOLATE SPECIALTIES',
+    tag: '★ CRUNCHY NUTS',
+    badge: 'Wholesale Available',
+    image: '/nutymax-cutout.png',
+    backupImage: '/nuty max box .png'
+  },
+  {
+    id: 'brawo-rolls',
+    title: 'Brawo Crispy Wafer Rolls',
+    category: 'CONFECTIONERY BOX',
+    tag: '★ SWISS CREAM FILLED',
+    badge: 'Wholesale Available',
+    image: '/brawo-box-cutout.png',
+    backupImage: '/brawo box.png'
+  },
+  {
+    id: 'gold-coin',
+    title: 'Royal Gold Coin Jar',
+    category: 'ROYAL CHOCOLATE',
+    tag: '★ PREMIUM SELECTION',
+    badge: 'Wholesale Available',
+    image: '/gold coin.png',
+    backupImage: '/gold coin.png'
+  },
+  {
+    id: 'swiss-waffer',
+    title: 'Swiss Conched Waffers',
+    category: 'CREAM WAFFERS',
+    tag: '★ 4 FRUITY FLAVOURS',
+    badge: 'Wholesale Available',
+    image: '/swiss.png',
+    backupImage: '/swiss choclate.png'
+  }
+];
+
 export default function Hero({ onExploreCatalog, onAboutClick, onRequestQuote }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextProduct = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % heroFeaturedProducts.length);
+  }, []);
+
+  const prevProduct = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + heroFeaturedProducts.length) % heroFeaturedProducts.length);
+  }, []);
+
+  // Auto-change every 2.5 seconds (within the 2-3 sec requirement)
+  // Re-initializes on currentIndex change so manual clicks give a fresh 2.5s timer
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextProduct();
+    }, 2500);
+
+    return () => clearInterval(timer);
+  }, [nextProduct, currentIndex]);
+
+  const currentProduct = heroFeaturedProducts[currentIndex];
+
   return (
     <section
       id="atelier-hero"
@@ -89,22 +169,36 @@ export default function Hero({ onExploreCatalog, onAboutClick, onRequestQuote })
           </motion.div>
 
           {/* =========================================================
-              RIGHT COLUMN: Compact on Mobile, Large on Desktop Featured-Product Card
+              RIGHT COLUMN: Interactive Auto-rotating & Click-to-Next Featured-Product Card
               ========================================================= */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.15, ease: 'easeOut' }}
-            className="lg:col-span-5 w-full flex items-center justify-center mt-3 sm:mt-5 lg:mt-0"
+            className="lg:col-span-5 w-full flex items-center justify-center mt-3 sm:mt-5 lg:mt-0 select-none"
           >
-            <div className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] rounded-2xl sm:rounded-3xl md:rounded-4xl bg-[#FFFDF9] border border-amber-900/15 shadow-floating p-3.5 sm:p-6 md:p-7 flex flex-col justify-between relative overflow-hidden transition-all">
+            <div
+              onClick={nextProduct}
+              title="Click anywhere to change product (Auto-rotates every 2.5 seconds)"
+              className="w-full max-w-[320px] sm:max-w-[420px] lg:max-w-[480px] rounded-2xl sm:rounded-3xl md:rounded-4xl bg-[#FFFDF9] border border-amber-900/15 shadow-floating p-3.5 sm:p-6 md:p-7 flex flex-col justify-between relative overflow-hidden transition-all duration-300 hover:shadow-2xl hover:border-amber-900/30 cursor-pointer group"
+            >
               {/* Card Top: Flagship Selection Badge & Green Vegetarian Icon */}
               <div className="flex items-center justify-between gap-1.5 mb-2 sm:mb-4">
                 <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
-                  {/* ★ FLAGSHIP SELECTION */}
-                  <div className="inline-flex items-center gap-1 bg-[#FAF4EB] border border-[#F6D5DA] text-[#8B001D] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9.5px] sm:text-xs font-outfit font-black tracking-wider uppercase shadow-2xs">
-                    <span>★ FLAGSHIP SELECTION</span>
-                  </div>
+                  {/* Dynamic Tag / FLAGSHIP SELECTION */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentProduct.id}
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 4 }}
+                      transition={{ duration: 0.2 }}
+                      className="inline-flex items-center gap-1 bg-[#FAF4EB] border border-[#F6D5DA] text-[#8B001D] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9.5px] sm:text-xs font-outfit font-black tracking-wider uppercase shadow-2xs"
+                    >
+                      <span>{currentProduct.tag}</span>
+                    </motion.div>
+                  </AnimatePresence>
+
                   {/* PREMIUM QUALITY */}
                   <div className="inline-flex items-center gap-1 bg-[#FFFDF9] border border-amber-900/15 text-amber-900 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-[11px] font-outfit font-extrabold tracking-wider uppercase shadow-2xs">
                     <span>★ PREMIUM QUALITY</span>
@@ -121,46 +215,112 @@ export default function Hero({ onExploreCatalog, onAboutClick, onRequestQuote })
                 </div>
               </div>
 
-              {/* Center: Product Image on Cream Pedestal - Compact on Mobile */}
-              <div className="relative w-full h-[120px] sm:h-[190px] md:h-[240px] flex items-center justify-center my-1 sm:my-2">
+              {/* Center: Product Image on Cream Pedestal with Smooth Animated Transition */}
+              <div className="relative w-full h-[120px] sm:h-[190px] md:h-[240px] flex items-center justify-center my-1 sm:my-2 overflow-hidden">
                 {/* Subtle Ambient Sunburst Glow */}
                 <div className="absolute w-28 h-28 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-full bg-[radial-gradient(circle,rgba(255,199,44,0.22)_0%,rgba(255,253,249,0)_70%)] blur-lg sm:blur-xl pointer-events-none" />
 
-                {/* Product Image with Gentle Hover Animation */}
-                <motion.img
-                  animate={{ y: [0, -4, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  src={getProductImage('/daily-rolls-box-cutout.png')}
-                  alt="Double Cocoa Delight - Daily Rolls & Cones"
-                  className="max-h-[105px] sm:max-h-[175px] md:max-h-[220px] w-auto max-w-[90%] object-contain drop-shadow-[0_10px_20px_rgba(24,17,15,0.14)] select-none hover:scale-105 transition-transform duration-300"
-                  decoding="async"
-                  onError={(e) => {
-                    if (!e.currentTarget.dataset.triedBackup) {
-                      e.currentTarget.dataset.triedBackup = 'true';
-                      e.currentTarget.src = getProductImage('/daily-rolls-blue.png');
-                    } else {
-                      handleImageError(e, '/daily-rolls-box-cutout.png');
-                    }
+                {/* Left/Right Subtle Navigation Arrows (visible on hover) */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    prevProduct();
                   }}
-                />
+                  className="absolute left-1 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 shadow-md border border-amber-900/10 flex items-center justify-center text-amber-950 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                  aria-label="Previous Product"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    nextProduct();
+                  }}
+                  className="absolute right-1 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 shadow-md border border-amber-900/10 flex items-center justify-center text-amber-950 opacity-0 group-hover:opacity-100 hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                  aria-label="Next Product"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                {/* Product Image Animation with smooth crossfade and gentle bounce */}
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={currentProduct.id}
+                    initial={{ opacity: 0, scale: 0.88, y: 8 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.88, y: -8 }}
+                    transition={{ duration: 0.32, ease: 'easeInOut' }}
+                    src={getProductImage(currentProduct.image)}
+                    alt={currentProduct.title}
+                    className="max-h-[105px] sm:max-h-[175px] md:max-h-[220px] w-auto max-w-[90%] object-contain drop-shadow-[0_10px_20px_rgba(24,17,15,0.14)] select-none group-hover:scale-105 transition-transform duration-300"
+                    decoding="async"
+                    onError={(e) => {
+                      if (!e.currentTarget.dataset.triedBackup && currentProduct.backupImage) {
+                        e.currentTarget.dataset.triedBackup = 'true';
+                        e.currentTarget.src = getProductImage(currentProduct.backupImage);
+                      } else {
+                        handleImageError(e, currentProduct.image);
+                      }
+                    }}
+                  />
+                </AnimatePresence>
               </div>
 
               {/* Bottom Information Panel - Compact on Mobile */}
               <div className="pt-2.5 sm:pt-4 border-t border-amber-900/10 flex items-center justify-between gap-2">
-                <div>
-                  <span className="block text-[9px] sm:text-[10px] md:text-[11px] font-outfit font-black tracking-[0.18em] text-[#8B001D] uppercase leading-none mb-0.5 sm:mb-1">
-                    WAFFER STICKS
-                  </span>
-                  <h3 className="text-sm sm:text-lg md:text-xl font-outfit font-black text-[#18110F] tracking-tight leading-tight">
-                    Dairy Roll (Blue, Red, Dark)
-                  </h3>
+                <div className="min-w-0 flex-1">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentProduct.id}
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.22 }}
+                    >
+                      <span className="block text-[9px] sm:text-[10px] md:text-[11px] font-outfit font-black tracking-[0.18em] text-[#8B001D] uppercase leading-none mb-0.5 sm:mb-1">
+                        {currentProduct.category}
+                      </span>
+                      <h3 className="text-sm sm:text-lg md:text-xl font-outfit font-black text-[#18110F] tracking-tight leading-tight truncate">
+                        {currentProduct.title}
+                      </h3>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
 
                 <div className="shrink-0">
                   <span className="inline-block bg-[#FAF4EB] border border-[#F6D5DA] text-[#8B001D] text-[10px] sm:text-xs md:text-[12.5px] font-outfit font-black px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full shadow-2xs">
-                    Wholesale Available
+                    {currentProduct.badge}
                   </span>
                 </div>
+              </div>
+
+              {/* Navigation Indicator Dots & Interactive Cue */}
+              <div className="mt-2.5 pt-2 border-t border-amber-900/5 flex items-center justify-between">
+                <div className="flex items-center gap-1 sm:gap-1.5">
+                  {heroFeaturedProducts.map((p, idx) => (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentIndex(idx);
+                      }}
+                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                        idx === currentIndex
+                          ? 'w-5 bg-[#8B001D]'
+                          : 'w-1.5 bg-amber-900/20 hover:bg-amber-900/40'
+                      }`}
+                      aria-label={`Show ${p.title}`}
+                    />
+                  ))}
+                </div>
+                <span className="text-[9px] sm:text-[10.5px] font-outfit font-bold text-gray-500 tracking-wide flex items-center gap-1">
+                  <span>Click to change</span>
+                  <span className="text-[#8B001D] font-extrabold">• 2.5s auto</span>
+                </span>
               </div>
             </div>
           </motion.div>

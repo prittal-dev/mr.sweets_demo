@@ -94,12 +94,12 @@ export default function WhyChooseUs({ onOpenInquire }) {
     },
     {
       id: 4,
-      title: 'Reliable Depot Logistics',
+      title: 'Deliver All Over Pan India',
       description:
-        'Dedicated regional hubs across Northern, Western, and Central FMCG corridors ensuring rapid dispatch, minimal lead times, and steady wholesale inventory.',
+        'Dedicated regional hubs and reliable nationwide dispatch network delivering factory-fresh confections all over Pan-India with minimal lead times.',
       icon: Truck,
       iconColor: 'text-blue-700 bg-blue-50 border-blue-200',
-      tag: 'NATIONWIDE FLEET'
+      tag: 'PAN INDIA'
     }
   ];
 
@@ -277,11 +277,6 @@ export default function WhyChooseUs({ onOpenInquire }) {
                   <p className="text-[10px] xs:text-[10.5px] sm:text-xs md:text-[13px] text-gray-600 leading-relaxed font-normal line-clamp-3 sm:line-clamp-none">
                     {card.description}
                   </p>
-                </div>
-
-                <div className="mt-2.5 sm:mt-4 pt-1.5 sm:pt-3 border-t border-amber-900/5 flex items-center gap-1 sm:gap-1.5 text-[9.5px] sm:text-xs font-outfit font-bold text-[#8B001D]">
-                  <span>Quality Assured</span>
-                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </motion.div>
             );

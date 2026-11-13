@@ -1,19 +1,19 @@
 import React from 'react';
-import { Facebook, Instagram } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 export default function FloatingSocialSidebar() {
   const socials = [
     {
-      name: 'Facebook',
-      href: 'https://www.facebook.com',
-      bg: 'bg-[#1877F2]',
-      icon: Facebook
+      name: 'Instagram',
+      href: 'https://www.instagram.com/mr.___sweet?cplk=bGIyMGdkODU5cnA1',
+      bg: 'bg-gradient-to-tr from-[#FA7E1E] via-[#D62976] to-[#962FBF]',
+      icon: Instagram
     },
     {
-      name: 'Instagram',
-      href: 'https://www.instagram.com',
-      bg: 'bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF]',
-      icon: Instagram
+      name: 'Facebook',
+      href: 'https://www.facebook.com/share/1Z7Z5CyP4V/',
+      bg: 'bg-[#1877F2]',
+      icon: Facebook
     }
   ];
 

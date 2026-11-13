@@ -38,5 +38,24 @@ export const siteConfig = {
     "FSSAI Lic. 12720052000625",
     "Zero Animal Gelatin",
     "Make in India"
+  ],
+
+  socialChannels: [
+    {
+      id: 'instagram',
+      name: 'Instagram Hub',
+      handle: '@mr.___sweet',
+      subtitle: '@mr.___sweet • Story Highlights',
+      href: 'https://www.instagram.com/mr.___sweet?cplk=bGIyMGdkODU5cnA1',
+      type: 'instagram'
+    },
+    {
+      id: 'facebook',
+      name: 'Facebook Page',
+      handle: 'Mr. Sweet',
+      subtitle: 'Mr. Sweet • Community & Posts',
+      href: 'https://www.facebook.com/share/1Z7Z5CyP4V/',
+      type: 'facebook'
+    }
   ]
 };
