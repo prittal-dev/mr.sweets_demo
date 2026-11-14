@@ -8,33 +8,27 @@ const TRANSITION_MS = 600;
 const banners = [
   {
     id: 1,
-    image: '/banner1.webp',
-    title: 'Mr. Sweet Confectionery',
-    alt: 'Mr. Sweet Premium Confectionery Banner'
+    image: '/banner-1.webp',
+    title: 'Daily Rolls Wafer Roll',
+    alt: 'Daily Rolls Chocolate Flavoured Crispy Wafer Roll 50% Extra Free'
   },
   {
     id: 2,
-    image: '/banner2.webp',
-    title: 'Mr. Sweet Artisan Treats',
-    alt: 'Mr. Sweet Handcrafted Confectionery Banner'
+    image: '/banner-2.webp',
+    title: 'Dairy Cone Choco Cone',
+    alt: 'Dairy Cone Milky Choco Wafer Cone Filled with Velvet Cream'
   },
   {
     id: 3,
-    image: '/hero-banner-3.webp',
-    title: 'DAILY ROLLS Wafer Sticks',
-    alt: 'DAILY ROLLS Chocolate Flavoured Crispy Wafer Roll'
+    image: '/banner-3.webp',
+    title: 'Swiss Chocolate Cream Filled Wafer',
+    alt: 'Swiss Crispy Wafer with Creamy Chocolate Filling'
   },
   {
     id: 4,
-    image: '/hero-banner-4.webp',
-    title: 'DAIRY CONE Milky Choco',
-    alt: 'DAIRY CONE Milky Choco Wafer Cones Filled with Velvet Cream'
-  },
-  {
-    id: 5,
-    image: '/hero-banner-5.webp',
-    title: 'BRAWO CRISP Wafer Rolls',
-    alt: 'BRAWO CRISP Swiss Cream Filled Wafer Confectionery'
+    image: '/banner-4.webp',
+    title: 'Nuty Max Chocolate Wafer Caramel Bar & Nuts',
+    alt: 'Nuty Max Chocolate Wafer with Rich Caramel Bar and Roasted Nuts'
   }
 ];
 
@@ -161,7 +155,7 @@ export default function HeroBannerSlider() {
       className="w-full relative overflow-hidden select-none"
       aria-label="Mr. Sweet Featured Confectionery Banners"
     >
-      <div className="w-full relative aspect-[2023/787] overflow-hidden">
+      <div className="w-full relative aspect-[4799/1934] overflow-hidden">
         {/* Infinite Horizontal Sliding Track */}
         <div
           className="flex w-full h-full will-change-transform"

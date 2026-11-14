@@ -13,10 +13,14 @@ const PUBLIC_DIR = new URL('../public', import.meta.url).pathname;
 const BACKUP_DIR = join(PUBLIC_DIR, '_originals_backup');
 
 const SKIP_FILES = ['.DS_Store', 'sitemap.xml', 'robots.txt', 'mr_sweet_logo.svg'];
-const BANNER_FILES = new Set(['hero-banner-1.png', 'hero-banner-2.png', 'hero-banner-3.png', 'hero-banner-4.png', 'hero-banner-5.png']);
+const BANNER_FILES = new Set([
+  'hero-banner-1.png', 'hero-banner-2.png', 'hero-banner-3.png', 'hero-banner-4.png', 'hero-banner-5.png',
+  'banner 1.jpg', 'banner 2.jpg', 'banner 3.jpg', 'banner 4.jpg',
+  'banner1.jpg', 'banner2.jpg'
+]);
 
 // Resolution limits
-const BANNER_MAX_W = 1600;   // banners: enough for full-width on 4K retina
+const BANNER_MAX_W = 2000;   // banners: enough for full-width on 4K retina
 const PRODUCT_MAX_W = 900;   // product cards shown at ~300px, 3x retina = 900px, great for modal zoom
 
 // WebP quality (84 = visually crisp, ~95% smaller than original PNG)
