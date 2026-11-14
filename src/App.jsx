@@ -10,6 +10,7 @@ import IconicCatalog from './components/IconicCatalog';
 import AboutUs from './components/AboutUs';
 import WhyChooseUs from './components/WhyChooseUs';
 import TestimonialsSection from './components/TestimonialsSection';
+import EventsSection from './components/EventsSection';
 import ContactCTA from './components/ContactCTA';
 import ContactSection from './components/ContactSection';
 import ProductQuickViewModal from './components/ProductQuickViewModal';
@@ -25,6 +26,7 @@ const sectionIdMap = {
   home: 'atelier-hero',
   about: 'about',
   products: 'products',
+  events: 'events',
   'why-choose': 'why-choose',
   contact: 'contact'
 };
@@ -32,7 +34,7 @@ const sectionIdMap = {
 const getPageFromUrl = () => {
   const path = window.location.pathname.replace(/^\//, '').toLowerCase();
   const hash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-  const validPages = ['about', 'products', 'contact'];
+  const validPages = ['about', 'products', 'events', 'contact'];
   if (path === '404' || hash === '404') return '404';
   if (validPages.includes(path)) return path;
   if (validPages.includes(hash)) return hash;
@@ -98,6 +100,8 @@ export default function App() {
       { id: 'atelier-hero', name: 'home' },
       { id: 'products', name: 'products' },
       { id: 'why-choose', name: 'why-choose' },
+      { id: 'events', name: 'events' },
+      { id: 'testimonials', name: 'testimonials' },
       { id: 'contact', name: 'contact' },
     ];
 
@@ -174,7 +178,7 @@ export default function App() {
   }, [isLeadModalOpen, isCartOpen, quickViewProduct]);
 
   const handleNavigate = (pageId) => {
-    const validPages = ['home', 'about', 'products', 'contact', '404'];
+    const validPages = ['home', 'about', 'products', 'events', 'contact', '404'];
     const targetPage = validPages.includes(pageId) ? pageId : '404';
 
     if (targetPage === activePage) {
@@ -268,20 +272,34 @@ export default function App() {
 
   const handleSelectCategory = (categoryId) => {
     setSelectedCategory(categoryId);
-    // When clicking Explore on any category circle, open the dedicated Products page with all items opened
-    if (activePage !== 'products') {
-      handleNavigate('products');
-    }
-    setTimeout(() => {
+
+    // If on home page, scroll down smoothly to the products section directly beneath CraftBanner
+    if (activePage === 'home') {
       if (lenisRef.current) {
-        lenisRef.current.scrollTo('#products', { offset: -70, duration: 1.2 });
+        lenisRef.current.scrollTo('#products', { offset: -70, duration: 0.8 });
       } else {
         const el = document.getElementById('products');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }
-    }, 150);
+      return;
+    }
+
+    // If on another page (e.g. about or contact), navigate to the dedicated products page
+    if (activePage !== 'products') {
+      handleNavigate('products');
+      setTimeout(() => {
+        if (lenisRef.current) {
+          lenisRef.current.scrollTo('#products', { offset: -70, duration: 0.8 });
+        } else {
+          const el = document.getElementById('products');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 150);
+    }
   };
 
   const cartItemCount = cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
@@ -319,12 +337,13 @@ export default function App() {
                       <button onClick={() => handleNavigate('home')} className="hover:underline text-amber-100/90 cursor-pointer">Home</button>
                       <span className="text-white/60">/</span>
                       <span className="capitalize font-bold text-white">
-                        {activePage === 'about' ? 'About Us' : activePage === 'products' ? 'Products' : activePage === 'contact' ? 'Contact' : activePage}
+                        {activePage === 'about' ? 'About Us' : activePage === 'products' ? 'Products' : activePage === 'events' ? 'Events' : activePage === 'contact' ? 'Contact' : activePage}
                       </span>
                     </div>
                     <h1 className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight leading-snug truncate">
                       {activePage === 'about' && 'About Us — Heritage'}
                       {activePage === 'products' && 'Product Portfolio'}
+                      {activePage === 'events' && 'Exhibitions & Live Event Showcase'}
                       {activePage === 'contact' && 'Contact Us — Inquiries'}
                     </h1>
                   </div>
@@ -371,6 +390,7 @@ export default function App() {
                 <MarqueeBanner theme="crimson" />
                 <AboutUs onOpenInquire={() => openLeadModal('wholesale')} />
                 <WhyChooseUs onOpenInquire={() => openLeadModal('wholesale')} />
+                <EventsSection onOpenInquire={() => openLeadModal('wholesale')} />
                 <TestimonialsSection />
                 <ContactSection onNavigate={handleNavigate} />
                 <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
@@ -404,6 +424,16 @@ export default function App() {
                   forceFullView={true}
                 />
                 <MarqueeBanner theme="dark" />
+                <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
+              </>
+            )}
+
+            {/* 4. Dedicated Events Showcase Page */}
+            {activePage === 'events' && (
+              <>
+                <EventsSection onOpenInquire={() => openLeadModal('wholesale')} />
+                <MarqueeBanner theme="dark" />
+                <TestimonialsSection />
                 <ContactCTA onOpenInquire={() => openLeadModal('wholesale')} />
               </>
             )}

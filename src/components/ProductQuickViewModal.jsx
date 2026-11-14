@@ -8,13 +8,16 @@ import { lockBodyScroll, unlockBodyScroll } from '../utils/scrollLock';
 
 export default function ProductQuickViewModal({ product, onClose, onOpenInquire }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
-  const [selectedFlavor, setSelectedFlavor] = useState(
-    product?.activeFlavor || (product?.flavorImages ? 'Mango' : '')
-  );
+  const getInitialFlavor = (p) => {
+    if (!p) return '';
+    return p.activeFlavor || (p.flavorImages ? ((p.flavors && p.flavors[0]) || Object.keys(p.flavorImages)[0]) : '');
+  };
+
+  const [selectedFlavor, setSelectedFlavor] = useState(getInitialFlavor(product));
 
   useEffect(() => {
     if (product) {
-      setSelectedFlavor(product.activeFlavor || (product.flavorImages ? 'Mango' : ''));
+      setSelectedFlavor(getInitialFlavor(product));
       lockBodyScroll();
       return () => {
         unlockBodyScroll();

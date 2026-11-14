@@ -23,7 +23,7 @@ export const showcaseProducts = [
   // =========================================================================
   // 1. CREAM WAFFER
   // =========================================================================
-  {
+  /* [Pending Image] {
     id: 'cw-1',
     srNo: 1,
     name: 'Jumbo Fun Waffer (4 Flavour)',
@@ -34,13 +34,12 @@ export const showcaseProducts = [
     format: 'Jar / 40 Pcs',
     boxMrp: 200,
     unitMrp: '₹5',
-    flavors: ['Chocolate', 'Mango', 'Strawberry', 'Orange'],
     image: ''
-  },
+  }, */
   {
-    id: 'cw-2',
+    id: 'cw-2-mango',
     srNo: 2,
-    name: 'Swiss Waffer (4 Flavour)',
+    name: 'Swiss Waffer (Mango)',
     category: 'Cream Waffer',
     categorySlug: 'cream-waffer',
     section: 'Cream Waffer',
@@ -48,16 +47,48 @@ export const showcaseProducts = [
     format: 'Big Balti / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    flavors: ['Chocolate', 'Mango', 'Strawberry', 'Orange'],
-    flavorImages: {
-      'Mango': '/swiss.png',
-      'Chocolate': '/swiss choclate.png',
-      'Strawberry': '/swiss stawberry.png',
-      'Orange': '/swiss orange.png'
-    },
-    image: '/swiss.png'
+    image: '/swiss mango.webp'
   },
   {
+    id: 'cw-2-chocolate',
+    srNo: 2.1,
+    name: 'Swiss Waffer (Chocolate)',
+    category: 'Cream Waffer',
+    categorySlug: 'cream-waffer',
+    section: 'Cream Waffer',
+    packing: '1X9X60 PCS',
+    format: 'Big Balti / 60 Pcs',
+    boxMrp: 300,
+    unitMrp: '₹5',
+    image: '/swiss chocolate.webp'
+  },
+  {
+    id: 'cw-2-strawberry',
+    srNo: 2.2,
+    name: 'Swiss Waffer (Strawberry)',
+    category: 'Cream Waffer',
+    categorySlug: 'cream-waffer',
+    section: 'Cream Waffer',
+    packing: '1X9X60 PCS',
+    format: 'Big Balti / 60 Pcs',
+    boxMrp: 300,
+    unitMrp: '₹5',
+    image: '/swiss strawberry.webp'
+  },
+  {
+    id: 'cw-2-orange',
+    srNo: 2.3,
+    name: 'Swiss Waffer (Orange)',
+    category: 'Cream Waffer',
+    categorySlug: 'cream-waffer',
+    section: 'Cream Waffer',
+    packing: '1X9X60 PCS',
+    format: 'Big Balti / 60 Pcs',
+    boxMrp: 300,
+    unitMrp: '₹5',
+    image: '/swiss orange.webp'
+  },
+  /* [Pending Image] {
     id: 'cw-3',
     srNo: 3,
     name: 'Dairy Waffer Jar',
@@ -69,8 +100,8 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'cw-4',
     srNo: 4,
     name: 'Oorley Waffer Jar',
@@ -82,8 +113,8 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'cw-5',
     srNo: 5,
     name: 'Cream Waffer Jar (4 Flavour)',
@@ -94,17 +125,16 @@ export const showcaseProducts = [
     format: 'Jar / 30 Pcs',
     boxMrp: 150,
     unitMrp: '₹5',
-    flavors: ['Chocolate', 'Mango', 'Strawberry', 'Orange'],
     image: ''
-  },
+  }, */
 
   // =========================================================================
   // 2. WAFFER STICKS
   // =========================================================================
   {
-    id: 'ws-6',
+    id: 'ws-6-red',
     srNo: 6,
-    name: 'Dairy Roll (Blue, Red, Dark)',
+    name: 'Dairy Roll (Red)',
     category: 'Waffer Sticks',
     categorySlug: 'waffer-sticks',
     section: 'Waffer Sticks',
@@ -114,9 +144,39 @@ export const showcaseProducts = [
     unitMrp: '₹5',
     kcPrice: 120,
     rate: '72/-',
-    image: '/daily-rolls-box-cutout.png'
+    image: '/daily roll red.webp'
   },
   {
+    id: 'ws-6-blue',
+    srNo: 6.1,
+    name: 'Dairy Roll (Blue)',
+    category: 'Waffer Sticks',
+    categorySlug: 'waffer-sticks',
+    section: 'Waffer Sticks',
+    packing: '1X32X30 PCS',
+    format: 'Box / 30 Pcs',
+    boxMrp: 150,
+    unitMrp: '₹5',
+    kcPrice: 120,
+    rate: '72/-',
+    image: '/daily roll blue.webp'
+  },
+  {
+    id: 'ws-6-dark',
+    srNo: 6.2,
+    name: 'Dairy Roll (Dark)',
+    category: 'Waffer Sticks',
+    categorySlug: 'waffer-sticks',
+    section: 'Waffer Sticks',
+    packing: '1X32X30 PCS',
+    format: 'Box / 30 Pcs',
+    boxMrp: 150,
+    unitMrp: '₹5',
+    kcPrice: 120,
+    rate: '72/-',
+    image: '/daily roll dark.webp'
+  },
+  /* [Pending Image] {
     id: 'ws-7',
     srNo: 7,
     name: 'Romeo Rolls',
@@ -129,12 +189,12 @@ export const showcaseProducts = [
     unitMrp: '₹5',
     kcPrice: 120,
     rate: '72/-',
-    image: '/chocolate wafer roll.png'
-  },
+    image: ''
+  }, */
   {
     id: 'ws-8',
     srNo: 8,
-    name: 'Dairy Rolls (Milky)',
+    name: 'Dairy Roll (Milky)',
     category: 'Waffer Sticks',
     categorySlug: 'waffer-sticks',
     section: 'Waffer Sticks',
@@ -144,7 +204,7 @@ export const showcaseProducts = [
     unitMrp: '₹5',
     kcPrice: 120,
     rate: '72/-',
-    image: '/daily-rolls-blue.png'
+    image: '/daily roll milky.webp'
   },
   {
     id: 'ws-9',
@@ -158,7 +218,7 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/orle 3 stix.png'
+    image: '/orle3 stick.webp'
   },
   {
     id: 'ws-10',
@@ -172,7 +232,7 @@ export const showcaseProducts = [
     boxMrp: 165,
     unitMrp: '₹5',
     kcPrice: 125,
-    image: ''
+    image: '/funstick jar.webp'
   },
   {
     id: 'ws-11',
@@ -185,13 +245,13 @@ export const showcaseProducts = [
     format: 'Box / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    image: ''
+    image: '/funstick box.webp'
   },
 
   // =========================================================================
   // 3. CONES
   // =========================================================================
-  {
+  /* [Pending Image] {
     id: 'cn-12',
     srNo: 12,
     name: 'Dairy Cone Box (Small)',
@@ -203,9 +263,9 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/dairy-cone-box.png'
-  },
-  {
+    image: ''
+  }, */
+  /* [Pending Image] {
     id: 'cn-13',
     srNo: 13,
     name: 'Dairy Cone Box (Big)',
@@ -217,8 +277,8 @@ export const showcaseProducts = [
     boxMrp: 250,
     unitMrp: '₹5',
     kcPrice: 190,
-    image: '/dairy cone.png'
-  },
+    image: ''
+  }, */
   {
     id: 'cn-14',
     srNo: 14,
@@ -231,9 +291,9 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     kcPrice: 240,
-    image: '/dairy-cone-jar.png'
+    image: '/dairy cone jar.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'cn-15',
     srNo: 15,
     name: 'Kick Cone Box (Small)',
@@ -244,9 +304,9 @@ export const showcaseProducts = [
     format: 'Small Box / 30 Pcs',
     boxMrp: 150,
     unitMrp: '₹5',
-    image: '/kick.png'
-  },
-  {
+    image: ''
+  }, */
+  /* [Pending Image] {
     id: 'cn-16',
     srNo: 16,
     name: 'Kick Cone Box (Big)',
@@ -258,8 +318,8 @@ export const showcaseProducts = [
     boxMrp: 250,
     unitMrp: '₹5',
     kcPrice: 190,
-    image: '/kick.png'
-  },
+    image: ''
+  }, */
   {
     id: 'cn-17',
     srNo: 17,
@@ -271,9 +331,9 @@ export const showcaseProducts = [
     format: 'Jar / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    image: ''
+    image: '/kick cone jar.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'cn-18',
     srNo: 18,
     name: 'Romeo Cone Box (Small)',
@@ -285,9 +345,9 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/romeo choco cone.png'
-  },
-  {
+    image: ''
+  }, */
+  /* [Pending Image] {
     id: 'cn-19',
     srNo: 19,
     name: 'Romeo Cone Box (Big)',
@@ -299,8 +359,8 @@ export const showcaseProducts = [
     boxMrp: 250,
     unitMrp: '₹5',
     kcPrice: 190,
-    image: '/romeo-cone-cutout.png'
-  },
+    image: ''
+  }, */
   {
     id: 'cn-20',
     srNo: 20,
@@ -313,7 +373,7 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     kcPrice: 240,
-    image: ''
+    image: '/romeo cone jar.webp'
   },
   {
     id: 'cn-21',
@@ -327,7 +387,7 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     kcPrice: 240,
-    image: ''
+    image: '/spidy cone jar.webp'
   },
   {
     id: 'cn-22',
@@ -341,7 +401,7 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: ''
+    image: '/spidy cone box.webp'
   },
 
   // =========================================================================
@@ -359,7 +419,7 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     kcPrice: 235,
-    image: '/mr.joe.png'
+    image: '/mr joe jar.webp'
   },
   {
     id: 'se-24',
@@ -372,7 +432,7 @@ export const showcaseProducts = [
     format: 'Box / 30 Pcs (Light 1-2 Pcs)',
     boxMrp: 150,
     unitMrp: '₹5',
-    image: '/mr.joe_milky_choce.png'
+    image: '/mr joe box.webp'
   },
   {
     id: 'se-25',
@@ -385,7 +445,7 @@ export const showcaseProducts = [
     format: 'Jar / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    image: '/krispy toy.png'
+    image: '/krispy toy jar.webp'
   },
   {
     id: 'se-26',
@@ -398,7 +458,7 @@ export const showcaseProducts = [
     format: 'Box / 33 Pcs (1-2 Pcs Light)',
     boxMrp: 165,
     unitMrp: '₹5',
-    image: '/krispy toy box.jpeg'
+    image: '/krispy toy box with added text 33 pec box.webp'
   },
   {
     id: 'se-27',
@@ -411,9 +471,9 @@ export const showcaseProducts = [
     format: 'Jar / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    image: '/junglor joe.png'
+    image: '/junior joe jar.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'se-28',
     srNo: 28,
     name: 'Super Heroes Jar',
@@ -425,8 +485,8 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     kcPrice: 220,
-    image: '/super heros box.png'
-  },
+    image: ''
+  }, */
   {
     id: 'se-29',
     srNo: 29,
@@ -438,7 +498,7 @@ export const showcaseProducts = [
     format: 'Box / 33 Pcs (Light 1-2 Pcs)',
     boxMrp: 165,
     unitMrp: '₹5',
-    image: '/super_heroes.png'
+    image: '/super heros box red.webp'
   },
   {
     id: 'se-30',
@@ -451,9 +511,9 @@ export const showcaseProducts = [
     format: 'Jar / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    image: '/krispy toy.png'
+    image: '/krispy toy jar.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'se-32',
     srNo: 32,
     name: 'Kids Toy 25/- Pcs Jar',
@@ -465,7 +525,7 @@ export const showcaseProducts = [
     boxMrp: 375,
     unitMrp: '₹25',
     image: ''
-  },
+  }, */
   {
     id: 'se-33',
     srNo: 33,
@@ -477,7 +537,7 @@ export const showcaseProducts = [
     format: 'PVC Jar / 15 Pcs',
     boxMrp: 375,
     unitMrp: '₹25',
-    image: ''
+    image: '/kids toy pvc jar.webp'
   },
   {
     id: 'se-34',
@@ -490,9 +550,9 @@ export const showcaseProducts = [
     format: 'PVC Jar / 60 Pcs',
     boxMrp: 300,
     unitMrp: '₹5',
-    image: ''
+    image: '/mr joe pvc jar.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'se-35',
     srNo: 35,
     name: 'Junior Joe Plastic Container',
@@ -504,8 +564,8 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'se-36',
     srNo: 36,
     name: 'Krispy Toy Plastic Container',
@@ -517,11 +577,11 @@ export const showcaseProducts = [
     boxMrp: 300,
     unitMrp: '₹5',
     image: ''
-  },
+  }, */
   {
     id: 'se-37',
     srNo: 37,
-    name: 'Double Egg Plastic Container',
+    name: 'Double Enjoy Jar (Plastic Bucket)',
     category: 'Surprise Eggs',
     categorySlug: 'surprise-eggs',
     section: 'Surprise Eggs',
@@ -529,7 +589,7 @@ export const showcaseProducts = [
     format: 'Bucket / 60 Pcs (2-3 Pcs Light)',
     boxMrp: 450,
     unitMrp: '₹15',
-    image: ''
+    image: '/double enjoy jar.webp'
   },
 
   // =========================================================================
@@ -547,9 +607,9 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/snack break.png'
+    image: '/snak break box.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'cw-39',
     srNo: 39,
     name: 'Kick Long Size Plastic Container',
@@ -561,8 +621,8 @@ export const showcaseProducts = [
     boxMrp: 200,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'cw-40',
     srNo: 40,
     name: 'Oorley Long Size Plastic Container',
@@ -574,8 +634,8 @@ export const showcaseProducts = [
     boxMrp: 200,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'cw-41',
     srNo: 41,
     name: 'Snikar Long Size Plastic Container',
@@ -587,8 +647,8 @@ export const showcaseProducts = [
     boxMrp: 200,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'cw-42',
     srNo: 42,
     name: 'Snackley Long Size Plastic Container',
@@ -600,8 +660,8 @@ export const showcaseProducts = [
     boxMrp: 200,
     unitMrp: '₹5',
     image: ''
-  },
-  {
+  }, */
+  /* [Pending Image] {
     id: 'cw-43',
     srNo: 43,
     name: 'Too Much Long Size Plastic Container',
@@ -613,7 +673,7 @@ export const showcaseProducts = [
     boxMrp: 200,
     unitMrp: '₹5',
     image: ''
-  },
+  }, */
 
   // =========================================================================
   // 6. CARAMEL COATED WAFFERS
@@ -630,7 +690,7 @@ export const showcaseProducts = [
     boxMrp: 240,
     unitMrp: '₹10',
     kcPrice: 190,
-    image: '/nuty max.png'
+    image: '/nuty max 10.webp'
   },
   {
     id: 'ccw-45',
@@ -644,7 +704,7 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/nutymax-cutout.png'
+    image: '/nuty max.webp'
   },
   {
     id: 'ccw-46',
@@ -658,7 +718,7 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/brawo-box-cutout.png'
+    image: '/brawo box 5.webp'
   },
   {
     id: 'ccw-47',
@@ -671,7 +731,7 @@ export const showcaseProducts = [
     format: 'Tiffin Container / 30 Pcs',
     boxMrp: 150,
     unitMrp: '₹5',
-    image: '/nuty max box .png'
+    image: '/nuty max plastic container.webp'
   },
   {
     id: 'ccw-48',
@@ -684,7 +744,7 @@ export const showcaseProducts = [
     format: 'Tiffin Container / 30 Pcs',
     boxMrp: 150,
     unitMrp: '₹5',
-    image: '/brawo box.png'
+    image: '/brawo plastic container.webp'
   },
 
   // =========================================================================
@@ -701,7 +761,7 @@ export const showcaseProducts = [
     format: 'Blister Petta / 72 Pcs',
     boxMrp: 70,
     unitMrp: '₹1',
-    image: '/chingum.png'
+    image: '/chewingum 10.webp'
   },
   {
     id: 'cg-50',
@@ -714,7 +774,7 @@ export const showcaseProducts = [
     format: 'Blister Petta / 72 Pcs',
     boxMrp: 70,
     unitMrp: '₹1',
-    image: '/chungum square .png'
+    image: '/chewingum 25 pec blister pack.webp'
   },
   {
     id: 'cg-51',
@@ -728,7 +788,7 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 115,
-    image: '/mint bubble gum.png'
+    image: '/extra cool chewing gum.webp'
   },
 
   // =========================================================================
@@ -745,7 +805,7 @@ export const showcaseProducts = [
     format: 'Jar / 150 Pcs',
     boxMrp: 150,
     unitMrp: '₹1',
-    image: ''
+    image: '/gold coin jar.webp'
   },
   {
     id: 'ct-53',
@@ -758,7 +818,7 @@ export const showcaseProducts = [
     format: 'Handbag Tiffin / 150 Pcs',
     boxMrp: 150,
     unitMrp: '₹1',
-    image: '/gold coin.png'
+    image: '/gold coin handbag plastic container.webp'
   },
   {
     id: 'ct-54',
@@ -771,7 +831,7 @@ export const showcaseProducts = [
     format: 'Blister Petta / 57 Pcs',
     boxMrp: 60,
     unitMrp: '₹1',
-    image: ''
+    image: '/candy 25.webp'
   },
   {
     id: 'ct-55',
@@ -784,7 +844,7 @@ export const showcaseProducts = [
     format: 'Petta / 70 Pcs',
     boxMrp: 70,
     unitMrp: '₹1',
-    image: ''
+    image: '/gems 21 shades shots blister pack.webp'
   },
 
   // =========================================================================
@@ -793,7 +853,7 @@ export const showcaseProducts = [
   {
     id: 'jl-56',
     srNo: 56,
-    name: 'Mr. Sour Belt',
+    name: 'Mr. Sour Belt (Sour Jelly Candy)',
     category: 'Jellies',
     categorySlug: 'jellies',
     section: 'Jellies',
@@ -801,7 +861,10 @@ export const showcaseProducts = [
     format: 'Box / 30 Pcs',
     boxMrp: 150,
     unitMrp: '₹5',
-    image: '/sour belt.png'
+    kcPrice: 120,
+    rate: '72/-',
+    image: '/mr sour belt.webp',
+    description: 'Tangy rainbow sugar-dusted sour belts. High-margin impulse confectionery.'
   },
   {
     id: 'jl-57',
@@ -815,9 +878,9 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/crazy lips.png'
+    image: '/new crazy lip.webp'
   },
-  {
+  /* [Pending Image] {
     id: 'jl-58',
     srNo: 58,
     name: 'Dippers Gummy',
@@ -828,8 +891,8 @@ export const showcaseProducts = [
     format: 'Jar / 30 Pcs',
     boxMrp: 150,
     unitMrp: '₹5',
-    image: '/jelly injection.png'
-  },
+    image: ''
+  }, */
   {
     id: 'jl-59',
     srNo: 59,
@@ -842,7 +905,7 @@ export const showcaseProducts = [
     boxMrp: 150,
     unitMrp: '₹5',
     kcPrice: 120,
-    image: '/fun pops.png'
+    image: '/fun pops.webp'
   },
   {
     id: 'jl-60',
@@ -856,7 +919,7 @@ export const showcaseProducts = [
     boxMrp: 120,
     unitMrp: '₹5',
     kcPrice: 95,
-    image: '/ice cream jelly pops.png'
+    image: '/ice cream jelly pop.webp'
   },
   {
     id: 'jl-61',
@@ -870,7 +933,7 @@ export const showcaseProducts = [
     boxMrp: 120,
     unitMrp: '₹5',
     kcPrice: 95,
-    image: '/hunny bunny pops.png'
+    image: '/hunny bunny jelly pop.webp'
   },
   {
     id: 'jl-62',
@@ -884,7 +947,7 @@ export const showcaseProducts = [
     boxMrp: 120,
     unitMrp: '₹5',
     kcPrice: 95,
-    image: ''
+    image: '/cartoon jelly pop.webp'
   },
   {
     id: 'jl-63',
@@ -898,7 +961,7 @@ export const showcaseProducts = [
     boxMrp: 120,
     unitMrp: '₹5',
     kcPrice: 95,
-    image: ''
+    image: '/micky pops.webp'
   }
 ];
 

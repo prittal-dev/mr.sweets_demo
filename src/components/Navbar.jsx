@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Menu, X, Phone, Mail, ChevronRight, Calendar } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SocialHubDropdown from './SocialHubDropdown';
 
@@ -18,6 +18,7 @@ export default function Navbar({
     { name: 'Home', id: 'home', action: 'page' },
     { name: 'About', id: 'about', action: 'page' },
     { name: 'Product', id: 'products', action: 'page' },
+    { name: 'Events', id: 'events', action: 'page', icon: Calendar },
     { name: 'Contact', id: 'contact', action: 'page' },
   ];
 
@@ -81,17 +82,19 @@ export default function Navbar({
           <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5">
             {navItems.map((item) => {
               const active = isItemActive(item);
+              const Icon = item.icon;
               return (
                 <button
                   key={item.id}
                   onClick={(e) => handleLinkClick(e, item)}
-                  className={`text-sm xl:text-[15px] font-bold tracking-tight transition-all duration-200 px-4 xl:px-5 py-2 xl:py-2.5 rounded-full whitespace-nowrap cursor-pointer select-none border ${
+                  className={`text-sm xl:text-[15px] font-bold tracking-tight transition-all duration-200 px-4 xl:px-5 py-2 xl:py-2.5 rounded-full whitespace-nowrap cursor-pointer select-none border flex items-center gap-1.5 ${
                     active
                       ? 'bg-[#FDF2F4] text-[#E11D48] border-[#FCE2E6] shadow-xs'
                       : 'text-[#18110F] hover:text-[#E11D48] hover:bg-[#FDF2F4] border-transparent hover:border-[#FCE2E6]'
                   }`}
                 >
-                  {item.name}
+                  {Icon && <Icon className="w-3.5 h-3.5 shrink-0" />}
+                  <span>{item.name}</span>
                 </button>
               );
             })}
@@ -216,12 +219,13 @@ export default function Navbar({
                         : 'text-[#18110F] hover:text-[#E11D48] hover:bg-[#FDF2F4] border-transparent hover:border-[#FCE2E6]'
                     }`}
                   >
-                    <span className="flex items-center gap-2.5">
+                    <span className="flex items-center gap-2">
                       <span
                         className={`w-1.5 h-1.5 rounded-full transition-colors ${
                           active ? 'bg-[#E11D48]' : 'bg-transparent'
                         }`}
                       />
+                      {item.icon && <item.icon className="w-3.5 h-3.5 shrink-0" />}
                       <span>{item.name}</span>
                     </span>
                     <ChevronRight

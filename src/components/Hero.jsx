@@ -10,17 +10,17 @@ const heroFeaturedProducts = [
     category: 'WAFFER STICKS',
     tag: '★ FLAGSHIP SELECTION',
     badge: 'Wholesale Available',
-    image: '/daily-rolls-box-cutout.png',
-    backupImage: '/daily-rolls-blue.png'
+    image: '/daily roll red.webp',
+    backupImage: '/daily roll blue.webp'
   },
   {
     id: 'romeo-cone',
-    title: 'Romeo Choco Cone',
+    title: 'Romeo Cone Jar',
     category: 'CRISPY WAFER CONES',
     tag: '★ BESTSELLER CONE',
     badge: 'Wholesale Available',
-    image: '/romeo-cone-cutout.png',
-    backupImage: '/romeo choco cone.png'
+    image: '/romeo cone jar.webp',
+    backupImage: '/dairy cone jar.webp'
   },
   {
     id: 'nutymax',
@@ -28,8 +28,8 @@ const heroFeaturedProducts = [
     category: 'CHOCOLATE SPECIALTIES',
     tag: '★ CRUNCHY NUTS',
     badge: 'Wholesale Available',
-    image: '/nutymax-cutout.png',
-    backupImage: '/nuty max box .png'
+    image: '/nuty max 10.webp',
+    backupImage: '/nuty max.webp'
   },
   {
     id: 'brawo-rolls',
@@ -37,8 +37,8 @@ const heroFeaturedProducts = [
     category: 'CONFECTIONERY BOX',
     tag: '★ SWISS CREAM FILLED',
     badge: 'Wholesale Available',
-    image: '/brawo-box-cutout.png',
-    backupImage: '/brawo box.png'
+    image: '/brawo box 5.webp',
+    backupImage: '/brawo plastic container.webp'
   },
   {
     id: 'gold-coin',
@@ -46,17 +46,26 @@ const heroFeaturedProducts = [
     category: 'ROYAL CHOCOLATE',
     tag: '★ PREMIUM SELECTION',
     badge: 'Wholesale Available',
-    image: '/gold coin.png',
-    backupImage: '/gold coin.png'
+    image: '/gold coin jar.webp',
+    backupImage: '/gold coin handbag plastic container.webp'
+  },
+  {
+    id: 'mr-joe',
+    title: 'Mr. Joe Surprise Egg Jar',
+    category: 'SURPRISE EGGS',
+    tag: '★ TOYS & TREATS',
+    badge: 'Wholesale Available',
+    image: '/mr joe jar.webp',
+    backupImage: '/mr joe box.webp'
   },
   {
     id: 'swiss-waffer',
-    title: 'Swiss Conched Waffers',
-    category: 'CREAM WAFFERS',
-    tag: '★ 4 FRUITY FLAVOURS',
+    title: 'Swiss Chocolate Cream Waffer',
+    category: 'CREAM WAFFER',
+    tag: '★ SWISS CREAM',
     badge: 'Wholesale Available',
-    image: '/swiss.png',
-    backupImage: '/swiss choclate.png'
+    image: '/swiss chocolate.webp',
+    backupImage: '/swiss strawberry.webp'
   }
 ];
 

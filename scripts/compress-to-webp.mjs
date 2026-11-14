@@ -17,10 +17,10 @@ const BANNER_FILES = new Set(['hero-banner-1.png', 'hero-banner-2.png', 'hero-ba
 
 // Resolution limits
 const BANNER_MAX_W = 1600;   // banners: enough for full-width on 4K retina
-const PRODUCT_MAX_W = 700;   // product cards shown at ~300px, 2x = 600px
+const PRODUCT_MAX_W = 900;   // product cards shown at ~300px, 3x retina = 900px, great for modal zoom
 
-// WebP quality (80 = visually lossless, ~60-80% smaller than PNG)
-const WEBP_Q = 82;
+// WebP quality (84 = visually crisp, ~95% smaller than original PNG)
+const WEBP_Q = 84;
 
 if (!existsSync(BACKUP_DIR)) mkdirSync(BACKUP_DIR, { recursive: true });
 

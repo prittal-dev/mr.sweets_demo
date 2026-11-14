@@ -7,28 +7,34 @@ const TRANSITION_MS = 600;
 
 const banners = [
   {
+    id: 1,
+    image: '/banner1.webp',
+    title: 'Mr. Sweet Confectionery',
+    alt: 'Mr. Sweet Premium Confectionery Banner'
+  },
+  {
     id: 2,
-    image: '/hero-banner-2.png',
-    title: 'NUTYMAX Chocolate Wafer',
-    alt: 'NUTYMAX Chocolate Wafer with Caramel Bar and Nuts'
+    image: '/banner2.webp',
+    title: 'Mr. Sweet Artisan Treats',
+    alt: 'Mr. Sweet Handcrafted Confectionery Banner'
   },
   {
     id: 3,
-    image: '/hero-banner-3.png',
+    image: '/hero-banner-3.webp',
     title: 'DAILY ROLLS Wafer Sticks',
     alt: 'DAILY ROLLS Chocolate Flavoured Crispy Wafer Roll'
   },
   {
     id: 4,
-    image: '/hero-banner-4.png',
+    image: '/hero-banner-4.webp',
     title: 'DAIRY CONE Milky Choco',
     alt: 'DAIRY CONE Milky Choco Wafer Cones Filled with Velvet Cream'
   },
   {
     id: 5,
-    image: '/hero-banner-5.png',
-    title: 'SWISS Chocolate Wafer',
-    alt: 'SWISS Chocolate Cream Filled Wafer Rolls'
+    image: '/hero-banner-5.webp',
+    title: 'BRAWO CRISP Wafer Rolls',
+    alt: 'BRAWO CRISP Swiss Cream Filled Wafer Confectionery'
   }
 ];
 

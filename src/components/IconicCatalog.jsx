@@ -42,10 +42,10 @@ export default function IconicCatalog({
     }
   }, [selectedCategory]);
 
-  // Helper for dynamic product image based on selected flavor (e.g. for Swiss Waffer)
+  // Helper for dynamic product image based on selected flavor
   const getCardImage = (product) => {
     if (product.flavorImages) {
-      const activeFlavor = selectedFlavors[product.id] || 'Mango';
+      const activeFlavor = selectedFlavors[product.id] || (product.flavors && product.flavors[0]) || Object.keys(product.flavorImages)[0];
       return product.flavorImages[activeFlavor] || product.image;
     }
     return product.image;
@@ -64,10 +64,19 @@ export default function IconicCatalog({
 
   // Filter products by selected category and search query
   const filteredProducts = showcaseProducts.filter((product) => {
+    // Only display products with an active image
+    if (!product.image) return false;
+
     // 1. Category Filter
     let matchesCategory = true;
     if (activeFilter !== 'all') {
-      matchesCategory = product.categorySlug === activeFilter;
+      if (activeFilter === 'chocolate-waffer') {
+        matchesCategory = product.categorySlug === 'chocolate-waffer' || product.categorySlug === 'caramel-waffers';
+      } else if (activeFilter === 'candies-toffee') {
+        matchesCategory = product.categorySlug === 'candies-toffee' || product.id === 'jl-56';
+      } else {
+        matchesCategory = product.categorySlug === activeFilter;
+      }
     }
 
     // 2. Search Filter
@@ -77,6 +86,7 @@ export default function IconicCatalog({
       matchesSearch =
         product.name.toLowerCase().includes(q) ||
         product.category.toLowerCase().includes(q) ||
+        (product.description || '').toLowerCase().includes(q) ||
         (product.packing || '').toLowerCase().includes(q) ||
         (product.flavors && product.flavors.some((f) => f.toLowerCase().includes(q)));
     }
@@ -191,7 +201,7 @@ export default function IconicCatalog({
             {displayedProducts.map((p) => {
               const bgTint = getProductCardBg(p);
               const cardImage = getCardImage(p);
-              const activeFlavor = selectedFlavors[p.id] || (p.flavorImages ? 'Mango' : '');
+              const activeFlavor = selectedFlavors[p.id] || (p.flavorImages ? ((p.flavors && p.flavors[0]) || Object.keys(p.flavorImages)[0]) : '');
 
               return (
                 <motion.div
@@ -266,7 +276,7 @@ export default function IconicCatalog({
                       {p.flavors && p.flavors.length > 0 && (
                         <div className="mt-1.5 sm:mt-2.5 pt-1.5 sm:pt-2 border-t border-amber-900/10">
                           <span className="block text-[8px] sm:text-[9.5px] font-outfit font-extrabold uppercase tracking-wider text-gray-500 mb-1">
-                            4 Flavours:
+                            {p.flavors.length} Flavours:
                           </span>
                           <div className="flex flex-wrap gap-1">
                             {p.flavors.map((flavor) => {

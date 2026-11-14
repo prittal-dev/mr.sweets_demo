@@ -210,30 +210,29 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
             return (
               <button
                 key={cat.id}
-                onClick={() => handleClick(cat.id)}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleClick(cat.id);
+                }}
                 className="flex flex-col items-center justify-center group focus:outline-none cursor-pointer perspective-1000 select-none active:scale-95 transition-transform"
                 title={`Explore ${cat.label}`}
+                aria-pressed={isSelected}
               >
                 {/* 3D Flipping Card Container */}
                 <div
-                  className={`relative w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full mb-1.5 sm:mb-3 md:mb-4 transition-transform duration-500 ease-out preserve-3d group-hover-flip shadow-sm sm:shadow-lg ${
-                    isSelected ? 'scale-105' : ''
-                  }`}
+                  className="relative w-14 h-14 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full mb-1.5 sm:mb-3 md:mb-4 transition-transform duration-500 ease-out preserve-3d group-hover-flip shadow-sm sm:shadow-lg"
                 >
                   {/* FRONT FACE (White Outline Icon on Brand Red Pod) */}
                   <div
-                    className={`absolute inset-0 w-full h-full rounded-full border-[1.5px] sm:border-2 md:border-[2.5px] border-white flex items-center justify-center backface-hidden bg-[#8B001D] transition-all duration-300 ${
-                      isSelected
-                        ? 'ring-2 ring-white/70 ring-offset-2 ring-offset-[#8B001D]'
-                        : ''
-                    }`}
+                    className="absolute inset-0 w-full h-full rounded-full border-[1.5px] sm:border-2 md:border-[2.5px] border-white flex items-center justify-center backface-hidden bg-[#8B001D] transition-all duration-300 pointer-events-none"
                   >
                     {cat.icon}
                   </div>
 
                   {/* BACK FACE (Flipped 3D: White Circle, Crimson "EXPLORE" Button) */}
                   <div
-                    className="absolute inset-0 w-full h-full rounded-full border-[1.5px] sm:border-2 md:border-[2.5px] border-white flex flex-col items-center justify-center backface-hidden rotate-y-180 bg-white text-[#C8102E] shadow-2xl p-1 sm:p-2 cursor-pointer hover:bg-amber-50 transition-colors"
+                    className="absolute inset-0 w-full h-full rounded-full border-[1.5px] sm:border-2 md:border-[2.5px] border-white flex flex-col items-center justify-center backface-hidden rotate-y-180 bg-white text-[#C8102E] shadow-2xl p-1 sm:p-2 pointer-events-none transition-colors"
                   >
                     <span className="font-outfit font-black text-[7px] sm:text-xs md:text-sm tracking-wider uppercase text-[#C8102E] leading-none mb-0.5 sm:mb-1.5 pointer-events-none">
                       EXPLORE
@@ -242,15 +241,14 @@ export default function CraftBanner({ onSelectCategory, selectedCategory = 'all'
                       <span className="text-[8px] sm:text-xs md:text-sm leading-none font-bold">→</span>
                     </span>
                   </div>
+
+                  {/* Forward hit-target overlay so clicks never drop in WebKit/3D */}
+                  <div className="absolute inset-0 z-20 rounded-full cursor-pointer pointer-events-auto" />
                 </div>
 
                 {/* Category Label Below */}
                 <span
-                  className={`font-outfit font-black tracking-tight sm:tracking-wider text-[8px] sm:text-xs md:text-sm uppercase transition-colors text-center text-white leading-tight ${
-                    isSelected
-                      ? 'underline underline-offset-2 sm:underline-offset-4 decoration-white/80'
-                      : 'hover:text-white/90'
-                  }`}
+                  className="font-outfit font-black tracking-tight sm:tracking-wider text-[8px] sm:text-xs md:text-sm uppercase transition-colors text-center text-white group-hover:text-white/90 leading-tight"
                 >
                   {cat.label}
                 </span>
