@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Sparkles,
   Camera,
-  Eye,
   X,
   ChevronLeft,
   ChevronRight,
@@ -279,13 +278,6 @@ export default function EventsSection({ onOpenInquire }) {
                     loading="lazy"
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   />
-
-                  {/* Subtle Zoom Pill on Hover */}
-                  <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-9 h-9 rounded-full bg-white text-[#8B001D] flex items-center justify-center shadow-lg">
-                      <Eye className="w-4 h-4" />
-                    </div>
-                  </div>
                 </div>
 
                 {/* Card Content Below Image */}
@@ -323,13 +315,6 @@ export default function EventsSection({ onOpenInquire }) {
                           loading="lazy"
                           className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
                         />
-
-                        {/* Zoom Icon Hover Pill */}
-                        <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <div className="w-8 h-8 rounded-full bg-white text-[#8B001D] flex items-center justify-center shadow-md">
-                            <Eye className="w-4 h-4" />
-                          </div>
-                        </div>
                       </div>
 
                       {/* Card Content with Uniform Height */}
@@ -366,12 +351,6 @@ export default function EventsSection({ onOpenInquire }) {
                         loading="lazy"
                         className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
                       />
-
-                      <div className="absolute top-3 right-3 z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="w-8 h-8 rounded-full bg-white text-[#8B001D] flex items-center justify-center shadow-md">
-                          <Eye className="w-4 h-4" />
-                        </div>
-                      </div>
                     </div>
 
                     <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between bg-white">

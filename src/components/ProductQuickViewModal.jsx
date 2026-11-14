@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  X, Mail, ShieldCheck, ZoomIn, 
+  X, Mail, ShieldCheck, 
   MessageCircle, CheckCircle2, Package, Tag
 } from 'lucide-react';
 import { getProductImage, handleImageError } from '../utils/imageUrl';
@@ -109,13 +109,6 @@ export default function ProductQuickViewModal({ product, onClose, onOpenInquire 
                   100% Pure Veg
                 </span>
               </div>
-
-              {hasImage && (
-                <div className="absolute bottom-3.5 right-3.5 z-30 bg-black/75 group-hover/modalimg:bg-[#8B001D] backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-outfit font-bold flex items-center gap-1 transition-all shadow-md">
-                  <ZoomIn className="w-3 h-3 text-amber-300" />
-                  <span>Zoom In</span>
-                </div>
-              )}
             </div>
 
             {/* Right: Product Details & Commercial Action (7 cols) */}
